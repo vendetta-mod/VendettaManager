@@ -19,7 +19,7 @@ class MainViewModel(
     private val downloadManager: DownloadManager,
     private val context: Context
 ) : ScreenModel {
-    private val downloadDir = context.cacheDir
+    private val downloadDir = context.externalCacheDir
     var release by mutableStateOf<Release?>(null)
         private set
 
