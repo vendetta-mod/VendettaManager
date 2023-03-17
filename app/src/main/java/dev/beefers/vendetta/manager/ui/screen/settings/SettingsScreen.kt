@@ -79,6 +79,16 @@ class SettingsScreen : ManagerTab {
                     prefs.patchIcon = it
                 }
             )
+            SettingsItemChoice(
+                label = stringResource(R.string.settings_channel),
+                pref = prefs.channel,
+                labelFactory = {
+                    ctx.getString(it.labelRes)
+                },
+                onPrefChange = {
+                    prefs.channel = it
+                }
+            )
 
             SettingsButton(
                 label = stringResource(R.string.action_clear_cache),

@@ -1,16 +1,24 @@
 package dev.beefers.vendetta.manager.utils
 
+import androidx.annotation.StringRes
+import dev.beefers.vendetta.manager.R
+import java.io.Serializable
+
 data class DiscordVersion(
     val major: Int,
     val minor: Int,
     val type: Type
-) {
+) : Serializable {
 
-    enum class Type {
-        STABLE,
-        BETA,
-        ALPHA
+    enum class Type(val label: String, @StringRes val labelRes: Int) {
+        STABLE("Stable", R.string.channel_stable),
+        BETA("Beta", R.string.channel_beta),
+        ALPHA("Alpha", R.string.channel_alpha)
     }
+
+    override fun toString() = "$major.$minor - ${type.label}"
+
+    fun toVersionCode() = "$major${type.ordinal}${if (minor < 10) 0 else ""}${minor}"
 
     companion object {
 
@@ -21,8 +29,8 @@ data class DiscordVersion(
             val typeInt = codeReversed[2].toString().toInt()
             val type = Type.values().getOrNull(typeInt) ?: return@with null
             DiscordVersion(
-                codeReversed.slice(3..codeReversed.lastIndex).toInt(),
-                codeReversed.substring(0, 2).toInt(),
+                codeReversed.slice(3..codeReversed.lastIndex).reversed().toInt(),
+                codeReversed.substring(0, 2).reversed().toInt(),
                 type
             )
         }

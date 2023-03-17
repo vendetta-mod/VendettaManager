@@ -3,7 +3,9 @@ package dev.beefers.vendetta.manager.ui.screen.installer
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -11,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -32,13 +35,19 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
 import dev.beefers.vendetta.manager.ui.widgets.installer.StepGroupCard
+import dev.beefers.vendetta.manager.utils.DiscordVersion
+import org.koin.core.parameter.parametersOf
 
-class InstallerScreen : Screen {
+class InstallerScreen(
+    val version: DiscordVersion
+) : Screen {
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
-        val viewModel: InstallerViewModel = getScreenModel()
+        val viewModel: InstallerViewModel = getScreenModel {
+            parametersOf(version)
+        }
 
         var expandedGroup by remember {
             mutableStateOf<InstallerViewModel.InstallStepGroup?>(null)
@@ -65,20 +74,33 @@ class InstallerScreen : Screen {
                         steps = viewModel.getSteps(group),
                     )
                 }
+
                 if (viewModel.isFinished) {
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    viewModel.installManager.current?.let {
+                        Button(
+                            onClick = { viewModel.launchVendetta() },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(stringResource(R.string.action_launch))
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(16.dp)
                     ) {
-                        Button(
+                        FilledTonalButton(
                             onClick = { viewModel.copyDebugInfo() },
                             modifier = Modifier.weight(1f)
                         ) {
                             Text(stringResource(R.string.action_copy_logs))
                         }
-                        Button(
+                        FilledTonalButton(
                             onClick = { viewModel.clearCache() },
                             modifier = Modifier.weight(1f)
                         ) {

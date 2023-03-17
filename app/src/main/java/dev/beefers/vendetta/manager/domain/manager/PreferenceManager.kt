@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.annotation.StringRes
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.base.BasePreferenceManager
+import dev.beefers.vendetta.manager.utils.DiscordVersion
 
 class PreferenceManager(private val context: Context) :
     BasePreferenceManager(context.getSharedPreferences("prefs", Context.MODE_PRIVATE)) {
@@ -24,6 +25,8 @@ class PreferenceManager(private val context: Context) :
     var isDeveloper by booleanPreference("is_developer", true)
 
     var theme by enumPreference("theme", Theme.SYSTEM)
+
+    var channel by enumPreference("channel", DiscordVersion.Type.STABLE)
 
 }
 

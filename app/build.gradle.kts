@@ -3,6 +3,7 @@ import java.io.ByteArrayOutputStream
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("plugin.serialization") version "1.7.20"
 }
 
 android {
@@ -13,8 +14,8 @@ android {
         applicationId = "dev.beefers.vendetta.manager"
         minSdk = 24
         targetSdk = 33
-        versionCode = 1000
-        versionName = "1.0.0"
+        versionCode = 1010
+        versionName = "1.0.1"
 
         buildConfigField("String", "GIT_BRANCH", "\"${getCurrentBranch()}\"")
         buildConfigField("String", "GIT_COMMIT", "\"${getLatestCommit()}\"")

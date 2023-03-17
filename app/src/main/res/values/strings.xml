@@ -35,8 +35,13 @@
     <string name="action_copy_logs">Copy logs</string>
     <string name="action_clear_cache">Clear cache</string>
     <string name="action_confirm">Confirm</string>
-    <string name="action_update">Start update</string>
+    <string name="action_start_update">Start update</string>
     <string name="action_install">Install</string>
+    <string name="action_update">Update</string>
+    <string name="action_reinstall">Reinstall</string>
+    <string name="action_launch">Launch</string>
+    <string name="action_uninstall">Uninstall</string>
+    <string name="action_info">Info</string>
 
     <string name="installer_cached">Cached</string>
 
@@ -58,6 +63,11 @@
     <string name="settings_app_name">App name</string>
     <string name="settings_app_icon">Replace app icon</string>
     <string name="settings_app_icon_description">Uses the Vendetta icon instead of Discord\'s</string>
+    <string name="settings_channel">Release channel</string>
 
     <string name="update_description">Vendetta Manager version %1$s is now available!</string>
+
+    <string name="channel_stable">Stable</string>
+    <string name="channel_beta">Beta</string>
+    <string name="channel_alpha">Alpha</string>
 </resources>

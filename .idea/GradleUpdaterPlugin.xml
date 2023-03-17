@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="me.schlaubi.intellij_gradle_version_checker.settings.ProjectPersistentGradleVersionSettings">
+    <option name="ignoreOutdatedVersion" value="true" />
+  </component>
+</project>

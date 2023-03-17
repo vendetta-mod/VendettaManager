@@ -32,7 +32,9 @@ fun Context.installApks(silent: Boolean = false, vararg apks: File) {
         }
     }
 
-    val callbackIntent = Intent(this, InstallService::class.java)
+    val callbackIntent = Intent(this, InstallService::class.java).apply {
+        action = "vendetta.actions.ACTION_INSTALL"
+    }
 
     @SuppressLint("UnspecifiedImmutableFlag")
     val contentIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

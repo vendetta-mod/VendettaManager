@@ -24,3 +24,12 @@ val <D> ApiResponse<D>.dataOrThrow
 inline fun <D> ApiResponse<D>.ifSuccessful(block: (D) -> Unit) {
     if (this is ApiResponse.Success) block(data)
 }
+
+@Suppress("UNCHECKED_CAST")
+fun <T, R> ApiResponse<T>.transform(block: (T) -> R): ApiResponse<R> {
+    return when (this) {
+        is ApiResponse.Success -> ApiResponse.Success(block(data))
+        is ApiResponse.Error -> this as ApiResponse.Error<R>
+        is ApiResponse.Failure -> this as ApiResponse.Failure<R>
+    }
+}

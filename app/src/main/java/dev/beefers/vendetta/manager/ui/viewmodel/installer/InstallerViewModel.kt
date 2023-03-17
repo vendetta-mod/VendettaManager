@@ -1,6 +1,7 @@
 package dev.beefers.vendetta.manager.ui.viewmodel.installer
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.annotation.StringRes
@@ -17,11 +18,13 @@ import com.github.diamondminer88.zip.ZipWriter
 import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.DownloadManager
+import dev.beefers.vendetta.manager.domain.manager.InstallManager
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.installer.util.ManifestPatcher
 import dev.beefers.vendetta.manager.installer.util.Patcher
 import dev.beefers.vendetta.manager.installer.util.installApks
 import dev.beefers.vendetta.manager.network.utils.Signer
+import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.copyText
 import dev.beefers.vendetta.manager.utils.showToast
 import kotlinx.coroutines.Dispatchers
@@ -36,7 +39,9 @@ import kotlin.time.measureTimedValue
 class InstallerViewModel(
     private val context: Context,
     private val downloadManager: DownloadManager,
-    private val preferences: PreferenceManager
+    private val preferences: PreferenceManager,
+    private val discordVersion: DiscordVersion,
+    val installManager: InstallManager
 ) : ScreenModel {
     private val installationRunning = AtomicBoolean(false)
     private val cacheDir = context.externalCacheDir!!
@@ -80,6 +85,15 @@ class InstallerViewModel(
     fun clearCache() {
         cacheDir.deleteRecursively()
         context.showToast(R.string.msg_cleared_cache)
+    }
+
+    fun launchVendetta() {
+        installManager.current?.let {
+            val intent = context.packageManager.getLaunchIntentForPackage(it.packageName)?.apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            context.startActivity(intent)
+        }
     }
 
     private val job = coroutineScope.launch(Dispatchers.Main) {
@@ -131,7 +145,7 @@ class InstallerViewModel(
             InstallStatus.QUEUED
         )
 
-        val version = preferences.discordVersion.ifBlank { "168018" }
+        val version = preferences.discordVersion.ifBlank { discordVersion.toVersionCode() }
         val arch = Build.SUPPORTED_ABIS.first()
         val discordCacheDir = cacheDir.resolve(version)
         val patchedDir = discordCacheDir.resolve("patched").also { it.deleteRecursively() }

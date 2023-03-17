@@ -20,7 +20,7 @@ fun UpdateDialog(
         onDismissRequest = {},
         confirmButton = {
             FilledTonalButton(onClick = onConfirm) {
-                Text(stringResource(R.string.action_update))
+                Text(stringResource(R.string.action_start_update))
             }
         },
         title = {
