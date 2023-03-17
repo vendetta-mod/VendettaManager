@@ -113,7 +113,6 @@ object ManifestPatcher {
                                     type: Int,
                                     value: Any?
                                 ) {
-                                    if (name == NETWORK_SECURITY_CONFIG) return
                                     super.attr(ns, name, resourceId, type, value)
                                     if (name == REQUEST_LEGACY_EXTERNAL_STORAGE) addLegacyStorage =
                                         false
