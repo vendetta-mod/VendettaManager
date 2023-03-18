@@ -8,7 +8,7 @@ class RestRepository(
     private val service: RestService
 ) {
 
-    suspend fun getLatestRelease() = service.getLatestRelease()
+    suspend fun getLatestRelease(repo: String) = service.getLatestRelease(repo)
 
     suspend fun getLatestDiscordVersions() = service.getLatestDiscordVersions().transform {
         mapOf(

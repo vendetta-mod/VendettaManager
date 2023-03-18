@@ -16,6 +16,8 @@ class PreferenceManager(private val context: Context) :
 
     var discordVersion by stringPreference("discord_version", "")
 
+    var moduleVersion by stringPreference("module_version", "")
+
     var patchIcon by booleanPreference("patch_icon", true)
 
     var debuggable by booleanPreference("debuggable", false)

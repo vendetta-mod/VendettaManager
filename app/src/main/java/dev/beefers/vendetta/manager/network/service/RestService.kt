@@ -10,9 +10,9 @@ class RestService(
     private val httpService: HttpService
 ) {
 
-    suspend fun getLatestRelease() = withContext(Dispatchers.IO) {
+    suspend fun getLatestRelease(repo: String) = withContext(Dispatchers.IO) {
         httpService.request<Release> {
-            url("https://api.github.com/repos/vendetta-mod/VendettaManager/releases/latest")
+            url("https://api.github.com/repos/vendetta-mod/$repo/releases/latest")
         }
     }
 

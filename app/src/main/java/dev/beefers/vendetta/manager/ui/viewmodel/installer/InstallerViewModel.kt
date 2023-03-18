@@ -247,7 +247,7 @@ class InstallerViewModel(
 
         // Download vendetta apk
         val vendetta = step(InstallStep.DL_VD) {
-            discordCacheDir.resolve("vendetta.apk").let { file ->
+            cacheDir.resolve("vendetta.apk").let { file ->
                 logger.i("Checking if vendetta.apk is cached")
                 if (file.exists()) {
                     logger.i("vendetta.apk is cached")

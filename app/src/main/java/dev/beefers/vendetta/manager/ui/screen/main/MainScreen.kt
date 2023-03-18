@@ -43,7 +43,7 @@ class MainScreen : Screen {
                 modifier = Modifier.fillMaxSize()
             ) { pv ->
                 viewModel.release?.let {
-                    if (it.versionCode > BuildConfig.VERSION_CODE) {
+                    if (it.tagName.toInt() > BuildConfig.VERSION_CODE) {
                         UpdateDialog(release = it) {
                             viewModel.downloadAndInstallUpdate()
                         }

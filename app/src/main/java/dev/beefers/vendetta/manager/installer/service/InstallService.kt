@@ -26,14 +26,14 @@ class InstallService : Service(), KoinComponent {
             }
 
             PackageInstaller.STATUS_SUCCESS -> {
-                if(isInstall) showToast(R.string.installer_success)
+                if (isInstall) showToast(R.string.installer_success)
                 installManager.getInstalled()
             }
 
-            PackageInstaller.STATUS_FAILURE_ABORTED -> if(isInstall) showToast(R.string.installer_aborted)
+            PackageInstaller.STATUS_FAILURE_ABORTED -> if (isInstall) showToast(R.string.installer_aborted)
 
             else -> {
-                if(isInstall) showToast(R.string.installer_failed, statusCode)
+                if (isInstall) showToast(R.string.installer_failed, statusCode)
             }
         }
 
