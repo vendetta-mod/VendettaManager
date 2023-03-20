@@ -42,6 +42,7 @@
     <string name="action_launch">Launch</string>
     <string name="action_uninstall">Uninstall</string>
     <string name="action_info">Info</string>
+    <string name="action_retry">Retry</string>
 
     <string name="installer_cached">Cached</string>
 
@@ -70,4 +71,6 @@
     <string name="channel_stable">Stable</string>
     <string name="channel_beta">Beta</string>
     <string name="channel_alpha">Alpha</string>
+
+    <string name="msg_load_fail">Failed to load commits</string>
 </resources>

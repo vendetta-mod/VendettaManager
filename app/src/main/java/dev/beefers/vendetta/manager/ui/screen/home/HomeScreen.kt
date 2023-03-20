@@ -4,11 +4,15 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -18,6 +22,9 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.OpenInNew
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Divider
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -30,6 +37,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.paging.LoadState
+import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.items
+import androidx.paging.compose.itemsIndexed
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
@@ -39,6 +50,7 @@ import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.ui.components.SegmentedButton
 import dev.beefers.vendetta.manager.ui.screen.installer.InstallerScreen
 import dev.beefers.vendetta.manager.ui.viewmodel.home.HomeViewModel
+import dev.beefers.vendetta.manager.ui.widgets.home.Commit
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.ManagerTab
 import dev.beefers.vendetta.manager.utils.TabOptions
@@ -150,10 +162,72 @@ class HomeScreen : ManagerTab {
                 }
             }
 
-            Column(
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ElevatedCard(
+                modifier = Modifier
+                    .fillMaxSize()
             ) {
+                val commits = viewModel.commits.collectAsLazyPagingItems()
+                val loading = commits.loadState.append is LoadState.Loading || commits.loadState.refresh is LoadState.Loading
+                val failed = commits.loadState.append is LoadState.Error || commits.loadState.refresh is LoadState.Error
 
+                LazyColumn {
+                    itemsIndexed(
+                        items = commits,
+                        key = { _, commit -> commit.sha }
+                    ) { i, commit ->
+                        if (commit != null) {
+                            Column {
+                                Commit(commit = commit)
+                                if(i < commits.itemSnapshotList.lastIndex) {
+                                    Divider(
+                                        thickness = 0.5.dp,
+                                        color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
+                                        modifier = Modifier.padding(horizontal = 16.dp)
+                                    )
+                                }
+                            }
+
+                        }
+                    }
+
+                    if(loading) {
+                        item {
+                            Box(
+                                contentAlignment = Alignment.TopCenter,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp)
+                            ) {
+                                CircularProgressIndicator(
+                                    strokeWidth = 3.dp,
+                                    modifier = Modifier.size(30.dp)
+                                )
+                            }
+                        }
+                    }
+
+                    if(failed) {
+                        item {
+                            Column(
+                                verticalArrangement = Arrangement.spacedBy(12.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp)
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.msg_load_fail),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    textAlign = TextAlign.Center
+                                )
+
+                                Button(onClick = { commits.retry() }) {
+                                    Text(stringResource(R.string.action_retry))
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

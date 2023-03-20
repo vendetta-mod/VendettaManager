@@ -7,12 +7,20 @@ import android.provider.Settings
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.coroutineScope
 import dev.beefers.vendetta.manager.domain.manager.InstallManager
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.domain.repository.RestRepository
+import dev.beefers.vendetta.manager.network.dto.Commit
+import dev.beefers.vendetta.manager.network.utils.ApiResponse
 import dev.beefers.vendetta.manager.network.utils.dataOrNull
+import dev.beefers.vendetta.manager.network.utils.fold
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import kotlinx.coroutines.launch
 
@@ -25,6 +33,29 @@ class HomeViewModel(
 
     var discordVersions by mutableStateOf<Map<DiscordVersion.Type, DiscordVersion?>?>(null)
         private set
+
+    val commits = Pager(PagingConfig(pageSize = 30)) {
+        object : PagingSource<Int, Commit>() {
+            override fun getRefreshKey(state: PagingState<Int, Commit>): Int? =
+                state.anchorPosition?.let {
+                    state.closestPageToPosition(it)?.prevKey
+                }
+
+            override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Commit> {
+                val page = params.key ?: 0
+
+                return when(val response = repo.getCommits("Vendetta", page)) {
+                    is ApiResponse.Success -> LoadResult.Page(
+                        data = response.data,
+                        prevKey = if (page > 0) page - 1 else null,
+                        nextKey = if (response.data.isNotEmpty()) page + 1 else null
+                    )
+                    is ApiResponse.Failure -> LoadResult.Error(response.error)
+                    is ApiResponse.Error -> LoadResult.Error(response.error)
+                }
+            }
+        }
+    }.flow.cachedIn(coroutineScope)
 
     init {
         getDiscordVersions()
@@ -57,7 +88,6 @@ class HomeViewModel(
                 context.startActivity(this)
             }
         }
-
     }
 
 }

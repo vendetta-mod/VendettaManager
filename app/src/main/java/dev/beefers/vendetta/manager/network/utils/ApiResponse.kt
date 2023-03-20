@@ -25,6 +25,17 @@ inline fun <D> ApiResponse<D>.ifSuccessful(block: (D) -> Unit) {
     if (this is ApiResponse.Success) block(data)
 }
 
+fun <D> ApiResponse<D>.fold(
+    onSuccess: (D) -> Unit = {},
+    onError: () -> Unit = {}
+) {
+    when(this) {
+        is ApiResponse.Success -> onSuccess(data)
+        is ApiResponse.Error,
+        is ApiResponse.Failure -> onError()
+    }
+}
+
 @Suppress("UNCHECKED_CAST")
 fun <T, R> ApiResponse<T>.transform(block: (T) -> R): ApiResponse<R> {
     return when (this) {
