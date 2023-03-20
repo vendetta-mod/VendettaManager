@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -39,7 +38,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
-import androidx.paging.compose.items
 import androidx.paging.compose.itemsIndexed
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -103,7 +101,7 @@ class HomeScreen : ManagerTab {
             ) {
                 AnimatedVisibility(visible = viewModel.discordVersions != null) {
                     Text(
-                        text = "Latest: ${viewModel.discordVersions!![prefs.channel]!!}",
+                        text = "Latest: ${viewModel.discordVersions?.get(prefs.channel)}",
                         style = MaterialTheme.typography.labelLarge,
                         color = LocalContentColor.current.copy(alpha = 0.5f),
                         textAlign = TextAlign.Center
@@ -112,7 +110,7 @@ class HomeScreen : ManagerTab {
 
                 AnimatedVisibility(visible = viewModel.installManager.current != null) {
                     Text(
-                        text = "Current: ${viewModel.installManager.current!!.versionName}",
+                        text = "Current: ${viewModel.installManager.current?.versionName}",
                         style = MaterialTheme.typography.labelLarge,
                         color = LocalContentColor.current.copy(alpha = 0.5f),
                         textAlign = TextAlign.Center
@@ -167,8 +165,10 @@ class HomeScreen : ManagerTab {
                     .fillMaxSize()
             ) {
                 val commits = viewModel.commits.collectAsLazyPagingItems()
-                val loading = commits.loadState.append is LoadState.Loading || commits.loadState.refresh is LoadState.Loading
-                val failed = commits.loadState.append is LoadState.Error || commits.loadState.refresh is LoadState.Error
+                val loading =
+                    commits.loadState.append is LoadState.Loading || commits.loadState.refresh is LoadState.Loading
+                val failed =
+                    commits.loadState.append is LoadState.Error || commits.loadState.refresh is LoadState.Error
 
                 LazyColumn {
                     itemsIndexed(
@@ -178,7 +178,7 @@ class HomeScreen : ManagerTab {
                         if (commit != null) {
                             Column {
                                 Commit(commit = commit)
-                                if(i < commits.itemSnapshotList.lastIndex) {
+                                if (i < commits.itemSnapshotList.lastIndex) {
                                     Divider(
                                         thickness = 0.5.dp,
                                         color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
@@ -190,7 +190,7 @@ class HomeScreen : ManagerTab {
                         }
                     }
 
-                    if(loading) {
+                    if (loading) {
                         item {
                             Box(
                                 contentAlignment = Alignment.TopCenter,
@@ -206,7 +206,7 @@ class HomeScreen : ManagerTab {
                         }
                     }
 
-                    if(failed) {
+                    if (failed) {
                         item {
                             Column(
                                 verticalArrangement = Arrangement.spacedBy(12.dp),

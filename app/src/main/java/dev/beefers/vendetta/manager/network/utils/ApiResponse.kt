@@ -29,7 +29,7 @@ fun <D> ApiResponse<D>.fold(
     onSuccess: (D) -> Unit = {},
     onError: () -> Unit = {}
 ) {
-    when(this) {
+    when (this) {
         is ApiResponse.Success -> onSuccess(data)
         is ApiResponse.Error,
         is ApiResponse.Failure -> onError()

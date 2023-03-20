@@ -20,7 +20,6 @@ import dev.beefers.vendetta.manager.domain.repository.RestRepository
 import dev.beefers.vendetta.manager.network.dto.Commit
 import dev.beefers.vendetta.manager.network.utils.ApiResponse
 import dev.beefers.vendetta.manager.network.utils.dataOrNull
-import dev.beefers.vendetta.manager.network.utils.fold
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import kotlinx.coroutines.launch
 
@@ -44,12 +43,13 @@ class HomeViewModel(
             override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Commit> {
                 val page = params.key ?: 0
 
-                return when(val response = repo.getCommits("Vendetta", page)) {
+                return when (val response = repo.getCommits("Vendetta", page)) {
                     is ApiResponse.Success -> LoadResult.Page(
                         data = response.data,
                         prevKey = if (page > 0) page - 1 else null,
                         nextKey = if (response.data.isNotEmpty()) page + 1 else null
                     )
+
                     is ApiResponse.Failure -> LoadResult.Error(response.error)
                     is ApiResponse.Error -> LoadResult.Error(response.error)
                 }
