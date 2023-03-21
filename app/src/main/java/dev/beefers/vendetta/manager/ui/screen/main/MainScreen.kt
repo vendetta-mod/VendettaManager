@@ -42,12 +42,15 @@ class MainScreen : Screen {
                 topBar = { TitleBar() },
                 modifier = Modifier.fillMaxSize()
             ) { pv ->
-                viewModel.release?.let {
-                    if (it.tagName.toInt() > BuildConfig.VERSION_CODE) {
-                        UpdateDialog(release = it) {
+                if (viewModel.showUpdateDialog && viewModel.release != null) {
+                    UpdateDialog(
+                        release = viewModel.release!!,
+                        isUpdating = viewModel.isUpdating,
+                        onDismiss = { viewModel.showUpdateDialog = false },
+                        onConfirm = {
                             viewModel.downloadAndInstallUpdate()
                         }
-                    }
+                    )
                 }
 
                 HorizontalPager(

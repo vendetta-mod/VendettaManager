@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.coroutineScope
+import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.domain.manager.DownloadManager
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.domain.repository.RestRepository
@@ -26,6 +27,10 @@ class MainViewModel(
     var release by mutableStateOf<Release?>(null)
         private set
 
+    var showUpdateDialog by mutableStateOf(false)
+
+    var isUpdating by mutableStateOf(false)
+
     init {
         checkForUpdate()
     }
@@ -33,6 +38,9 @@ class MainViewModel(
     private fun checkForUpdate() {
         coroutineScope.launch {
             release = repo.getLatestRelease("VendettaManager").dataOrNull
+            release?.let {
+                showUpdateDialog = it.tagName.toInt() > BuildConfig.VERSION_CODE
+            }
             repo.getLatestRelease("VendettaXposed").ifSuccessful {
                 if (preferenceManager.moduleVersion != it.tagName) {
                     preferenceManager.moduleVersion = it.tagName
@@ -46,7 +54,10 @@ class MainViewModel(
     fun downloadAndInstallUpdate() {
         coroutineScope.launch {
             val update = File(cacheDir, "update.apk")
+            if(update.exists()) update.delete()
+            isUpdating = true
             downloadManager.downloadUpdate(update)
+            isUpdating = false
             context.installApks(false, update)
         }
     }
