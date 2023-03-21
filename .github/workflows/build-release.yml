@@ -41,6 +41,7 @@ jobs:
 
       - name: Release
         run: |
+          mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/Manager.apk
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           tag="${{ github.event.inputs.versionCode }}"
@@ -49,6 +50,6 @@ jobs:
           gh release create "$tag" \
             --title "v${{ github.event.inputs.versionName }}" \
             --generate-notes \
-            app/build/outputs/apk/release/app-release.apk#Manager.apk
+            app/build/outputs/apk/release/Manager.apk
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
