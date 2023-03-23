@@ -35,7 +35,7 @@ class MainViewModel(
         checkForUpdate()
     }
 
-    private fun checkForUpdate() {
+    fun checkForUpdate() {
         coroutineScope.launch {
             release = repo.getLatestRelease("VendettaManager").dataOrNull
             release?.let {

@@ -6,12 +6,17 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import cafe.adriel.voyager.koin.getScreenModel
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
@@ -20,9 +25,11 @@ import dev.beefers.vendetta.manager.ui.components.settings.SettingsHeader
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsItemChoice
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsSwitch
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsTextField
+import dev.beefers.vendetta.manager.ui.screen.about.AboutScreen
 import dev.beefers.vendetta.manager.ui.viewmodel.settings.SettingsViewModel
 import dev.beefers.vendetta.manager.utils.ManagerTab
 import dev.beefers.vendetta.manager.utils.TabOptions
+import dev.beefers.vendetta.manager.utils.navigate
 import org.koin.androidx.compose.get
 
 class SettingsScreen : ManagerTab {
@@ -101,5 +108,13 @@ class SettingsScreen : ManagerTab {
 
     @Composable
     override fun Actions() {
+        val navigator = LocalNavigator.currentOrThrow
+
+        IconButton(onClick = { navigator.navigate(AboutScreen()) }) {
+            Icon(
+                imageVector = Icons.Outlined.Info,
+                contentDescription = stringResource(R.string.action_open_about)
+            )
+        }
     }
 }

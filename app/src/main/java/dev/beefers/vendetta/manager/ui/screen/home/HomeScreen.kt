@@ -19,11 +19,16 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.OpenInNew
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.RestartAlt
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -46,8 +51,10 @@ import cafe.adriel.voyager.navigator.tab.TabOptions
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.ui.components.SegmentedButton
+import dev.beefers.vendetta.manager.ui.screen.about.AboutScreen
 import dev.beefers.vendetta.manager.ui.screen.installer.InstallerScreen
 import dev.beefers.vendetta.manager.ui.viewmodel.home.HomeViewModel
+import dev.beefers.vendetta.manager.ui.viewmodel.main.MainViewModel
 import dev.beefers.vendetta.manager.ui.widgets.home.Commit
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.ManagerTab
@@ -234,6 +241,21 @@ class HomeScreen : ManagerTab {
 
     @Composable
     override fun Actions() {
+        val viewModel: HomeViewModel = getScreenModel()
+        val navigator = LocalNavigator.currentOrThrow
+
+        IconButton(onClick = { viewModel.getDiscordVersions() }) {
+            Icon(
+                imageVector = Icons.Filled.Refresh,
+                contentDescription = stringResource(R.string.action_reload)
+            )
+        }
+        IconButton(onClick = { navigator.navigate(AboutScreen()) }) {
+            Icon(
+                imageVector = Icons.Outlined.Info,
+                contentDescription = stringResource(R.string.action_open_about)
+            )
+        }
     }
 
 }

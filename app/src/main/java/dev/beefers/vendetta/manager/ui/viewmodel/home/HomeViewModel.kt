@@ -61,7 +61,7 @@ class HomeViewModel(
         getDiscordVersions()
     }
 
-    private fun getDiscordVersions() {
+    fun getDiscordVersions() {
         coroutineScope.launch {
             discordVersions = repo.getLatestDiscordVersions().dataOrNull
         }

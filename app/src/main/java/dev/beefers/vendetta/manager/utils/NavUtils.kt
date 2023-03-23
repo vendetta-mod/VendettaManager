@@ -13,6 +13,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import dev.beefers.vendetta.manager.ui.screen.home.HomeScreen
 import dev.beefers.vendetta.manager.ui.screen.main.LocalPagerState
 import dev.beefers.vendetta.manager.ui.screen.settings.SettingsScreen
+import dev.beefers.vendetta.manager.ui.viewmodel.main.MainViewModel
 
 enum class MainTab(val tab: ManagerTab) {
     HOME(HomeScreen()),
