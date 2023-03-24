@@ -54,7 +54,7 @@ class MainViewModel(
     fun downloadAndInstallUpdate() {
         coroutineScope.launch {
             val update = File(cacheDir, "update.apk")
-            if(update.exists()) update.delete()
+            if (update.exists()) update.delete()
             isUpdating = true
             downloadManager.downloadUpdate(update)
             isUpdating = false

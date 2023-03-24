@@ -1,9 +1,7 @@
 package dev.beefers.vendetta.manager.ui.screen.about
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,7 +14,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,40 +27,47 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import coil.compose.AsyncImage
 import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.R
+import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.ui.widgets.about.LinkItem
 import dev.beefers.vendetta.manager.ui.widgets.about.ListItem
 import dev.beefers.vendetta.manager.ui.widgets.about.UserEntry
 import dev.beefers.vendetta.manager.utils.Constants
 import dev.beefers.vendetta.manager.utils.getBitmap
+import dev.beefers.vendetta.manager.utils.showToast
+import org.koin.androidx.compose.get
 
-class AboutScreen: Screen {
+class AboutScreen : Screen {
 
     @Composable
     @OptIn(ExperimentalMaterial3Api::class)
     override fun Content() {
         val uriHandler = LocalUriHandler.current
+        val prefs: PreferenceManager = get()
         val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
         val ctx = LocalContext.current
         val bitmap = remember {
             ctx.getBitmap(R.drawable.ic_launcher, 60).asImageBitmap()
+        }
+        var tapCount by remember {
+            mutableStateOf(0)
         }
 
         Scaffold(
@@ -100,7 +104,20 @@ class AboutScreen: Screen {
                         text = "v${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})",
                         style = MaterialTheme.typography.labelLarge,
                         color = LocalContentColor.current.copy(alpha = 0.5f),
-                        modifier = Modifier.clickable {  }
+                        modifier = Modifier.clickable(
+                            enabled = !prefs.isDeveloper
+                        ) {
+                            tapCount++
+                            when (tapCount) {
+                                3 -> ctx.showToast(R.string.msg_seven_left)
+                                5 -> ctx.showToast(R.string.msg_five_left)
+                                8 -> ctx.showToast(R.string.msg_two_left)
+                                10 -> {
+                                    ctx.showToast(R.string.msg_unlocked)
+                                    prefs.isDeveloper = true
+                                }
+                            }
+                        }
                     )
 
                     Row(
@@ -153,7 +170,7 @@ class AboutScreen: Screen {
                                     uriHandler.openUri("https://github.com/${member.username}")
                                 }
                             )
-                            if(i != Constants.TEAM_MEMBERS.lastIndex) {
+                            if (i != Constants.TEAM_MEMBERS.lastIndex) {
                                 Divider(
                                     thickness = 0.5.dp,
                                     color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),

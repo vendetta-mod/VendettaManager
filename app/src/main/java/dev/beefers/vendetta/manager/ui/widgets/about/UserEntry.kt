@@ -44,7 +44,7 @@ fun UserEntry(
     ) {
         AsyncImage(
             modifier = Modifier
-                .size(if(isLarge) 70.dp else 50.dp)
+                .size(if (isLarge) 70.dp else 50.dp)
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.surfaceColorAtElevation(1.dp)),
             model = "https://github.com/$username.png",

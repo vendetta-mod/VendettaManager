@@ -4,6 +4,11 @@
     <string name="msg_cleared_cache">Cache cleared successfully</string>
     <string name="msg_load_fail">Failed to load commits</string>
     <string name="msg_coming_soon">Coming soon</string>
+    <string name="msg_invalid_version">Invalid Discord version</string>
+    <string name="msg_seven_left">7 more taps</string>
+    <string name="msg_five_left">5 more taps</string>
+    <string name="msg_two_left">2 more taps</string>
+    <string name="msg_unlocked">You are now a developer</string>
 
     <string name="group_download">Download APKs</string>
     <string name="group_patch">Patching</string>
@@ -70,6 +75,12 @@
     <string name="settings_app_icon">Replace app icon</string>
     <string name="settings_app_icon_description">Uses the Vendetta icon instead of Discord\'s</string>
     <string name="settings_channel">Release channel</string>
+
+    <string name="settings_developer">Developer only</string>
+    <string name="settings_package_name">Package name</string>
+    <string name="settings_version">Discord version</string>
+    <string name="settings_debuggable">Debuggable</string>
+    <string name="settings_debuggable_description">Enable debuggable flag</string>
 
     <string name="update_description">Vendetta Manager version %1$s is now available!</string>
 

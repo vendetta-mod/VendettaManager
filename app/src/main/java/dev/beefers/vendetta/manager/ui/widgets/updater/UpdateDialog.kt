@@ -1,8 +1,6 @@
 package dev.beefers.vendetta.manager.ui.widgets.updater
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.SystemUpdate
@@ -46,9 +44,9 @@ fun UpdateDialog(
                 Box {
                     Text(
                         text = stringResource(R.string.action_start_update),
-                        color = if(isUpdating) Color.Transparent else LocalContentColor.current
+                        color = if (isUpdating) Color.Transparent else LocalContentColor.current
                     )
-                    if(isUpdating) {
+                    if (isUpdating) {
                         CircularProgressIndicator(
                             strokeWidth = 3.dp,
                             modifier = Modifier

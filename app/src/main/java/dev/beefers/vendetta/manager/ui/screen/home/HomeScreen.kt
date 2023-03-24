@@ -20,7 +20,6 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.OpenInNew
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.RestartAlt
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.Button
@@ -54,7 +53,6 @@ import dev.beefers.vendetta.manager.ui.components.SegmentedButton
 import dev.beefers.vendetta.manager.ui.screen.about.AboutScreen
 import dev.beefers.vendetta.manager.ui.screen.installer.InstallerScreen
 import dev.beefers.vendetta.manager.ui.viewmodel.home.HomeViewModel
-import dev.beefers.vendetta.manager.ui.viewmodel.main.MainViewModel
 import dev.beefers.vendetta.manager.ui.widgets.home.Commit
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.ManagerTab
@@ -75,6 +73,10 @@ class HomeScreen : ManagerTab {
         val nav = LocalNavigator.currentOrThrow
         val prefs: PreferenceManager = get()
         val viewModel: HomeViewModel = getScreenModel()
+        val latestVersion = when {
+            prefs.discordVersion.isBlank() -> viewModel.discordVersions?.get(prefs.channel)
+            else -> DiscordVersion.fromVersionCode(prefs.discordVersion)
+        }
         val iconColor = when {
             prefs.patchIcon -> Color(0xFF3AB8BA)
             prefs.channel == DiscordVersion.Type.ALPHA -> Color(0xFFFBB33C)
@@ -106,18 +108,18 @@ class HomeScreen : ManagerTab {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                AnimatedVisibility(visible = viewModel.discordVersions != null) {
+                AnimatedVisibility(visible = viewModel.installManager.current != null) {
                     Text(
-                        text = "Latest: ${viewModel.discordVersions?.get(prefs.channel)}",
+                        text = "Current: ${viewModel.installManager.current?.versionName}",
                         style = MaterialTheme.typography.labelLarge,
                         color = LocalContentColor.current.copy(alpha = 0.5f),
                         textAlign = TextAlign.Center
                     )
                 }
 
-                AnimatedVisibility(visible = viewModel.installManager.current != null) {
+                AnimatedVisibility(visible = latestVersion != null) {
                     Text(
-                        text = "Current: ${viewModel.installManager.current?.versionName}",
+                        text = "Latest: $latestVersion",
                         style = MaterialTheme.typography.labelLarge,
                         color = LocalContentColor.current.copy(alpha = 0.5f),
                         textAlign = TextAlign.Center
@@ -135,10 +137,7 @@ class HomeScreen : ManagerTab {
             ) {
                 val label = when {
                     viewModel.installManager.current == null -> R.string.action_install
-                    viewModel.installManager.current?.versionName == viewModel.discordVersions?.get(
-                        prefs.channel
-                    ).toString() -> R.string.action_reinstall
-
+                    viewModel.installManager.current?.versionName == latestVersion.toString() -> R.string.action_reinstall
                     else -> R.string.action_update
                 }
                 Text(stringResource(label))

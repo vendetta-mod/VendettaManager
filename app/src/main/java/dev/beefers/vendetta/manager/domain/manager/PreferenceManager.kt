@@ -24,7 +24,7 @@ class PreferenceManager(private val context: Context) :
 
     var monet by booleanPreference("monet", Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
 
-    var isDeveloper by booleanPreference("is_developer", true)
+    var isDeveloper by booleanPreference("is_developer", false)
 
     var theme by enumPreference("theme", Theme.SYSTEM)
 
