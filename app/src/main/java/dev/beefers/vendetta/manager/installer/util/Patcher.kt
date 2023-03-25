@@ -1,6 +1,5 @@
 package dev.beefers.vendetta.manager.installer.util
 
-import dev.beefers.vendetta.manager.network.utils.Signer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.lsposed.lspatch.share.PatchConfig

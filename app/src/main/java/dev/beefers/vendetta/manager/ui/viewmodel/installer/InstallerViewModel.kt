@@ -23,7 +23,7 @@ import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.installer.util.ManifestPatcher
 import dev.beefers.vendetta.manager.installer.util.Patcher
 import dev.beefers.vendetta.manager.installer.util.installApks
-import dev.beefers.vendetta.manager.network.utils.Signer
+import dev.beefers.vendetta.manager.installer.util.Signer
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.copyText
 import dev.beefers.vendetta.manager.utils.showToast

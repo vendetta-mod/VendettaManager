@@ -25,6 +25,7 @@ import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 import dev.beefers.vendetta.manager.ui.screen.home.HomeScreen
 import dev.beefers.vendetta.manager.ui.viewmodel.main.MainViewModel
+import dev.beefers.vendetta.manager.ui.widgets.dialog.StoragePermissionsDialog
 import dev.beefers.vendetta.manager.ui.widgets.updater.UpdateDialog
 import dev.beefers.vendetta.manager.utils.MainTab
 import kotlinx.coroutines.launch
@@ -37,6 +38,8 @@ class MainScreen : Screen {
         val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
         val viewModel: MainViewModel = getScreenModel()
         val pagerState = rememberPagerState()
+
+        StoragePermissionsDialog()
 
         CompositionLocalProvider(
             LocalPagerState provides pagerState

@@ -1,7 +1,8 @@
-package dev.beefers.vendetta.manager.network.utils
+package dev.beefers.vendetta.manager.installer.util
 
 import android.content.Context
 import com.android.apksig.ApkSigner
+import dev.beefers.vendetta.manager.utils.Constants
 import org.bouncycastle.asn1.x500.X500Name
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
 import org.bouncycastle.cert.X509v3CertificateBuilder
@@ -28,8 +29,14 @@ object Signer : KoinComponent {
         get() {
             lateinit var ks: File
             cacheDir.resolve("ks.keystore").also {
+                if (it.exists()) {
+                    it.copyTo(Constants.VENDETTA_DIR.resolve("ks.keystore"), true)
+                    it.delete()
+                }
+            }
+            Constants.VENDETTA_DIR.resolve("ks.keystore").also {
                 if (!it.exists()) {
-                    cacheDir.mkdir()
+                    Constants.VENDETTA_DIR.mkdir()
                     newKeystore(it)
                 }
                 ks = it
