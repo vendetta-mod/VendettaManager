@@ -30,7 +30,14 @@
 
     <string name="installer_success">Installed successfully</string>
     <string name="installer_aborted">Install canceled</string>
-    <string name="installer_failed">Failed to install: %d</string>
+
+    <string name="install_fail_generic">Failed to install: Unknown reason</string>
+    <string name="install_fail_blocked">Installation was blocked</string>
+    <string name="install_fail_invalid">One or more APKs were invalid or corrupt</string>
+    <string name="install_fail_conflict">Conflicts with an existing app, usually due to mismatched signatures</string>
+    <string name="install_fail_storage">Not enough available storage to install</string>
+    <string name="install_fail_incompatible">Application is incompatible with this device</string>
+    <string name="install_fail_timeout">Installation timed out</string>
 
     <string name="status_ongoing">Ongoing</string>
     <string name="status_successful">Successful</string>

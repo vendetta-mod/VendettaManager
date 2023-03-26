@@ -9,6 +9,16 @@ import dev.beefers.vendetta.manager.utils.showToast
 
 class InstallService : Service() {
 
+    private val messages = mapOf(
+        PackageInstaller.STATUS_FAILURE to R.string.install_fail_generic,
+        PackageInstaller.STATUS_FAILURE_BLOCKED to R.string.install_fail_blocked,
+        PackageInstaller.STATUS_FAILURE_INVALID to R.string.install_fail_invalid,
+        PackageInstaller.STATUS_FAILURE_CONFLICT to R.string.install_fail_conflict,
+        PackageInstaller.STATUS_FAILURE_STORAGE to R.string.install_fail_storage,
+        PackageInstaller.STATUS_FAILURE_INCOMPATIBLE to R.string.install_fail_incompatible,
+        8 /* STATUS_FAILURE_TIMEOUT (Added in Android 14) */ to R.string.install_fail_timeout
+    )
+
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         val isInstall = intent.action == "vendetta.actions.ACTION_INSTALL"
         when (val statusCode = intent.getIntExtra(PackageInstaller.EXTRA_STATUS, -999)) {
@@ -25,7 +35,7 @@ class InstallService : Service() {
             PackageInstaller.STATUS_FAILURE_ABORTED -> if (isInstall) showToast(R.string.installer_aborted)
 
             else -> {
-                if (isInstall) showToast(R.string.installer_failed, statusCode)
+                if (isInstall) messages[statusCode]?.let(::showToast)
             }
         }
 
