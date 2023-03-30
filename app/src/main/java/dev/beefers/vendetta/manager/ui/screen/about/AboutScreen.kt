@@ -221,7 +221,7 @@ class AboutScreen : Screen {
                     ElevatedCard {
                         ListItem(
                             text = stringResource(R.string.label_translate),
-                            subtext = stringResource(R.string.msg_coming_soon)
+                            onClick = { uriHandler.openUri("https://crowdin.com/project/vendetta-manager") }
                         )
                     }
                 }
