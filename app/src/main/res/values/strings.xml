@@ -106,4 +106,8 @@
     <string name="label_special_thanks">Special thanks</string>
     <string name="label_licenses">Open source licenses</string>
     <string name="label_translate">Translate</string>
+
+    <string name="version_latest">Latest: %1$s</string>
+    <string name="version_target">Target: %1$s</string>
+    <string name="version_current">Current: %1$s</string>
 </resources>

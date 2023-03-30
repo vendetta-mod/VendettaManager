@@ -110,18 +110,20 @@ class HomeScreen : ManagerTab {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                AnimatedVisibility(visible = viewModel.installManager.current != null) {
+                AnimatedVisibility(visible = currentVersion != null) {
                     Text(
-                        text = "Current: ${viewModel.installManager.current?.versionName}",
+                        text = stringResource(R.string.version_current, currentVersion.toString()),
                         style = MaterialTheme.typography.labelLarge,
                         color = LocalContentColor.current.copy(alpha = 0.5f),
                         textAlign = TextAlign.Center
                     )
                 }
 
+                val latestLabel = if(prefs.discordVersion.isNotBlank()) R.string.version_target else R.string.version_latest
+
                 AnimatedVisibility(visible = latestVersion != null) {
                     Text(
-                        text = "Latest: $latestVersion",
+                        text = stringResource(latestLabel, latestVersion.toString()),
                         style = MaterialTheme.typography.labelLarge,
                         color = LocalContentColor.current.copy(alpha = 0.5f),
                         textAlign = TextAlign.Center
