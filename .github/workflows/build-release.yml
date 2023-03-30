@@ -48,7 +48,7 @@ jobs:
           git tag "$tag"
           git push origin "$tag"
           gh release create "$tag" \
-            --title "v${{ github.event.inputs.versionName }}" \
+            --title "${{ github.event.inputs.versionName }}" \
             --generate-notes \
             app/build/outputs/apk/release/Manager.apk
         env:
