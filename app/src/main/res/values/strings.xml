@@ -8,6 +8,8 @@
     <string name="msg_seven_left">7 more taps</string>
     <string name="msg_five_left">5 more taps</string>
     <string name="msg_two_left">2 more taps</string>
+    <string name="msg_loading">Loading…</string>
+    <string name="msg_downgrade">Cannot downgrade, try uninstalling first</string>
     <string name="msg_unlocked">You are now a developer</string>
     <string name="msg_permission_grant">In order for Vendetta Manager to function, file permissions are required. Since shared data is stored in ~/Vendetta, permissions are required in order to access it.</string>
 

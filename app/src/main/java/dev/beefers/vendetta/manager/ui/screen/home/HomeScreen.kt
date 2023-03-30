@@ -54,6 +54,7 @@ import dev.beefers.vendetta.manager.ui.screen.about.AboutScreen
 import dev.beefers.vendetta.manager.ui.screen.installer.InstallerScreen
 import dev.beefers.vendetta.manager.ui.viewmodel.home.HomeViewModel
 import dev.beefers.vendetta.manager.ui.widgets.home.Commit
+import dev.beefers.vendetta.manager.utils.Constants
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.ManagerTab
 import dev.beefers.vendetta.manager.utils.TabOptions
@@ -73,6 +74,7 @@ class HomeScreen : ManagerTab {
         val nav = LocalNavigator.currentOrThrow
         val prefs: PreferenceManager = get()
         val viewModel: HomeViewModel = getScreenModel()
+        val currentVersion = DiscordVersion.fromVersionCode(viewModel.installManager.current?.versionCode.toString())
         val latestVersion = when {
             prefs.discordVersion.isBlank() -> viewModel.discordVersions?.get(prefs.channel)
             else -> DiscordVersion.fromVersionCode(prefs.discordVersion)
@@ -132,13 +134,15 @@ class HomeScreen : ManagerTab {
                     val version = viewModel.discordVersions!![prefs.channel]!!
                     nav.navigate(InstallerScreen(version))
                 },
-                enabled = viewModel.discordVersions != null,
+                enabled = latestVersion != null && latestVersion >= (currentVersion ?: Constants.DUMMY_VERSION),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 val label = when {
-                    viewModel.installManager.current == null -> R.string.action_install
-                    viewModel.installManager.current?.versionName == latestVersion.toString() -> R.string.action_reinstall
-                    else -> R.string.action_update
+                    latestVersion == null -> R.string.msg_loading
+                    currentVersion == null -> R.string.action_install
+                    currentVersion == latestVersion -> R.string.action_reinstall
+                    latestVersion > currentVersion -> R.string.action_update
+                    else -> R.string.msg_downgrade
                 }
                 Text(stringResource(label))
             }

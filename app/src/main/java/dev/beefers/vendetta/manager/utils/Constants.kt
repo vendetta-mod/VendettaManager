@@ -11,6 +11,8 @@ object Constants {
 
     val VENDETTA_DIR = Environment.getExternalStorageDirectory().resolve("Vendetta")
 
+    val DUMMY_VERSION = DiscordVersion(1,0, DiscordVersion.Type.STABLE)
+
 }
 
 data class TeamMember(
