@@ -12,6 +12,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.io.File
 import java.math.BigInteger
+import java.nio.file.Path
 import java.security.KeyPairGenerator
 import java.security.KeyStore
 import java.security.PrivateKey
@@ -20,39 +21,32 @@ import java.security.cert.Certificate
 import java.security.cert.X509Certificate
 import java.util.Date
 import java.util.Locale
+import kotlin.io.path.Path
+import kotlin.io.path.moveTo
 
 object Signer : KoinComponent {
     private val password = "password".toCharArray()
-    private val cacheDir = inject<Context>().value.cacheDir
+    private val context by inject<Context>()
+    private val cacheDir = context.cacheDir
+    private val filesDir = context.filesDir
 
-    val keyStore: File
-        get() {
-            lateinit var ks: File
-            cacheDir.resolve("ks.keystore").also {
-                if (it.exists()) {
-                    it.copyTo(Constants.VENDETTA_DIR.resolve("ks.keystore"), true)
-                    it.delete()
-                }
+    val keyStore: File by lazy {
+        val ks = filesDir.resolve("ks.keystore")
+        migrate(cacheDir, filesDir)
+        migrate(Constants.VENDETTA_DIR, filesDir)
+        ks.also {
+            if (!it.exists()) {
+                it.createNewFile()
+                newKeystore(it)
             }
-            Constants.VENDETTA_DIR.resolve("ks.keystore").also {
-                if (!it.exists()) {
-                    Constants.VENDETTA_DIR.mkdir()
-                    newKeystore(it)
-                }
-                ks = it
-            }
-            return ks
         }
+        ks
+    }
 
     private val signerConfig: ApkSigner.SignerConfig by lazy {
         val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
 
-        cacheDir.resolve("ks.keystore").also {
-            if (!it.exists()) {
-                cacheDir.mkdir()
-                newKeystore(it)
-            }
-        }.inputStream().use { stream ->
+        this.keyStore.inputStream().use { stream ->
             keyStore.load(stream, null)
         }
 
@@ -66,13 +60,13 @@ object Signer : KoinComponent {
         ).build()
     }
 
-    private fun newKeystore(out: File?) {
+    private fun newKeystore(out: File) {
         val key = createKey()
 
         with(KeyStore.getInstance(KeyStore.getDefaultType())) {
             load(null, password)
             setKeyEntry("alias", key.privateKey, password, arrayOf<Certificate>(key.publicKey))
-            store(out?.outputStream(), password)
+            store(out.outputStream(), password)
         }
     }
 
@@ -123,6 +117,18 @@ object Signer : KoinComponent {
             .sign()
 
         outputApk.renameTo(apkFile)
+    }
+
+    private fun migrate(oldDir: File, newDir: File) {
+        oldDir.resolve("ks.keystore").also {
+            if (it.exists()) {
+                Path(it.absolutePath)
+                    .moveTo(
+                        Path(newDir.resolve("ks.keystore").absolutePath),
+                        overwrite = true
+                    )
+            }
+        }
     }
 
     private class KeySet(val publicKey: X509Certificate, val privateKey: PrivateKey)
