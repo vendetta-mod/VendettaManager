@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vendetta Yöneticisi</string>
+    <string name="app_name">Vendetta Manager</string>
     <string name="msg_cleared_cache">Önbellek başarıyla temizlendi</string>
     <string name="msg_load_fail">İçerik yüklenemedi</string>
     <string name="msg_coming_soon">Yakında</string>
