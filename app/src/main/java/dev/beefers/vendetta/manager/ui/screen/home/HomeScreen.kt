@@ -1,8 +1,10 @@
 package dev.beefers.vendetta.manager.ui.screen.home
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -69,6 +71,7 @@ class HomeScreen : ManagerTab {
             unselectedIcon = Icons.Outlined.Home
         )
 
+    @OptIn(ExperimentalFoundationApi::class)
     @Composable
     override fun Content() {
         val nav = LocalNavigator.currentOrThrow
@@ -146,7 +149,12 @@ class HomeScreen : ManagerTab {
                     latestVersion > currentVersion -> R.string.action_update
                     else -> R.string.msg_downgrade
                 }
-                Text(stringResource(label))
+                Text(
+                    text = stringResource(label),
+                    textAlign = TextAlign.Center,
+                    maxLines = 1,
+                    modifier = Modifier.basicMarquee().fillMaxWidth()
+                )
             }
 
             AnimatedVisibility(visible = viewModel.installManager.current != null) {

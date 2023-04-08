@@ -1,5 +1,6 @@
 package dev.beefers.vendetta.manager.domain.manager
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
@@ -51,6 +52,8 @@ class InstallManager(
             val callbackIntent = Intent(context, InstallService::class.java).apply {
                 action = "vendetta.actions.ACTION_UNINSTALL"
             }
+
+            @SuppressLint("UnspecifiedImmutableFlag")
             val contentIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 PendingIntent.getService(context, 0, callbackIntent, PendingIntent.FLAG_MUTABLE)
             } else {
