@@ -15,9 +15,9 @@
     <string name="group_download">APKs herunterladen</string>
     <string name="group_patch">App wird gepatcht</string>
     <string name="group_installing">Wird installiert</string>
-    <string name="step_dl_base">Base APK wird heruntergeladen</string>
-    <string name="step_dl_lib">Libraries APK wird heruntergeladen</string>
-    <string name="step_dl_lang">Sprachen APK wird heruntergeladen</string>
+    <string name="step_dl_base">Base apk wird heruntergeladen</string>
+    <string name="step_dl_lib">Libraries apk wird heruntergeladen</string>
+    <string name="step_dl_lang">Language apk wird heruntergeladen</string>
     <string name="step_dl_res">Resources apk wird heruntergeladen</string>
     <string name="step_dl_vd">Vendetta-Modul wird heruntergeladen</string>
     <string name="step_change_icon">App-Icon wird geändert</string>
