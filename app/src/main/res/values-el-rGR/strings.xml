@@ -73,7 +73,7 @@
     <string name="settings_app_name">Όνομα εφαρμογής</string>
     <string name="settings_app_icon">Αντικατάσταση εικονιδίου εφαρμογής</string>
     <string name="settings_app_icon_description">Χρησιμοποίηση του εικονιδίου Vendetta αντί του Discord</string>
-    <string name="settings_channel">Σταθερό κανάλι</string>
+    <string name="settings_channel">Κανάλι κυκλοφορίας</string>
     <string name="settings_developer">Μόνο για προγραμματιστές</string>
     <string name="settings_package_name">Όνομα πακέτου</string>
     <string name="settings_version">Έκδοση Discord</string>
