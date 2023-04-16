@@ -26,6 +26,7 @@ import dev.beefers.vendetta.manager.installer.util.installApks
 import dev.beefers.vendetta.manager.installer.util.Signer
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.copyText
+import dev.beefers.vendetta.manager.utils.isMiui
 import dev.beefers.vendetta.manager.utils.showToast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -46,7 +47,7 @@ class InstallerViewModel(
     private val installationRunning = AtomicBoolean(false)
     private val cacheDir = context.externalCacheDir!!
     private var debugInfo = """
-            Vendetta Manager ${BuildConfig.VERSION_NAME}
+            Vendetta Manager v${BuildConfig.VERSION_NAME}
             Built from commit ${BuildConfig.GIT_COMMIT} on ${BuildConfig.GIT_BRANCH} ${if (BuildConfig.GIT_LOCAL_CHANGES || BuildConfig.GIT_LOCAL_COMMITS) "(Changes Present)" else ""}
             
             Running Android ${Build.VERSION.RELEASE}, API level ${Build.VERSION.SDK_INT}
@@ -375,7 +376,7 @@ class InstallerViewModel(
                 files.add(lspatchedDir.resolve(name))
             }
             logger.i("Installing apks")
-            context.installApks(true, *files.toTypedArray())
+            context.installApks(silent = !isMiui, *files.toTypedArray())
             isFinished = true
         }
     }

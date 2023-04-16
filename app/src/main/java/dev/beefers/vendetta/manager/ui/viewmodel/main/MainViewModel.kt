@@ -14,6 +14,7 @@ import dev.beefers.vendetta.manager.installer.util.installApks
 import dev.beefers.vendetta.manager.network.dto.Release
 import dev.beefers.vendetta.manager.network.utils.dataOrNull
 import dev.beefers.vendetta.manager.network.utils.ifSuccessful
+import dev.beefers.vendetta.manager.utils.isMiui
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -58,7 +59,7 @@ class MainViewModel(
             isUpdating = true
             downloadManager.downloadUpdate(update)
             isUpdating = false
-            context.installApks(false, update)
+            context.installApks(silent = !isMiui, update)
         }
     }
 

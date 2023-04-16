@@ -9,6 +9,9 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.graphics.drawable.toBitmap
 import dev.beefers.vendetta.manager.BuildConfig
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
 
 fun Context.copyText(text: String) {
     val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -46,3 +49,29 @@ fun Context.getBitmap(@DrawableRes icon: Int, size: Int): Bitmap {
 
     return bitmap
 }
+
+// Thanks to https://gist.github.com/Muyangmin/e8ec1002c930d8df3df46b306d03315d
+fun getSystemProp(prop: String): String? {
+    val line: String
+    var input = null as BufferedReader?
+    try {
+        val proc = Runtime.getRuntime().exec("getprop $prop")
+        input = BufferedReader(InputStreamReader(proc.inputStream), 1024)
+        line = input.readLine()
+        input.close()
+    } catch (e: IOException) {
+        return null
+    } finally {
+        input?.let {
+            try {
+                input.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+    return line
+}
+
+val isMiui: Boolean
+    get() = getSystemProp("ro.miui.ui.version.name")?.isNotEmpty() ?: false
