@@ -50,12 +50,12 @@
     <string name="action_reinstall">재설치</string>
     <string name="action_launch">실행</string>
     <string name="action_uninstall">삭제</string>
-    <string name="action_info">Info</string>
+    <string name="action_info">정보</string>
     <string name="action_retry">Retry</string>
     <string name="action_reload">Reload</string>
     <string name="action_open_about">Open about</string>
     <string name="action_open_settings">Open settings</string>
-    <string name="installer_cached">Cached</string>
+    <string name="installer_cached">캐시됨</string>
     <string name="title_installer">Installer</string>
     <string name="title_home">홈</string>
     <string name="title_settings">설정</string>

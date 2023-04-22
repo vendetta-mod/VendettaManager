@@ -79,7 +79,7 @@
     <string name="settings_version">Έκδοση Discord</string>
     <string name="settings_debuggable">Αποσφαλματώσιμο</string>
     <string name="settings_debuggable_description">Ενεργοποίηση σημαίας αποσφαλμάτωσης</string>
-    <string name="update_description">Η έκδοση %1$s της Vendetta Manager είναι τώρα διαθέσιμη!</string>
+    <string name="update_description">Η έκδοση %1$s του Vendetta Manager είναι τώρα διαθέσιμη!</string>
     <string name="channel_stable">Σταθερή</string>
     <string name="channel_beta">Δοκιμαστική</string>
     <string name="channel_alpha">Alpha</string>
