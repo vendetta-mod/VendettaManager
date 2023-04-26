@@ -20,7 +20,7 @@ class RestService(
 
     suspend fun getLatestDiscordVersions() = withContext(Dispatchers.IO) {
         httpService.request<Index> {
-            url("https://discord.k6.tf/index.json")
+            url("https://vd.k6.tf/tracker/index")
         }
     }
 
