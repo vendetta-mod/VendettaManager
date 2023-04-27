@@ -20,10 +20,10 @@ class DownloadManager(
 
     // Discord APK downloading
     suspend fun downloadDiscordApk(version: String, out: File): File =
-        download("$BACKEND_HOST/download/discord?v=$version", out)
+        download("$BACKEND_HOST/tracker/download/$version/base", out)
 
     suspend fun downloadSplit(version: String, split: String, out: File): File =
-        download("$BACKEND_HOST/download/discord?v=$version&split=$split", out)
+        download("$BACKEND_HOST/tracker/download/$version/$split", out)
 
     suspend fun downloadVendetta(out: File) =
         download(
@@ -128,7 +128,7 @@ class DownloadManager(
     }
 
     companion object {
-        private const val BACKEND_HOST = "https://aliucord.com/"
+        private const val BACKEND_HOST = "https://vd.k6.tf"
     }
 
 }
