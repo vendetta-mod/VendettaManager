@@ -20,10 +20,10 @@ class DownloadManager(
 
     // Discord APK downloading
     suspend fun downloadDiscordApk(version: String, out: File): File =
-        download("$BACKEND_HOST/download/$version/base", out)
+        download("$BACKEND_HOST/tracker/download/$version/base", out)
 
     suspend fun downloadSplit(version: String, split: String, out: File): File =
-        download("$BACKEND_HOST/download/$version/$split", out)
+        download("$BACKEND_HOST/tracker/download/$version/$split", out)
 
     suspend fun downloadVendetta(out: File) =
         download(
