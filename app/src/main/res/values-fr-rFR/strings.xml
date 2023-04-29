@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Gestionnaire Vendetta</string>
-    <string name="msg_cleared_cache">Tous les caches ont été supprimés avec succès</string>
+    <string name="app_name">Vendetta Manager</string>
+    <string name="msg_cleared_cache">Le cache a été supprimé avec succès</string>
     <string name="msg_load_fail">Échec du chargement des commits</string>
-    <string name="msg_coming_soon">Bientôt Disponible</string>
+    <string name="msg_coming_soon">Bientôt disponible</string>
     <string name="msg_invalid_version">Version Discord invalide</string>
     <string name="msg_seven_left">Tapez 7 fois de plus</string>
     <string name="msg_five_left">Tapez 5 fois de plus</string>
@@ -17,14 +17,14 @@
     <string name="group_installing">Installation en cours</string>
     <string name="step_dl_base">Téléchargement de l\'APK original</string>
     <string name="step_dl_lib">Téléchargement de l\'APK de librairies</string>
-    <string name="step_dl_lang">Téléchargement de l\'APK de langues</string>
+    <string name="step_dl_lang">Téléchargement de l\'APK de langage </string>
     <string name="step_dl_res">Téléchargement de l\'APK de ressources</string>
     <string name="step_dl_vd">Téléchargement du module Vendetta</string>
     <string name="step_change_icon">Modification de l\'icône de l\'app</string>
     <string name="step_patch_manifests">Modification des manifestes de l\'app</string>
     <string name="step_add_vd">Injection de Vendetta</string>
     <string name="step_signing">Signature des APKs</string>
-    <string name="step_installing">Installation des APKs</string>
+    <string name="step_installing">Installation des APK</string>
     <string name="installer_success">Installation réussie</string>
     <string name="installer_aborted">Installation annulée</string>
     <string name="install_fail_generic">Échec de l\'installation : raison inconnue</string>
