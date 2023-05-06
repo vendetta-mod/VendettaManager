@@ -17,8 +17,8 @@
     <string name="group_installing">Installando</string>
     <string name="step_dl_base">Download APK base</string>
     <string name="step_dl_lib">Download APK librerie</string>
-    <string name="step_dl_lang">Download APK lingue</string>
-    <string name="step_dl_res">Download APK risorse</string>
+    <string name="step_dl_lang">Download apk lingua</string>
+    <string name="step_dl_res">Download apk risorse</string>
     <string name="step_dl_vd">Download modulo Vendetta</string>
     <string name="step_change_icon">Cambia icona dell\'app</string>
     <string name="step_patch_manifests">Patch manifest dell\'app</string>
@@ -87,9 +87,9 @@
     <string name="label_discord">Discord</string>
     <string name="label_team">Team</string>
     <string name="label_special_thanks">Ringraziamenti speciali</string>
-    <string name="label_licenses">Licenze Open Source</string>
+    <string name="label_licenses">Licenze open source</string>
     <string name="label_translate">Traduci</string>
     <string name="version_latest">Ultima versione: %1$s</string>
     <string name="version_target">Target: %1$s</string>
-    <string name="version_current">Attuale: %1$s</string>
+    <string name="version_current">Versione corrente: %1$s</string>
 </resources>
