@@ -26,6 +26,9 @@ jobs:
           distribution: 'temurin'
           cache: 'gradle'
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
       - name: Set Version
         uses: chkfung/android-version-actions@v1.1
         with:
