@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Menedżer Vendetta</string>
     <string name="msg_cleared_cache">Pamięć podręczna pomyślnie wyczyszczona</string>
     <string name="msg_load_fail">Nie udało się załadować commitów</string>
-    <string name="msg_coming_soon">Wkrótce</string>
-    <string name="msg_invalid_version">Wersja Discorda jest nieprawidłowa</string>
+    <string name="msg_coming_soon">Już niedługo</string>
+    <string name="msg_invalid_version">Nieprawidłowa wersja Discorda</string>
     <string name="msg_seven_left">Jeszcze 7 kliknięć</string>
     <string name="msg_five_left">Jeszcze 5 kliknięć</string>
     <string name="msg_two_left">Jeszcze 2 kliknięcia</string>
     <string name="msg_loading">Ładowanie…</string>
-    <string name="msg_downgrade">Nie można zainstalować starszej wersji, spróbuj najpierw odinstalować</string>
+    <string name="msg_downgrade">Nie można zainstalować starszej wersji, spróbuj najpierw odinstalować aktualnie zainstalowaną</string>
     <string name="msg_unlocked">Jesteś teraz deweloperem</string>
     <string name="msg_permission_grant">Aby Menadżer Vendetta działał, wymagane są uprawnienia do plików. Ponieważ udostępnione dane są przechowywane w ~/Vendetta, dostęp do nich wymaga uprawnień.</string>
     <string name="group_download">Pobieranie plików APK</string>
-    <string name="group_patch">Patchowanie</string>
+    <string name="group_patch">Łatanie</string>
     <string name="group_installing">Instalowanie</string>
     <string name="step_dl_base">Pobieranie base apk</string>
     <string name="step_dl_lib">Pobieranie libraries apk</string>
@@ -26,8 +26,8 @@
     <string name="step_signing">Podpisywanie plików APK</string>
     <string name="step_installing">Instalowanie plików APK</string>
     <string name="installer_success">Pomyślnie zainstalowano</string>
-    <string name="installer_aborted">Instalacja anulowana</string>
-    <string name="install_fail_generic">Instalacja nie powiodła się: nieznany powód</string>
+    <string name="installer_aborted">Instalacja przerwana</string>
+    <string name="install_fail_generic">Błąd przy instalacji: nieznany powód</string>
     <string name="install_fail_blocked">Instalacja została zablokowana</string>
     <string name="install_fail_invalid">Co najmniej jeden plik APK był nieprawidłowy lub uszkodzony</string>
     <string name="install_fail_conflict">Konflikty z istniejącą aplikacją, zazwyczaj z powodu niedopasowanych podpisów</string>
@@ -74,13 +74,15 @@
     <string name="settings_app_icon">Zastąp ikonę aplikacji</string>
     <string name="settings_app_icon_description">Używa ikony Vendetta zamiast Discorda</string>
     <string name="settings_channel">Kanał wydania</string>
+    <string name="settings_auto_clear_cache">Clear cache automatically</string>
+    <string name="settings_auto_clear_cache_description">Clears cache when Discord gets an update</string>
     <string name="settings_developer">Tylko dla deweloperów</string>
     <string name="settings_package_name">Nazwa pakietu</string>
     <string name="settings_version">Wersja Discorda</string>
-    <string name="settings_debuggable">Debugowalny</string>
+    <string name="settings_debuggable">Debugowalne</string>
     <string name="settings_debuggable_description">Włącz flagę debugowania</string>
     <string name="update_description">Menadżer Vendetta w wersji %1$s jest teraz dostępny!</string>
-    <string name="channel_stable">Stable</string>
+    <string name="channel_stable">Stabilna</string>
     <string name="channel_beta">Beta</string>
     <string name="channel_alpha">Alpha</string>
     <string name="label_github">Github</string>

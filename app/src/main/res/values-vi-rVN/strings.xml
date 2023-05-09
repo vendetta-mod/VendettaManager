@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Trình quản lý Vendetta</string>
     <string name="msg_cleared_cache">Đã xóa bộ nhớ đệm thành công</string>
     <string name="msg_load_fail">Tải các cam kết thất bại</string>
@@ -74,6 +74,8 @@
     <string name="settings_app_icon">Thay thế biểu tượng ứng dụng</string>
     <string name="settings_app_icon_description">Sử dụng biểu tượng Vendetta thay vì của Discord</string>
     <string name="settings_channel">Kênh phát hành</string>
+    <string name="settings_auto_clear_cache">Clear cache automatically</string>
+    <string name="settings_auto_clear_cache_description">Clears cache when Discord gets an update</string>
     <string name="settings_developer">Chỉ dành cho nhà phát triển</string>
     <string name="settings_package_name">Tên gói</string>
     <string name="settings_version">Phiên bản Discord</string>

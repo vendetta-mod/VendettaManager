@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
     <string name="msg_cleared_cache">Cache cleared successfully</string>
     <string name="msg_load_fail">Failed to load commits</string>
@@ -74,6 +74,8 @@
     <string name="settings_app_icon">Replace app icon</string>
     <string name="settings_app_icon_description">Uses the Vendetta icon instead of Discord\'s</string>
     <string name="settings_channel">Release channel</string>
+    <string name="settings_auto_clear_cache">Clear cache automatically</string>
+    <string name="settings_auto_clear_cache_description">Clears cache when Discord gets an update</string>
     <string name="settings_developer">Developer only</string>
     <string name="settings_package_name">Package name</string>
     <string name="settings_version">Discord version</string>

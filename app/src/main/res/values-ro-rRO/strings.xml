@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Managerul Vendetta</string>
     <string name="msg_cleared_cache">Memoria cache a fost golita</string>
     <string name="msg_load_fail">Încărcarea setărilor eșuată</string>
@@ -74,6 +74,8 @@
     <string name="settings_app_icon">Înlocuiţi pictograma aplicaţiei</string>
     <string name="settings_app_icon_description">Folosește icoana Vendetta în loc de Discord</string>
     <string name="settings_channel">Canal de lansare</string>
+    <string name="settings_auto_clear_cache">Clear cache automatically</string>
+    <string name="settings_auto_clear_cache_description">Clears cache when Discord gets an update</string>
     <string name="settings_developer">Doar dezvoltatori</string>
     <string name="settings_package_name">Numele pachetului</string>
     <string name="settings_version">Versiune Discord</string>

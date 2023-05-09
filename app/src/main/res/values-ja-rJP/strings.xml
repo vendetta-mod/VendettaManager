@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
     <string name="msg_cleared_cache">キャッシュをクリアしました</string>
     <string name="msg_load_fail">コミットの読み込みに失敗しました</string>
@@ -8,24 +8,24 @@
     <string name="msg_seven_left">あと7回タップしてください</string>
     <string name="msg_five_left">あと5回タップしてください</string>
     <string name="msg_two_left">あと2回タップしてください</string>
-    <string name="msg_loading">読み込み中...</string>
-    <string name="msg_downgrade">ダウングレードができません。まずアンインストールを試してください</string>
-    <string name="msg_unlocked">これで開発者になりました！</string>
+    <string name="msg_loading">読み込み中…</string>
+    <string name="msg_downgrade">ダウングレードできません。まずアンインストールを試してください</string>
+    <string name="msg_unlocked">これで開発者になりました</string>
     <string name="msg_permission_grant">Vendetta Managerを正しく動作させるためには、ファイルへのアクセスを許可する必要があります。
 ~/Vendettaに共有データが保存されるため、Managerを機能させるためには権限が必要です。</string>
-    <string name="group_download">APKファイルのダウンロード</string>
-    <string name="group_patch">パッチを適用しています</string>
-    <string name="group_installing">インストール中</string>
+    <string name="group_download">APKのダウンロード</string>
+    <string name="group_patch">パッチの適用</string>
+    <string name="group_installing">インストール</string>
     <string name="step_dl_base">ベース APKをダウンロード中</string>
     <string name="step_dl_lib">ライブラリ APKをダウンロード中</string>
-    <string name="step_dl_lang">Language APKをダウンロードしています...</string>
-    <string name="step_dl_res">リソース APKをダウンロード中</string>
+    <string name="step_dl_lang">言語APKをダウンロード中</string>
+    <string name="step_dl_res">リソースAPKをダウンロード中</string>
     <string name="step_dl_vd">Vendettaモジュールをダウンロードしています</string>
     <string name="step_change_icon">アプリのアイコンを変更する</string>
     <string name="step_patch_manifests">マニフェストファイルにパッチを適用しています</string>
     <string name="step_add_vd">Vendettaをインストールしています</string>
     <string name="step_signing">APKを署名しています</string>
-    <string name="step_installing">APKをインストールしています</string>
+    <string name="step_installing">APKをインストール中</string>
     <string name="installer_success">正常にインストールされました</string>
     <string name="installer_aborted">インストールはキャンセルされました</string>
     <string name="install_fail_generic">インストールに失敗しました: 不明な理由</string>
@@ -73,8 +73,10 @@
     <string name="settings_advanced">高度</string>
     <string name="settings_app_name">アプリ名</string>
     <string name="settings_app_icon">アプリのアイコンを置き換える</string>
-    <string name="settings_app_icon_description">Discordの代わりにVendettaアイコンを使用する</string>
+    <string name="settings_app_icon_description">Discordアイコンの代わりにVendettaアイコンを使用する</string>
     <string name="settings_channel">リリースチャンネル</string>
+    <string name="settings_auto_clear_cache">Clear cache automatically</string>
+    <string name="settings_auto_clear_cache_description">Clears cache when Discord gets an update</string>
     <string name="settings_developer">開発者専用</string>
     <string name="settings_package_name">パッケージ名</string>
     <string name="settings_version">Discordバージョン</string>
@@ -86,9 +88,9 @@
     <string name="channel_alpha">アルファ版</string>
     <string name="label_github">GitHub</string>
     <string name="label_discord">Discord</string>
-    <string name="label_team">Team</string>
+    <string name="label_team">チーム</string>
     <string name="label_special_thanks">謝辞</string>
-    <string name="label_licenses">オープンソース ライセンス</string>
+    <string name="label_licenses">オープンソースライセンス</string>
     <string name="label_translate">翻訳</string>
     <string name="version_latest">最新バージョン: %1$s</string>
     <string name="version_target">ターゲットバージョン: %1$s</string>

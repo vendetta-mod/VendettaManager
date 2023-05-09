@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
     <string name="msg_cleared_cache">Cache pulita con successo</string>
     <string name="msg_load_fail">Caricamento commit non riuscito</string>
@@ -24,7 +24,7 @@
     <string name="step_patch_manifests">Patch manifest dell\'app</string>
     <string name="step_add_vd">Iniettando Vendetta</string>
     <string name="step_signing">Firmando gli APK</string>
-    <string name="step_installing">Installando gli APK</string>
+    <string name="step_installing">Installando APK</string>
     <string name="installer_success">Installato con successo</string>
     <string name="installer_aborted">Installazione annullata</string>
     <string name="install_fail_generic">Installazione non riuscita: Motivo sconosciuto</string>
@@ -74,8 +74,10 @@
     <string name="settings_app_icon">Sostituisci l\'icona dell\'app</string>
     <string name="settings_app_icon_description">Utilizza l\'icona di Vendetta al posto di Discord</string>
     <string name="settings_channel">Canale rilascio</string>
+    <string name="settings_auto_clear_cache">Clear cache automatically</string>
+    <string name="settings_auto_clear_cache_description">Clears cache when Discord gets an update</string>
     <string name="settings_developer">Solo sviluppatori</string>
-    <string name="settings_package_name">Nome del pacchetto</string>
+    <string name="settings_package_name">Nome pacchetto</string>
     <string name="settings_version">Versione Discord</string>
     <string name="settings_debuggable">Debuggable</string>
     <string name="settings_debuggable_description">Abilita flag debug</string>
