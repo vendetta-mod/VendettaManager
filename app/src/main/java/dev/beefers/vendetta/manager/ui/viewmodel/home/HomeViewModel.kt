@@ -93,7 +93,7 @@ class HomeViewModel(
         }
     }
 
-    fun autoClearCache() {
+    private fun autoClearCache() {
         val currentVersion = DiscordVersion.fromVersionCode(installManager.current?.versionCode.toString()) ?: return
         val latestVersion = when {
             prefs.discordVersion.isBlank() -> discordVersions?.get(prefs.channel)
@@ -101,7 +101,7 @@ class HomeViewModel(
         } ?: return
 
         if(latestVersion > currentVersion) {
-            for (file in context.cacheDir.listFiles() ?: emptyArray()) {
+            for (file in (context.externalCacheDir ?: context.cacheDir).listFiles() ?: emptyArray()) {
                 if(file.isDirectory) file.deleteRecursively()
             }
         }

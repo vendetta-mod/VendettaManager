@@ -37,6 +37,7 @@ import dev.beefers.vendetta.manager.utils.ManagerTab
 import dev.beefers.vendetta.manager.utils.TabOptions
 import dev.beefers.vendetta.manager.utils.navigate
 import org.koin.androidx.compose.get
+import java.io.File
 
 class SettingsScreen : ManagerTab {
     override val options: TabOptions
@@ -162,6 +163,20 @@ class SettingsScreen : ManagerTab {
                     secondaryLabel = stringResource(R.string.settings_debuggable_description),
                     pref = prefs.debuggable,
                     onPrefChange = { prefs.debuggable = it }
+                )
+                SettingsTextField(
+                    label = stringResource(R.string.settings_module_location),
+                    supportingText = stringResource(R.string.settings_module_location_description),
+                    pref = prefs.moduleLocation.absolutePath,
+                    onPrefChange = {
+                        prefs.moduleLocation = File(it)
+                    }
+                )
+                SettingsButton(
+                    label = stringResource(R.string.settings_module_location_reset),
+                    onClick = {
+                        prefs.moduleLocation = prefs.DEFAULT_MODULE_LOCATION
+                    }
                 )
             }
         }

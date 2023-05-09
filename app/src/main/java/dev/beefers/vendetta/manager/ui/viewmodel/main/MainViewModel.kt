@@ -28,7 +28,7 @@ class MainViewModel(
     private val preferenceManager: PreferenceManager,
     private val context: Context
 ) : ScreenModel {
-    private val cacheDir = context.externalCacheDir
+    private val cacheDir = context.externalCacheDir ?: context.cacheDir
     var release by mutableStateOf<Release?>(null)
         private set
 

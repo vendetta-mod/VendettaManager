@@ -45,7 +45,7 @@ class InstallerViewModel(
     val installManager: InstallManager
 ) : ScreenModel {
     private val installationRunning = AtomicBoolean(false)
-    private val cacheDir = context.externalCacheDir!!
+    private val cacheDir = context.externalCacheDir ?: context.cacheDir
     private var debugInfo = """
             Vendetta Manager v${BuildConfig.VERSION_NAME}
             Built from commit ${BuildConfig.GIT_COMMIT} on ${BuildConfig.GIT_BRANCH} ${if (BuildConfig.GIT_LOCAL_CHANGES || BuildConfig.GIT_LOCAL_COMMITS) "(Changes Present)" else ""}
@@ -248,7 +248,7 @@ class InstallerViewModel(
 
         // Download vendetta apk
         val vendetta = step(InstallStep.DL_VD) {
-            cacheDir.resolve("vendetta.apk").let { file ->
+            preferences.moduleLocation.let { file ->
                 logger.i("Checking if vendetta.apk is cached")
                 if (file.exists()) {
                     logger.i("vendetta.apk is cached")

@@ -38,7 +38,8 @@ fun SettingsItem(
         }
 
         Column(
-            verticalArrangement = Arrangement.spacedBy(5.dp)
+            verticalArrangement = Arrangement.spacedBy(5.dp),
+            modifier = Modifier.weight(1f, true)
         ) {
             ProvideTextStyle(
                 MaterialTheme.typography.titleLarge.copy(
@@ -56,8 +57,6 @@ fun SettingsItem(
                 secondaryText()
             }
         }
-
-        Spacer(Modifier.weight(1f, true))
 
         trailing()
     }

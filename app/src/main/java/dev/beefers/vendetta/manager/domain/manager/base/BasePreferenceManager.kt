@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.core.content.edit
+import java.io.File
 import kotlin.reflect.KProperty
 
 abstract class BasePreferenceManager(
@@ -21,6 +22,7 @@ abstract class BasePreferenceManager(
         val c = prefs.getString(key, null)
         return if (c == null) defaultValue else Color(c.toULong())
     }
+    private fun getFile(key: String, defaultValue: File) = File(getString(key, defaultValue.absolutePath))
 
     protected inline fun <reified E : Enum<E>> getEnum(key: String, defaultValue: E) =
         enumValueOf<E>(getString(key, defaultValue.name))
@@ -31,6 +33,8 @@ abstract class BasePreferenceManager(
     private fun putFloat(key: String, value: Float) = prefs.edit { putFloat(key, value) }
     private fun putColor(key: String, value: Color) =
         prefs.edit { putString(key, value.value.toString()) }
+    private fun putFile(key: String, value: File) =
+        putString(key, value.absolutePath)
 
     protected inline fun <reified E : Enum<E>> putEnum(key: String, value: E) =
         putString(key, value.name)
@@ -102,6 +106,15 @@ abstract class BasePreferenceManager(
         setter = ::putColor
     )
 
+    protected fun filePreference(
+        key: String,
+        defaultValue: File
+    ) = Preference(
+        key = key,
+        defaultValue = defaultValue,
+        getter = ::getFile,
+        setter = ::putFile
+    )
 
     protected inline fun <reified E : Enum<E>> enumPreference(
         key: String,
