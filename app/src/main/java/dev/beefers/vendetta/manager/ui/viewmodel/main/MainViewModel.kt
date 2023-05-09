@@ -1,9 +1,13 @@
 package dev.beefers.vendetta.manager.ui.viewmodel.main
 
 import android.content.Context
+import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PackageInfoFlags
+import android.os.Build
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.core.content.PackageManagerCompat
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.coroutineScope
 import dev.beefers.vendetta.manager.BuildConfig

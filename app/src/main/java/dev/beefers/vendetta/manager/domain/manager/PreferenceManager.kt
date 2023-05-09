@@ -26,6 +26,8 @@ class PreferenceManager(private val context: Context) :
 
     var isDeveloper by booleanPreference("is_developer", false)
 
+    var autoClearCache by booleanPreference("auto_clear_cache", true)
+
     var theme by enumPreference("theme", Theme.SYSTEM)
 
     var channel by enumPreference("channel", DiscordVersion.Type.STABLE)

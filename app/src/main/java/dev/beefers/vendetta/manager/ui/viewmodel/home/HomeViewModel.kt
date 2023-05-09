@@ -2,7 +2,9 @@ package dev.beefers.vendetta.manager.ui.viewmodel.home
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -64,6 +66,7 @@ class HomeViewModel(
     fun getDiscordVersions() {
         coroutineScope.launch {
             discordVersions = repo.getLatestDiscordVersions().dataOrNull
+            if(prefs.autoClearCache) autoClearCache()
         }
     }
 
@@ -86,6 +89,20 @@ class HomeViewModel(
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 data = Uri.parse("package:${it.packageName}")
                 context.startActivity(this)
+            }
+        }
+    }
+
+    fun autoClearCache() {
+        val currentVersion = DiscordVersion.fromVersionCode(installManager.current?.versionCode.toString()) ?: return
+        val latestVersion = when {
+            prefs.discordVersion.isBlank() -> discordVersions?.get(prefs.channel)
+            else -> DiscordVersion.fromVersionCode(prefs.discordVersion)
+        } ?: return
+
+        if(latestVersion > currentVersion) {
+            for (file in context.cacheDir.listFiles() ?: emptyArray()) {
+                if(file.isDirectory) file.deleteRecursively()
             }
         }
     }

@@ -104,6 +104,15 @@ class SettingsScreen : ManagerTab {
                 }
             )
 
+            SettingsSwitch(
+                label = stringResource(R.string.settings_auto_clear_cache),
+                secondaryLabel = stringResource(R.string.settings_auto_clear_cache_description),
+                pref = prefs.autoClearCache,
+                onPrefChange = {
+                    prefs.autoClearCache = it
+                }
+            )
+
             SettingsButton(
                 label = stringResource(R.string.action_clear_cache),
                 onClick = {
