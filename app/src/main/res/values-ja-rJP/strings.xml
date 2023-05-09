@@ -77,6 +77,9 @@
     <string name="settings_channel">リリースチャンネル</string>
     <string name="settings_auto_clear_cache">Clear cache automatically</string>
     <string name="settings_auto_clear_cache_description">Clears cache when Discord gets an update</string>
+    <string name="settings_module_location">Module location</string>
+    <string name="settings_module_location_description">For use with developing the Xposed module. BE CAREFUL</string>
+    <string name="settings_module_location_reset">Reset module location</string>
     <string name="settings_developer">開発者専用</string>
     <string name="settings_package_name">パッケージ名</string>
     <string name="settings_version">Discordバージョン</string>
