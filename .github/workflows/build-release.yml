@@ -31,7 +31,7 @@ jobs:
 
       - name: Setup Build Tools
         run: |
-          sdkmanager --install "build-tools;34.0.0-rc3"
+          sdkmanager --install "build-tools;34.0.0"
           echo y | sdkmanager --licenses
 
       - name: Set Version
