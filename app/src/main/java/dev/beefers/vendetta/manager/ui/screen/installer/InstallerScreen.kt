@@ -123,7 +123,7 @@ class InstallerScreen(
             title = { Text(stringResource(R.string.title_installer)) },
             navigationIcon = {
                 IconButton(onClick = {
-                    if(!nav.pop())
+                    if (!nav.pop())
                         activity?.finish()
                 }) {
                     Icon(

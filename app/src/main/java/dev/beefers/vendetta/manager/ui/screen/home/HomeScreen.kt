@@ -77,7 +77,8 @@ class HomeScreen : ManagerTab {
         val nav = LocalNavigator.currentOrThrow
         val prefs: PreferenceManager = get()
         val viewModel: HomeViewModel = getScreenModel()
-        val currentVersion = DiscordVersion.fromVersionCode(viewModel.installManager.current?.versionCode.toString())
+        val currentVersion =
+            DiscordVersion.fromVersionCode(viewModel.installManager.current?.versionCode.toString())
         val latestVersion = when {
             prefs.discordVersion.isBlank() -> viewModel.discordVersions?.get(prefs.channel)
             else -> DiscordVersion.fromVersionCode(prefs.discordVersion)
@@ -122,7 +123,8 @@ class HomeScreen : ManagerTab {
                     )
                 }
 
-                val latestLabel = if(prefs.discordVersion.isNotBlank()) R.string.version_target else R.string.version_latest
+                val latestLabel =
+                    if (prefs.discordVersion.isNotBlank()) R.string.version_target else R.string.version_latest
 
                 AnimatedVisibility(visible = latestVersion != null) {
                     Text(
@@ -139,7 +141,8 @@ class HomeScreen : ManagerTab {
                     val version = viewModel.discordVersions!![prefs.channel]!!
                     nav.navigate(InstallerScreen(version))
                 },
-                enabled = latestVersion != null && latestVersion >= (currentVersion ?: Constants.DUMMY_VERSION),
+                enabled = latestVersion != null && latestVersion >= (currentVersion
+                    ?: Constants.DUMMY_VERSION),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 val label = when {
@@ -153,7 +156,9 @@ class HomeScreen : ManagerTab {
                     text = stringResource(label),
                     textAlign = TextAlign.Center,
                     maxLines = 1,
-                    modifier = Modifier.basicMarquee().fillMaxWidth()
+                    modifier = Modifier
+                        .basicMarquee()
+                        .fillMaxWidth()
                 )
             }
 

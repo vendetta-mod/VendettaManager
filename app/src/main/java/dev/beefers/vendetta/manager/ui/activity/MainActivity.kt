@@ -21,14 +21,18 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val version = intent.getStringExtra(Intents.Extras.VERSION)
 
-        if(checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf("android.permission.POST_NOTIFICATIONS"), 0)
+        if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf("android.permission.POST_NOTIFICATIONS"),
+                0
+            )
         }
 
-        val screen = if(intent.action == Intents.Actions.INSTALL && version != null)
-                         InstallerScreen(DiscordVersion.fromVersionCode(version)!!)
-                     else
-                         MainScreen()
+        val screen = if (intent.action == Intents.Actions.INSTALL && version != null)
+            InstallerScreen(DiscordVersion.fromVersionCode(version)!!)
+        else
+            MainScreen()
 
         setContent {
             VendettaManagerTheme {

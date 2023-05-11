@@ -10,6 +10,7 @@
     <locale android:name="en-US"/>
     <locale android:name="es-ES"/>
     <locale android:name="fi-FI"/>
+    <locale android:name="fil-PH"/>
     <locale android:name="fr-FR"/>
     <locale android:name="hu-HU"/>
     <locale android:name="it-IT"/>

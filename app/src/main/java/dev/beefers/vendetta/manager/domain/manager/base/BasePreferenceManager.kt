@@ -22,7 +22,9 @@ abstract class BasePreferenceManager(
         val c = prefs.getString(key, null)
         return if (c == null) defaultValue else Color(c.toULong())
     }
-    private fun getFile(key: String, defaultValue: File) = File(getString(key, defaultValue.absolutePath))
+
+    private fun getFile(key: String, defaultValue: File) =
+        File(getString(key, defaultValue.absolutePath))
 
     protected inline fun <reified E : Enum<E>> getEnum(key: String, defaultValue: E) =
         enumValueOf<E>(getString(key, defaultValue.name))
@@ -33,6 +35,7 @@ abstract class BasePreferenceManager(
     private fun putFloat(key: String, value: Float) = prefs.edit { putFloat(key, value) }
     private fun putColor(key: String, value: Color) =
         prefs.edit { putString(key, value.value.toString()) }
+
     private fun putFile(key: String, value: File) =
         putString(key, value.absolutePath)
 

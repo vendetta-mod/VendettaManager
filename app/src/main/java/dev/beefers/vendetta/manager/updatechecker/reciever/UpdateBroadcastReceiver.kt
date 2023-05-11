@@ -1,22 +1,19 @@
 package dev.beefers.vendetta.manager.updatechecker.reciever
 
-import android.app.Notification
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
-import androidx.core.content.getSystemService
 import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.utils.Channels
 import dev.beefers.vendetta.manager.utils.Constants
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.Intents
-import kotlin.random.Random
 
-class UpdateBroadcastReceiver: BroadcastReceiver() {
+class UpdateBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

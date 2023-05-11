@@ -22,12 +22,15 @@ class SettingsViewModel(
 
     fun updateCheckerDuration(updateCheckerDuration: UpdateCheckerDuration) {
         val wm = WorkManager.getInstance(context)
-        when(updateCheckerDuration) {
+        when (updateCheckerDuration) {
             UpdateCheckerDuration.DISABLED -> wm.cancelUniqueWork("dev.beefers.vendetta.manager.UPDATE_CHECK")
             else -> wm.enqueueUniquePeriodicWork(
                 "dev.beefers.vendetta.manager.UPDATE_CHECK",
                 ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE,
-                PeriodicWorkRequestBuilder<UpdateWorker>(updateCheckerDuration.time, updateCheckerDuration.unit).build()
+                PeriodicWorkRequestBuilder<UpdateWorker>(
+                    updateCheckerDuration.time,
+                    updateCheckerDuration.unit
+                ).build()
             )
         }
     }

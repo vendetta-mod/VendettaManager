@@ -6,13 +6,13 @@ import androidx.annotation.StringRes
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.base.BasePreferenceManager
 import dev.beefers.vendetta.manager.utils.DiscordVersion
-import java.io.File
 import java.util.concurrent.TimeUnit
 
 class PreferenceManager(private val context: Context) :
     BasePreferenceManager(context.getSharedPreferences("prefs", Context.MODE_PRIVATE)) {
 
-    val DEFAULT_MODULE_LOCATION = (context.externalCacheDir ?: context.cacheDir).resolve("vendetta.apk")
+    val DEFAULT_MODULE_LOCATION =
+        (context.externalCacheDir ?: context.cacheDir).resolve("vendetta.apk")
 
     var packageName by stringPreference("package_name", "dev.beefers.vendetta")
 

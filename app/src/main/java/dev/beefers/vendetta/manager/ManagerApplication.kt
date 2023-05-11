@@ -1,13 +1,9 @@
 package dev.beefers.vendetta.manager
 
-import android.Manifest
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
-import android.content.pm.PackageManager
-import androidx.core.app.ActivityCompat
-import androidx.core.content.getSystemService
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
@@ -21,7 +17,6 @@ import dev.beefers.vendetta.manager.updatechecker.worker.UpdateWorker
 import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import java.util.concurrent.TimeUnit
 
 class ManagerApplication : Application() {
 
@@ -43,7 +38,7 @@ class ManagerApplication : Application() {
 
         val prefs: PreferenceManager = get()
 
-        if(prefs.updateDuration != UpdateCheckerDuration.DISABLED) {
+        if (prefs.updateDuration != UpdateCheckerDuration.DISABLED) {
             val duration = prefs.updateDuration
             WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
                 "dev.beefers.vendetta.manager.UPDATE_CHECK",
