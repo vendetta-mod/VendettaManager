@@ -9,6 +9,7 @@ plugins {
 android {
     namespace = "dev.beefers.vendetta.manager"
     compileSdk = 33
+    buildToolsVersion = "33.0.0"
 
     defaultConfig {
         applicationId = "dev.beefers.vendetta.manager"

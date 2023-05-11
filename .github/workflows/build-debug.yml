@@ -33,6 +33,11 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2.0.10
 
+      - name: Setup Build Tools
+        run: |
+          sdkmanager --install "build-tools;34.0.0-rc3"
+          echo y | sdkmanager --licenses
+
       - name: Build APK
         run: chmod +x ./gradlew && ./gradlew assembleDebug
 
