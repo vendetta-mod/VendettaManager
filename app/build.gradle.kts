@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "dev.beefers.vendetta.manager"
-        minSdk = 24
+        minSdk = 28
         targetSdk = 33
         versionCode = 1074
         versionName = "1.0.74"
@@ -82,6 +82,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
     implementation("androidx.paging:paging-compose:1.0.0-alpha18")
+    implementation("androidx.work:work-runtime-ktx:2.8.1")
 
     implementation(platform("androidx.compose:compose-bom:2022.10.00"))
     implementation("androidx.activity:activity-compose:1.7.1")

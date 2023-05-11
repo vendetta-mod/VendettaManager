@@ -95,6 +95,17 @@ class SettingsScreen : ManagerTab {
                 }
             )
             SettingsItemChoice(
+                label = stringResource(R.string.settings_check_updates),
+                pref = prefs.updateDuration,
+                labelFactory = {
+                    ctx.getString(it.labelRes)
+                },
+                onPrefChange = {
+                    prefs.updateDuration = it
+                    viewModel.updateCheckerDuration(it)
+                }
+            )
+            SettingsItemChoice(
                 label = stringResource(R.string.settings_channel),
                 pref = prefs.channel,
                 labelFactory = {
@@ -104,7 +115,6 @@ class SettingsScreen : ManagerTab {
                     prefs.channel = it
                 }
             )
-
             SettingsSwitch(
                 label = stringResource(R.string.settings_auto_clear_cache),
                 secondaryLabel = stringResource(R.string.settings_auto_clear_cache_description),

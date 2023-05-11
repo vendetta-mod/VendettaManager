@@ -1,5 +1,6 @@
 package dev.beefers.vendetta.manager.ui.screen.installer
 
+import android.app.Activity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,6 +27,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
@@ -116,10 +118,14 @@ class InstallerScreen(
     @OptIn(ExperimentalMaterial3Api::class)
     private fun TitleBar() {
         val nav = LocalNavigator.currentOrThrow
+        val activity = LocalContext.current as? Activity
         TopAppBar(
             title = { Text(stringResource(R.string.title_installer)) },
             navigationIcon = {
-                IconButton(onClick = { nav.pop() }) {
+                IconButton(onClick = {
+                    if(!nav.pop())
+                        activity?.finish()
+                }) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = stringResource(R.string.action_back)
