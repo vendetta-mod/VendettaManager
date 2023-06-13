@@ -14,8 +14,8 @@ android {
         applicationId = "dev.beefers.vendetta.manager"
         minSdk = 28
         targetSdk = 33
-        versionCode = 1082
-        versionName = "1.0.82"
+        versionCode = 1083
+        versionName = "1.0.83"
 
         buildConfigField("String", "GIT_BRANCH", "\"${getCurrentBranch()}\"")
         buildConfigField("String", "GIT_COMMIT", "\"${getLatestCommit()}\"")
@@ -34,10 +34,12 @@ android {
             setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
         freeCompilerArgs += listOf(
@@ -46,13 +48,16 @@ android {
             "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=${buildDir.resolve("report").absolutePath}",
         )
     }
+
     buildFeatures {
         compose = true
         buildConfig = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.3.2"
     }
+
     androidComponents {
         onVariants(selector().withBuildType("release")) {
             it.packaging.resources.excludes.apply {
@@ -65,12 +70,13 @@ android {
         }
     }
 
-    packagingOptions {
+    packaging {
         resources {
             // Reflection symbol list (https://stackoverflow.com/a/41073782/13964629)
             excludes += "/**/*.kotlin_builtins"
         }
     }
+
     configurations {
         all {
             exclude(module = "listenablefuture")
