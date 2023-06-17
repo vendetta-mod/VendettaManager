@@ -25,7 +25,7 @@
     <string name="step_add_vd">Injection de Vendetta</string>
     <string name="step_signing">Signature des APKs</string>
     <string name="step_installing">Installation de l\'APK</string>
-    <string name="installer_success">Installation réussite</string>
+    <string name="installer_success">Installation réussie</string>
     <string name="installer_aborted">Installation annulée</string>
     <string name="install_fail_generic">Échec de l\'installation : raison inconnue</string>
     <string name="install_fail_blocked">L\'installation a été bloquée</string>
