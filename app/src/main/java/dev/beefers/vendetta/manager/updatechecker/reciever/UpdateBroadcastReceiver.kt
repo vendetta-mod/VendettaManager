@@ -20,7 +20,7 @@ class UpdateBroadcastReceiver : BroadcastReceiver() {
         val versionCode = intent.getStringExtra(Intents.Extras.VERSION) ?: return
         val version = DiscordVersion.fromVersionCode(versionCode) ?: return
 
-        val notificationId = (System.currentTimeMillis() - Constants.START_TIME).toInt()
+        val notificationId = versionCode.toInt()
 
         val clickIntent = PendingIntent.getActivity(
             context,
