@@ -32,7 +32,7 @@
     <string name="install_fail_invalid">Uno o più APK non erano validi o corrotti</string>
     <string name="install_fail_conflict">Conflitti con un\'app esistente, di solito a causa di firme non corrispondenti</string>
     <string name="install_fail_storage">Spazio disponibile insufficiente per l\'installazione</string>
-    <string name="install_fail_incompatible">Applicazione incompatibile con questo dispositivo</string>
+    <string name="install_fail_incompatible">L\'applicazione non è compatibile con questo dispositivo</string>
     <string name="install_fail_timeout">Tempo scaduto per l\'installazione</string>
     <string name="status_ongoing">In corso</string>
     <string name="status_successful">Riuscito</string>
@@ -79,7 +79,7 @@
     <string name="settings_dynamic_color">Colori dinamici</string>
     <string name="settings_dynamic_color_description">Disponibile solo su Android 12 e versioni successive</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_check_updates">Controlla gli aggiornamenti di Discord</string>
+    <string name="settings_check_updates">Controlla aggiornamenti di Discord</string>
     <string name="settings_advanced">Avanzato</string>
     <string name="settings_app_name">Nome app</string>
     <string name="settings_app_icon">Sostituisci l\'icona dell\'app</string>
