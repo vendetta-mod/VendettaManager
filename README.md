@@ -19,7 +19,8 @@
   <br>
   
   ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/vendetta-mod/VendettaManager?logo=github&logoColor=%23fff&style=for-the-badge)
-  ![Line count](https://img.shields.io/tokei/lines/github/vendetta-mod/VendettaManager?logo=github&logoColor=%23fff&style=for-the-badge)
+  ![Downloads (latest)](https://img.shields.io/github/downloads/vendetta-mod/VendettaManager/latest/total?style=for-the-badge&logo=github&label=Downloads%20(Latest)&color=blue)
+  ![Total downloads](https://img.shields.io/github/downloads/vendetta-mod/VendettaManager/total?style=for-the-badge&logo=github&label=Downloads%20(Total)&color=blue)
   ![GitHub top language](https://img.shields.io/github/languages/top/vendetta-mod/VendettaManager?style=for-the-badge)
 
   <br>
