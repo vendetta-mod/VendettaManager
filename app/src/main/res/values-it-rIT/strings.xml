@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
     <string name="msg_cleared_cache">Cache pulita con successo</string>
-    <string name="msg_load_fail">Caricamento commit non riuscito</string>
+    <string name="msg_load_fail">Caricamento dei commit non riuscito</string>
     <string name="msg_coming_soon">A breve</string>
     <string name="msg_invalid_version">Versione Discord non valida</string>
     <string name="msg_seven_left">Altri 7 tocchi</string>
@@ -80,7 +80,7 @@
     <string name="settings_dynamic_color_description">Disponibile solo su Android 12 e versioni successive</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_check_updates">Controlla aggiornamenti di Discord</string>
-    <string name="settings_advanced">Avanzato</string>
+    <string name="settings_advanced">Avanzate</string>
     <string name="settings_app_name">Nome app</string>
     <string name="settings_app_icon">Sostituisci l\'icona dell\'app</string>
     <string name="settings_app_icon_description">Utilizza l\'icona di Vendetta al posto di Discord</string>
