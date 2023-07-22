@@ -31,7 +31,7 @@
     <string name="install_fail_blocked">Instalace byla zablokována</string>
     <string name="install_fail_invalid">Některé APK soubory byly neplatné nebo požkozené</string>
     <string name="install_fail_conflict">Konflikuje s existující aplikací, obvykle kvůli neshodě podpisů</string>
-    <string name="install_fail_storage">Nedostatek úložiště pro instalaxi</string>
+    <string name="install_fail_storage">Nedostatek úložiště pro instalaci</string>
     <string name="install_fail_incompatible">Aplikace není s tímto zařízením kompatibilní</string>
     <string name="install_fail_timeout">Instalace dosáhla časového limitu</string>
     <string name="status_ongoing">Probíhající</string>
