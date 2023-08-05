@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">Vendetta 管理器</string>
+    <string name="app_name">Vendetta Manager</string>
     <string name="msg_cleared_cache">快取清除完成</string>
     <string name="msg_load_fail">無法載入提交</string>
     <string name="msg_coming_soon">敬請期待</string>
@@ -11,7 +11,7 @@
     <string name="msg_loading">載入中…</string>
     <string name="msg_downgrade">無法降級，請先嘗試解除安裝</string>
     <string name="msg_unlocked">您現在已成為開發人員</string>
-    <string name="msg_permission_grant">為了使 Vendetta 管理器正常運作，您需要授予「管理所有檔案」權限。 由於數據存儲在 ~/Vendetta 中，因此需要權限才能讀取它。</string>
+    <string name="msg_permission_grant">為了使 Vendetta Manager 正常運作，您需要授予「管理所有檔案」權限。由於資料儲存在 ~/Vendetta 中，因此需要權限才能讀取它。</string>
     <string name="group_download">下載 APK</string>
     <string name="group_patch">補丁</string>
     <string name="group_installing">安裝中</string>
@@ -55,7 +55,7 @@
     <string name="action_reload">重新整理</string>
     <string name="action_open_about">開啟關於</string>
     <string name="action_open_settings">開啟設定</string>
-    <string name="action_tap_to_install">點擊安裝 Vendetta Manager %1$s</string>
+    <string name="action_tap_to_install">點擊為 Discord 安裝 Vendetta Manager %1$s</string>
     <string name="installer_cached">已快取</string>
     <string name="title_installer">安裝程式</string>
     <string name="title_home">首頁</string>
@@ -83,10 +83,10 @@
     <string name="settings_advanced">進階</string>
     <string name="settings_app_name">應用程式名稱</string>
     <string name="settings_app_icon">更換應用程示圖示</string>
-    <string name="settings_app_icon_description">使用 Vendetta 的圖示，而不是 Discord 的</string>
+    <string name="settings_app_icon_description">使用 Vendetta 圖示代替 Discord 圖示</string>
     <string name="settings_channel">發布通道</string>
     <string name="settings_auto_clear_cache">自動清除快取</string>
-    <string name="settings_auto_clear_cache_description">當 Discord 更新時，清除快取</string>
+    <string name="settings_auto_clear_cache_description">當 Discord 更新時清除快取</string>
     <string name="settings_module_location">模組位置</string>
     <string name="settings_module_location_description">請小心，此用於開發 Xposed 模組。</string>
     <string name="settings_module_location_reset">重設模組位置</string>
@@ -95,7 +95,7 @@
     <string name="settings_version">Discord 版本</string>
     <string name="settings_debuggable">除錯模式</string>
     <string name="settings_debuggable_description">啟用除錯模式</string>
-    <string name="update_description">Vendetta 管理器版本 %1$s 已可供使用！</string>
+    <string name="update_description">Vendetta Manager 版本 %1$s 已可供使用！</string>
     <string name="channel_stable">穩定版（Stable）</string>
     <string name="channel_beta">測試版（Beta）</string>
     <string name="channel_alpha">早期開發版（Alpha）</string>

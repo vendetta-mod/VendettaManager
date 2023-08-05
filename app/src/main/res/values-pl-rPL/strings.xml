@@ -29,7 +29,7 @@
     <string name="installer_aborted">Instalacja przerwana</string>
     <string name="install_fail_generic">Błąd przy instalacji: nieznany powód</string>
     <string name="install_fail_blocked">Instalacja została zablokowana</string>
-    <string name="install_fail_invalid">Co najmniej jeden plik APK był nieprawidłowy lub uszkodzony</string>
+    <string name="install_fail_invalid">Co najmniej jeden lub więcej plików APK są nieprawidłowe lub uszkodzone</string>
     <string name="install_fail_conflict">Konflikty z istniejącą aplikacją, zazwyczaj z powodu niedopasowanych podpisów</string>
     <string name="install_fail_storage">Brak dostępnej pamięci do zainstalowania</string>
     <string name="install_fail_incompatible">Aplikacja jest niekompatybilna z tym urządzeniem</string>
@@ -86,10 +86,10 @@
     <string name="settings_app_icon_description">Używa ikony Vendetta zamiast Discorda</string>
     <string name="settings_channel">Kanał wydania</string>
     <string name="settings_auto_clear_cache">Automatycznie czyść pamięć podręczną</string>
-    <string name="settings_auto_clear_cache_description">Czyść pamięć podręczną po aktualizacji Discorda</string>
+    <string name="settings_auto_clear_cache_description">Czyści pamięć podręczną, kiedy Discord otrzymuje aktualizację</string>
     <string name="settings_module_location">Lokalizacja modułów</string>
-    <string name="settings_module_location_description">For use with developing the Xposed module. BE CAREFUL</string>
-    <string name="settings_module_location_reset">Reset module location</string>
+    <string name="settings_module_location_description">Do użycia przy tworzeniu modułu Xposed. BĄDŹ OSTROŻNY</string>
+    <string name="settings_module_location_reset">Zresetuj lokalizację modułu</string>
     <string name="settings_developer">Tylko dla deweloperów</string>
     <string name="settings_package_name">Nazwa pakietu</string>
     <string name="settings_version">Wersja Discorda</string>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
-    <string name="msg_cleared_cache">Cache cleared successfully</string>
+    <string name="msg_cleared_cache">Hurtigminnet tømt</string>
     <string name="msg_load_fail">Failed to load commits</string>
-    <string name="msg_coming_soon">Coming soon</string>
-    <string name="msg_invalid_version">Invalid Discord version</string>
-    <string name="msg_seven_left">7 more taps</string>
-    <string name="msg_five_left">5 more taps</string>
-    <string name="msg_two_left">2 more taps</string>
-    <string name="msg_loading">Loading…</string>
-    <string name="msg_downgrade">Cannot downgrade, try uninstalling first</string>
-    <string name="msg_unlocked">You are now a developer</string>
-    <string name="msg_permission_grant">In order for Vendetta Manager to function, file permissions are required. Since shared data is stored in ~/Vendetta, permissions are required in order to access it.</string>
-    <string name="group_download">Download APKs</string>
-    <string name="group_patch">Patching</string>
+    <string name="msg_coming_soon">Kommer snart</string>
+    <string name="msg_invalid_version">Ugyldig Discord-versjon</string>
+    <string name="msg_seven_left">7 flere trykk</string>
+    <string name="msg_five_left">5 flere trykk</string>
+    <string name="msg_two_left">2 flere trykk</string>
+    <string name="msg_loading">Laster…</string>
+    <string name="msg_downgrade">Kan ikke nedgradere, prøv å avinstallere først</string>
+    <string name="msg_unlocked">Du er utvikler nå</string>
+    <string name="msg_permission_grant">For at Vendetta Manager skal fungere, er filtillatelser påkrevd. Siden delte data lagres i ~/Vendetta, kreves tillatelser for å få tilgang til den.</string>
+    <string name="group_download">Last ned APK</string>
+    <string name="group_patch">Oppdaterer</string>
     <string name="group_installing">Installing</string>
     <string name="step_dl_base">Downloading base apk</string>
     <string name="step_dl_lib">Downloading libraries apk</string>
