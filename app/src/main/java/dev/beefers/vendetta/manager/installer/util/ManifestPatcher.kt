@@ -17,6 +17,8 @@ object ManifestPatcher {
     private const val PACKAGE = "package"
     private const val COMPILE_SDK_VERSION = "compileSdkVersion"
     private const val COMPILE_SDK_VERSION_CODENAME = "compileSdkVersionCodename"
+    private const val DRNE_PERMISSION = "DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+    private const val DISCORD_DRNE_PERMISSION = "com.discord.$DRNE_PERMISSION"
 
     fun patchManifest(
         manifestBytes: ByteArray,
@@ -57,6 +59,22 @@ object ManifestPatcher {
                         }
 
                         return when (name) {
+                            "permission" -> object : NodeVisitor(nv) {
+                                override fun attr(
+                                    ns: String?,
+                                    name: String?,
+                                    resourceId: Int,
+                                    type: Int,
+                                    value: Any?
+                                ) {
+                                    if(name == "name" && value == DISCORD_DRNE_PERMISSION) {
+                                        super.attr(ns, name, resourceId, type, "$packageName.$DRNE_PERMISSION")
+                                    } else {
+                                        super.attr(ns, name, resourceId, type, value)
+                                    }
+                                }
+                            }
+
                             "uses-permission" -> object : NodeVisitor(nv) {
                                 override fun attr(
                                     ns: String?,
@@ -65,6 +83,10 @@ object ManifestPatcher {
                                     type: Int,
                                     value: Any?
                                 ) {
+                                    if(name == "name" && value == DISCORD_DRNE_PERMISSION) {
+                                        super.attr(ns, name, resourceId, type, "$packageName.$DRNE_PERMISSION")
+                                    }
+
                                     if (name != "maxSdkVersion") {
                                         super.attr(ns, name, resourceId, type, value)
                                     }
