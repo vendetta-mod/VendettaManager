@@ -30,7 +30,7 @@
     <string name="install_fail_generic">Kurulum başarısız oldu: Bilinmeyen sebep</string>
     <string name="install_fail_blocked">Kurulum engellendi</string>
     <string name="install_fail_invalid">Bir ya da daha fazla APK geçersiz ya da bozuk</string>
-    <string name="install_fail_conflict">Mevcut bir uygulamayla çalışıyor, genellikle uyumsuz imzalar sebep olur</string>
+    <string name="install_fail_conflict">Mevcut bir uygulamayla çakışıyor, genellikle uyumsuz imzalar sebep olur</string>
     <string name="install_fail_storage">Kurmak için yeterli depolama alanı yok</string>
     <string name="install_fail_incompatible">Uygulama bu cihaz ile uyumsuz</string>
     <string name="install_fail_timeout">Kurulum zaman aşımına uğradı</string>
@@ -83,7 +83,7 @@
     <string name="settings_advanced">Gelişmiş</string>
     <string name="settings_app_name">Uygulama ismi</string>
     <string name="settings_app_icon">Uygulama simgesini değiştir</string>
-    <string name="settings_app_icon_description">Discord yerine Vendetta\'nın simgesini kullanır</string>
+    <string name="settings_app_icon_description">Discord\'unki yerine Vendetta\'nın simgesini kullanır</string>
     <string name="settings_channel">Yayın kanalı</string>
     <string name="settings_auto_clear_cache">Önbelleği otomatik olarak temizle</string>
     <string name="settings_auto_clear_cache_description">Discord güncelleme aldığında önbelleği temizler</string>
