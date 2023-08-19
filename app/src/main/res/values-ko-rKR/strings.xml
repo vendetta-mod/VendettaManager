@@ -53,11 +53,11 @@
     <string name="action_info">정보</string>
     <string name="action_retry">재시도</string>
     <string name="action_reload">새로고침</string>
-    <string name="action_open_about">Open about</string>
+    <string name="action_open_about">정보 보기</string>
     <string name="action_open_settings">설정 열기</string>
     <string name="action_tap_to_install">Discord %1$s의 Vendetta를 설치하려면 클릭하세요</string>
     <string name="installer_cached">캐시됨</string>
-    <string name="title_installer">Installer</string>
+    <string name="title_installer">설치하기</string>
     <string name="title_home">홈</string>
     <string name="title_settings">설정</string>
     <string name="title_update">업데이트 가능!</string>
