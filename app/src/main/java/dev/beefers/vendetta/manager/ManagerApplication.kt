@@ -24,8 +24,6 @@ class ManagerApplication : Application() {
         super.onCreate()
         initNotificationChannels()
 
-
-
         startKoin {
             androidContext(this@ManagerApplication)
             modules(
