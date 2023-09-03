@@ -29,6 +29,7 @@ import dev.beefers.vendetta.manager.utils.copyText
 import dev.beefers.vendetta.manager.utils.isMiui
 import dev.beefers.vendetta.manager.utils.showToast
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.lsposed.patch.util.Logger
@@ -44,6 +45,9 @@ class InstallerViewModel(
     private val discordVersion: DiscordVersion,
     val installManager: InstallManager
 ) : ScreenModel {
+    var backDialogOpened by mutableStateOf(false)
+        private set
+
     private val installationRunning = AtomicBoolean(false)
     private val cacheDir = context.externalCacheDir ?: context.cacheDir
     private var debugInfo = """
@@ -88,6 +92,14 @@ class InstallerViewModel(
         context.showToast(R.string.msg_cleared_cache)
     }
 
+    fun openBackDialog() {
+        backDialogOpened = true
+    }
+
+    fun closeBackDialog() {
+        backDialogOpened = false
+    }
+
     fun launchVendetta() {
         installManager.current?.let {
             val intent = context.packageManager.getLaunchIntentForPackage(it.packageName)?.apply {
@@ -104,6 +116,12 @@ class InstallerViewModel(
 
         withContext(Dispatchers.IO) {
             install()
+        }
+    }
+
+    fun cancelInstall() {
+        runCatching {
+            job.cancel("User exited the installer")
         }
     }
 

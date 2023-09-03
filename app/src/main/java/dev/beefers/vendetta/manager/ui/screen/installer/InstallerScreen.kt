@@ -1,6 +1,6 @@
 package dev.beefers.vendetta.manager.ui.screen.installer
 
-import android.app.Activity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,7 +27,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
@@ -36,6 +35,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
+import dev.beefers.vendetta.manager.ui.widgets.dialog.BackWarningDialog
 import dev.beefers.vendetta.manager.ui.widgets.installer.StepGroupCard
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import org.koin.core.parameter.parametersOf
@@ -47,6 +47,7 @@ class InstallerScreen(
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
+        val nav = LocalNavigator.currentOrThrow
         val viewModel: InstallerViewModel = getScreenModel {
             parametersOf(version)
         }
@@ -59,8 +60,34 @@ class InstallerScreen(
             expandedGroup = viewModel.currentStep?.group
         }
 
+        BackHandler(
+            enabled = !viewModel.isFinished
+        ) {
+            viewModel.openBackDialog()
+        }
+
+        if(viewModel.backDialogOpened) {
+            BackWarningDialog(
+                onExitClick = {
+                    viewModel.closeBackDialog()
+                    viewModel.cancelInstall()
+                    nav.pop()
+                },
+                onClose = { viewModel.closeBackDialog() }
+            )
+        }
+
         Scaffold(
-            topBar = { TitleBar() }
+            topBar = {
+                TitleBar(
+                    onBackClick = {
+                        if(!viewModel.isFinished)
+                            viewModel.openBackDialog()
+                        else
+                            nav.pop()
+                    }
+                )
+            }
         ) {
             Column(
                 modifier = Modifier
@@ -116,16 +143,13 @@ class InstallerScreen(
 
     @Composable
     @OptIn(ExperimentalMaterial3Api::class)
-    private fun TitleBar() {
-        val nav = LocalNavigator.currentOrThrow
-        val activity = LocalContext.current as? Activity
+    private fun TitleBar(
+        onBackClick: () -> Unit
+    ) {
         TopAppBar(
             title = { Text(stringResource(R.string.title_installer)) },
             navigationIcon = {
-                IconButton(onClick = {
-                    if (!nav.pop())
-                        activity?.finish()
-                }) {
+                IconButton(onClick = onBackClick) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = stringResource(R.string.action_back)
