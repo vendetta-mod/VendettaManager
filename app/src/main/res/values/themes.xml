@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.Manager" parent="android:Theme.Material.NoActionBar" />
 
-    <style name="Theme.VendettaManager" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Manager.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/vendetta_logo</item>
+        <item name="windowSplashScreenBackground">@color/vendetta_brand</item>
+        <item name="postSplashScreenTheme">@style/Theme.Manager</item>
+    </style>
 </resources>

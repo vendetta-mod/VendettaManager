@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.core.app.ActivityCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.SlideTransition
 import dev.beefers.vendetta.manager.ui.screen.installer.InstallerScreen
@@ -18,6 +19,7 @@ import dev.beefers.vendetta.manager.utils.Intents
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         val version = intent.getStringExtra(Intents.Extras.VERSION)
 
