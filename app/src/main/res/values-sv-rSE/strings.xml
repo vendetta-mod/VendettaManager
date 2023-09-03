@@ -56,6 +56,9 @@
     <string name="action_open_about">Öppna \"om\"</string>
     <string name="action_open_settings">Öppna inställningar</string>
     <string name="action_tap_to_install">Tryck för att installera Vendetta för Discord %1$s</string>
+    <string name="action_confirm_exit">Exit anyways</string>
+    <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Cachad</string>
     <string name="title_installer">Installerare</string>
     <string name="title_home">Hem</string>
@@ -64,6 +67,7 @@
     <string name="title_about">Om</string>
     <string name="title_permission_grant">Ge Behörigheter</string>
     <string name="title_update_available">Ny Discord-uppdatering tillgänglig!</string>
+    <string name="title_warning">Warning</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Ljust</string>
     <string name="theme_dark">Mörkt</string>

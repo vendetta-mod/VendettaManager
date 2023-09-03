@@ -56,6 +56,9 @@
     <string name="action_open_about">Abrir \"acerca de\"</string>
     <string name="action_open_settings">Abrir configuración</string>
     <string name="action_tap_to_install">Toca para instalar Vendetta para Discord %1$s</string>
+    <string name="action_confirm_exit">Exit anyways</string>
+    <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">En caché</string>
     <string name="title_installer">Instalador</string>
     <string name="title_home">Inicio</string>
@@ -64,6 +67,7 @@
     <string name="title_about">Acerca de</string>
     <string name="title_permission_grant">Otorgar Permisos</string>
     <string name="title_update_available">¡Nueva actualización de Discord disponible!</string>
+    <string name="title_warning">Warning</string>
     <string name="theme_system">Sistema</string>
     <string name="theme_light">Claro</string>
     <string name="theme_dark">Oscuro</string>

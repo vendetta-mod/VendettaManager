@@ -56,6 +56,9 @@
     <string name="action_open_about">Άνοιγμα σχετικά με</string>
     <string name="action_open_settings">Άνοιγμα ρυθμίσεων</string>
     <string name="action_tap_to_install">Πατήστε για να εγκαταστήσετε το Vendetta για το Discord %1$s</string>
+    <string name="action_confirm_exit">Exit anyways</string>
+    <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Στη προσωρινή μνήμη</string>
     <string name="title_installer">Εγκαταστάτης</string>
     <string name="title_home">Αρχική</string>
@@ -64,6 +67,7 @@
     <string name="title_about">Σχετικά με</string>
     <string name="title_permission_grant">Εκχώρηση Δικαιωμάτων</string>
     <string name="title_update_available">Νέα ενημέρωση για το Discord είναι διαθέσιμη!</string>
+    <string name="title_warning">Warning</string>
     <string name="theme_system">Σύστημα</string>
     <string name="theme_light">Ανοιχτό</string>
     <string name="theme_dark">Σκούρο</string>

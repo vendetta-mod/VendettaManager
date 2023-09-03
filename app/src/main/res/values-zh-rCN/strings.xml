@@ -56,6 +56,9 @@
     <string name="action_open_about">打开关于</string>
     <string name="action_open_settings">打开设置</string>
     <string name="action_tap_to_install">点击为 Discord 安装 Vendetta Manager %1$s</string>
+    <string name="action_confirm_exit">Exit anyways</string>
+    <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">已缓存</string>
     <string name="title_installer">安装程序</string>
     <string name="title_home">首页</string>
@@ -64,6 +67,7 @@
     <string name="title_about">关于</string>
     <string name="title_permission_grant">授予权限</string>
     <string name="title_update_available">有可供使用的 Discord 更新！</string>
+    <string name="title_warning">Warning</string>
     <string name="theme_system">系统</string>
     <string name="theme_light">浅色</string>
     <string name="theme_dark">深色</string>
