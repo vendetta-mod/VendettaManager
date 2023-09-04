@@ -1,10 +1,12 @@
 package dev.beefers.vendetta.manager.domain.manager
 
+import android.annotation.SuppressLint
 import android.app.DownloadManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
 import androidx.core.content.getSystemService
 import androidx.core.net.toUri
 import dev.beefers.vendetta.manager.BuildConfig
@@ -97,10 +99,19 @@ class DownloadManager(
                 }
             }
 
-            context.registerReceiver(
-                receiver,
-                IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)
-            )
+            @SuppressLint("UnspecifiedRegisterReceiverFlag")
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                context.registerReceiver(
+                    receiver,
+                    IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE),
+                    Context.RECEIVER_EXPORTED
+                )
+            } else {
+                context.registerReceiver(
+                    receiver,
+                    IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE)
+                )
+            }
 
             receiver.downloadId = DownloadManager.Request(url.toUri()).run {
                 setTitle("Vendetta Manager: Downloading ${out.name}")
