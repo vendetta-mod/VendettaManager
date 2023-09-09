@@ -56,7 +56,7 @@
     <string name="action_open_about">Apri informazioni</string>
     <string name="action_open_settings">Apri impostazioni</string>
     <string name="action_tap_to_install">Tocca per installare Vendetta per Discord %1$s</string>
-    <string name="action_confirm_exit">Exit anyways</string>
+    <string name="action_confirm_exit">Esci comunque</string>
     <string name="action_dismiss_nevermind">Nevermind</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Memorizz. nella cache</string>
