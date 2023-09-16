@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">Gestionnaire de Vendetta</string>
+    <string name="app_name">Gestionnaire Vendetta</string>
     <string name="msg_cleared_cache">Le cache a été supprimé avec succès</string>
     <string name="msg_load_fail">Échec du chargement des commits</string>
     <string name="msg_coming_soon">Bientôt disponible</string>
@@ -9,28 +9,28 @@
     <string name="msg_five_left">Appuyez encore 5 fois</string>
     <string name="msg_two_left">Appuyez encore 2 fois</string>
     <string name="msg_loading">Chargement en cours…</string>
-    <string name="msg_downgrade">Impossible de revenir à la version ultérieure, essayez d\'abord de la désinstaller puis réessayez</string>
-    <string name="msg_unlocked">Mode développeur activé</string>
-    <string name="msg_permission_grant">Pour que le Gestionnaire de Vendetta fonctionne correctement, la permission de stockage de fichier est requise. Les fichiers sont stockés dans le dossier Vendetta, il faut donc la permission pour y accéder.</string>
+    <string name="msg_downgrade">Impossible de rétrograder la version, essayez d\'abord de la désinstaller puis réessayez</string>
+    <string name="msg_unlocked">Vous êtes maintenant un développeur</string>
+    <string name="msg_permission_grant">Pour que le Gestionnaire de Vendetta fonctionne correctement, la permission d\'accès au stockage est requise. Les données partagées étant stockées dans ~/Vendetta, des autorisations sont nécessaires pour y accéder.</string>
     <string name="group_download">Télécharger l\'APK</string>
     <string name="group_patch">Patch en cours</string>
     <string name="group_installing">Installation en cours</string>
     <string name="step_dl_base">Téléchargement de l\'APK original</string>
     <string name="step_dl_lib">Téléchargement de l\'APK de librairies</string>
-    <string name="step_dl_lang">Téléchargement de l\'APK de langage </string>
-    <string name="step_dl_res">Téléchargement des ressources de l\'APK</string>
+    <string name="step_dl_lang">Téléchargement de l\'APK de langue</string>
+    <string name="step_dl_res">Téléchargement de l\'APK de ressources</string>
     <string name="step_dl_vd">Téléchargement du module Vendetta</string>
     <string name="step_change_icon">Modification de l\'icône de l\'app</string>
     <string name="step_patch_manifests">Modification des manifestes de l\'app</string>
     <string name="step_add_vd">Injection de Vendetta</string>
     <string name="step_signing">Signature des APKs</string>
-    <string name="step_installing">Installation de l\'APK</string>
+    <string name="step_installing">Installation des APKs</string>
     <string name="installer_success">Installation réussie</string>
     <string name="installer_aborted">Installation annulée</string>
     <string name="install_fail_generic">Échec de l\'installation : raison inconnue</string>
     <string name="install_fail_blocked">L\'installation a été bloquée</string>
-    <string name="install_fail_invalid">Un ou plusieurs APK sont invalides ou corrompus</string>
-    <string name="install_fail_conflict">Conflit avec une application existante, généralement à cause de signatures incorrect</string>
+    <string name="install_fail_invalid">Un ou plusieurs APKs sont invalides ou corrompus</string>
+    <string name="install_fail_conflict">Conflit avec une application existante, généralement à cause de signatures incompatibles</string>
     <string name="install_fail_storage">Stockage insuffisant pour installer</string>
     <string name="install_fail_incompatible">L\'application n\'est pas compatible avec cet appareil</string>
     <string name="install_fail_timeout">Installation échouée : Temps limite dépassée</string>
@@ -42,7 +42,7 @@
     <string name="action_expand">Agrandir</string>
     <string name="action_back">Précédent</string>
     <string name="action_copy_logs">Copier les logs</string>
-    <string name="action_clear_cache">Nettoyer le cache</string>
+    <string name="action_clear_cache">Vider le cache</string>
     <string name="action_confirm">Confirmer</string>
     <string name="action_start_update">Démarrer la mise à jour</string>
     <string name="action_install">Installer</string>
@@ -56,9 +56,9 @@
     <string name="action_open_about">Ouvrir la page « à propos »</string>
     <string name="action_open_settings">Ouvrir les paramètres</string>
     <string name="action_tap_to_install">Appuyez ici pour installer Vendetta pour Discord %1$s</string>
-    <string name="action_confirm_exit">Exit anyways</string>
-    <string name="action_dismiss_nevermind">Nevermind</string>
-    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
+    <string name="action_confirm_exit">Quitter quand même</string>
+    <string name="action_dismiss_nevermind">Jamais</string>
+    <string name="msg_back_warning">Quitter le programme d\'installation avant qu\'il ne soit terminé pourrait corrompre les fichiers téléchargés. Êtes-vous sûr de vouloir le faire ?</string>
     <string name="installer_cached">Mis en cache</string>
     <string name="title_installer">Installateur</string>
     <string name="title_home">Accueil</string>
@@ -67,7 +67,7 @@
     <string name="title_about">À propos</string>
     <string name="title_permission_grant">Accorder les permissions</string>
     <string name="title_update_available">Une nouvelle mise à jour de Discord est disponible !</string>
-    <string name="title_warning">Warning</string>
+    <string name="title_warning">Avertissement</string>
     <string name="theme_system">Système</string>
     <string name="theme_light">Clair</string>
     <string name="theme_dark">Sombre</string>
