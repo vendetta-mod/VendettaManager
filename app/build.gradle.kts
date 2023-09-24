@@ -8,14 +8,14 @@ plugins {
 
 android {
     namespace = "dev.beefers.vendetta.manager"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "dev.beefers.vendetta.manager"
         minSdk = 28
         targetSdk = 34
-        versionCode = 1090
-        versionName = "1.0.9"
+        versionCode = 1091
+        versionName = "1.0.91"
 
         buildConfigField("String", "GIT_BRANCH", "\"${getCurrentBranch()}\"")
         buildConfigField("String", "GIT_COMMIT", "\"${getLatestCommit()}\"")
