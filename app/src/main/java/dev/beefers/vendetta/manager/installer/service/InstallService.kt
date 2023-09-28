@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageInstaller
 import android.os.IBinder
 import dev.beefers.vendetta.manager.R
+import dev.beefers.vendetta.manager.ui.activity.MainActivity
 import dev.beefers.vendetta.manager.utils.showToast
 
 class InstallService : Service() {
@@ -35,7 +36,18 @@ class InstallService : Service() {
             PackageInstaller.STATUS_FAILURE_ABORTED -> if (isInstall) showToast(R.string.installer_aborted)
 
             else -> {
-                if (isInstall) messages[statusCode]?.let(::showToast)
+                if (isInstall) {
+                    messages[statusCode]?.let(::showToast)
+
+                    // Send error messages back to the activity for debugging (to be received by InstallerScreen)
+                    startActivity(
+                        Intent("vendetta.actions.ACTION_INSTALL_FINISHED").apply {
+                            setClass(this@InstallService, MainActivity::class.java)
+                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            putExtra("vendetta.extras.EXTRA_MESSAGE", intent.getStringExtra(PackageInstaller.EXTRA_STATUS_MESSAGE))
+                        }
+                    )
+                }
             }
         }
 

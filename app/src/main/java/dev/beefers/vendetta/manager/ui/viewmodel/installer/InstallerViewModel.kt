@@ -83,6 +83,8 @@ class InstallerViewModel(
         }
     }
 
+    fun addLogError(msg: String) = logger.e("\n$msg")
+
     fun copyDebugInfo() {
         context.copyText(debugInfo)
     }
@@ -348,7 +350,7 @@ class InstallerViewModel(
             logger.i("Creating dir for signed apks")
             signedDir.mkdir()
             val apks = arrayOf(baseApk, libsApk, langApk, resApk)
-            if (Build.VERSION.SDK_INT >= 31) {
+            if (Build.VERSION.SDK_INT >= 30) {
                 for (file in apks) {
                     logger.i("Byte aligning ${file!!.name}")
                     val bytes = ZipReader(file).use {

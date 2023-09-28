@@ -1,5 +1,7 @@
 package dev.beefers.vendetta.manager.ui.screen.installer
 
+import android.content.Intent
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,14 +23,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.util.Consumer
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -48,6 +53,7 @@ class InstallerScreen(
     @Composable
     override fun Content() {
         val nav = LocalNavigator.currentOrThrow
+        val activity = LocalContext.current as? ComponentActivity
         val viewModel: InstallerViewModel = getScreenModel {
             parametersOf(version)
         }
@@ -58,6 +64,21 @@ class InstallerScreen(
 
         LaunchedEffect(viewModel.currentStep) {
             expandedGroup = viewModel.currentStep?.group
+        }
+
+        // Listen for error messages from InstallService
+        val intentListener: (Intent) -> Unit = remember {
+            {
+                val msg = it.getStringExtra("vendetta.extras.EXTRA_MESSAGE")
+                viewModel.addLogError(msg ?: "")
+            }
+        }
+
+        DisposableEffect(Unit) {
+            activity?.addOnNewIntentListener(intentListener)
+            onDispose {
+                activity?.removeOnNewIntentListener(intentListener)
+            }
         }
 
         BackHandler(
