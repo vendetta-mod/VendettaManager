@@ -63,10 +63,10 @@
     <string name="title_installer">安裝程式</string>
     <string name="title_home">首頁</string>
     <string name="title_settings">設定</string>
-    <string name="title_update">更新可供使用！</string>
+    <string name="title_update">有可供使用的更新！</string>
     <string name="title_about">關於</string>
     <string name="title_permission_grant">授予權限</string>
-    <string name="title_update_available">有可供使用的 Discord 更新！</string>
+    <string name="title_update_available">有可供使用的新 Discord 更新！</string>
     <string name="title_warning">警告</string>
     <string name="theme_system">系統</string>
     <string name="theme_light">淺色</string>
