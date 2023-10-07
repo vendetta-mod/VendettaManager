@@ -55,10 +55,10 @@
     <string name="action_reload">새로고침</string>
     <string name="action_open_about">정보 보기</string>
     <string name="action_open_settings">설정 열기</string>
-    <string name="action_tap_to_install">Discord %1$s의 Vendetta를 설치하려면 클릭하세요</string>
+    <string name="action_tap_to_install">Discord %1$s의 Vendetta를 설치하려면 누르세요</string>
     <string name="action_confirm_exit">그래도 종료하기</string>
     <string name="action_dismiss_nevermind">괜찮아요</string>
-    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
+    <string name="msg_back_warning">완료되기 전 설치기를 벗어나면 다운로드한 파일이 손상될 수 있어요. 그래도 계속할까요?</string>
     <string name="installer_cached">캐시됨</string>
     <string name="title_installer">설치하기</string>
     <string name="title_home">홈</string>
