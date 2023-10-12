@@ -63,5 +63,6 @@ enum class UpdateCheckerDuration(@StringRes val labelRes: Int, val time: Long, v
 
 enum class Mirror(val baseUrl: String) {
     DEFAULT("https://vd.k6.tf"),
+    VENDETTA_ROCKS("https://proxy.vendetta.rocks"),
     NEXPID("https://vd.k6.tf.nexpid.xyz")
 }
