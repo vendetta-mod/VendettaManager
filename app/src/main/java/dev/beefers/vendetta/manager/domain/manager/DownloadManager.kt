@@ -16,16 +16,17 @@ import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
 class DownloadManager(
-    private val context: Context
+    private val context: Context,
+    private val prefs: PreferenceManager
 ) {
     private val downloadManager = context.getSystemService<DownloadManager>()!!
 
     // Discord APK downloading
     suspend fun downloadDiscordApk(version: String, out: File): File =
-        download("$BACKEND_HOST/tracker/download/$version/base", out)
+        download("${prefs.mirror.baseUrl}/tracker/download/$version/base", out)
 
     suspend fun downloadSplit(version: String, split: String, out: File): File =
-        download("$BACKEND_HOST/tracker/download/$version/$split", out)
+        download("${prefs.mirror.baseUrl}/tracker/download/$version/$split", out)
 
     suspend fun downloadVendetta(out: File) =
         download(
@@ -47,6 +48,7 @@ class DownloadManager(
                 var downloadId = 0L
 
                 override fun onReceive(context: Context, intent: Intent) {
+                    println("Hello")
                     val id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
 
                     if (downloadId != id) return
@@ -68,6 +70,9 @@ class DownloadManager(
                             status to reason
                         }
                     }
+
+                    println(status)
+                    println(reasonToString(reason))
 
                     when (status) {
                         // Cancelled
@@ -94,7 +99,9 @@ class DownloadManager(
                             )
                         }
 
-                        else -> {}
+                        else -> {
+                            println(status)
+                        }
                     }
                 }
             }
@@ -136,10 +143,6 @@ class DownloadManager(
             DownloadManager.ERROR_FILE_ALREADY_EXISTS -> "File already exists"
             else -> "Unknown error"
         }
-    }
-
-    companion object {
-        private const val BACKEND_HOST = "https://vd.k6.tf"
     }
 
 }

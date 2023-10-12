@@ -35,25 +35,32 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.util.Consumer
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.core.screen.ScreenKey
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
 import dev.beefers.vendetta.manager.ui.widgets.dialog.BackWarningDialog
+import dev.beefers.vendetta.manager.ui.widgets.dialog.DownloadFailedDialog
 import dev.beefers.vendetta.manager.ui.widgets.installer.StepGroupCard
 import dev.beefers.vendetta.manager.utils.DiscordVersion
+import kotlinx.coroutines.delay
 import org.koin.core.parameter.parametersOf
+import java.util.UUID
 
 class InstallerScreen(
     val version: DiscordVersion
 ) : Screen {
+
+    override val key: ScreenKey = "Installer-${UUID.randomUUID()}"
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun Content() {
         val nav = LocalNavigator.currentOrThrow
         val activity = LocalContext.current as? ComponentActivity
+        var timeoutDuration = remember { 30 /* seconds */ }
         val viewModel: InstallerViewModel = getScreenModel {
             parametersOf(version)
         }
@@ -63,7 +70,15 @@ class InstallerScreen(
         }
 
         LaunchedEffect(viewModel.currentStep) {
+            var timer = 0 // seconds
             expandedGroup = viewModel.currentStep?.group
+            while (viewModel.currentStep?.group == InstallerViewModel.InstallStepGroup.DL) {
+                if(!viewModel.failedOnDownload) {
+                    if(timer > timeoutDuration) viewModel.failedOnDownload = true
+                    timer += 1
+                }
+                delay(1000)
+            }
         }
 
         // Listen for error messages from InstallService
@@ -95,6 +110,20 @@ class InstallerScreen(
                     nav.pop()
                 },
                 onClose = { viewModel.closeBackDialog() }
+            )
+        }
+
+        if(viewModel.failedOnDownload) {
+            DownloadFailedDialog(
+                onTryAgainClick = {
+                    viewModel.failedOnDownload = false
+                    viewModel.cancelInstall()
+                    nav.replace(InstallerScreen(version))
+                },
+                onDismiss = {
+                    viewModel.failedOnDownload = false
+                    timeoutDuration += 30
+                }
             )
         }
 

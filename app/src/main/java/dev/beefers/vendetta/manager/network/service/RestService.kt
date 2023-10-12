@@ -1,5 +1,6 @@
 package dev.beefers.vendetta.manager.network.service
 
+import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.network.dto.Commit
 import dev.beefers.vendetta.manager.network.dto.Index
 import dev.beefers.vendetta.manager.network.dto.Release
@@ -9,7 +10,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class RestService(
-    private val httpService: HttpService
+    private val httpService: HttpService,
+    private val prefs: PreferenceManager
 ) {
 
     suspend fun getLatestRelease(repo: String) = withContext(Dispatchers.IO) {
@@ -20,7 +22,7 @@ class RestService(
 
     suspend fun getLatestDiscordVersions() = withContext(Dispatchers.IO) {
         httpService.request<Index> {
-            url("https://vd.k6.tf/tracker/index")
+            url("${prefs.mirror.baseUrl}/tracker/index")
         }
     }
 

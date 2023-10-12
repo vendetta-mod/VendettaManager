@@ -26,6 +26,8 @@ class PreferenceManager(private val context: Context) :
 
     var debuggable by booleanPreference("debuggable", false)
 
+    var mirror by enumPreference("mirror", Mirror.DEFAULT)
+
     var monet by booleanPreference("monet", Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
 
     var isDeveloper by booleanPreference("is_developer", false)
@@ -57,4 +59,9 @@ enum class UpdateCheckerDuration(@StringRes val labelRes: Int, val time: Long, v
     TWICE_DAILY(R.string.duration_twice_daily, 12, TimeUnit.HOURS),
     DAILY(R.string.duration_daily, 1, TimeUnit.DAYS),
     WEEKLY(R.string.duration_weekly, 7, TimeUnit.DAYS)
+}
+
+enum class Mirror(val baseUrl: String) {
+    DEFAULT("https://vd.k6.tf"),
+    NEXPID("https://vd.k6.tf.nexpid.xyz")
 }

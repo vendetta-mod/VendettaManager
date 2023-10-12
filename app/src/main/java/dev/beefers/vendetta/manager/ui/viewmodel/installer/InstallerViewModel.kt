@@ -48,6 +48,8 @@ class InstallerViewModel(
     var backDialogOpened by mutableStateOf(false)
         private set
 
+    var failedOnDownload by mutableStateOf(false)
+
     private val installationRunning = AtomicBoolean(false)
     private val cacheDir = context.externalCacheDir ?: context.cacheDir
     private var debugInfo = """
@@ -421,6 +423,7 @@ class InstallerViewModel(
 
             logger.e("\nFailed on step ${step.name}\n")
             logger.e(e.stackTraceToString())
+            if(step.group == InstallStepGroup.DL) failedOnDownload = true
 
             currentStep = step
             isFinished = true
