@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Nelze jít o verzi zpět. Nejdříve zkuste odinstalovat</string>
     <string name="msg_unlocked">Nyní jste vývojářem</string>
     <string name="msg_permission_grant">Aby Správce Vendetty fungoval, jsou vyžadována oprávnění k přístupu k souborům. Protože jsou sdílená data uložena ve složce ~/Vendetta, je pro přístup k ní požadováno oprávnění.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">Stáhnout soubory APK</string>
     <string name="group_patch">Vkládání</string>
     <string name="group_installing">Instalování</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">Klepni pro nainstalování Vendetty pro Discord %1$s</string>
     <string name="action_confirm_exit">Exit anyways</string>
     <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">V mezipaměti</string>
     <string name="title_installer">Instalátor</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">Udělit oprávnění</string>
     <string name="title_update_available">Je k dispozici nová verze Discordu!</string>
     <string name="title_warning">Warning</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">Systémový</string>
     <string name="theme_light">Světlý</string>
     <string name="theme_dark">Tmavý</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">Nahradit ikonu aplikace</string>
     <string name="settings_app_icon_description">Používá ikonu Vendetta místo ikony Discordu</string>
     <string name="settings_channel">Kanál vydání</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">Automaticky mazat mezipaměť</string>
     <string name="settings_auto_clear_cache_description">Vymaže mezipaměť když se aktualizuje Discord</string>
     <string name="settings_module_location">Umístění modulu</string>

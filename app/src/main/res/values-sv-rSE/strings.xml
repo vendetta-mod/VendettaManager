@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Kan inte nedgradera, försök att avinstallera först</string>
     <string name="msg_unlocked">Du är nu en utvecklare</string>
     <string name="msg_permission_grant">För att Vendetta Hanteraren ska kunna fungera så krävs filbehörigheter. Eftersom delad data lagras i ~/Vendetta så krävs behörigheter för att komma åt den.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">Ladda ner APKer</string>
     <string name="group_patch">Patchar</string>
     <string name="group_installing">Installerar</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">Tryck för att installera Vendetta för Discord %1$s</string>
     <string name="action_confirm_exit">Exit anyways</string>
     <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Cachad</string>
     <string name="title_installer">Installerare</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">Ge Behörigheter</string>
     <string name="title_update_available">Ny Discord-uppdatering tillgänglig!</string>
     <string name="title_warning">Warning</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Ljust</string>
     <string name="theme_dark">Mörkt</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">Ersätt appikonen</string>
     <string name="settings_app_icon_description">Använder Vendettas ikon istället för Discords</string>
     <string name="settings_channel">Stabil kanal</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">Rensa cache automatiskt</string>
     <string name="settings_auto_clear_cache_description">Rensar cachen när Discord får en uppdatering</string>
     <string name="settings_module_location">Modulens plats</string>

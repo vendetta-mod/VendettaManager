@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Không thể hạ cấp, hãy thử gỡ cài đặt trước</string>
     <string name="msg_unlocked">Bạn hiện là nhà phát triển</string>
     <string name="msg_permission_grant">Để Trình quản lý Vendetta hoạt động, bạn cần cấp quyền đối truy cập tệp. Do dữ liệu được chia sẻ được lưu trữ trong ~/Vendetta, nên cần có quyền để truy cập dữ liệu đó.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">Tải xuống APKs</string>
     <string name="group_patch">Đang vá</string>
     <string name="group_installing">Đang cài đặt</string>
@@ -56,8 +57,10 @@
     <string name="action_open_about">Mở về</string>
     <string name="action_open_settings">Mở cài đặt</string>
     <string name="action_tap_to_install">Nhấn để cài đặt Vendetta cho Discord %1$s</string>
-    <string name="action_confirm_exit">Exit anyways</string>
-    <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="action_confirm_exit">Vẫn thoát</string>
+    <string name="action_dismiss_nevermind">Bỏ qua</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Đã lưu trong bộ nhớ đệm</string>
     <string name="title_installer">Trình cài đặt</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">Cấp quyền</string>
     <string name="title_update_available">Discord đã có bản cập nhật mới!</string>
     <string name="title_warning">Warning</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">Hệ thống</string>
     <string name="theme_light">Sáng</string>
     <string name="theme_dark">Tối</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">Thay thế biểu tượng ứng dụng</string>
     <string name="settings_app_icon_description">Sử dụng biểu tượng Vendetta thay vì của Discord</string>
     <string name="settings_channel">Kênh phát hành</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">Xóa bộ nhớ đệm tự động</string>
     <string name="settings_auto_clear_cache_description">Xóa bộ đệm khi Discord có bản cập nhật</string>
     <string name="settings_module_location">Vị trí mô-đun</string>

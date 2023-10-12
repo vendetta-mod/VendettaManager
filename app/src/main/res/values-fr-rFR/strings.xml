@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Impossible de rétrograder la version, essayez d\'abord de la désinstaller puis réessayez</string>
     <string name="msg_unlocked">Vous êtes maintenant un développeur</string>
     <string name="msg_permission_grant">Pour que le Gestionnaire de Vendetta fonctionne correctement, la permission d\'accès au stockage est requise. Les données partagées étant stockées dans ~/Vendetta, des autorisations sont nécessaires pour y accéder.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">Télécharger l\'APK</string>
     <string name="group_patch">Patch en cours</string>
     <string name="group_installing">Installation en cours</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">Appuyez ici pour installer Vendetta pour Discord %1$s</string>
     <string name="action_confirm_exit">Quitter quand même</string>
     <string name="action_dismiss_nevermind">Jamais</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Quitter le programme d\'installation avant qu\'il ne soit terminé pourrait corrompre les fichiers téléchargés. Êtes-vous sûr de vouloir le faire ?</string>
     <string name="installer_cached">Mis en cache</string>
     <string name="title_installer">Installateur</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">Accorder les permissions</string>
     <string name="title_update_available">Une nouvelle mise à jour de Discord est disponible !</string>
     <string name="title_warning">Avertissement</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">Système</string>
     <string name="theme_light">Clair</string>
     <string name="theme_dark">Sombre</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">Remplacer l\'icône de l\'appli</string>
     <string name="settings_app_icon_description">Utiliser l\'icône de Vendetta au lieu de celle de Discord</string>
     <string name="settings_channel">Type de version</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">Effacer automatiquement le cache</string>
     <string name="settings_auto_clear_cache_description">Effacer le cache lorsque Discord reçois une mise à jour</string>
     <string name="settings_module_location">Emplacement du module</string>

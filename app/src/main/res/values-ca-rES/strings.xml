@@ -12,6 +12,7 @@
     <string name="msg_downgrade">No es pot desactualitzar, primer prova de desinstal·lar</string>
     <string name="msg_unlocked">Ara ets desenvolupador</string>
     <string name="msg_permission_grant">Perquè Vendetta Manager funcioni, calen permisos de fitxers. Com que les dades compartides s\'emmagatzemen a ~/Vendetta, calen permisos per accedir-hi.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">Baixa APK</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Instal·lant</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">Toca per instal·lar Vendetta per a Discord %1$s</string>
     <string name="action_confirm_exit">Exit anyways</string>
     <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Cached</string>
     <string name="title_installer">Instal·lador</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">Concedir permisos</string>
     <string name="title_update_available">Nova actualització de Discord disponible!</string>
     <string name="title_warning">Warning</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">Sistema</string>
     <string name="theme_light">Llum</string>
     <string name="theme_dark">Fosc</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">Substitueix la icona de l\'aplicació</string>
     <string name="settings_app_icon_description">Utilitza la icona de Vendetta en comptes de la de Discord</string>
     <string name="settings_channel">Canal release</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">Esborra cache automàticament</string>
     <string name="settings_auto_clear_cache_description">Esborra cache quan Discord rep una actualització</string>
     <string name="settings_module_location">Ubicació del mòdul</string>

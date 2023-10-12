@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Αδυναμία υποβάθμισης, δοκιμάστε πρώτα την απεγκατάσταση</string>
     <string name="msg_unlocked">Είστε πλέον προγραμματιστής</string>
     <string name="msg_permission_grant">Για να λειτουργήσει ο Vendetta Manager, απαιτούνται δικαιώματα αρχείων. Δεδομένου ότι τα κοινόχρηστα δεδομένα αποθηκεύονται στο ~/Vendetta, απαιτούνται δικαιώματα πρόσβασης σε αυτά.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">Λήψη APK</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Γίνεται εγκατάσταση</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">Πατήστε για να εγκαταστήσετε το Vendetta για το Discord %1$s</string>
     <string name="action_confirm_exit">Exit anyways</string>
     <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Στη προσωρινή μνήμη</string>
     <string name="title_installer">Εγκαταστάτης</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">Εκχώρηση Δικαιωμάτων</string>
     <string name="title_update_available">Νέα ενημέρωση για το Discord είναι διαθέσιμη!</string>
     <string name="title_warning">Warning</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">Σύστημα</string>
     <string name="theme_light">Ανοιχτό</string>
     <string name="theme_dark">Σκούρο</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">Αντικατάσταση εικονιδίου εφαρμογής</string>
     <string name="settings_app_icon_description">Χρησιμοποίηση του εικονιδίου Vendetta αντί του Discord</string>
     <string name="settings_channel">Κανάλι κυκλοφορίας</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">Αυτόματη εκκαθάριση προσωρινής μνήμης</string>
     <string name="settings_auto_clear_cache_description">Καθαρίζει την προσωρινή μνήμη όταν το Discord λαμβάνει μια ενημέρωση</string>
     <string name="settings_module_location">Τοποθεσία module</string>

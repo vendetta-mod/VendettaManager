@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Неможливо понизити версію, спробуйте спочатку видалити</string>
     <string name="msg_unlocked">Тепер ви – розробник</string>
     <string name="msg_permission_grant">Для того, щоб Vendetta Менеджер функціонував, потрібен доступ до файлів. Оскільки спільні дані зберігаються в ~/Vendetta, для доступу необхіден дозвіл.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">Завантаження APK-файлів</string>
     <string name="group_patch">Патчінг</string>
     <string name="group_installing">Встановлення</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">Натисни, щоб встановити Vendetta до Discord %1$s</string>
     <string name="action_confirm_exit">Exit anyways</string>
     <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Кешовано</string>
     <string name="title_installer">Встановлювач</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">Надати дозволи</string>
     <string name="title_update_available">Доступне нове оновлення Discord!</string>
     <string name="title_warning">Warning</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">Системна</string>
     <string name="theme_light">Світла</string>
     <string name="theme_dark">Темна</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">Замінити іконку додатку</string>
     <string name="settings_app_icon_description">Використовує іконку Vendetta замість Discord</string>
     <string name="settings_channel">Канал випуску</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">Очищати кеш автоматично</string>
     <string name="settings_auto_clear_cache_description">Очищає кеш, коли Discord отримує оновлення</string>
     <string name="settings_module_location">Розташування модуля</string>

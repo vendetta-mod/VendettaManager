@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Impossibile eseguire il downgrade, prova a disinstallare prima</string>
     <string name="msg_unlocked">Ora sei uno sviluppatore</string>
     <string name="msg_permission_grant">Affinché Vendetta Manager possa funzionare, sono richiesti i permessi dei file. Dal momento che i dati condivisi sono memorizzati in ~/Vendetta, sono necessari i permessi per accedervi.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">Scarica APKs</string>
     <string name="group_patch">Patch in corso</string>
     <string name="group_installing">Installando</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">Tocca per installare Vendetta per Discord %1$s</string>
     <string name="action_confirm_exit">Esci comunque</string>
     <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Memorizz. nella cache</string>
     <string name="title_installer">Installer</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">Concedi permessi</string>
     <string name="title_update_available">Nuovo aggiornamento di Discord disponibile!</string>
     <string name="title_warning">Warning</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">Sistema</string>
     <string name="theme_light">Chiaro</string>
     <string name="theme_dark">Scuro</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">Sostituisci l\'icona dell\'app</string>
     <string name="settings_app_icon_description">Utilizza l\'icona di Vendetta al posto di Discord</string>
     <string name="settings_channel">Canale di rilascio</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">Cancella la cache automaticamente</string>
     <string name="settings_auto_clear_cache_description">Cancella la cache quando Discord riceve un aggiornamento</string>
     <string name="settings_module_location">Percorso del modulo</string>

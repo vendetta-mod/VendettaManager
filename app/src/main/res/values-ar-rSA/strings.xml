@@ -12,6 +12,7 @@
     <string name="msg_downgrade">لا يمكن رجوع إلى النسخة السابقة، حاول إزالة التثبيت أولاً</string>
     <string name="msg_unlocked">أنت الآن مبرمِج</string>
     <string name="msg_permission_grant">لكي يعمل Vendetta Manager، مطلوب أذونات التخزين. بما أن البيانات المخزنة يتم تخزينها في ~/Vendetta، فإن الأذونات مطلوبة الحصول عليها.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">تنزيل برنامج التشغيل للأندرويد (APKs)</string>
     <string name="group_patch">تصحيح</string>
     <string name="group_installing">جاري التثبيت</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">انقر لتثبيت Vendetta للديسكورد %1$s</string>
     <string name="action_confirm_exit">Exit anyways</string>
     <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">ذاكرة التخزين المؤقت</string>
     <string name="title_installer">المثبت</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">منح الأذونات</string>
     <string name="title_update_available">تحديث ديسكورد جديد متوفر!</string>
     <string name="title_warning">Warning</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">النظام</string>
     <string name="theme_light">مضيء</string>
     <string name="theme_dark">مظلم</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">استبدال أيقونة التطبيق</string>
     <string name="settings_app_icon_description">استخدم أيقونة Vendetta بدلا من ديسكورد</string>
     <string name="settings_channel">اصدار القناة</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">مسح الذاكرة المؤقتة تلقائياً</string>
     <string name="settings_auto_clear_cache_description">مسح الذاكرة المؤقتة عندما يحصل ديسكورد على تحديث</string>
     <string name="settings_module_location">Module location</string>

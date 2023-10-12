@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Nem lehet leminősíteni, próbálja meg először eltávolítani</string>
     <string name="msg_unlocked">Ön most már fejlesztő</string>
     <string name="msg_permission_grant">A Vendetta Kezelő működéséhez fájlengedélyekre van szükség. Mivel a megosztott adatokat a ~/Vendetta fájlban tárolja, a hozzáféréshez engedélyekre van szükség.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">APK-k letöltése</string>
     <string name="group_patch">Foltozás</string>
     <string name="group_installing">Telepítés folyamatban</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">Érintse meg a Vendetta A Discordhoz telepítéséhez %1$s</string>
     <string name="action_confirm_exit">Kilépés</string>
     <string name="action_dismiss_nevermind">Mindegy</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">A telepítő befejezés előtti kilépésével sérülhetnek a letöltött fájlok, biztos, hogy ezt szeretné?</string>
     <string name="installer_cached">Gyorsítótárazott</string>
     <string name="title_installer">Telepítő</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">Engedélyek megadása</string>
     <string name="title_update_available">Új Discord frissítés elérhető!</string>
     <string name="title_warning">Figyelmeztetés</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">Rendszer</string>
     <string name="theme_light">Világos</string>
     <string name="theme_dark">Sötét</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">Alkalmazás ikon kicserélése</string>
     <string name="settings_app_icon_description">A Vendetta ikon használata a Discord ikonja helyett</string>
     <string name="settings_channel">Kiadási csatorna</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">A gyorsítótár automatikus törlése</string>
     <string name="settings_auto_clear_cache_description">Törli a gyorsítótárat, amikor a Discordhoz elérhető frissítés</string>
     <string name="settings_module_location">Modul helye</string>

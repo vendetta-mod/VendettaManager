@@ -13,6 +13,7 @@
     <string name="msg_unlocked">これで開発者になりました</string>
     <string name="msg_permission_grant">Vendetta Managerを正しく動作させるためには、ファイルへのアクセスを許可する必要があります。
 ~/Vendettaに共有データが保存されるため、Managerを機能させるためには権限が必要です。</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">APKのダウンロード</string>
     <string name="group_patch">パッチの適用</string>
     <string name="group_installing">インストール</string>
@@ -59,6 +60,8 @@
     <string name="action_tap_to_install">タップして Discord %1$s にVendettaをインストールする</string>
     <string name="action_confirm_exit">とにかく終了する</string>
     <string name="action_dismiss_nevermind">やめる</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">インストールが完了する前にインストーラを終了すると、ダウンロードしたファイルが破損する可能性があります。本当に実行しますか?</string>
     <string name="installer_cached">キャッシュ済み</string>
     <string name="title_installer">インストーラー</string>
@@ -69,6 +72,7 @@
     <string name="title_permission_grant">アクセス権限の付与</string>
     <string name="title_update_available">新しいDiscordのアップデートが利用可能です！</string>
     <string name="title_warning">警告</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">システム</string>
     <string name="theme_light">ライトモード</string>
     <string name="theme_dark">ダークモード</string>
@@ -90,6 +94,7 @@
     <string name="settings_app_icon">アプリのアイコンを置き換える</string>
     <string name="settings_app_icon_description">Discordアイコンの代わりにVendettaアイコンを使用する</string>
     <string name="settings_channel">リリースチャンネル</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">キャッシュを自動的にクリアする</string>
     <string name="settings_auto_clear_cache_description">Discordの更新時にキャッシュをクリアする</string>
     <string name="settings_module_location">モジュールの場所</string>

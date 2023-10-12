@@ -12,6 +12,7 @@
     <string name="msg_downgrade">无法降级，请先尝试卸载</string>
     <string name="msg_unlocked">您现在已成为开发人员</string>
     <string name="msg_permission_grant">为了使 Vendetta Manager 正常运作，您需要授予「管理所有文件」权限。由于数据存储在 ~/Vendetta 中，因此需要权限才能读取它。</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">下载 APK</string>
     <string name="group_patch">补丁</string>
     <string name="group_installing">安装中</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">点击为 Discord 安装 Vendetta Manager %1$s</string>
     <string name="action_confirm_exit">Exit anyways</string>
     <string name="action_dismiss_nevermind">Nevermind</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">已缓存</string>
     <string name="title_installer">安装程序</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">授予权限</string>
     <string name="title_update_available">有可供使用的 Discord 更新！</string>
     <string name="title_warning">Warning</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">系统</string>
     <string name="theme_light">浅色</string>
     <string name="theme_dark">深色</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">更换应用程示图标</string>
     <string name="settings_app_icon_description">使用 Vendetta 图标代替 Discord 图标</string>
     <string name="settings_channel">发布通道</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">自动清除缓存</string>
     <string name="settings_auto_clear_cache_description">当 Discord 更新时清除缓存</string>
     <string name="settings_module_location">模块位置</string>

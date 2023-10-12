@@ -12,6 +12,7 @@
     <string name="msg_downgrade">다운그레이드하지 못했어요. 먼저 삭제해 보세요</string>
     <string name="msg_unlocked">개발자 모드가 활성화되었어요</string>
     <string name="msg_permission_grant">Vendetta Manager가 정상적으로 작동하려면, 파일 권한을 부여해 주셔야 해요. 공유된 데이터가 ~/Vendetta에 저장되기 때문에, Manager가 작동하려면 권한이 필요해요.</string>
+    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
     <string name="group_download">APK 다운로드</string>
     <string name="group_patch">패치 중</string>
     <string name="group_installing">설치 중</string>
@@ -58,6 +59,8 @@
     <string name="action_tap_to_install">Discord %1$s의 Vendetta를 설치하려면 누르세요</string>
     <string name="action_confirm_exit">그래도 종료하기</string>
     <string name="action_dismiss_nevermind">괜찮아요</string>
+    <string name="action_dismiss_no_thanks">No thanks</string>
+    <string name="action_try_again">Try again</string>
     <string name="msg_back_warning">완료되기 전 설치기를 벗어나면 다운로드한 파일이 손상될 수 있어요. 그래도 계속할까요?</string>
     <string name="installer_cached">캐시됨</string>
     <string name="title_installer">설치하기</string>
@@ -68,6 +71,7 @@
     <string name="title_permission_grant">권한 부여</string>
     <string name="title_update_available">새 Discord 업데이트가 있어요!</string>
     <string name="title_warning">경고</string>
+    <string name="title_dl_failed">Download failed</string>
     <string name="theme_system">시스템</string>
     <string name="theme_light">라이트 모드</string>
     <string name="theme_dark">다크 모드</string>
@@ -89,6 +93,7 @@
     <string name="settings_app_icon">앱 아이콘 변경</string>
     <string name="settings_app_icon_description">Discord 아이콘 대신 Vendetta 아이콘을 사용해요</string>
     <string name="settings_channel">릴리스 채널</string>
+    <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">자동으로 캐시 비우기</string>
     <string name="settings_auto_clear_cache_description">Discord 업데이트가 있을 경우 자동으로 캐시를 비워요</string>
     <string name="settings_module_location">모듈 위치</string>
