@@ -12,7 +12,7 @@
     <string name="msg_downgrade">Не удалось понизить версию, сначала попробуйте удалить</string>
     <string name="msg_unlocked">Вы стали разработчиком</string>
     <string name="msg_permission_grant">Чтобы Vendetta работал правильно, ему необходимо предоставить разрешения на доступ к файлам. Так как данные хранятся в ~/Vendetta, выдача разрешений необходима для работы менеджера.</string>
-    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_change_mirror">Хотели бы вы попробовать еще раз, используя загрузочное зеркало?</string>
     <string name="group_download">Скачивание пакетов</string>
     <string name="group_patch">Патчинг</string>
     <string name="group_installing">Установка</string>
@@ -57,11 +57,11 @@
     <string name="action_open_about">Открыть О приложении</string>
     <string name="action_open_settings">Открыть настройки</string>
     <string name="action_tap_to_install">Нажмите, чтобы установить Vendetta для Discord %1$s</string>
-    <string name="action_confirm_exit">Exit anyways</string>
-    <string name="action_dismiss_nevermind">Nevermind</string>
-    <string name="action_dismiss_no_thanks">No thanks</string>
-    <string name="action_try_again">Try again</string>
-    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
+    <string name="action_confirm_exit">Все равно выйти</string>
+    <string name="action_dismiss_nevermind">Не сейчас</string>
+    <string name="action_dismiss_no_thanks">Нет, спасибо</string>
+    <string name="action_try_again">Попробовать снова</string>
+    <string name="msg_back_warning">Выход из программы установки до ее завершения может привести к повреждению загруженных файлов, вы уверены, что хотите этого сделать?</string>
     <string name="installer_cached">Кешировано</string>
     <string name="title_installer">Установщик</string>
     <string name="title_home">Главная</string>
@@ -70,8 +70,8 @@
     <string name="title_about">О приложении</string>
     <string name="title_permission_grant">Предоставить разрешения</string>
     <string name="title_update_available">Доступно новое обновление Discord!</string>
-    <string name="title_warning">Warning</string>
-    <string name="title_dl_failed">Download failed</string>
+    <string name="title_warning">Предупреждение</string>
+    <string name="title_dl_failed">Ошибка загрузки</string>
     <string name="theme_system">Системная</string>
     <string name="theme_light">Светлая</string>
     <string name="theme_dark">Тёмная</string>
@@ -93,7 +93,7 @@
     <string name="settings_app_icon">Заменить значок приложения</string>
     <string name="settings_app_icon_description">Использует иконку Vendetta вместо Discord</string>
     <string name="settings_channel">Канал выпуска</string>
-    <string name="settings_mirror">Download mirror</string>
+    <string name="settings_mirror">Зеркало загрузки</string>
     <string name="settings_auto_clear_cache">Очищать кеш автоматически</string>
     <string name="settings_auto_clear_cache_description">Очищает кеш, когда Discord получает обновление</string>
     <string name="settings_module_location">Расположение модуля</string>

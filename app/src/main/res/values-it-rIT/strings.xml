@@ -12,7 +12,7 @@
     <string name="msg_downgrade">Impossibile eseguire il downgrade, prova a disinstallare prima</string>
     <string name="msg_unlocked">Ora sei uno sviluppatore</string>
     <string name="msg_permission_grant">Affinché Vendetta Manager possa funzionare, sono richiesti i permessi dei file. Dal momento che i dati condivisi sono memorizzati in ~/Vendetta, sono necessari i permessi per accedervi.</string>
-    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_change_mirror">Vuoi provare di nuovo usando un download alternativo?</string>
     <string name="group_download">Scarica APKs</string>
     <string name="group_patch">Patch in corso</string>
     <string name="group_installing">Installando</string>
@@ -58,10 +58,10 @@
     <string name="action_open_settings">Apri impostazioni</string>
     <string name="action_tap_to_install">Tocca per installare Vendetta per Discord %1$s</string>
     <string name="action_confirm_exit">Esci comunque</string>
-    <string name="action_dismiss_nevermind">Nevermind</string>
-    <string name="action_dismiss_no_thanks">No thanks</string>
-    <string name="action_try_again">Try again</string>
-    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
+    <string name="action_dismiss_nevermind">Non importa</string>
+    <string name="action_dismiss_no_thanks">No grazie</string>
+    <string name="action_try_again">Riprova</string>
+    <string name="msg_back_warning">Uscire dal programma prima che abbia finito potrebbe danneggiare i file scaricati, sei sicuro di voler farlo?</string>
     <string name="installer_cached">Memorizz. nella cache</string>
     <string name="title_installer">Installer</string>
     <string name="title_home">Home</string>
