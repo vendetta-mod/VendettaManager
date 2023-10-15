@@ -60,7 +60,7 @@ class InstallerScreen(
     override fun Content() {
         val nav = LocalNavigator.currentOrThrow
         val activity = LocalContext.current as? ComponentActivity
-        var timeoutDuration = remember { 30 /* seconds */ }
+        var timeoutDuration = remember { 90 /* seconds */ }
         val viewModel: InstallerViewModel = getScreenModel {
             parametersOf(version)
         }
