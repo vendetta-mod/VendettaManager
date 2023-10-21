@@ -12,7 +12,7 @@
     <string name="msg_downgrade">Nie można zainstalować starszej wersji, spróbuj najpierw odinstalować aktualnie zainstalowaną</string>
     <string name="msg_unlocked">Jesteś teraz deweloperem</string>
     <string name="msg_permission_grant">Aby Menadżer Vendetta działał, wymagane są uprawnienia do plików. Ponieważ udostępnione dane są przechowywane w ~/Vendetta, dostęp do nich wymaga uprawnień.</string>
-    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_change_mirror">Czy chcesz spróbować ponownie, używając serwera lustrzanego pobierania?</string>
     <string name="group_download">Pobieranie plików APK</string>
     <string name="group_patch">Łatanie</string>
     <string name="group_installing">Instalowanie</string>
@@ -57,11 +57,11 @@
     <string name="action_open_about">Otwórz o aplikacji</string>
     <string name="action_open_settings">Otwórz ustawienia</string>
     <string name="action_tap_to_install">Dotknij, aby zainstalować Vendetta dla Discorda %1$s</string>
-    <string name="action_confirm_exit">Exit anyways</string>
-    <string name="action_dismiss_nevermind">Nevermind</string>
-    <string name="action_dismiss_no_thanks">No thanks</string>
-    <string name="action_try_again">Try again</string>
-    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
+    <string name="action_confirm_exit">Wyjdź mimo to</string>
+    <string name="action_dismiss_nevermind">Nieważne</string>
+    <string name="action_dismiss_no_thanks">Nie, dziękuję</string>
+    <string name="action_try_again">Spróbuj ponownie</string>
+    <string name="msg_back_warning">Wyjście z instalatora przed zakończeniem instalacji może uszkodzić pobierane pliki, czy na pewno chcesz to zrobić?</string>
     <string name="installer_cached">w pamięci podręcznej</string>
     <string name="title_installer">Instalator</string>
     <string name="title_home">Strona główna</string>
@@ -70,8 +70,8 @@
     <string name="title_about">O Aplikacji</string>
     <string name="title_permission_grant">Przyznaj uprawnienia</string>
     <string name="title_update_available">Dostępna jest nowa aktualizacja Discorda!</string>
-    <string name="title_warning">Warning</string>
-    <string name="title_dl_failed">Download failed</string>
+    <string name="title_warning">Ostrzeżenie</string>
+    <string name="title_dl_failed">Pobieranie nieudane</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Jasny</string>
     <string name="theme_dark">Ciemny</string>
@@ -93,7 +93,7 @@
     <string name="settings_app_icon">Zastąp ikonę aplikacji</string>
     <string name="settings_app_icon_description">Używa ikony Vendetta zamiast Discorda</string>
     <string name="settings_channel">Kanał wydania</string>
-    <string name="settings_mirror">Download mirror</string>
+    <string name="settings_mirror">Serwer lustrzany pobierania</string>
     <string name="settings_auto_clear_cache">Automatycznie czyść pamięć podręczną</string>
     <string name="settings_auto_clear_cache_description">Czyści pamięć podręczną, kiedy Discord otrzymuje aktualizację</string>
     <string name="settings_module_location">Lokalizacja modułów</string>
