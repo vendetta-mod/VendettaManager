@@ -20,25 +20,39 @@ import androidx.compose.ui.unit.Dp
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
 import kotlin.math.floor
+import kotlin.math.roundToInt
 
 @Composable
 fun StepIcon(
     status: InstallerViewModel.InstallStatus,
-    size: Dp
+    size: Dp,
+    progress: Float?
 ) {
     val strokeWidth = Dp(floor(size.value / 10) + 1)
     val context = LocalContext.current
 
     when (status) {
         InstallerViewModel.InstallStatus.ONGOING -> {
-            CircularProgressIndicator(
-                strokeWidth = strokeWidth,
-                modifier = Modifier
-                    .size(size)
-                    .semantics {
-                        contentDescription = context.getString(R.string.status_ongoing)
-                    }
-            )
+            if(progress != null) {
+                CircularProgressIndicator(
+                    progress = progress,
+                    strokeWidth = strokeWidth,
+                    modifier = Modifier
+                        .size(size)
+                        .semantics {
+                            contentDescription = "${(progress * 100).roundToInt()}%"
+                        }
+                )
+            } else {
+                CircularProgressIndicator(
+                    strokeWidth = strokeWidth,
+                    modifier = Modifier
+                        .size(size)
+                        .semantics {
+                            contentDescription = context.getString(R.string.status_ongoing)
+                        }
+                )
+            }
         }
 
         InstallerViewModel.InstallStatus.SUCCESSFUL -> {

@@ -55,30 +55,17 @@ class InstallerScreen(
 
     override val key: ScreenKey = "Installer-${UUID.randomUUID()}"
 
-    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun Content() {
         val nav = LocalNavigator.currentOrThrow
         val activity = LocalContext.current as? ComponentActivity
-        var timeoutDuration = remember { 90 /* seconds */ }
         val viewModel: InstallerViewModel = getScreenModel {
             parametersOf(version)
         }
 
         var expandedGroup by remember {
             mutableStateOf<InstallerViewModel.InstallStepGroup?>(null)
-        }
-
-        LaunchedEffect(viewModel.currentStep) {
-            var timer = 0 // seconds
-            expandedGroup = viewModel.currentStep?.group
-            while (viewModel.currentStep?.group == InstallerViewModel.InstallStepGroup.DL) {
-                if(!viewModel.failedOnDownload) {
-                    if(timer > timeoutDuration) viewModel.failedOnDownload = true
-                    timer += 1
-                }
-                delay(1000)
-            }
         }
 
         // Listen for error messages from InstallService
@@ -122,7 +109,6 @@ class InstallerScreen(
                 },
                 onDismiss = {
                     viewModel.failedOnDownload = false
-                    timeoutDuration += 30
                 }
             )
         }

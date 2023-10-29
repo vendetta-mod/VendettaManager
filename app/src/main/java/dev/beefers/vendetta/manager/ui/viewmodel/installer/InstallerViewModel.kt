@@ -184,7 +184,9 @@ class InstallerViewModel(
                     logger.i("base-$version.apk is cached")
                 } else {
                     logger.i("base-$version.apk is not cached, downloading now")
-                    downloadManager.downloadDiscordApk(version, file)
+                    downloadManager.downloadDiscordApk(version, file) {
+                        progress = it
+                    }
                 }
 
                 logger.i("Move base-$version.apk to working directory")
@@ -209,7 +211,9 @@ class InstallerViewModel(
                         version = version,
                         split = "config.$libArch",
                         out = file
-                    )
+                    ) {
+                        progress = it
+                    }
                 }
 
                 logger.i("Move config.$libArch-$version.apk to working directory")
@@ -233,7 +237,9 @@ class InstallerViewModel(
                         version = version,
                         split = "config.en",
                         out = file
-                    )
+                    ) {
+                        progress = it
+                    }
                 }
 
                 logger.i("Move config.en-$version.apk to working directory")
@@ -257,7 +263,9 @@ class InstallerViewModel(
                         version = version,
                         split = "config.xxhdpi",
                         out = file
-                    )
+                    ) {
+                        progress = it
+                    }
                 }
 
                 logger.i("Move config.xxhdpi-$version.apk to working directory")
@@ -277,7 +285,9 @@ class InstallerViewModel(
                     cached = true
                 } else {
                     logger.i("vendetta.apk is not cached, downloading now")
-                    downloadManager.downloadVendetta(file)
+                    downloadManager.downloadVendetta(file) {
+                        progress = it
+                    }
                 }
 
                 logger.i("Move vendetta.apk to working directory")
@@ -467,11 +477,13 @@ class InstallerViewModel(
         @StringRes val nameRes: Int,
         status: InstallStatus,
         duration: Float = 0f,
-        cached: Boolean = false
+        cached: Boolean = false,
+        progress: Float? = null
     ) {
         var status by mutableStateOf(status)
         var duration by mutableStateOf(duration)
         var cached by mutableStateOf(cached)
+        var progress by mutableStateOf(progress)
     }
 
     var currentStep by mutableStateOf<InstallStep?>(null)

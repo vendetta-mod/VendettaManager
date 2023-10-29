@@ -61,7 +61,7 @@ fun StepGroupCard(
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            StepIcon(status, 24.dp)
+            StepIcon(status, 24.dp, progress = null)
 
             Text(text = name)
 
@@ -99,7 +99,7 @@ fun StepGroupCard(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(16.dp),
                     ) {
-                        StepIcon(it.status, size = 18.dp)
+                        StepIcon(it.status, size = 18.dp, progress = it.progress)
 
                         Text(
                             text = stringResource(it.nameRes),
