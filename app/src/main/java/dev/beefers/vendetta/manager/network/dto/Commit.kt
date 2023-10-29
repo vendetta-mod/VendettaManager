@@ -1,5 +1,6 @@
 package dev.beefers.vendetta.manager.network.dto
 
+import kotlinx.datetime.Instant
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -13,7 +14,13 @@ data class Commit(
 
     @Serializable
     data class Info(
-        val message: String
+        val message: String,
+        val committer: Committer
+    )
+
+    @Serializable
+    data class Committer(
+        val date: Instant
     )
 
 }

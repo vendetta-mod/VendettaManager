@@ -1,5 +1,6 @@
 package dev.beefers.vendetta.manager.ui.widgets.home
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,9 +18,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import dev.beefers.vendetta.manager.network.dto.Commit
+import kotlinx.datetime.toJavaInstant
+import java.text.SimpleDateFormat
+import java.util.Date
 
 @Composable
 fun Commit(
@@ -65,6 +71,16 @@ fun Commit(
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.primary,
                 fontFamily = FontFamily.Monospace
+            )
+
+            Text(
+                text = SimpleDateFormat
+                    .getDateInstance(SimpleDateFormat.SHORT)
+                    .format(Date.from(commit.info.committer.date.toJavaInstant())),
+                style = MaterialTheme.typography.labelMedium,
+                color = LocalContentColor.current.copy(alpha = 0.5f),
+                textAlign = TextAlign.End,
+                modifier = Modifier.weight(1f)
             )
         }
 
