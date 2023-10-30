@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Ön most már fejlesztő</string>
     <string name="msg_permission_grant">A Vendetta Kezelő működéséhez fájlengedélyekre van szükség. Mivel a megosztott adatokat a ~/Vendetta fájlban tárolja, a hozzáféréshez engedélyekre van szükség.</string>
     <string name="msg_change_mirror">Szeretné újra megpróbálni egy letöltési mirror segítségével?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">APK-k letöltése</string>
     <string name="group_patch">Foltozás</string>
     <string name="group_installing">Telepítés folyamatban</string>

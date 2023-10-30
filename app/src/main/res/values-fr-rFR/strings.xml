@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Vous êtes maintenant un développeur</string>
     <string name="msg_permission_grant">Pour que le Gestionnaire de Vendetta fonctionne correctement, la permission de stockage de fichier est requise. Les fichiers sont stockés dans le dossier Vendetta, des autorisations sont nécessaires pour y accéder.</string>
     <string name="msg_change_mirror">Voulez-vous réessayer en utilisant un autre serveur de téléchargement ?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Télécharger les APKs</string>
     <string name="group_patch">Patch en cours</string>
     <string name="group_installing">Installation en cours</string>

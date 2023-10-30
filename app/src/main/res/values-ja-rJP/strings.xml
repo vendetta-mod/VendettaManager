@@ -14,6 +14,7 @@
     <string name="msg_permission_grant">Vendetta Managerを正しく動作させるためには、ファイルへのアクセスを許可する必要があります。
 ~/Vendettaに共有データが保存されるため、Managerを機能させるためには権限が必要です。</string>
     <string name="msg_change_mirror">ダウンロードミラーを使用して再試行しますか？</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">APKのダウンロード</string>
     <string name="group_patch">パッチの適用</string>
     <string name="group_installing">インストール</string>

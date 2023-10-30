@@ -13,6 +13,7 @@
     <string name="msg_unlocked">אתה כעת מפתח</string>
     <string name="msg_permission_grant">על מנת שמנהל Vendetta יפעל, נדרשות הרשאות קובץ. מכיוון שהנתונים המשותפים מאוחסנים ב-~/Vendetta, נדרשות הרשאות על מנת לגשת אליהם.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">מוריד קבצים</string>
     <string name="group_patch">מנתח</string>
     <string name="group_installing">מתקין</string>

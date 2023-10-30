@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Nyní jste vývojářem</string>
     <string name="msg_permission_grant">Aby Správce Vendetty fungoval, jsou vyžadována oprávnění k přístupu k souborům. Protože jsou sdílená data uložena ve složce ~/Vendetta, je pro přístup k ní požadováno oprávnění.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Stáhnout soubory APK</string>
     <string name="group_patch">Vkládání</string>
     <string name="group_installing">Instalování</string>

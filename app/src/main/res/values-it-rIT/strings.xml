@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Ora sei uno sviluppatore</string>
     <string name="msg_permission_grant">Affinché Vendetta Manager possa funzionare, sono richiesti i permessi dei file. Dal momento che i dati condivisi sono memorizzati in ~/Vendetta, sono necessari i permessi per accedervi.</string>
     <string name="msg_change_mirror">Vuoi provare di nuovo usando un download alternativo?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Scarica APKs</string>
     <string name="group_patch">Patch in corso</string>
     <string name="group_installing">Installando</string>

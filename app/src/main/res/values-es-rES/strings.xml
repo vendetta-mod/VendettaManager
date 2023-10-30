@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Ahora eres un desarrollador</string>
     <string name="msg_permission_grant">Para que Vendetta Manager funcione, se requieren permisos de archivos. Dado que los datos compartidos se almacenan en ~/Vendetta, se requieren permisos para acceder a ellos.</string>
     <string name="msg_change_mirror">¿Te gustaría volver a intentar usando un servidor réplica de descarga?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Descargar APKs</string>
     <string name="group_patch">Parcheando</string>
     <string name="group_installing">Instalando</string>

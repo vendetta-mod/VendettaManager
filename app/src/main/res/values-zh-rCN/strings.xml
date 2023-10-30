@@ -13,6 +13,7 @@
     <string name="msg_unlocked">您现在已成为开发人员</string>
     <string name="msg_permission_grant">为了使 Vendetta Manager 正常运作，您需要授予「管理所有文件」权限。由于数据存储在 ~/Vendetta 中，因此需要权限才能读取它。</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">下载 APK</string>
     <string name="group_patch">补丁</string>
     <string name="group_installing">安装中</string>

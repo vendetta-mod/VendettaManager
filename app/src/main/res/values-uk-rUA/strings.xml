@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Тепер ви – розробник</string>
     <string name="msg_permission_grant">Для того, щоб Vendetta Менеджер функціонував, потрібен доступ до файлів. Оскільки спільні дані зберігаються в ~/Vendetta, для доступу необхіден дозвіл.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Завантаження APK-файлів</string>
     <string name="group_patch">Патчінг</string>
     <string name="group_installing">Встановлення</string>

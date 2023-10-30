@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Artık bir geliştiricisiniz</string>
     <string name="msg_permission_grant">Vendetta Manager\'ın düzgün çalışması için dosya izinleri gereklidir. Paylaşılan uygulama verileri ~/Vendetta\'da depolandığından, dosyalara erişim için izin gerekmektedir.</string>
     <string name="msg_change_mirror">Kaynaktan İndir?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">APK\'ları indir</string>
     <string name="group_patch">Yamalanıyor</string>
     <string name="group_installing">Kuruluyor</string>
@@ -59,8 +60,8 @@
     <string name="action_tap_to_install">Discord %1$s için Vendetta\'yı kurmak için dokunun</string>
     <string name="action_confirm_exit">Yine de çık</string>
     <string name="action_dismiss_nevermind">Boş ver</string>
-    <string name="action_dismiss_no_thanks">No thanks</string>
-    <string name="action_try_again">Try again</string>
+    <string name="action_dismiss_no_thanks">Hayır teşekkürler</string>
+    <string name="action_try_again">Tekrar deneyin</string>
     <string name="msg_back_warning">Yükleme bitmeden çıkmak indirilen dosyaları bozabilir, bunu yapmak istediğinizden emin misiniz?</string>
     <string name="installer_cached">Önbelleğe alındı</string>
     <string name="title_installer">Yükleyici</string>
@@ -71,7 +72,7 @@
     <string name="title_permission_grant">İzinleri Ver</string>
     <string name="title_update_available">Yeni Discord güncellemesi mevcut!</string>
     <string name="title_warning">Uyarı</string>
-    <string name="title_dl_failed">Download failed</string>
+    <string name="title_dl_failed">İndirme işlemi başarısız</string>
     <string name="theme_system">Sistem</string>
     <string name="theme_light">Açık</string>
     <string name="theme_dark">Koyu</string>
@@ -93,7 +94,7 @@
     <string name="settings_app_icon">Uygulama simgesini değiştir</string>
     <string name="settings_app_icon_description">Discord\'unki yerine Vendetta\'nın simgesini kullanır</string>
     <string name="settings_channel">Yayın kanalı</string>
-    <string name="settings_mirror">Download mirror</string>
+    <string name="settings_mirror">Alternatif indirme</string>
     <string name="settings_auto_clear_cache">Önbelleği otomatik olarak temizle</string>
     <string name="settings_auto_clear_cache_description">Discord güncelleme aldığında önbelleği temizler</string>
     <string name="settings_module_location">Modül konumu</string>

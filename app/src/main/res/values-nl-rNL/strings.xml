@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Je bent nu een ontwikkelaar</string>
     <string name="msg_permission_grant">Om Vendetta Manager te laten werken, zijn bestandsrechten vereist. Aangezien gedeelde gegevens worden opgeslagen in ~/Vendetta, zijn machtigingen vereist om er toegang toe te krijgen.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Download APKs</string>
     <string name="group_patch">Patchen</string>
     <string name="group_installing">Installeren</string>

@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Ați devenit dezvoltator</string>
     <string name="msg_permission_grant">Pentru ca Vendetta Manager să funcţioneze, sunt necesare permisiunile fişierelor. Deoarece datele partajate sunt stocate în ~/Vendetta, sunt necesare permisiuni pentru a le accesa.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Descarcaţi fișier APK</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Se instalează</string>

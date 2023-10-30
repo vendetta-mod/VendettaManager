@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Du er utvikler nå</string>
     <string name="msg_permission_grant">For at Vendetta Manager skal fungere, er filtillatelser påkrevd. Siden delte data lagres i ~/Vendetta, kreves tillatelser for å få tilgang til den.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Last ned APK</string>
     <string name="group_patch">Oppdaterer</string>
     <string name="group_installing">Installing</string>

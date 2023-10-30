@@ -13,6 +13,7 @@
     <string name="msg_unlocked">أنت الآن مبرمِج</string>
     <string name="msg_permission_grant">لكي يعمل Vendetta Manager، مطلوب أذونات التخزين. بما أن البيانات المخزنة يتم تخزينها في ~/Vendetta، فإن الأذونات مطلوبة الحصول عليها.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">تنزيل برنامج التشغيل للأندرويد (APKs)</string>
     <string name="group_patch">تصحيح</string>
     <string name="group_installing">جاري التثبيت</string>

@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Bạn hiện là nhà phát triển</string>
     <string name="msg_permission_grant">Để Trình quản lý Vendetta hoạt động, bạn cần cấp quyền đối truy cập tệp. Do dữ liệu được chia sẻ được lưu trữ trong ~/Vendetta, nên cần có quyền để truy cập dữ liệu đó.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Tải xuống APKs</string>
     <string name="group_patch">Đang vá</string>
     <string name="group_installing">Đang cài đặt</string>

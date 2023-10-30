@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Entwicklermodus aktiviert</string>
     <string name="msg_permission_grant">Damit Vendetta Manager funktionieren kann, sind Dateiberechtigungen erforderlich. Da freigegebene Daten in ~/Vendetta gespeichert sind, sind Berechtigungen erforderlich, um darauf zuzugreifen.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">APKs herunterladen</string>
     <string name="group_patch">App wird gepatcht</string>
     <string name="group_installing">Wird installiert</string>

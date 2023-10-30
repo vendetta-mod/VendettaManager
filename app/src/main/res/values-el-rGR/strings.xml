@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Είστε πλέον προγραμματιστής</string>
     <string name="msg_permission_grant">Για να λειτουργήσει ο Vendetta Manager, απαιτούνται δικαιώματα αρχείων. Δεδομένου ότι τα κοινόχρηστα δεδομένα αποθηκεύονται στο ~/Vendetta, απαιτούνται δικαιώματα πρόσβασης σε αυτά.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Λήψη APK</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Γίνεται εγκατάσταση</string>

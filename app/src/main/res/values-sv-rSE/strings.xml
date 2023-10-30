@@ -13,6 +13,7 @@
     <string name="msg_unlocked">Du är nu en utvecklare</string>
     <string name="msg_permission_grant">För att Vendetta Hanteraren ska kunna fungera så krävs filbehörigheter. Eftersom delad data lagras i ~/Vendetta så krävs behörigheter för att komma åt den.</string>
     <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
+    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
     <string name="group_download">Ladda ner APKer</string>
     <string name="group_patch">Patchar</string>
     <string name="group_installing">Installerar</string>
