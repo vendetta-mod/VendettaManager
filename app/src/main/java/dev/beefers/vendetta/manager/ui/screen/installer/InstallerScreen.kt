@@ -68,6 +68,10 @@ class InstallerScreen(
             mutableStateOf<InstallerViewModel.InstallStepGroup?>(null)
         }
 
+        LaunchedEffect(viewModel.currentStep) {
+            expandedGroup = viewModel.currentStep?.group
+        }
+
         // Listen for error messages from InstallService
         val intentListener: (Intent) -> Unit = remember {
             {
