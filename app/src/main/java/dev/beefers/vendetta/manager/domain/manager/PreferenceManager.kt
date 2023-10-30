@@ -8,7 +8,7 @@ import dev.beefers.vendetta.manager.domain.manager.base.BasePreferenceManager
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import java.util.concurrent.TimeUnit
 
-class PreferenceManager(private val context: Context) :
+class PreferenceManager(context: Context) :
     BasePreferenceManager(context.getSharedPreferences("prefs", Context.MODE_PRIVATE)) {
 
     val DEFAULT_MODULE_LOCATION =
@@ -42,6 +42,11 @@ class PreferenceManager(private val context: Context) :
 
     var moduleLocation by filePreference("module_location", DEFAULT_MODULE_LOCATION)
 
+    init {
+        // Will be removed next update
+        if(mirror == Mirror.VENDETTA_ROCKS) mirror = Mirror.VENDETTA_ROCKS_ALT
+    }
+
 }
 
 enum class Theme(@StringRes val labelRes: Int) {
@@ -63,6 +68,7 @@ enum class UpdateCheckerDuration(@StringRes val labelRes: Int, val time: Long, v
 
 enum class Mirror(val baseUrl: String) {
     DEFAULT("https://tracker.vendetta.rocks"),
+    VENDETTA_ROCKS("https://proxy.vendetta.rocks"), // Temporarily added for compatibility
     VENDETTA_ROCKS_ALT("https://proxy.vendetta.rocks"),
     K6("https://vd.k6.tf"),
     NEXPID("https://vd.k6.tf.nexpid.xyz")

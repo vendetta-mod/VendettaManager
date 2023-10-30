@@ -15,6 +15,7 @@ inline fun <reified E : Enum<E>> SettingsItemChoice(
     title: String = label,
     disabled: Boolean = false,
     pref: E,
+    excludedOptions: List<E> = emptyList(),
     crossinline labelFactory: (E) -> String = { it.toString() },
     crossinline onPrefChange: (E) -> Unit,
 ) {
@@ -33,6 +34,7 @@ inline fun <reified E : Enum<E>> SettingsItemChoice(
             title = { Text(title) },
             default = pref,
             labelFactory = labelFactory,
+            excludedOptions = excludedOptions,
             onRequestClose = {
                 opened.value = false
             },

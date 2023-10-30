@@ -19,6 +19,7 @@ import dev.beefers.vendetta.manager.ui.components.EnumRadioController
 inline fun <reified E : Enum<E>> SettingsChoiceDialog(
     visible: Boolean = false,
     default: E,
+    excludedOptions: List<E> = emptyList(),
     noinline title: @Composable () -> Unit,
     crossinline labelFactory: (E) -> String = { it.toString() },
     noinline onRequestClose: () -> Unit = {},
@@ -40,6 +41,7 @@ inline fun <reified E : Enum<E>> SettingsChoiceDialog(
                 description()
                 EnumRadioController(
                     default,
+                    excludedOptions,
                     labelFactory
                 ) { choice = it }
             },

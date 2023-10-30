@@ -19,14 +19,14 @@ import androidx.compose.ui.platform.LocalContext
 @Composable
 inline fun <reified E : Enum<E>> EnumRadioController(
     default: E,
+    excludedOptions: List<E> = emptyList(),
     labelFactory: (E) -> String = { it.toString() },
     crossinline onChoiceSelected: (E) -> Unit
 ) {
     var choice by remember { mutableStateOf(default) }
-    val ctx = LocalContext.current
 
     Column {
-        enumValues<E>().forEach {
+        enumValues<E>().filterNot { excludedOptions.contains(it) }.forEach {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
