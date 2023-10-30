@@ -27,6 +27,7 @@ import dev.beefers.vendetta.manager.installer.util.installApks
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.copyText
 import dev.beefers.vendetta.manager.utils.isMiui
+import dev.beefers.vendetta.manager.utils.mainThread
 import dev.beefers.vendetta.manager.utils.showToast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
@@ -430,6 +431,10 @@ class InstallerViewModel(
             return value.value
         } catch (e: Throwable) {
             steps[step]!!.status = InstallStatus.UNSUCCESSFUL
+
+            if(e.message?.contains("InvalidArchive") == true) mainThread {
+                context.showToast(R.string.msg_invalid_apk)
+            }
 
             logger.e("\nFailed on step ${step.name}\n")
             logger.e(e.stackTraceToString())

@@ -4,6 +4,8 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Bitmap
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -12,6 +14,12 @@ import dev.beefers.vendetta.manager.BuildConfig
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
+
+val mainThread = Handler(Looper.getMainLooper())
+
+fun mainThread(block: () -> Unit) {
+    mainThread.post(block)
+}
 
 fun Context.copyText(text: String) {
     val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
