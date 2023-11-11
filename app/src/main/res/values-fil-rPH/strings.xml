@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">Vendetta Manager</string>
+    <string name="app_name">Manager ng Vendetta</string>
     <string name="msg_cleared_cache">Na-clear na ang cache</string>
     <string name="msg_load_fail">Nabigong i-load ang mga commit</string>
     <string name="msg_coming_soon">Parating na</string>
@@ -12,8 +12,8 @@
     <string name="msg_downgrade">Hindi maka-downgrade, subukang mag-uninstall muna</string>
     <string name="msg_unlocked">Isa ka nang developer ngayon</string>
     <string name="msg_permission_grant">Upang gumana ang Vendetta Manager, kinakailangan ang pahintulot ng file. Dahil nakaimbak ang nakabahaging data sa ~/Vendetta, kailangan ng mga pahintulot para ma-access ito.</string>
-    <string name="msg_change_mirror">Would you like to try again using a download mirror?</string>
-    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
+    <string name="msg_change_mirror">Gusto mo bang subukan muli gamit ng download mirror?</string>
+    <string name="msg_invalid_apk">Nasira ang APK, subukang i-clear ang cache at pag-reinstall</string>
     <string name="group_download">I-download ang mga APK</string>
     <string name="group_patch">Pina-patch</string>
     <string name="group_installing">Ini-install</string>
@@ -58,11 +58,11 @@
     <string name="action_open_about">Buksan ang about</string>
     <string name="action_open_settings">Buksan ang mga setting</string>
     <string name="action_tap_to_install">I-tap para i-install ang Vendetta para sa Discord %1$s</string>
-    <string name="action_confirm_exit">Exit anyways</string>
-    <string name="action_dismiss_nevermind">Nevermind</string>
-    <string name="action_dismiss_no_thanks">No thanks</string>
-    <string name="action_try_again">Try again</string>
-    <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
+    <string name="action_confirm_exit">Umalis na lang</string>
+    <string name="action_dismiss_nevermind">Huwag na lang</string>
+    <string name="action_dismiss_no_thanks">Hindi na, salamat</string>
+    <string name="action_try_again">Subukan muli</string>
+    <string name="msg_back_warning">Ang pagalis sa installer bago matapos ay maaring mag-corrupt ng mga file, sigurado ka bang gusto mo yan gawin?</string>
     <string name="installer_cached">Naka-cache</string>
     <string name="title_installer">Installer</string>
     <string name="title_home">Home</string>
@@ -71,8 +71,8 @@
     <string name="title_about">Tungkol sa</string>
     <string name="title_permission_grant">Magbigay ng Mga Pahintulot</string>
     <string name="title_update_available">May bagong available na update sa Discord!</string>
-    <string name="title_warning">Warning</string>
-    <string name="title_dl_failed">Download failed</string>
+    <string name="title_warning">Babala</string>
+    <string name="title_dl_failed">Nabigo ang pag-download</string>
     <string name="theme_system">Sistema</string>
     <string name="theme_light">Maliwanag</string>
     <string name="theme_dark">Madilim</string>
