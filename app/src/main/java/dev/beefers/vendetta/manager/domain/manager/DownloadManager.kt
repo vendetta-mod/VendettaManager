@@ -1,8 +1,5 @@
 package dev.beefers.vendetta.manager.domain.manager
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import android.app.DownloadManager
 import android.content.Context
 import android.net.Uri
