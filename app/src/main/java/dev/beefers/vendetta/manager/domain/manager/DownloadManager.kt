@@ -20,13 +20,6 @@ class DownloadManager(
     private val context: Context,
     private val prefs: PreferenceManager
 ) {
-    private val httpClient = HttpClient {
-        install(HttpTimeout) {
-            socketTimeoutMillis = 1_000
-            connectTimeoutMillis = 10_000
-            requestTimeoutMillis = null
-        }
-    }
 
     suspend fun downloadDiscordApk(version: String, out: File, onProgressUpdate: (Float) -> Unit): File =
         download("${prefs.mirror.baseUrl}/tracker/download/$version/base", out, onProgressUpdate)
@@ -52,7 +45,7 @@ class DownloadManager(
     suspend fun download(url: String, out: File, onProgressUpdate: (Float) -> Unit): File {
         val request = DownloadManager.Request(Uri.parse(url))
             .setTitle("Vendetta Manager")
-            .setDescription("Vendetta download")
+            .setDescription("Downloading ${out.name}...")
             .setDestinationUri(Uri.fromFile(out))
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
             .setAllowedOverMetered(true)
@@ -93,16 +86,4 @@ class DownloadManager(
         return out
     }
 
-    private fun InputStream.copyToWithProgress(out: OutputStream, bufferSize: Int = DEFAULT_BUFFER_SIZE, onProgressUpdate: (Long) -> Unit): Long {
-        var bytesCopied: Long = 0
-        val buffer = ByteArray(bufferSize)
-        var bytes = read(buffer)
-        while (bytes >= 0) {
-            out.write(buffer, 0, bytes)
-            bytesCopied += bytes
-            onProgressUpdate(bytesCopied)
-            bytes = read(buffer)
-        }
-        return bytesCopied
-    }
 }

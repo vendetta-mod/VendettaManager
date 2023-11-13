@@ -1,6 +1,7 @@
 package dev.beefers.vendetta.manager.ui.widgets.installer
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -18,6 +19,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -99,7 +101,9 @@ fun StepGroupCard(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(16.dp),
                     ) {
-                        StepIcon(it.status, size = 18.dp, progress = it.progress)
+                        val progress by animateFloatAsState(it.progress ?: 0f, label = "Progress")
+
+                        StepIcon(it.status, size = 18.dp, progress = if(it.progress == null) null else progress)
 
                         Text(
                             text = stringResource(it.nameRes),
