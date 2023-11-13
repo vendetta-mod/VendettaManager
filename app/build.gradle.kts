@@ -14,8 +14,8 @@ android {
         applicationId = "dev.beefers.vendetta.manager"
         minSdk = 28
         targetSdk = 34
-        versionCode = 1096
-        versionName = "1.0.96"
+        versionCode = 1097
+        versionName = "1.0.97"
 
         buildConfigField("String", "GIT_BRANCH", "\"${getCurrentBranch()}\"")
         buildConfigField("String", "GIT_COMMIT", "\"${getLatestCommit()}\"")
@@ -152,7 +152,7 @@ fun getLatestCommit(): String? =
 
 fun hasLocalCommits(): Boolean {
     val branch = getCurrentBranch() ?: return false
-    return exec("git", "log", "origin/$branch..HEAD")?.isNotEmpty() ?: false
+    return exec("git", "log", "origin/$branch..HEAD")?.isNotBlank() ?: false
 }
 
 fun hasLocalChanges(): Boolean =
