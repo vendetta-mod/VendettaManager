@@ -17,10 +17,10 @@
     <string name="group_download">Download APKs</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Installing</string>
-    <string name="step_dl_base">Downloading base apk</string>
-    <string name="step_dl_lib">Downloading libraries apk</string>
-    <string name="step_dl_lang">Downloading language apk</string>
-    <string name="step_dl_res">Downloading resources apk</string>
+    <string name="step_dl_base">Downloading base APK</string>
+    <string name="step_dl_lib">Downloading libraries APK</string>
+    <string name="step_dl_lang">Downloading language APK</string>
+    <string name="step_dl_res">Downloading resources APK</string>
     <string name="step_dl_vd">Downloading Vendetta module</string>
     <string name="step_change_icon">Changing app icon</string>
     <string name="step_patch_manifests">Patching app manifests</string>
