@@ -13,7 +13,7 @@
     <string name="msg_unlocked">Jesteś teraz deweloperem</string>
     <string name="msg_permission_grant">Aby Menadżer Vendetta działał, wymagane są uprawnienia do plików. Ponieważ udostępnione dane są przechowywane w ~/Vendetta, dostęp do nich wymaga uprawnień.</string>
     <string name="msg_change_mirror">Czy chcesz spróbować ponownie, używając serwera lustrzanego pobierania?</string>
-    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
+    <string name="msg_invalid_apk">Plik APK został uszkodzony, spróbuj wyczyścić pamięć podręczną i ponownie zainstalować Vendetta</string>
     <string name="group_download">Pobieranie plików APK</string>
     <string name="group_patch">Łatanie</string>
     <string name="group_installing">Instalowanie</string>
