@@ -48,15 +48,15 @@ fun Commit(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 AsyncImage(
-                    model = commit.author.avatar,
-                    contentDescription = commit.author.username,
+                    model = commit.author?.avatar ?: "https://github.com/ghost.png",
+                    contentDescription = commit.author?.username ?: "ghost",
                     modifier = Modifier
                         .size(20.dp)
                         .clip(CircleShape)
                 )
 
                 Text(
-                    text = commit.author.username,
+                    text = commit.author?.username ?: "ghost",
                     style = MaterialTheme.typography.labelMedium
                 )
             }

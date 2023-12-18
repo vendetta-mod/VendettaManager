@@ -9,7 +9,7 @@ data class Commit(
     val sha: String,
     @SerialName("commit") val info: Info,
     @SerialName("html_url") val url: String,
-    val author: User
+    val author: User?
 ) {
 
     @Serializable
