@@ -13,7 +13,7 @@
     <string name="msg_unlocked">개발자 모드가 활성화되었어요</string>
     <string name="msg_permission_grant">Vendetta Manager가 정상적으로 작동하려면, 파일 권한을 부여해 주셔야 해요. 공유된 데이터가 ~/Vendetta에 저장되기 때문에, Manager가 작동하려면 권한이 필요해요.</string>
     <string name="msg_change_mirror">미러 버전을 다운로드해서 다시 시도할까요?</string>
-    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
+    <string name="msg_invalid_apk">APK가 손상되었습니다. 캐시를 지운 후 다시 설치해 보세요.</string>
     <string name="group_download">APK 다운로드</string>
     <string name="group_patch">패치 중</string>
     <string name="group_installing">설치 중</string>

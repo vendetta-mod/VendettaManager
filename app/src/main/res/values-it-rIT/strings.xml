@@ -13,12 +13,12 @@
     <string name="msg_unlocked">Ora sei uno sviluppatore</string>
     <string name="msg_permission_grant">Affinché Vendetta Manager possa funzionare, sono richiesti i permessi dei file. Dal momento che i dati condivisi sono memorizzati in ~/Vendetta, sono necessari i permessi per accedervi.</string>
     <string name="msg_change_mirror">Vuoi provare di nuovo usando un download alternativo?</string>
-    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
+    <string name="msg_invalid_apk">L\'APK è corrotto, prova a svuotare la cache e poi a reinstallarlo</string>
     <string name="group_download">Scarica APKs</string>
     <string name="group_patch">Patch in corso</string>
-    <string name="group_installing">Installando</string>
-    <string name="step_dl_base">Download APK base</string>
-    <string name="step_dl_lib">Download APK librerie</string>
+    <string name="group_installing">Installazione</string>
+    <string name="step_dl_base">Download apk base</string>
+    <string name="step_dl_lib">Download apk librerie</string>
     <string name="step_dl_lang">Download apk lingua</string>
     <string name="step_dl_res">Download apk risorse</string>
     <string name="step_dl_vd">Download modulo Vendetta</string>
@@ -43,7 +43,7 @@
     <string name="action_collapse">Minimizza</string>
     <string name="action_expand">Espandi</string>
     <string name="action_back">Indietro</string>
-    <string name="action_copy_logs">Copia il log</string>
+    <string name="action_copy_logs">Copia i log</string>
     <string name="action_clear_cache">Svuota cache</string>
     <string name="action_confirm">Conferma</string>
     <string name="action_start_update">Avvia l\'aggiornamento</string>
@@ -71,8 +71,8 @@
     <string name="title_about">Informazioni</string>
     <string name="title_permission_grant">Concedi permessi</string>
     <string name="title_update_available">Nuovo aggiornamento di Discord disponibile!</string>
-    <string name="title_warning">Warning</string>
-    <string name="title_dl_failed">Download failed</string>
+    <string name="title_warning">Attenzione</string>
+    <string name="title_dl_failed">Download non riuscito</string>
     <string name="theme_system">Sistema</string>
     <string name="theme_light">Chiaro</string>
     <string name="theme_dark">Scuro</string>
