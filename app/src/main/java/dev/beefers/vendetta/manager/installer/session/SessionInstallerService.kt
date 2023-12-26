@@ -1,4 +1,4 @@
-package dev.beefers.vendetta.manager.installer.service
+package dev.beefers.vendetta.manager.installer.session
 
 import android.app.Service
 import android.content.Intent

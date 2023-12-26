@@ -53,7 +53,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".installer.service.InstallService" />
+        <service android:name=".installer.session.InstallService" />
 
         <receiver android:name=".domain.receiver.InstallReceiver"
             android:exported="true">

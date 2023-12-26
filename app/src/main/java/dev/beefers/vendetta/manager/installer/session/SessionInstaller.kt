@@ -1,4 +1,4 @@
-package dev.beefers.vendetta.manager.installer.util
+package dev.beefers.vendetta.manager.installer.session
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent
@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.pm.PackageInstaller.SessionParams
 import android.content.pm.PackageManager
 import android.os.Build
-import dev.beefers.vendetta.manager.installer.service.InstallService
 import java.io.File
 
 fun Context.installApks(silent: Boolean = false, vararg apks: File) {

@@ -10,7 +10,7 @@ import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.domain.manager.DownloadManager
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.domain.repository.RestRepository
-import dev.beefers.vendetta.manager.installer.util.installApks
+import dev.beefers.vendetta.manager.installer.session.installApks
 import dev.beefers.vendetta.manager.network.dto.Release
 import dev.beefers.vendetta.manager.network.utils.dataOrNull
 import dev.beefers.vendetta.manager.network.utils.ifSuccessful
