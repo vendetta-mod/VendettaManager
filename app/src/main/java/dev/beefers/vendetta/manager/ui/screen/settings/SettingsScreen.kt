@@ -128,6 +128,16 @@ class SettingsScreen : ManagerTab {
                     prefs.mirror = it
                 }
             )
+            SettingsItemChoice(
+                label = stringResource(R.string.install_method),
+                pref = prefs.installMethod,
+                labelFactory = {
+                    ctx.getString(it.labelRes)
+                },
+                onPrefChange = {
+                    prefs.installMethod = it
+                }
+            )
             SettingsSwitch(
                 label = stringResource(R.string.settings_auto_clear_cache),
                 secondaryLabel = stringResource(R.string.settings_auto_clear_cache_description),
