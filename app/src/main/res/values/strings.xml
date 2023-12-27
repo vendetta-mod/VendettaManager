@@ -141,4 +141,6 @@
     <string name="install_method">Install method</string>
     <string name="default_installer">Default (reccomended)</string>
     <string name="shizuku_installer">Shizuku</string>
+    <string name="shizuku_not_installed">Shizuku is not installed on this device</string>
+    <string name="shizuku_permission_denied">Failed to obtain ADB privileges from Shizuku</string>
 </resources>

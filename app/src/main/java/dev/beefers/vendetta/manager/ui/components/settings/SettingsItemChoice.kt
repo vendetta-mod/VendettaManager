@@ -26,7 +26,7 @@ inline fun <reified E : Enum<E>> SettingsItemChoice(
     }
 
     SettingsItem(
-        modifier = Modifier.clickable { opened.value = true },
+        modifier = if (!disabled) Modifier.clickable { opened.value = true } else Modifier,
         text = { Text(text = label) },
     ) {
         SettingsChoiceDialog(
