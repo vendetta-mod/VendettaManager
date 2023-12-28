@@ -8,9 +8,10 @@ import android.util.Log
 import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.installer.Installer
 import kotlinx.coroutines.CompletableDeferred
-import kotlinx.coroutines.withTimeoutOrNull
 import rikka.shizuku.Shizuku
 import java.io.File
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 internal class ShizukuInstaller(private val context: Context) : Installer {
     private var serviceBinder: IShizukuInstallerService? = null
@@ -44,28 +45,33 @@ internal class ShizukuInstaller(private val context: Context) : Installer {
         .debuggable(BuildConfig.DEBUG)
         .version(BuildConfig.VERSION_CODE)
 
-    private fun bindService() {
-        if (Shizuku.getVersion() >= 10) {
-            Shizuku.bindUserService(userServiceArgs, userServiceConnection)
+    private suspend fun bindServiceAndWait(): Boolean = suspendCoroutine { continuation ->
+        val connection = object : ServiceConnection {
+            override fun onServiceConnected(name: ComponentName, service: IBinder) {
+                serviceBinder = IShizukuInstallerService.Stub.asInterface(service)
+                continuation.resume(true)
+                Log.i("ShizukuInstaller", "Service connected")
+            }
+
+            override fun onServiceDisconnected(name: ComponentName) {
+                serviceBinder = null
+                Log.i("ShizukuInstaller", "Service disconnected")
+            }
         }
+        Shizuku.bindUserService(userServiceArgs, connection)
+        Log.i("ShizukuInstaller", "Binding service")
     }
 
     private fun unbindService() {
         if (Shizuku.getVersion() >= 10) {
             Shizuku.unbindUserService(userServiceArgs, userServiceConnection, true)
+            Log.i("ShizukuInstaller", "Unbinding service")
         }
     }
 
     override suspend fun installApks(silent: Boolean, vararg apks: File) {
-        bindService()
-
-        withTimeoutOrNull(5000) {
-            serviceConnected.await()
-        }
-
-        if (serviceBinder == null) {
-            Log.e("ShizukuInstaller", "Service binder is not connected.")
-            unbindService()
+        if (!bindServiceAndWait()) {
+            Log.e("ShizukuInstaller", "Failed to bind service")
             return
         }
 

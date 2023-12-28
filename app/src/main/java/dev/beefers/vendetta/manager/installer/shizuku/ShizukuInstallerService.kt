@@ -25,7 +25,6 @@ class ShizukuInstallerService(private val context: Context) : IShizukuInstallerS
         val data = Parcel.obtain()
         val reply = Parcel.obtain()
         try {
-            data.writeInterfaceToken("shizuku")
             data.writeStringList(command)
 
             Shizuku.transactRemote(data, reply, 0);
