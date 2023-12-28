@@ -2,8 +2,6 @@ package dev.beefers.vendetta.manager.installer.shizuku
 
 import android.content.Context
 import android.os.Parcel
-import android.os.RemoteException
-import android.system.Os
 import android.util.Log
 import rikka.shizuku.Shizuku
 import kotlin.system.exitProcess
@@ -19,11 +17,6 @@ class ShizukuInstallerService(private val context: Context) : IShizukuInstallerS
 
     override fun exit() {
         destroy()
-    }
-
-    @Throws(RemoteException::class)
-    override fun doSomething(): String {
-        return "pid=" + Os.getpid() + ", uid=" + Os.getuid()
     }
 
     override fun installApks(apkPaths: List<String>): String {
