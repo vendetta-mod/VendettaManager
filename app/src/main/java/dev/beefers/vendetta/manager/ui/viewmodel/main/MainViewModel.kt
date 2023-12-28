@@ -69,7 +69,7 @@ class MainViewModel(
             isUpdating = false
 
             val installer: Installer = if (preferenceManager.installMethod == InstallMethod.SHIZUKU) {
-                ShizukuInstaller()
+                ShizukuInstaller(context)
             } else {
                 SessionInstaller(context)
             }

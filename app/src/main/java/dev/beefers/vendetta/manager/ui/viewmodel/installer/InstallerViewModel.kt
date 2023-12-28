@@ -414,7 +414,7 @@ class InstallerViewModel(
             logger.i("Installing apks")
 
             val installer: Installer = if (preferences.installMethod == InstallMethod.SHIZUKU) {
-                ShizukuInstaller()
+                ShizukuInstaller(context)
             } else {
                 SessionInstaller(context)
             }
