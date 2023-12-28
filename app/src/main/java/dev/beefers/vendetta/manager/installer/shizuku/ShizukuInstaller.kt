@@ -1,90 +1,80 @@
 package dev.beefers.vendetta.manager.installer.shizuku
 
-import android.content.ComponentName
+import android.app.PendingIntent
 import android.content.Context
-import android.content.ServiceConnection
-import android.os.IBinder
+import android.content.Intent
+import android.os.Build
 import android.util.Log
-import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.installer.Installer
-import kotlinx.coroutines.CompletableDeferred
+import dev.beefers.vendetta.manager.installer.session.InstallService
 import rikka.shizuku.Shizuku
 import java.io.File
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 internal class ShizukuInstaller(private val context: Context) : Installer {
-    private var serviceBinder: IShizukuInstallerService? = null
-    private val serviceConnected = CompletableDeferred<Unit>()
-
-    private val userServiceConnection: ServiceConnection = object : ServiceConnection {
-        override fun onServiceConnected(componentName: ComponentName, binder: IBinder) {
-            if (binder.pingBinder()) {
-                serviceBinder = IShizukuInstallerService.Stub.asInterface(binder)
-                serviceConnected.complete(Unit)
-                Log.i("ShizukuInstaller", "Service connected")
-            } else {
-                Log.e("ShizukuInstaller", "Invalid binder received")
-            }
+        companion object {
+                private val SESSION_ID_REGEX = Regex("(?<=\\[).+?(?=])")
         }
 
-        override fun onServiceDisconnected(name: ComponentName?) {
-            serviceBinder = null
-            Log.i("ShizukuInstaller", "Service disconnected")
-        }
-    }
+        override suspend fun installApks(silent: Boolean, vararg apks: File) {
+                apks.forEach { apk ->
+                        val apkPath = apk.absolutePath
+                        var sessionId: String? = null
+                        var resultMessage = ""
+                        try {
+                                val size = apk.length()
+                                val createCommand = "pm install-create -r -S $size"
+                                val createResult = executeShellCommand(createCommand)
+                                sessionId = SESSION_ID_REGEX.find(createResult)?.value
+                                        ?: throw RuntimeException("Failed to create install session for APK: $apkPath")
+                                resultMessage += "Create session result: $createResult\n"
 
-    private val userServiceArgs = Shizuku.UserServiceArgs(
-        ComponentName(
-            BuildConfig.APPLICATION_ID,
-            ShizukuInstallerService::class.java.getName()
-        )
-    )
-        .daemon(false)
-        .processNameSuffix("service")
-        .debuggable(BuildConfig.DEBUG)
-        .version(BuildConfig.VERSION_CODE)
+                                val writeCommand = "pm install-write -S $size $sessionId base $apkPath"
+                                val writeResult = executeShellCommand(writeCommand)
+                                if (writeResult.contains("Failure")) {
+                                        throw RuntimeException("Failed to write APK to session $sessionId: $writeResult")
+                                }
+                                resultMessage += "Write APK result: $writeResult\n"
 
-    private suspend fun bindServiceAndWait(): Boolean = suspendCoroutine { continuation ->
-        val connection = object : ServiceConnection {
-            override fun onServiceConnected(name: ComponentName, service: IBinder) {
-                serviceBinder = IShizukuInstallerService.Stub.asInterface(service)
-                continuation.resume(true)
-                Log.i("ShizukuInstaller", "Service connected")
-            }
+                                val commitCommand = "pm install-commit $sessionId"
+                                val commitResult = executeShellCommand(commitCommand)
+                                if (commitResult.contains("Failure")) {
+                                        throw RuntimeException("Failed to commit install session $sessionId: $commitResult")
+                                }
+                                resultMessage += "Commit session result: $commitResult\n"
 
-            override fun onServiceDisconnected(name: ComponentName) {
-                serviceBinder = null
-                Log.i("ShizukuInstaller", "Service disconnected")
-            }
-        }
-        Shizuku.bindUserService(userServiceArgs, connection)
-        Log.i("ShizukuInstaller", "Binding service")
-    }
-
-    private fun unbindService() {
-        if (Shizuku.getVersion() >= 10) {
-            Shizuku.unbindUserService(userServiceArgs, userServiceConnection, true)
-            Log.i("ShizukuInstaller", "Unbinding service")
-        }
-    }
-
-    override suspend fun installApks(silent: Boolean, vararg apks: File) {
-        if (!bindServiceAndWait()) {
-            Log.e("ShizukuInstaller", "Failed to bind service")
-            return
+                                Log.i("ShizukuInstaller", "Successfully installed $apkPath")
+                                triggerStatusIntent("Success", resultMessage, "")
+                        } catch (e: Exception) {
+                                Log.e("ShizukuInstaller", "Error installing APK $apkPath: ${e.message}")
+                                triggerStatusIntent("Failure", resultMessage, e.message ?: "")
+                                if (sessionId != null) {
+                                        executeShellCommand("pm install-abandon $sessionId")
+                                }
+                                throw e
+                        }
+                }
         }
 
-        val apkPaths = apks.map { it.absolutePath }
-        Log.i("ShizukuInstaller", "Preparing to install APKs: $apkPaths")
-
-        try {
-            val installResult = serviceBinder!!.installApks(apkPaths)
-            Log.i("ShizukuInstaller", "Install result: $installResult")
-        } catch (e: Exception) {
-            Log.e("ShizukuInstaller", "Exception during APK installation: ${e.message}", e)
-        } finally {
-            unbindService()
+        private fun executeShellCommand(command: String): String {
+                val process = Shizuku.newProcess(arrayOf("sh", "-c", command), null, null)
+                return process.inputStream.bufferedReader().use { it.readText().trim() }
         }
-    }
+
+        private fun triggerStatusIntent(status: String, result: String, error: String) {
+                val callbackIntent = Intent(context, InstallService::class.java).apply {
+                        action = "vendetta.actions.ACTION_INSTALL"
+                        putExtra("status", status)
+                        putExtra("result", result)
+                        putExtra("error", error)
+                }
+
+                val pendingIntentFlag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                        PendingIntent.FLAG_IMMUTABLE
+                } else {
+                        0
+                }
+
+                val contentIntent = PendingIntent.getService(context, 0, callbackIntent, pendingIntentFlag)
+                contentIntent.send()
+        }
 }

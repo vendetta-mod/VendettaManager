@@ -13,7 +13,6 @@ import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.domain.repository.RestRepository
 import dev.beefers.vendetta.manager.installer.Installer
 import dev.beefers.vendetta.manager.installer.session.SessionInstaller
-import dev.beefers.vendetta.manager.installer.shizuku.IShizukuInstallerService
 import dev.beefers.vendetta.manager.installer.shizuku.ShizukuInstaller
 import dev.beefers.vendetta.manager.network.dto.Release
 import dev.beefers.vendetta.manager.network.utils.dataOrNull
@@ -35,10 +34,6 @@ class MainViewModel(
     var showUpdateDialog by mutableStateOf(false)
 
     var isUpdating by mutableStateOf(false)
-
-    companion object {
-        var serviceBinder: IShizukuInstallerService? = null
-    }
 
     init {
         checkForUpdate()

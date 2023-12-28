@@ -18,7 +18,6 @@ import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-
 class ManagerApplication : Application() {
     override fun onCreate() {
         super.onCreate()
