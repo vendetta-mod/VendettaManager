@@ -13,6 +13,7 @@ import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.domain.repository.RestRepository
 import dev.beefers.vendetta.manager.installer.Installer
 import dev.beefers.vendetta.manager.installer.session.SessionInstaller
+import dev.beefers.vendetta.manager.installer.shizuku.IShizukuInstallerService
 import dev.beefers.vendetta.manager.installer.shizuku.ShizukuInstaller
 import dev.beefers.vendetta.manager.network.dto.Release
 import dev.beefers.vendetta.manager.network.utils.dataOrNull
@@ -35,11 +36,15 @@ class MainViewModel(
 
     var isUpdating by mutableStateOf(false)
 
+    companion object {
+        var serviceBinder: IShizukuInstallerService? = null
+    }
+
     init {
         checkForUpdate()
     }
 
-    fun checkForUpdate() {
+    private fun checkForUpdate() {
         coroutineScope.launch {
             release = repo.getLatestRelease("VendettaManager").dataOrNull
             release?.let {
@@ -64,7 +69,7 @@ class MainViewModel(
             isUpdating = false
 
             val installer: Installer = if (preferenceManager.installMethod == InstallMethod.SHIZUKU) {
-                ShizukuInstaller(context)
+                ShizukuInstaller()
             } else {
                 SessionInstaller(context)
             }

@@ -14,7 +14,7 @@ internal class SessionInstaller(private val context: Context) : Installer {
 
     private val packageManager: PackageManager = context.packageManager
 
-    override fun installApks(silent: Boolean, vararg apks: File) {
+    override suspend fun installApks(silent: Boolean, vararg apks: File) {
         val params = SessionParams(SessionParams.MODE_FULL_INSTALL).apply {
             if (Build.VERSION.SDK_INT >= 31) {
                 setInstallScenario(PackageManager.INSTALL_SCENARIO_FAST)

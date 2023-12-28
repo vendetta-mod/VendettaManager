@@ -75,6 +75,9 @@
             android:exported="true"
             android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
+        <service android:name=".installer.shizuku.ShizukuInstallerService"
+            android:exported="false" />
+
     </application>
 
 </manifest>
