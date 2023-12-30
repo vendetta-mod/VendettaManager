@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">Vendetta Manager</string>
+    <string name="app_name">مدير الثأر</string>
     <string name="msg_cleared_cache">تم مسح ذاكرة التخزين المؤقت بنجاح</string>
     <string name="msg_load_fail">فشل تحميل البيانات</string>
     <string name="msg_coming_soon">سيأتي قريباً</string>
@@ -97,9 +97,9 @@
     <string name="settings_mirror">تحميل بديل</string>
     <string name="settings_auto_clear_cache">مسح الذاكرة المؤقتة تلقائياً</string>
     <string name="settings_auto_clear_cache_description">مسح الذاكرة المؤقتة عندما يحصل ديسكورد على تحديث</string>
-    <string name="settings_module_location">Module location</string>
-    <string name="settings_module_location_description">For use with developing the Xposed module. BE CAREFUL</string>
-    <string name="settings_module_location_reset">Reset module location</string>
+    <string name="settings_module_location">موقع الوحدة</string>
+    <string name="settings_module_location_description">للاستخدام في تطوير وحدة Xpose. احرص</string>
+    <string name="settings_module_location_reset">إعادة تعيين موقع الوحدة</string>
     <string name="settings_developer">المطوِّر فقط</string>
     <string name="settings_package_name">اسم الباقة</string>
     <string name="settings_version">إصدار ديسكورد</string>
