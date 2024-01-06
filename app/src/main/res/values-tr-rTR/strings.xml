@@ -12,7 +12,7 @@
     <string name="msg_downgrade">Sürüm düşürülemiyor, önce kaldırmayı deneyin</string>
     <string name="msg_unlocked">Artık bir geliştiricisiniz</string>
     <string name="msg_permission_grant">Vendetta Manager\'ın düzgün çalışması için dosya izinleri gereklidir. Paylaşılan uygulama verileri ~/Vendetta\'da depolandığından, dosyalara erişim için izin gerekmektedir.</string>
-    <string name="msg_change_mirror">Kaynaktan İndir?</string>
+    <string name="msg_change_mirror">Alternatif bir kaynak kullanarak tekrar denemek ister misiniz?</string>
     <string name="msg_invalid_apk">APK bozuk. Önbelleği temizleyip yeniden yüklemeyi deneyin</string>
     <string name="group_download">APK\'ları indir</string>
     <string name="group_patch">Yamalanıyor</string>
