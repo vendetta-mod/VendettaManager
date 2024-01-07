@@ -19,11 +19,14 @@ import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.DownloadManager
 import dev.beefers.vendetta.manager.domain.manager.InstallManager
+import dev.beefers.vendetta.manager.domain.manager.InstallMethod
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
+import dev.beefers.vendetta.manager.installer.Installer
+import dev.beefers.vendetta.manager.installer.session.SessionInstaller
+import dev.beefers.vendetta.manager.installer.shizuku.ShizukuInstaller
 import dev.beefers.vendetta.manager.installer.util.ManifestPatcher
 import dev.beefers.vendetta.manager.installer.util.Patcher
 import dev.beefers.vendetta.manager.installer.util.Signer
-import dev.beefers.vendetta.manager.installer.util.installApks
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.copyText
 import dev.beefers.vendetta.manager.utils.isMiui
@@ -409,7 +412,15 @@ class InstallerViewModel(
                 files.add(lspatchedDir.resolve(name))
             }
             logger.i("Installing apks")
-            context.installApks(silent = !isMiui, *files.toTypedArray())
+
+            val installer: Installer = if (preferences.installMethod == InstallMethod.SHIZUKU) {
+                ShizukuInstaller(context)
+            } else {
+                SessionInstaller(context)
+            }
+
+            installer.installApks(silent = !isMiui, *files.toTypedArray())
+
             isFinished = true
         }
     }

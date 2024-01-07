@@ -15,8 +15,29 @@ import dev.beefers.vendetta.manager.ui.screen.main.MainScreen
 import dev.beefers.vendetta.manager.ui.theme.VendettaManagerTheme
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.Intents
+import rikka.shizuku.Shizuku
 
-class MainActivity : ComponentActivity() {
+
+class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListener {
+    private val acRequestCode = 1
+
+    private val REQUEST_PERMISSION_RESULT_LISTENER = this::onRequestPermissionResult
+
+    override fun onRequestPermissionResult(requestCode: Int, grantResult: Int) {
+        if (grantResult != PackageManager.PERMISSION_GRANTED) {
+            checkAndRequestPermission()
+        }
+    }
+
+    private fun checkAndRequestPermission() {
+        if (Shizuku.pingBinder()) {
+            Shizuku.addRequestPermissionResultListener(REQUEST_PERMISSION_RESULT_LISTENER)
+            if (Shizuku.checkSelfPermission() != PackageManager.PERMISSION_GRANTED) {
+                Shizuku.requestPermission(acRequestCode)
+            }
+        }
+    }
+
     @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -31,10 +52,13 @@ class MainActivity : ComponentActivity() {
             )
         }
 
-        val screen = if (intent.action == Intents.Actions.INSTALL && version != null)
+        checkAndRequestPermission()
+
+        val screen = if (intent.action == Intents.Actions.INSTALL && version != null) {
             InstallerScreen(DiscordVersion.fromVersionCode(version)!!)
-        else
+        } else {
             MainScreen()
+        }
 
         setContent {
             VendettaManagerTheme {
@@ -43,5 +67,10 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        Shizuku.removeRequestPermissionResultListener(REQUEST_PERMISSION_RESULT_LISTENER)
+        super.onDestroy()
     }
 }

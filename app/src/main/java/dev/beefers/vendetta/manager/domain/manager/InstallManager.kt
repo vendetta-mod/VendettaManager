@@ -10,7 +10,7 @@ import android.os.Build
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import dev.beefers.vendetta.manager.installer.service.InstallService
+import dev.beefers.vendetta.manager.installer.session.InstallService
 
 class InstallManager(
     private val context: Context,

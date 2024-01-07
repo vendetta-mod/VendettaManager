@@ -42,6 +42,8 @@ class PreferenceManager(context: Context) :
 
     var moduleLocation by filePreference("module_location", DEFAULT_MODULE_LOCATION)
 
+    var installMethod by enumPreference("install_method", InstallMethod.DEFAULT)
+
     init {
         // Will be removed next update
         if(mirror == Mirror.VENDETTA_ROCKS) mirror = Mirror.VENDETTA_ROCKS_ALT
@@ -72,4 +74,9 @@ enum class Mirror(val baseUrl: String) {
     VENDETTA_ROCKS_ALT("https://proxy.vendetta.rocks"),
     K6("https://vd.k6.tf"),
     NEXPID("https://vd.k6.tf.nexpid.xyz")
+}
+
+enum class InstallMethod(@StringRes val labelRes: Int) {
+    DEFAULT(R.string.default_installer),
+    SHIZUKU(R.string.shizuku_installer)
 }
