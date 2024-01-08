@@ -131,6 +131,11 @@ dependencies {
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
     implementation("io.ktor:ktor-client-logging:$ktorVersion")
 
+    val shizukuVersion = "13.1.0"
+
+    implementation("dev.rikka.shizuku:api:$shizukuVersion")
+    implementation("dev.rikka.shizuku:provider:$shizukuVersion")
+
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
     implementation("io.github.diamondminer88:zip-android:2.1.0@aar")
     implementation(files("libs/lspatch.jar"))
