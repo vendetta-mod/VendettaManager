@@ -19,8 +19,8 @@ import rikka.shizuku.Shizuku
 
 
 class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListener {
-    private val acRequestCode = 1
 
+    private val acRequestCode = 1
     private val REQUEST_PERMISSION_RESULT_LISTENER = this::onRequestPermissionResult
 
     override fun onRequestPermissionResult(requestCode: Int, grantResult: Int) {
@@ -73,4 +73,5 @@ class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListe
         Shizuku.removeRequestPermissionResultListener(REQUEST_PERMISSION_RESULT_LISTENER)
         super.onDestroy()
     }
+
 }
