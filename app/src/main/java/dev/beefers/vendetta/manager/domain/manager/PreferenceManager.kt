@@ -73,7 +73,7 @@ enum class Mirror(val baseUrl: String) {
     VENDETTA_ROCKS("https://proxy.vendetta.rocks"), // Temporarily added for compatibility
     VENDETTA_ROCKS_ALT("https://proxy.vendetta.rocks"),
     K6("https://vd.k6.tf"),
-    NEXPID("https://vd.k6.tf.nexpid.xyz")
+    NEXPID("https://tracker.vd.nexpid.xyz")
 }
 
 enum class InstallMethod(@StringRes val labelRes: Int) {
