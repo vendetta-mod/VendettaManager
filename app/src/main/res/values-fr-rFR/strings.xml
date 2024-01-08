@@ -118,4 +118,7 @@
     <string name="version_latest">Dernière version : %1$s</string>
     <string name="version_target">Version cible : %1$s</string>
     <string name="version_current">Version actuelle : %1$s</string>
+    <string name="install_method">Install method</string>
+    <string name="default_installer">Default (recommended)</string>
+    <string name="shizuku_installer">Shizuku</string>
 </resources>
