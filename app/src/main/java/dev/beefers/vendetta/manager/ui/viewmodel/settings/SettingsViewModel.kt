@@ -1,6 +1,7 @@
 package dev.beefers.vendetta.manager.ui.viewmodel.settings
 
 import android.content.Context
+import android.os.Environment
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
@@ -9,11 +10,12 @@ import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.UpdateCheckerDuration
 import dev.beefers.vendetta.manager.updatechecker.worker.UpdateWorker
 import dev.beefers.vendetta.manager.utils.showToast
+import java.io.File
 
 class SettingsViewModel(
     private val context: Context
 ) : ScreenModel {
-    private val cacheDir = context.externalCacheDir!!
+    private val cacheDir = context.externalCacheDir ?: File(Environment.getExternalStorageDirectory(), Environment.DIRECTORY_DOWNLOADS).resolve("VendettaManager").also { it.mkdirs() }
 
     fun clearCache() {
         cacheDir.deleteRecursively()

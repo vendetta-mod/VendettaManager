@@ -3,6 +3,7 @@ package dev.beefers.vendetta.manager.ui.viewmodel.installer
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.os.Environment
 import android.util.Log
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Stable
@@ -55,7 +56,7 @@ class InstallerViewModel(
     var failedOnDownload by mutableStateOf(false)
 
     private val installationRunning = AtomicBoolean(false)
-    private val cacheDir = context.externalCacheDir ?: context.cacheDir
+    private val cacheDir = context.externalCacheDir ?: File(Environment.getExternalStorageDirectory(), Environment.DIRECTORY_DOWNLOADS).resolve("VendettaManager").also { it.mkdirs() }
     private var debugInfo = """
             Vendetta Manager v${BuildConfig.VERSION_NAME}
             Built from commit ${BuildConfig.GIT_COMMIT} on ${BuildConfig.GIT_BRANCH} ${if (BuildConfig.GIT_LOCAL_CHANGES || BuildConfig.GIT_LOCAL_COMMITS) "(Changes Present)" else ""}

@@ -1,6 +1,7 @@
 package dev.beefers.vendetta.manager.ui.viewmodel.main
 
 import android.content.Context
+import android.os.Environment
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -27,7 +28,7 @@ class MainViewModel(
     private val preferenceManager: PreferenceManager,
     private val context: Context
 ) : ScreenModel {
-    private val cacheDir = context.externalCacheDir ?: context.cacheDir
+    private val cacheDir = context.externalCacheDir ?: File(Environment.getExternalStorageDirectory(), Environment.DIRECTORY_DOWNLOADS).resolve("VendettaManager").also { it.mkdirs() }
     var release by mutableStateOf<Release?>(null)
         private set
 
