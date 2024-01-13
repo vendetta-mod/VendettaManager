@@ -118,7 +118,7 @@
     <string name="version_latest">En son: %1$s</string>
     <string name="version_target">Hedef: %1$s</string>
     <string name="version_current">Şu anki: %1$s</string>
-    <string name="install_method">Install method</string>
-    <string name="default_installer">Default (recommended)</string>
+    <string name="install_method">Kurulum yöntemi</string>
+    <string name="default_installer">Varsayılan (önerilen)</string>
     <string name="shizuku_installer">Shizuku</string>
 </resources>

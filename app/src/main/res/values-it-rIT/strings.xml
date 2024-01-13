@@ -14,7 +14,7 @@
     <string name="msg_permission_grant">Affinché Vendetta Manager possa funzionare, sono richiesti i permessi dei file. Dal momento che i dati condivisi sono memorizzati in ~/Vendetta, sono necessari i permessi per accedervi.</string>
     <string name="msg_change_mirror">Vuoi provare di nuovo usando un download alternativo?</string>
     <string name="msg_invalid_apk">L\'APK è corrotto, prova a svuotare la cache e poi a reinstallarlo</string>
-    <string name="group_download">Scarica APKs</string>
+    <string name="group_download">Download APKs</string>
     <string name="group_patch">Patch in corso</string>
     <string name="group_installing">Installazione</string>
     <string name="step_dl_base">Download apk base</string>
@@ -62,7 +62,7 @@
     <string name="action_dismiss_nevermind">Non importa</string>
     <string name="action_dismiss_no_thanks">No grazie</string>
     <string name="action_try_again">Riprova</string>
-    <string name="msg_back_warning">Uscire dal programma prima che abbia finito potrebbe danneggiare i file scaricati, sei sicuro di voler farlo?</string>
+    <string name="msg_back_warning">Uscire dal programma prima che abbia finito potrebbe danneggiare i file scaricati, sei sicuro di volerlo fare?</string>
     <string name="installer_cached">Memorizz. nella cache</string>
     <string name="title_installer">Installer</string>
     <string name="title_home">Home</string>
@@ -94,7 +94,7 @@
     <string name="settings_app_icon">Sostituisci l\'icona dell\'app</string>
     <string name="settings_app_icon_description">Utilizza l\'icona di Vendetta al posto di Discord</string>
     <string name="settings_channel">Canale di rilascio</string>
-    <string name="settings_mirror">Download mirror</string>
+    <string name="settings_mirror">Download alternativo</string>
     <string name="settings_auto_clear_cache">Cancella la cache automaticamente</string>
     <string name="settings_auto_clear_cache_description">Cancella la cache quando Discord riceve un aggiornamento</string>
     <string name="settings_module_location">Percorso del modulo</string>
@@ -118,7 +118,7 @@
     <string name="version_latest">Ultima versione: %1$s</string>
     <string name="version_target">Target: %1$s</string>
     <string name="version_current">Versione attuale: %1$s</string>
-    <string name="install_method">Install method</string>
-    <string name="default_installer">Default (recommended)</string>
+    <string name="install_method">Metodo d\'installazione</string>
+    <string name="default_installer">Predefinito (Consigliato)</string>
     <string name="shizuku_installer">Shizuku</string>
 </resources>

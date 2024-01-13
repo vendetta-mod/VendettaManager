@@ -13,7 +13,7 @@
     <string name="msg_unlocked">Ahora eres un desarrollador</string>
     <string name="msg_permission_grant">Para que Vendetta Manager funcione, se requieren permisos de archivos. Dado que los datos compartidos se almacenan en ~/Vendetta, se requieren permisos para acceder a ellos.</string>
     <string name="msg_change_mirror">¿Te gustaría volver a intentar usando un servidor réplica de descarga?</string>
-    <string name="msg_invalid_apk">APK was corrupted, try clearing cache then reinstalling</string>
+    <string name="msg_invalid_apk">APK estaba dañado, intente borrar la caché y vuelva a instalar</string>
     <string name="group_download">Descargar APKs</string>
     <string name="group_patch">Parcheando</string>
     <string name="group_installing">Instalando</string>
@@ -118,7 +118,7 @@
     <string name="version_latest">Más reciente: %1$s</string>
     <string name="version_target">Selección: %1$s</string>
     <string name="version_current">Actual: %1$s</string>
-    <string name="install_method">Install method</string>
-    <string name="default_installer">Default (recommended)</string>
+    <string name="install_method">Método de instalación</string>
+    <string name="default_installer">Por defecto (recomendado)</string>
     <string name="shizuku_installer">Shizuku</string>
 </resources>
