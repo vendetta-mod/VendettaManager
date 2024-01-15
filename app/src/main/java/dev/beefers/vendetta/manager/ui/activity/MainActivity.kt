@@ -21,6 +21,7 @@ import dev.beefers.vendetta.manager.utils.Intents
 import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {
+
     private val preferences: PreferenceManager by inject()
 
     @OptIn(ExperimentalAnimationApi::class)
@@ -54,4 +55,5 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
 }

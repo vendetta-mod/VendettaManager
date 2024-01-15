@@ -10,6 +10,7 @@ import rikka.shizuku.Shizuku
 import java.io.File
 
 class ShizukuInstaller(private val context: Context) : Installer {
+
     override suspend fun installApks(silent: Boolean, vararg apks: File) {
         if (!ShizukuPermissions.waitShizukuPermissions()) {
             withContext(Dispatchers.Main) {

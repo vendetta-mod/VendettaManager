@@ -56,4 +56,5 @@ class SettingsViewModel(
             else -> prefs.installMethod = method
         }
     }
+
 }

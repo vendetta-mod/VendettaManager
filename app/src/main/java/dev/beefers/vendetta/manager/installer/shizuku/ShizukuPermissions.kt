@@ -11,6 +11,7 @@ import rikka.shizuku.Shizuku.OnRequestPermissionResultListener
 
 @OptIn(DelicateCoroutinesApi::class)
 object ShizukuPermissions {
+
     private const val REQUEST_CODE = 1
 
     private val _permissionsGranted = MutableSharedFlow<Boolean>(replay = 0)
@@ -46,4 +47,5 @@ object ShizukuPermissions {
             }
         }
     }
+
 }
