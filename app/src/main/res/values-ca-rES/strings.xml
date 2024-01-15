@@ -12,6 +12,7 @@
     <string name="msg_downgrade">No es pot desactualitzar, primer prova de desinstal·lar</string>
     <string name="msg_unlocked">Ara ets desenvolupador</string>
     <string name="msg_permission_grant">Perquè Vendetta Manager funcioni, calen permisos de fitxers. Com que les dades compartides s\'emmagatzemen a ~/Vendetta, calen permisos per accedir-hi.</string>
+    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Vols tornar-ho a provar amb una baixada?</string>
     <string name="msg_invalid_apk">L\'APK s\'ha fet malbé, proveu d\'esborrar la memòria cau i torna-ho a instal·lar</string>
     <string name="group_download">Baixa APK</string>

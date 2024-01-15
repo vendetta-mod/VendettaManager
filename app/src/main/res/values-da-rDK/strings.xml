@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Kan ikke nedgradere, Prøv at afinstallere først</string>
     <string name="msg_unlocked">Du er nu udvikler</string>
     <string name="msg_permission_grant">For at Vendetta Manager kan fungere, kræves filtilladelser. Da delte data er gemt i ~/Vendetta, kræves der tilladelser for at få adgang til dem.</string>
+    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Vil du prøve igen med et downloadspejl?</string>
     <string name="msg_invalid_apk">APK var beskadiget, Prøv at rydde cachen og derefter geninstallere</string>
     <string name="group_download">Download APK\'er</string>

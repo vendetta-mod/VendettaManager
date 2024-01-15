@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Не удалось понизить версию, сначала попробуйте удалить</string>
     <string name="msg_unlocked">Вы стали разработчиком</string>
     <string name="msg_permission_grant">Чтобы Vendetta работал правильно, ему необходимо предоставить разрешения на доступ к файлам. Так как данные хранятся в ~/Vendetta, выдача разрешений необходима для работы менеджера.</string>
+    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Хотели бы вы попробовать еще раз, используя загрузочное зеркало?</string>
     <string name="msg_invalid_apk">APK повреждён, попробуйте очистить кеш, а потом переустановить приложение</string>
     <string name="group_download">Скачивание пакетов</string>

@@ -12,6 +12,7 @@
     <string name="msg_downgrade">無法降級，請先嘗試解除安裝</string>
     <string name="msg_unlocked">您現在已成為開發人員</string>
     <string name="msg_permission_grant">為了使 Vendetta Manager 正常運作，您需要授予「管理所有檔案」權限。由於資料儲存在 ~/Vendetta 中，因此需要權限才能讀取它。</string>
+    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">您想使用下載鏡像再試一次嗎？</string>
     <string name="msg_invalid_apk">APK 已損壞，請嘗試清除快取然後重新安裝</string>
     <string name="group_download">下載 APK</string>
@@ -45,7 +46,7 @@
     <string name="action_back">返回</string>
     <string name="action_copy_logs">複製記錄檔</string>
     <string name="action_clear_cache">清除快取</string>
-    <string name="action_confirm">確認</string>
+    <string name="action_confirm">確定</string>
     <string name="action_start_update">開始更新</string>
     <string name="action_install">安裝</string>
     <string name="action_update">更新</string>
@@ -118,7 +119,7 @@
     <string name="version_latest">最新版本：%1$s</string>
     <string name="version_target">目標：%1$s</string>
     <string name="version_current">目前版本：%1$s</string>
-    <string name="install_method">Install method</string>
+    <string name="install_method">安裝方法</string>
     <string name="default_installer">Default (recommended)</string>
     <string name="shizuku_installer">Shizuku</string>
 </resources>

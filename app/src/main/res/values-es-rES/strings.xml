@@ -12,6 +12,7 @@
     <string name="msg_downgrade">No se puede desactualizar, intente desinstalándolo primero</string>
     <string name="msg_unlocked">Ahora eres un desarrollador</string>
     <string name="msg_permission_grant">Para que Vendetta Manager funcione, se requieren permisos de archivos. Dado que los datos compartidos se almacenan en ~/Vendetta, se requieren permisos para acceder a ellos.</string>
+    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">¿Te gustaría volver a intentar usando un servidor réplica de descarga?</string>
     <string name="msg_invalid_apk">APK estaba dañado, intente borrar la caché y vuelva a instalar</string>
     <string name="group_download">Descargar APKs</string>

@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Kan nie afgradeer nie, probeer eers deïnstalleer</string>
     <string name="msg_unlocked">Jy is nou \'n ontwikkelaar</string>
     <string name="msg_permission_grant">Vir Vendetta Bestuurder om te funksioneer, word lêertoestemmings vereis. Aangesien gedeelde data in ~/Vendetta gestoor word, word toestemmings vereis om toegang daartoe te verkry.</string>
+    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Wil jy weer probeer met \'n aflaaispieël?</string>
     <string name="msg_invalid_apk">APK is korrupteer, probeer om kas skoon te maak en dan weer te installeer</string>
     <string name="group_download">Laai APK\'s af</string>

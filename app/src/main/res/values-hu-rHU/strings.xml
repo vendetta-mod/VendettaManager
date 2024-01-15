@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Nem lehet leminősíteni, próbálja meg először eltávolítani</string>
     <string name="msg_unlocked">Ön most már fejlesztő</string>
     <string name="msg_permission_grant">A Vendetta Kezelő működéséhez fájlengedélyekre van szükség. Mivel a megosztott adatokat a ~/Vendetta fájlban tárolja, a hozzáféréshez engedélyekre van szükség.</string>
+    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Szeretné újra megpróbálni egy letöltési mirror segítségével?</string>
     <string name="msg_invalid_apk">Az APK sérült, próbálja meg a gyorsítótár törlését, majd az újratelepítést</string>
     <string name="group_download">APK-k letöltése</string>

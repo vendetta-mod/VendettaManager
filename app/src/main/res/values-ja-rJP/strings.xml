@@ -13,6 +13,7 @@
     <string name="msg_unlocked">これで開発者になりました</string>
     <string name="msg_permission_grant">Vendetta Manager を正しく動作させるためには、ファイルへのアクセスを許可する必要があります。
 ~/Vendetta に共有データが保存されるため、Manager を機能させるためには権限が必要です。</string>
+    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">ダウンロードミラーを使用して再試行しますか？</string>
     <string name="msg_invalid_apk">APK が破損しています。キャッシュを消去してから再インストールしてください。</string>
     <string name="group_download">APK のダウンロード</string>

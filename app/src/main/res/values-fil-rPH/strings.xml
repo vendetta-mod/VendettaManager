@@ -12,6 +12,7 @@
     <string name="msg_downgrade">Hindi maka-downgrade, subukang mag-uninstall muna</string>
     <string name="msg_unlocked">Isa ka nang developer ngayon</string>
     <string name="msg_permission_grant">Upang gumana ang Vendetta Manager, kinakailangan ang pahintulot ng file. Dahil nakaimbak ang nakabahaging data sa ~/Vendetta, kailangan ng mga pahintulot para ma-access ito.</string>
+    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Gusto mo bang subukan muli gamit ng download mirror?</string>
     <string name="msg_invalid_apk">Nasira ang APK, subukang i-clear ang cache at pag-reinstall</string>
     <string name="group_download">I-download ang mga APK</string>
