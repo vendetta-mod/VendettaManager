@@ -6,9 +6,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -50,6 +55,7 @@ import dev.beefers.vendetta.manager.ui.widgets.about.LinkItem
 import dev.beefers.vendetta.manager.ui.widgets.about.ListItem
 import dev.beefers.vendetta.manager.ui.widgets.about.UserEntry
 import dev.beefers.vendetta.manager.utils.Constants
+import dev.beefers.vendetta.manager.utils.DimenUtils
 import dev.beefers.vendetta.manager.utils.getBitmap
 import dev.beefers.vendetta.manager.utils.showToast
 import org.koin.androidx.compose.get
@@ -72,6 +78,7 @@ class AboutScreen : Screen {
 
         Scaffold(
             topBar = { TitleBar(scrollBehavior) },
+            contentWindowInsets = WindowInsets(0, 0, 0, 0),
             modifier = Modifier
                 .nestedScroll(scrollBehavior.nestedScrollConnection)
         ) {
@@ -79,6 +86,7 @@ class AboutScreen : Screen {
                 modifier = Modifier
                     .padding(it)
                     .verticalScroll(rememberScrollState())
+                    .padding(bottom = DimenUtils.navBarPadding)
             ) {
                 Column(
                     verticalArrangement = Arrangement.spacedBy(16.dp),

@@ -2,7 +2,12 @@ package dev.beefers.vendetta.manager.ui.screen.settings
 
 import android.os.Build
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -30,11 +35,13 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.InstallManager
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
+import dev.beefers.vendetta.manager.ui.components.NavBarSpacer
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsButton
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsHeader
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsItemChoice
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsSwitch
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsTextField
+import dev.beefers.vendetta.manager.utils.DimenUtils
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import org.koin.androidx.compose.get
 import java.io.File
@@ -63,12 +70,14 @@ class DeveloperSettings: Screen {
 
         Scaffold(
             topBar = { TitleBar(scrollBehavior) },
+            contentWindowInsets = WindowInsets(0, 0, 0, 0),
             modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
         ) { pv ->
             Column(
                 modifier = Modifier
                     .padding(pv)
                     .verticalScroll(rememberScrollState())
+                    .padding(bottom = DimenUtils.navBarPadding)
             ) {
                 SettingsTextField(
                     label = stringResource(R.string.settings_package_name),
