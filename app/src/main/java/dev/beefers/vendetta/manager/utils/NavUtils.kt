@@ -15,8 +15,7 @@ import dev.beefers.vendetta.manager.ui.screen.main.LocalPagerState
 import dev.beefers.vendetta.manager.ui.screen.settings.SettingsScreen
 
 enum class MainTab(val tab: ManagerTab) {
-    HOME(HomeScreen()),
-    SETTINGS(SettingsScreen())
+    HOME(HomeScreen())
 }
 
 @OptIn(ExperimentalPagerApi::class)

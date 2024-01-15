@@ -2,38 +2,54 @@ package dev.beefers.vendetta.manager.ui.screen.settings
 
 import android.os.Build
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.AutoAwesome
+import androidx.compose.material.icons.outlined.Code
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Palette
 import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.outlined.Tune
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LargeTopAppBar
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.core.net.toUri
+import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.InstallManager
 import dev.beefers.vendetta.manager.domain.manager.Mirror
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsButton
+import dev.beefers.vendetta.manager.ui.components.settings.SettingsCategory
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsHeader
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsItemChoice
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsSwitch
 import dev.beefers.vendetta.manager.ui.components.settings.SettingsTextField
 import dev.beefers.vendetta.manager.ui.screen.about.AboutScreen
-import dev.beefers.vendetta.manager.ui.viewmodel.settings.SettingsViewModel
+import dev.beefers.vendetta.manager.ui.viewmodel.settings.AdvancedSettingsViewModel
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.ManagerTab
 import dev.beefers.vendetta.manager.utils.TabOptions
@@ -41,188 +57,96 @@ import dev.beefers.vendetta.manager.utils.navigate
 import org.koin.androidx.compose.get
 import java.io.File
 
-class SettingsScreen : ManagerTab {
-    override val options: TabOptions
-        @Composable get() = TabOptions(
-            title = R.string.title_settings,
-            selectedIcon = Icons.Filled.Settings,
-            unselectedIcon = Icons.Outlined.Settings
-        )
+class SettingsScreen : Screen {
 
     @Composable
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun Content() {
-        val viewModel: SettingsViewModel = getScreenModel()
-        val prefs: PreferenceManager = get()
-        val installManager: InstallManager = get()
-        val ctx = LocalContext.current
+        val preferences: PreferenceManager = get()
+        val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
 
-        Column(
-            modifier = Modifier.verticalScroll(rememberScrollState())
-        ) {
-            SettingsHeader(stringResource(R.string.settings_appearance))
-            SettingsSwitch(
-                label = stringResource(R.string.settings_dynamic_color),
-                secondaryLabel = stringResource(R.string.settings_dynamic_color_description),
-                pref = prefs.monet,
-                onPrefChange = {
-                    prefs.monet = it
-                },
-                disabled = Build.VERSION.SDK_INT < Build.VERSION_CODES.S
-            )
-            SettingsItemChoice(
-                label = stringResource(R.string.settings_theme),
-                pref = prefs.theme,
-                labelFactory = {
-                    ctx.getString(it.labelRes)
-                },
-                onPrefChange = {
-                    prefs.theme = it
-                }
-            )
-
-            SettingsHeader(stringResource(R.string.settings_advanced))
-            SettingsTextField(
-                label = stringResource(R.string.settings_app_name),
-                pref = prefs.appName,
-                onPrefChange = {
-                    prefs.appName = it
-                }
-            )
-            SettingsSwitch(
-                label = stringResource(R.string.settings_app_icon),
-                secondaryLabel = stringResource(R.string.settings_app_icon_description),
-                pref = prefs.patchIcon,
-                onPrefChange = {
-                    prefs.patchIcon = it
-                }
-            )
-            SettingsItemChoice(
-                label = stringResource(R.string.settings_check_updates),
-                pref = prefs.updateDuration,
-                labelFactory = {
-                    ctx.getString(it.labelRes)
-                },
-                onPrefChange = {
-                    prefs.updateDuration = it
-                    viewModel.updateCheckerDuration(it)
-                }
-            )
-            SettingsItemChoice(
-                label = stringResource(R.string.settings_channel),
-                pref = prefs.channel,
-                labelFactory = {
-                    ctx.getString(it.labelRes)
-                },
-                onPrefChange = {
-                    prefs.channel = it
-                }
-            )
-            SettingsItemChoice(
-                label = stringResource(R.string.settings_mirror),
-                pref = prefs.mirror,
-                excludedOptions = listOf(Mirror.VENDETTA_ROCKS),
-                labelFactory = {
-                    it.baseUrl.toUri().authority ?: it.baseUrl
-                },
-                onPrefChange = {
-                    prefs.mirror = it
-                }
-            )
-            SettingsItemChoice(
-                label = stringResource(R.string.install_method),
-                pref = prefs.installMethod,
-                labelFactory = {
-                    ctx.getString(it.labelRes)
-                },
-                onPrefChange = viewModel::setInstallMethod,
-            )
-            SettingsSwitch(
-                label = stringResource(R.string.settings_auto_clear_cache),
-                secondaryLabel = stringResource(R.string.settings_auto_clear_cache_description),
-                pref = prefs.autoClearCache,
-                onPrefChange = {
-                    prefs.autoClearCache = it
-                }
-            )
-
-            SettingsButton(
-                label = stringResource(R.string.action_clear_cache),
-                onClick = {
-                    viewModel.clearCache()
-                }
-            )
-
-            if (prefs.isDeveloper) {
-                SettingsHeader(stringResource(R.string.settings_developer))
-                SettingsTextField(
-                    label = stringResource(R.string.settings_package_name),
-                    pref = prefs.packageName,
-                    onPrefChange = {
-                        prefs.packageName = it
-                        installManager.getInstalled()
-                    }
+        Scaffold(
+            topBar = { TitleBar(scrollBehavior) },
+            modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
+        ) { pv ->
+            Column(
+                modifier = Modifier
+                    .padding(pv)
+                    .verticalScroll(rememberScrollState())
+            ) {
+                SettingsCategory(
+                    icon = Icons.Outlined.Palette,
+                    text = stringResource(R.string.settings_appearance),
+                    subtext = stringResource(R.string.settings_appearance_description),
+                    destination = ::AppearanceSettings
                 )
-                var version by remember {
-                    mutableStateOf(prefs.discordVersion)
+
+                SettingsCategory(
+                    icon = Icons.Outlined.AutoAwesome,
+                    text = stringResource(R.string.settings_customization),
+                    subtext = stringResource(R.string.settings_customization_description),
+                    destination = ::CustomizationSettings
+                )
+
+                SettingsCategory(
+                    icon = Icons.Outlined.Tune,
+                    text = stringResource(R.string.settings_advanced),
+                    subtext = stringResource(R.string.settings_advanced_description),
+                    destination = ::AdvancedSettings
+                )
+
+                if(preferences.isDeveloper) {
+                    SettingsCategory(
+                        icon = Icons.Outlined.Code,
+                        text = stringResource(R.string.settings_developer),
+                        subtext = stringResource(R.string.settings_developer_description),
+                        destination = ::DeveloperSettings
+                    )
                 }
-                var versionError by remember {
-                    mutableStateOf(false)
-                }
-                val supportingText = if (versionError)
-                    stringResource(R.string.msg_invalid_version)
-                else if (version.isNotBlank())
-                    DiscordVersion.fromVersionCode(version).toString()
-                else
-                    null
-                SettingsTextField(
-                    label = stringResource(R.string.settings_version),
-                    pref = version,
-                    error = versionError,
-                    supportingText = supportingText,
-                    onPrefChange = {
-                        version = it
-                        if (DiscordVersion.fromVersionCode(it) == null && it.isNotBlank()) {
-                            versionError = true
-                        } else {
-                            versionError = false
-                            prefs.discordVersion = it
+
+                val tmp = " (${BuildConfig.GIT_COMMIT}${if(BuildConfig.GIT_LOCAL_CHANGES || BuildConfig.GIT_LOCAL_CHANGES) " - Local" else ""})"
+
+                SettingsCategory(
+                    icon = Icons.Outlined.Info,
+                    text = stringResource(R.string.title_about),
+                    subtext = buildString {
+                        append(stringResource(R.string.app_name))
+                        append(" v${BuildConfig.VERSION_NAME}")
+                        if(preferences.isDeveloper) {
+                            append(" (${BuildConfig.GIT_COMMIT}")
+                            if(BuildConfig.GIT_LOCAL_CHANGES || BuildConfig.GIT_LOCAL_COMMITS) {
+                                append(" - Local")
+                            }
+                            append(")")
                         }
-                    }
-                )
-                SettingsSwitch(
-                    label = stringResource(R.string.settings_debuggable),
-                    secondaryLabel = stringResource(R.string.settings_debuggable_description),
-                    pref = prefs.debuggable,
-                    onPrefChange = { prefs.debuggable = it }
-                )
-                SettingsTextField(
-                    label = stringResource(R.string.settings_module_location),
-                    supportingText = stringResource(R.string.settings_module_location_description),
-                    pref = prefs.moduleLocation.absolutePath,
-                    onPrefChange = {
-                        prefs.moduleLocation = File(it)
-                    }
-                )
-                SettingsButton(
-                    label = stringResource(R.string.settings_module_location_reset),
-                    onClick = {
-                        prefs.moduleLocation = prefs.DEFAULT_MODULE_LOCATION
-                    }
+                    },
+                    destination = ::AboutScreen
                 )
             }
         }
     }
 
     @Composable
-    override fun Actions() {
+    @OptIn(ExperimentalMaterial3Api::class)
+    fun TitleBar(
+        scrollBehavior: TopAppBarScrollBehavior
+    ) {
         val navigator = LocalNavigator.currentOrThrow
 
-        IconButton(onClick = { navigator.navigate(AboutScreen()) }) {
-            Icon(
-                imageVector = Icons.Outlined.Info,
-                contentDescription = stringResource(R.string.action_open_about)
-            )
-        }
+        LargeTopAppBar(
+            title = {
+                Text(stringResource(R.string.title_settings))
+            },
+            navigationIcon = {
+                IconButton(onClick = { navigator.pop() }) {
+                    Icon(
+                        imageVector = Icons.Filled.ArrowBack,
+                        contentDescription = stringResource(R.string.action_back)
+                    )
+                }
+            },
+            scrollBehavior = scrollBehavior
+        )
     }
 
 }

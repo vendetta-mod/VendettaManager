@@ -24,6 +24,7 @@ import androidx.compose.material.icons.filled.OpenInNew
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
@@ -54,6 +55,7 @@ import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.ui.components.SegmentedButton
 import dev.beefers.vendetta.manager.ui.screen.about.AboutScreen
 import dev.beefers.vendetta.manager.ui.screen.installer.InstallerScreen
+import dev.beefers.vendetta.manager.ui.screen.settings.SettingsScreen
 import dev.beefers.vendetta.manager.ui.viewmodel.home.HomeViewModel
 import dev.beefers.vendetta.manager.ui.widgets.home.Commit
 import dev.beefers.vendetta.manager.utils.Constants
@@ -268,9 +270,9 @@ class HomeScreen : ManagerTab {
                 contentDescription = stringResource(R.string.action_reload)
             )
         }
-        IconButton(onClick = { navigator.navigate(AboutScreen()) }) {
+        IconButton(onClick = { navigator.navigate(SettingsScreen()) }) {
             Icon(
-                imageVector = Icons.Outlined.Info,
+                imageVector = Icons.Outlined.Settings,
                 contentDescription = stringResource(R.string.action_open_about)
             )
         }

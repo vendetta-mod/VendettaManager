@@ -1,7 +1,9 @@
 package dev.beefers.vendetta.manager.ui.screen.main
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -45,7 +47,6 @@ class MainScreen : Screen {
             LocalPagerState provides pagerState
         ) {
             Scaffold(
-                bottomBar = { NavBar() },
                 topBar = { TitleBar(scrollBehavior) },
                 modifier = Modifier
                     .fillMaxSize()
@@ -62,17 +63,10 @@ class MainScreen : Screen {
                     )
                 }
 
-                HorizontalPager(
-                    count = MainTab.values().size,
-                    state = pagerState,
-                    contentPadding = pv
-                ) { page ->
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                    ) {
-                        MainTab.values()[page].tab.Content()
-                    }
+                Box(
+                    modifier = Modifier.padding(pv)
+                ) {
+                    HomeScreen().Content()
                 }
             }
         }
@@ -93,35 +87,6 @@ class MainScreen : Screen {
         )
     }
 
-    @Composable
-    @OptIn(ExperimentalPagerApi::class, ExperimentalMaterial3Api::class)
-    private fun NavBar() {
-        val pagerState = LocalPagerState.current
-        val scope = rememberCoroutineScope()
-        val tab = MainTab.values()[pagerState.currentPage].tab
-
-        NavigationBar {
-            MainTab.values().forEach { mainTab ->
-                NavigationBarItem(
-                    selected = mainTab.tab === tab,
-                    onClick = {
-                        val page = MainTab.values().indexOf(mainTab)
-                        scope.launch {
-                            pagerState.animateScrollToPage(page)
-                        }
-                    },
-                    label = { Text(mainTab.tab.options.title) },
-                    alwaysShowLabel = true,
-                    icon = {
-                        Icon(
-                            painter = mainTab.tab.options.icon!!,
-                            contentDescription = mainTab.tab.options.title
-                        )
-                    }
-                )
-            }
-        }
-    }
 }
 
 @OptIn(ExperimentalPagerApi::class)
