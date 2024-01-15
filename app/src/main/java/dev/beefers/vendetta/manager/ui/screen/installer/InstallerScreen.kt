@@ -147,7 +147,11 @@ class InstallerScreen(
                 if (viewModel.isFinished) {
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    viewModel.installManager.current?.let {
+                    // Show launch only if success
+                    val installSuccessful = viewModel.currentStep
+                        ?.let(viewModel.steps::get)
+                        ?.status == InstallerViewModel.InstallStatus.SUCCESSFUL
+                    if (installSuccessful) {
                         Button(
                             onClick = { viewModel.launchVendetta() },
                             modifier = Modifier.fillMaxWidth()
