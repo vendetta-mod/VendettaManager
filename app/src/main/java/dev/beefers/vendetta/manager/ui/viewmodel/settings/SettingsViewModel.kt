@@ -6,14 +6,20 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import cafe.adriel.voyager.core.model.ScreenModel
+import cafe.adriel.voyager.core.model.coroutineScope
 import dev.beefers.vendetta.manager.R
+import dev.beefers.vendetta.manager.domain.manager.InstallMethod
+import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.domain.manager.UpdateCheckerDuration
+import dev.beefers.vendetta.manager.installer.shizuku.ShizukuPermissions
 import dev.beefers.vendetta.manager.updatechecker.worker.UpdateWorker
 import dev.beefers.vendetta.manager.utils.showToast
+import kotlinx.coroutines.launch
 import java.io.File
 
 class SettingsViewModel(
-    private val context: Context
+    private val context: Context,
+    private val prefs: PreferenceManager,
 ) : ScreenModel {
     private val cacheDir = context.externalCacheDir ?: File(Environment.getExternalStorageDirectory(), Environment.DIRECTORY_DOWNLOADS).resolve("VendettaManager").also { it.mkdirs() }
 
@@ -34,6 +40,20 @@ class SettingsViewModel(
                     updateCheckerDuration.unit
                 ).build()
             )
+        }
+    }
+
+    fun setInstallMethod(method: InstallMethod) {
+        when (method) {
+            InstallMethod.SHIZUKU -> coroutineScope.launch {
+                if (ShizukuPermissions.waitShizukuPermissions()) {
+                    prefs.installMethod = InstallMethod.SHIZUKU
+                } else {
+                    context.showToast(R.string.msg_shizuku_denied)
+                }
+            }
+
+            else -> prefs.installMethod = method
         }
     }
 

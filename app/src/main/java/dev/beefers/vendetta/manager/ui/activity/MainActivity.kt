@@ -8,35 +8,23 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.lifecycleScope
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.SlideTransition
+import dev.beefers.vendetta.manager.domain.manager.InstallMethod
+import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
+import dev.beefers.vendetta.manager.installer.shizuku.ShizukuPermissions
 import dev.beefers.vendetta.manager.ui.screen.installer.InstallerScreen
 import dev.beefers.vendetta.manager.ui.screen.main.MainScreen
 import dev.beefers.vendetta.manager.ui.theme.VendettaManagerTheme
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import dev.beefers.vendetta.manager.utils.Intents
-import rikka.shizuku.Shizuku
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
+class MainActivity : ComponentActivity() {
 
-class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListener {
-
-    private val acRequestCode = 1
-    private val REQUEST_PERMISSION_RESULT_LISTENER = this::onRequestPermissionResult
-
-    override fun onRequestPermissionResult(requestCode: Int, grantResult: Int) {
-        if (grantResult != PackageManager.PERMISSION_GRANTED) {
-            checkAndRequestPermission()
-        }
-    }
-
-    private fun checkAndRequestPermission() {
-        if (Shizuku.pingBinder()) {
-            Shizuku.addRequestPermissionResultListener(REQUEST_PERMISSION_RESULT_LISTENER)
-            if (Shizuku.checkSelfPermission() != PackageManager.PERMISSION_GRANTED) {
-                Shizuku.requestPermission(acRequestCode)
-            }
-        }
-    }
+    private val preferences: PreferenceManager by inject()
 
     @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +40,13 @@ class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListe
             )
         }
 
-        checkAndRequestPermission()
+        if (preferences.installMethod == InstallMethod.SHIZUKU) {
+            lifecycleScope.launch {
+                if (!ShizukuPermissions.waitShizukuPermissions()) {
+                    preferences.installMethod = InstallMethod.DEFAULT
+                }
+            }
+        }
 
         val screen = if (intent.action == Intents.Actions.INSTALL && version != null) {
             InstallerScreen(DiscordVersion.fromVersionCode(version)!!)
@@ -67,11 +61,6 @@ class MainActivity : ComponentActivity(), Shizuku.OnRequestPermissionResultListe
                 }
             }
         }
-    }
-
-    override fun onDestroy() {
-        Shizuku.removeRequestPermissionResultListener(REQUEST_PERMISSION_RESULT_LISTENER)
-        super.onDestroy()
     }
 
 }

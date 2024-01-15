@@ -1,6 +1,5 @@
 package dev.beefers.vendetta.manager.ui.screen.settings
 
-import android.content.pm.PackageManager
 import android.os.Build
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.rememberScrollState
@@ -12,7 +11,6 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -41,7 +39,6 @@ import dev.beefers.vendetta.manager.utils.ManagerTab
 import dev.beefers.vendetta.manager.utils.TabOptions
 import dev.beefers.vendetta.manager.utils.navigate
 import org.koin.androidx.compose.get
-import rikka.shizuku.Shizuku
 import java.io.File
 
 class SettingsScreen : ManagerTab {
@@ -58,17 +55,6 @@ class SettingsScreen : ManagerTab {
         val prefs: PreferenceManager = get()
         val installManager: InstallManager = get()
         val ctx = LocalContext.current
-        var shizukuAvailable by remember { mutableStateOf(false) }
-
-        LaunchedEffect(Unit) {
-            val shizukuAlive = Shizuku.pingBinder()
-            val shizukuPermissionsGranted = if (shizukuAlive) {
-                Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
-            } else {
-                false
-            }
-            shizukuAvailable = shizukuAlive && shizukuPermissionsGranted
-        }
 
         Column(
             modifier = Modifier.verticalScroll(rememberScrollState())
@@ -148,10 +134,7 @@ class SettingsScreen : ManagerTab {
                 labelFactory = {
                     ctx.getString(it.labelRes)
                 },
-                disabled = !shizukuAvailable,
-                onPrefChange = {
-                    prefs.installMethod = it
-                }
+                onPrefChange = viewModel::setInstallMethod,
             )
             SettingsSwitch(
                 label = stringResource(R.string.settings_auto_clear_cache),
@@ -241,4 +224,5 @@ class SettingsScreen : ManagerTab {
             )
         }
     }
+
 }
