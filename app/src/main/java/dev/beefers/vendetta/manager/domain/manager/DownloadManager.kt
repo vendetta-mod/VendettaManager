@@ -1,15 +1,10 @@
 package dev.beefers.vendetta.manager.domain.manager
 
 import android.app.DownloadManager
-import android.content.BroadcastReceiver
 import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
 import android.database.Cursor
 import android.net.Uri
-import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
-import dev.beefers.vendetta.manager.ui.activity.MainActivity
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
@@ -67,15 +62,6 @@ class DownloadManager(
             .setAllowedOverRoaming(true)
             .let(downloadManager::enqueue)
 
-        // Notification click listener to re-open VD
-        val clickReceiver = DownloadClickReceiver(downloadId)
-        ContextCompat.registerReceiver(
-            context,
-            clickReceiver,
-            IntentFilter(DownloadManager.ACTION_NOTIFICATION_CLICKED),
-            ContextCompat.RECEIVER_NOT_EXPORTED,
-        )
-
         // Repeatedly request download state until it is finished
         while (true) {
             try {
@@ -83,7 +69,6 @@ class DownloadManager(
                 delay(100)
             } catch (_: CancellationException) {
                 // If the running CoroutineScope has been cancelled, then gracefully cancel download
-                context.unregisterReceiver(clickReceiver)
                 downloadManager.remove(downloadId)
                 return DownloadResult.Cancelled(systemTriggered = false)
             }
@@ -96,7 +81,6 @@ class DownloadManager(
             // No results in cursor, download was cancelled
             if (!cursor.moveToFirst()) {
                 cursor.close()
-                context.unregisterReceiver(clickReceiver)
                 return DownloadResult.Cancelled(systemTriggered = true)
             }
 
@@ -111,17 +95,13 @@ class DownloadManager(
                     DownloadManager.STATUS_RUNNING ->
                         onProgressUpdate(getDownloadProgress(cursor))
 
-                    DownloadManager.STATUS_SUCCESSFUL -> {
-                        cursor.close()
-                        context.unregisterReceiver(clickReceiver)
+                    DownloadManager.STATUS_SUCCESSFUL ->
                         return DownloadResult.Success
-                    }
 
                     DownloadManager.STATUS_FAILED -> {
                         val reasonColumn = cursor.getColumnIndex(DownloadManager.COLUMN_REASON)
                         val reason = cursor.getInt(reasonColumn)
 
-                        context.unregisterReceiver(clickReceiver)
                         return DownloadResult.Error(debugReason = convertErrorCode(reason))
                     }
                 }
@@ -152,23 +132,6 @@ class DownloadManager(
         DownloadManager.ERROR_FILE_ALREADY_EXISTS -> "FILE_ALREADY_EXISTS"
         /* DownloadManager.ERROR_BLOCKED */ 1010 -> "DEVICE_NOT_FOUND"
         else -> "Unknown error code"
-    }
-
-}
-
-private class DownloadClickReceiver(
-    private val targetDownloadId: Long,
-) : BroadcastReceiver() {
-
-    override fun onReceive(context: Context, intent: Intent) {
-        val downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
-
-        if (targetDownloadId != downloadId)
-            return
-
-        val launchIntent = Intent(context, MainActivity::class.java)
-        context.unregisterReceiver(this)
-        context.startActivity(launchIntent)
     }
 
 }
