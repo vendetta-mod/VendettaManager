@@ -19,6 +19,7 @@ import com.github.diamondminer88.zip.ZipWriter
 import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.DownloadManager
+import dev.beefers.vendetta.manager.domain.manager.DownloadResult
 import dev.beefers.vendetta.manager.domain.manager.InstallManager
 import dev.beefers.vendetta.manager.domain.manager.InstallMethod
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
@@ -189,9 +190,9 @@ class InstallerViewModel(
                     logger.i("base-$version.apk is cached")
                 } else {
                     logger.i("base-$version.apk is not cached, downloading now")
-                    downloadManager.downloadDiscordApk(version, file) {
-                        progress = it
-                    }
+                    downloadManager
+                        .downloadDiscordApk(version, file) { progress = it }
+                        .also(::handleDownloadResult)
                 }
 
                 logger.i("Move base-$version.apk to working directory")
@@ -212,13 +213,15 @@ class InstallerViewModel(
                     cached = true
                 } else {
                     logger.i("config.$libArch-$version.apk is not cached, downloading now")
-                    downloadManager.downloadSplit(
+                    val result = downloadManager.downloadSplit(
                         version = version,
                         split = "config.$libArch",
                         out = file
                     ) {
                         progress = it
                     }
+
+                    handleDownloadResult(result)
                 }
 
                 logger.i("Move config.$libArch-$version.apk to working directory")
@@ -238,13 +241,15 @@ class InstallerViewModel(
                     cached = true
                 } else {
                     logger.i("config.en-$version.apk is not cached, downloading now")
-                    downloadManager.downloadSplit(
+                    val result = downloadManager.downloadSplit(
                         version = version,
                         split = "config.en",
                         out = file
                     ) {
                         progress = it
                     }
+
+                    handleDownloadResult(result)
                 }
 
                 logger.i("Move config.en-$version.apk to working directory")
@@ -264,13 +269,15 @@ class InstallerViewModel(
                     cached = true
                 } else {
                     logger.i("config.xxhdpi-$version.apk is not cached, downloading now")
-                    downloadManager.downloadSplit(
+                    val result = downloadManager.downloadSplit(
                         version = version,
                         split = "config.xxhdpi",
                         out = file
                     ) {
                         progress = it
                     }
+
+                    handleDownloadResult(result)
                 }
 
                 logger.i("Move config.xxhdpi-$version.apk to working directory")
@@ -290,9 +297,9 @@ class InstallerViewModel(
                     cached = true
                 } else {
                     logger.i("vendetta.apk is not cached, downloading now")
-                    downloadManager.downloadVendetta(file) {
-                        progress = it
-                    }
+                    downloadManager
+                        .downloadVendetta(file) { progress = it }
+                        .also(::handleDownloadResult)
                 }
 
                 logger.i("Move vendetta.apk to working directory")
@@ -449,11 +456,35 @@ class InstallerViewModel(
 
             logger.e("\nFailed on step ${step.name}\n")
             logger.e(e.stackTraceToString())
-            if(step.group == InstallStepGroup.DL) failedOnDownload = true
+
+            if (step.group == InstallStepGroup.DL && e.message?.contains("cancelled") != true)
+                failedOnDownload = true
 
             currentStep = step
             isFinished = true
             return null
+        }
+    }
+
+    private fun handleDownloadResult(result: DownloadResult) {
+        when (result) {
+            DownloadResult.Success -> {}
+
+            is DownloadResult.Cancelled -> {
+                if (result.systemTriggered) coroutineScope.launch(Dispatchers.Main) {
+                    context.showToast(R.string.msg_download_cancelled)
+                }
+
+                throw Error("Download was cancelled")
+            }
+
+            is DownloadResult.Error -> {
+                coroutineScope.launch(Dispatchers.Main) {
+                    context.showToast(R.string.msg_download_failed)
+                }
+
+                throw Error("Download failed: ${result.debugReason}")
+            }
         }
     }
 
