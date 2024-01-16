@@ -58,8 +58,10 @@ import dev.beefers.vendetta.manager.ui.components.SegmentedButton
 import dev.beefers.vendetta.manager.ui.screen.installer.InstallerScreen
 import dev.beefers.vendetta.manager.ui.screen.settings.SettingsScreen
 import dev.beefers.vendetta.manager.ui.viewmodel.home.HomeViewModel
+import dev.beefers.vendetta.manager.ui.widgets.AppIcon
 import dev.beefers.vendetta.manager.ui.widgets.dialog.StoragePermissionsDialog
 import dev.beefers.vendetta.manager.ui.widgets.home.Commit
+import dev.beefers.vendetta.manager.ui.widgets.home.CommitList
 import dev.beefers.vendetta.manager.ui.widgets.updater.UpdateDialog
 import dev.beefers.vendetta.manager.utils.Constants
 import dev.beefers.vendetta.manager.utils.DiscordVersion
@@ -86,14 +88,6 @@ class HomeScreen : Screen {
                     else -> DiscordVersion.fromVersionCode(prefs.discordVersion)
                 }
             }
-
-        val iconColor = remember(prefs.patchIcon, prefs.channel) {
-            when {
-                prefs.patchIcon -> Color(0xFF3AB8BA)
-                prefs.channel == DiscordVersion.Type.ALPHA -> Color(0xFFFBB33C)
-                else -> Color(0xFF5865F2)
-            }
-        }
 
         // == Dialogs == //
 
@@ -127,13 +121,10 @@ class HomeScreen : Screen {
                     .padding(16.dp)
                     .fillMaxWidth()
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.ic_discord_icon),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(60.dp)
-                        .clip(CircleShape)
-                        .background(iconColor)
+                AppIcon(
+                    customIcon = prefs.patchIcon,
+                    releaseChannel = prefs.channel,
+                    modifier = Modifier.size(60.dp)
                 )
 
                 Text(
@@ -175,8 +166,7 @@ class HomeScreen : Screen {
                         val version = viewModel.discordVersions!![prefs.channel]!!
                         navigator.navigate(InstallerScreen(version))
                     },
-                    enabled = latestVersion != null && latestVersion >= (currentVersion
-                        ?: Constants.DUMMY_VERSION),
+                    enabled = latestVersion != null && latestVersion >= (currentVersion ?: Constants.DUMMY_VERSION),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     val label = when {
@@ -224,70 +214,9 @@ class HomeScreen : Screen {
                     modifier = Modifier
                         .fillMaxSize()
                 ) {
-                    val commits = viewModel.commits.collectAsLazyPagingItems()
-                    val loading =
-                        commits.loadState.append is LoadState.Loading || commits.loadState.refresh is LoadState.Loading
-                    val failed =
-                        commits.loadState.append is LoadState.Error || commits.loadState.refresh is LoadState.Error
-
-                    LazyColumn {
-                        itemsIndexed(
-                            items = commits,
-                            key = { _, commit -> commit.sha }
-                        ) { i, commit ->
-                            if (commit != null) {
-                                Column {
-                                    Commit(commit = commit)
-                                    if (i < commits.itemSnapshotList.lastIndex) {
-                                        Divider(
-                                            thickness = 0.5.dp,
-                                            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
-                                            modifier = Modifier.padding(horizontal = 16.dp)
-                                        )
-                                    }
-                                }
-
-                            }
-                        }
-
-                        if (loading) {
-                            item {
-                                Box(
-                                    contentAlignment = Alignment.TopCenter,
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(16.dp)
-                                ) {
-                                    CircularProgressIndicator(
-                                        strokeWidth = 3.dp,
-                                        modifier = Modifier.size(30.dp)
-                                    )
-                                }
-                            }
-                        }
-
-                        if (failed) {
-                            item {
-                                Column(
-                                    verticalArrangement = Arrangement.spacedBy(12.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally,
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(16.dp)
-                                ) {
-                                    Text(
-                                        text = stringResource(R.string.msg_load_fail),
-                                        style = MaterialTheme.typography.labelLarge,
-                                        textAlign = TextAlign.Center
-                                    )
-
-                                    Button(onClick = { commits.retry() }) {
-                                        Text(stringResource(R.string.action_retry))
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    CommitList(
+                        commits = viewModel.commits.collectAsLazyPagingItems()
+                    )
                 }
             }
         }
