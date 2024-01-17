@@ -408,18 +408,15 @@ class InstallerViewModel(
 
         step(InstallStep.INSTALL_APK) {
             logger.i("Gathering final apks")
-            val files = mutableListOf<File>()
-            lspatchedDir.list { _, name ->
-                files.add(lspatchedDir.resolve(name))
-            }
-            logger.i("Installing apks")
+            val files = signedDir.listFiles()!!
 
+            logger.i("Installing apks")
             val installer: Installer = when (preferences.installMethod) {
                 InstallMethod.DEFAULT -> SessionInstaller(context)
                 InstallMethod.SHIZUKU -> ShizukuInstaller(context)
             }
 
-            installer.installApks(silent = !isMiui, *files.toTypedArray())
+            installer.installApks(silent = !isMiui, *files)
 
             isFinished = true
         }
