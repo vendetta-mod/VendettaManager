@@ -130,8 +130,8 @@ class DownloadManager(
         DownloadManager.ERROR_DEVICE_NOT_FOUND -> "DEVICE_NOT_FOUND"
         DownloadManager.ERROR_CANNOT_RESUME -> "CANNOT_RESUME"
         DownloadManager.ERROR_FILE_ALREADY_EXISTS -> "FILE_ALREADY_EXISTS"
-        /* DownloadManager.ERROR_BLOCKED */ 1010 -> "DEVICE_NOT_FOUND"
-        else -> "Unknown error code"
+        /* DownloadManager.ERROR_BLOCKED */ 1010 -> "NETWORK_BLOCKED"
+        else -> "UNKNOWN_CODE"
     }
 
 }
