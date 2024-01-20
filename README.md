@@ -1,4 +1,4 @@
-<div align="center">
+dd<div align="center">
 
   <img src="images/vendetta_logo.png" alt="Vendetta logo" width="200px" style="border-radius: 50%" />
   
@@ -25,7 +25,7 @@
 
   <br>
 
-  <img src="images/screenshot_home.png" width="200px">
+  <img src="images/screenshot_home.jpg" width="200px">
   
 </div>
 

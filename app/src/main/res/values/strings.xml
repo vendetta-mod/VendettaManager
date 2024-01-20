@@ -71,6 +71,8 @@
     <string name="action_dismiss_nevermind">Nevermind</string>
     <string name="action_dismiss_no_thanks">No thanks</string>
     <string name="action_try_again">Try again</string>
+    <string name="action_previous_theme">See previous theme</string>
+    <string name="action_next_theme">See next theme</string>
 
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
 
@@ -100,24 +102,30 @@
     <string name="duration_weekly">Weekly</string>
 
     <string name="settings_appearance">Appearance</string>
+    <string name="settings_appearance_description">Change the look and feel of the app</string>
     <string name="settings_dynamic_color">Dynamic color</string>
     <string name="settings_dynamic_color_description">Only available on Android 12 and up</string>
     <string name="settings_theme">Theme</string>
     <string name="settings_check_updates">Check for Discord updates</string>
 
-    <string name="settings_advanced">Advanced</string>
+    <string name="settings_customization">Customization</string>
+    <string name="settings_customization_description">Customize your Vendetta install</string>
     <string name="settings_app_name">App name</string>
     <string name="settings_app_icon">Replace app icon</string>
     <string name="settings_app_icon_description">Uses the Vendetta icon instead of Discord\'s</string>
+
+    <string name="settings_advanced">Advanced</string>
+    <string name="settings_advanced_description">Modify downloading and installation</string>
     <string name="settings_channel">Release channel</string>
     <string name="settings_mirror">Download mirror</string>
     <string name="settings_auto_clear_cache">Clear cache automatically</string>
     <string name="settings_auto_clear_cache_description">Clears cache when Discord gets an update</string>
+
+    <string name="settings_developer">Developer only</string>
+    <string name="settings_developer_description">These settings may break things if used improperly</string>
     <string name="settings_module_location">Module location</string>
     <string name="settings_module_location_description">For use with developing the Xposed module. BE CAREFUL</string>
     <string name="settings_module_location_reset">Reset module location</string>
-
-    <string name="settings_developer">Developer only</string>
     <string name="settings_package_name">Package name</string>
     <string name="settings_version">Discord version</string>
     <string name="settings_debuggable">Debuggable</string>

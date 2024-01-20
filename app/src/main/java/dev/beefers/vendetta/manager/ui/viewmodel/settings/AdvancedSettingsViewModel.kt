@@ -17,7 +17,7 @@ import dev.beefers.vendetta.manager.utils.showToast
 import kotlinx.coroutines.launch
 import java.io.File
 
-class SettingsViewModel(
+class AdvancedSettingsViewModel(
     private val context: Context,
     private val prefs: PreferenceManager,
 ) : ScreenModel {
