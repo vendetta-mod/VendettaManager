@@ -1,4 +1,4 @@
-dd<div align="center">
+<div align="center">
 
   <img src="images/vendetta_logo.png" alt="Vendetta logo" width="200px" style="border-radius: 50%" />
   
