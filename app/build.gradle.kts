@@ -30,8 +30,13 @@ android {
 
     buildTypes {
         named("release") {
-            isMinifyEnabled = false
-            setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
+            isCrunchPngs = true
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
         }
     }
 
@@ -137,8 +142,8 @@ dependencies {
     implementation("dev.rikka.shizuku:provider:$shizukuVersion")
 
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
-    implementation("io.github.diamondminer88:zip-android:2.1.0@aar")
-    implementation(files("libs/lspatch.jar"))
+    implementation("io.github.diamondminer88:zip-android:2.1.1@aar")
+    implementation(files("libs/lspatch-v0.6.aar"))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

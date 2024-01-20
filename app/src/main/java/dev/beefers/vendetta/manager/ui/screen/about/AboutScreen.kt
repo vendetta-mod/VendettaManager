@@ -200,8 +200,8 @@ class AboutScreen : Screen {
                 ) {
                     ElevatedCard {
                         ListItem(
-                            text = "Rushii",
-                            subtext = "for some of the installer code",
+                            text = "rushii",
+                            subtext = "Installer, zip library, and a portion of patching",
                             imageUrl = "https://github.com/rushiiMachine.png",
                             onClick = {
                                 uriHandler.openUri("https://github.com/rushiiMachine")

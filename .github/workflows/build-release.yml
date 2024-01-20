@@ -40,11 +40,11 @@ jobs:
         run: |
           echo "${{ secrets.keystore }}" | base64 -d > $GITHUB_WORKSPACE/signing-key.jks
           chmod +x ./gradlew
-          ./gradlew assembleRelease -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/signing-key.jks -Pandroid.injected.signing.store.password=${{ secrets.keystore_password }} -Pandroid.injected.signing.key.alias=${{ secrets.key_alias }} -Pandroid.injected.signing.key.password=${{ secrets.key_password }}
+          ./gradlew packageReleaseUniversalApk -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/signing-key.jks -Pandroid.injected.signing.store.password=${{ secrets.keystore_password }} -Pandroid.injected.signing.key.alias=${{ secrets.key_alias }} -Pandroid.injected.signing.key.password=${{ secrets.key_password }}
 
       - name: Release
         run: |
-          mv app/build/outputs/apk/release/app-release.apk app/build/outputs/apk/release/Manager.apk
+          mv app/build/outputs/apk_from_bundle/release/app-release-universal.apk ./Manager.apk
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           tag="${{ github.event.inputs.versionCode }}"
@@ -53,6 +53,6 @@ jobs:
           gh release create "$tag" \
             --title "${{ github.event.inputs.versionName }}" \
             --generate-notes \
-            app/build/outputs/apk/release/Manager.apk
+            ./Manager.apk
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
