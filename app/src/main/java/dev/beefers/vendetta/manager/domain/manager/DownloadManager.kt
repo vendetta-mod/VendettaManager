@@ -109,14 +109,14 @@ class DownloadManager(
         }
     }
 
-    private fun getDownloadProgress(queryCursor: Cursor): Float {
+    private fun getDownloadProgress(queryCursor: Cursor): Float? {
         val bytesColumn = queryCursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR)
         val bytes = queryCursor.getLong(bytesColumn)
 
         val totalBytesColumn = queryCursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES)
         val totalBytes = queryCursor.getLong(totalBytesColumn)
 
-        if (totalBytes <= 0) return 0f
+        if (totalBytes <= 0) return null
         return bytes.toFloat() / totalBytes
     }
 
