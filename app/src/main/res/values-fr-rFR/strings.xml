@@ -15,6 +15,8 @@
     <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Voulez-vous réessayer en utilisant un autre serveur de téléchargement ?</string>
     <string name="msg_invalid_apk">L\'APK a été corrompu, essayez de vider le cache puis de réinstaller</string>
+    <string name="msg_download_cancelled">Download was aborted</string>
+    <string name="msg_download_failed">Download failed</string>
     <string name="group_download">Télécharger les APKs</string>
     <string name="group_patch">Patch en cours</string>
     <string name="group_installing">Installation en cours</string>

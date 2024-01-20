@@ -15,6 +15,8 @@
     <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">您想使用下载镜像再试一次吗？</string>
     <string name="msg_invalid_apk">APK已损坏，请尝试清除缓存后再重新安装</string>
+    <string name="msg_download_cancelled">Download was aborted</string>
+    <string name="msg_download_failed">Download failed</string>
     <string name="group_download">下载 APK</string>
     <string name="group_patch">补丁中</string>
     <string name="group_installing">安装中</string>

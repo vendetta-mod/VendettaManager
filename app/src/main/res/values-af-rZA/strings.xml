@@ -15,6 +15,8 @@
     <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Wil jy weer probeer met \'n aflaaispieël?</string>
     <string name="msg_invalid_apk">APK is korrupteer, probeer om kas skoon te maak en dan weer te installeer</string>
+    <string name="msg_download_cancelled">Download was aborted</string>
+    <string name="msg_download_failed">Download failed</string>
     <string name="group_download">Laai APK\'s af</string>
     <string name="group_patch">Pleister</string>
     <string name="group_installing">Installeer tans</string>

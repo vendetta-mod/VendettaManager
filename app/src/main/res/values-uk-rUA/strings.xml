@@ -15,6 +15,8 @@
     <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Бажаєте спробувати ще раз, використовуючи дзеркало завантаження?</string>
     <string name="msg_invalid_apk">APK-файл пошкоджений, спробуйте очистити кеш, а потім перевстановити</string>
+    <string name="msg_download_cancelled">Download was aborted</string>
+    <string name="msg_download_failed">Download failed</string>
     <string name="group_download">Завантаження APK-файлів</string>
     <string name="group_patch">Патчінг</string>
     <string name="group_installing">Встановлення</string>

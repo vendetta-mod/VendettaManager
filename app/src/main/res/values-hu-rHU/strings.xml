@@ -15,6 +15,8 @@
     <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Szeretné újra megpróbálni egy letöltési mirror segítségével?</string>
     <string name="msg_invalid_apk">Az APK sérült, próbálja meg a gyorsítótár törlését, majd az újratelepítést</string>
+    <string name="msg_download_cancelled">Download was aborted</string>
+    <string name="msg_download_failed">Download failed</string>
     <string name="group_download">APK-k letöltése</string>
     <string name="group_patch">Foltozás</string>
     <string name="group_installing">Telepítés folyamatban</string>

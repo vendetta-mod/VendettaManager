@@ -16,6 +16,8 @@
     <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">ダウンロードミラーを使用して再試行しますか？</string>
     <string name="msg_invalid_apk">APK が破損しています。キャッシュを消去してから再インストールしてください。</string>
+    <string name="msg_download_cancelled">Download was aborted</string>
+    <string name="msg_download_failed">Download failed</string>
     <string name="group_download">APK のダウンロード</string>
     <string name="group_patch">パッチの適用</string>
     <string name="group_installing">インストール</string>

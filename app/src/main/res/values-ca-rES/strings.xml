@@ -15,6 +15,8 @@
     <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
     <string name="msg_change_mirror">Vols tornar-ho a provar amb una baixada?</string>
     <string name="msg_invalid_apk">L\'APK s\'ha fet malbé, proveu d\'esborrar la memòria cau i torna-ho a instal·lar</string>
+    <string name="msg_download_cancelled">Download was aborted</string>
+    <string name="msg_download_failed">Download failed</string>
     <string name="group_download">Baixa APK</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Instal·lant</string>
