@@ -71,6 +71,8 @@
     <string name="action_dismiss_nevermind">Nevermind</string>
     <string name="action_dismiss_no_thanks">No thanks</string>
     <string name="action_try_again">Try again</string>
+    <string name="action_previous_theme">See previous theme</string>
+    <string name="action_next_theme">See next theme</string>
 
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
 
