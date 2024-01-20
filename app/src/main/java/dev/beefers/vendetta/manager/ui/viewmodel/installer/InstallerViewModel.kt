@@ -401,10 +401,11 @@ class InstallerViewModel(
         }
 
         step(InstallStep.ADD_VD) {
-            val files = mutableListOf<File>()
-            signedDir.list { _, name ->
-                files.add(signedDir.resolve(name))
-            }
+            logger.i("Adding Vendetta module with LSPatch")
+            val files = signedDir.listFiles()
+                ?.takeIf { it.isNotEmpty() }
+                ?: throw Error("Missing APKs from signing step")
+
             Patcher.patch(
                 logger,
                 outputDir = lspatchedDir,
@@ -414,10 +415,11 @@ class InstallerViewModel(
         }
 
         step(InstallStep.INSTALL_APK) {
-            logger.i("Gathering final apks")
-            val files = signedDir.listFiles()!!
-
             logger.i("Installing apks")
+            val files = lspatchedDir.listFiles()
+                ?.takeIf { it.isNotEmpty() }
+                ?: throw Error("Missing APKs from LSPatch step; failure likely")
+
             val installer: Installer = when (preferences.installMethod) {
                 InstallMethod.DEFAULT -> SessionInstaller(context)
                 InstallMethod.SHIZUKU -> ShizukuInstaller(context)
