@@ -143,7 +143,7 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
     implementation("io.github.diamondminer88:zip-android:2.1.1@aar")
-    implementation(files("libs/lspatch-v0.6.aar"))
+    implementation(files("libs/lspatch.aar"))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
