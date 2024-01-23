@@ -1,9 +1,9 @@
 import java.io.ByteArrayOutputStream
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("plugin.serialization") version "1.7.20"
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -60,7 +60,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = "1.5.6"
     }
 
     androidComponents {
@@ -90,68 +90,24 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.core:core-splashscreen:1.0.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
-    implementation("androidx.paging:paging-compose:1.0.0-alpha18")
-    implementation("androidx.work:work-runtime-ktx:2.8.1")
+    implementation(platform(libs.compose.bom))
 
-    implementation(platform("androidx.compose:compose-bom:2022.10.00"))
-    implementation("androidx.activity:activity-compose:1.7.1")
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.material:material-icons-extended")
+    implementation(libs.bundles.accompanist)
+    implementation(libs.bundles.androidx)
+    implementation(libs.bundles.coil)
+    implementation(libs.bundles.compose)
+    implementation(libs.bundles.koin)
+    implementation(libs.bundles.ktor)
+    implementation(libs.bundles.shizuku)
+    implementation(libs.bundles.voyager)
 
-    val koinVersion = "3.2.0"
-
-    implementation("io.insert-koin:koin-core:$koinVersion")
-    implementation("io.insert-koin:koin-android:$koinVersion")
-    implementation("io.insert-koin:koin-androidx-compose:$koinVersion")
-
-    val accompanistVersion = "0.29.1-alpha"
-
-    implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion")
-    implementation("com.google.accompanist:accompanist-pager:$accompanistVersion")
-    implementation("com.google.accompanist:accompanist-permissions:$accompanistVersion")
-
-    val voyagerVersion = "1.0.0-rc03"
-
-    implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
-    implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
-    implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
-    implementation("cafe.adriel.voyager:voyager-koin:$voyagerVersion")
-
-    val coilVersion = "2.2.2"
-
-    implementation("io.coil-kt:coil:$coilVersion")
-    implementation("io.coil-kt:coil-compose:$coilVersion")
-
-    val ktorVersion = "2.1.1"
-
-    implementation("io.ktor:ktor-client-core:$ktorVersion")
-    implementation("io.ktor:ktor-client-cio:$ktorVersion")
-    implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-    implementation("io.ktor:ktor-client-logging:$ktorVersion")
-
-    val shizukuVersion = "13.1.0"
-
-    implementation("dev.rikka.shizuku:api:$shizukuVersion")
-    implementation("dev.rikka.shizuku:provider:$shizukuVersion")
-
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
-    implementation("io.github.diamondminer88:zip-android:2.1.1@aar")
     implementation(files("libs/lspatch.aar"))
-
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2022.10.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.zip.android) {
+        artifact {
+            type = "aar"
+        }
+    }
 }
 
 fun getCurrentBranch(): String? =

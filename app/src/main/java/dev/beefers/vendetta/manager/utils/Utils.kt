@@ -9,6 +9,7 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.toBitmap
 import dev.beefers.vendetta.manager.BuildConfig
 import java.io.BufferedReader
@@ -45,7 +46,7 @@ fun Context.getBitmap(@DrawableRes icon: Int, size: Int): Bitmap {
     cachedBitmaps[icon]?.let { it[size]?.let { bitmap -> return bitmap } }
     val sizePx = size.dp
 
-    val bitmap = getDrawable(icon)!!.toBitmap(
+    val bitmap = AppCompatResources.getDrawable(this, icon)!!.toBitmap(
         height = sizePx,
         width = sizePx
     )

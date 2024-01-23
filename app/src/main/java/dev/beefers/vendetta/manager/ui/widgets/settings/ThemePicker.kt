@@ -1,6 +1,7 @@
 package dev.beefers.vendetta.manager.ui.widgets.settings
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -13,6 +14,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -36,9 +39,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.rememberPagerState
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.domain.manager.Theme
@@ -48,12 +48,14 @@ import kotlinx.coroutines.launch
 
 @Composable
 @SuppressLint("NewApi") // Dynamic color option shouldn't ever be enabled on unsupported apis anyways
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 fun ThemePicker(
     prefs: PreferenceManager
 ) {
     val context = LocalContext.current
-    val pagerState = rememberPagerState(prefs.theme.ordinal)
+    val pagerState = rememberPagerState(prefs.theme.ordinal) {
+        Theme.entries.size
+    }
     val scope = rememberCoroutineScope()
 
     val lightScheme = remember(prefs.monet) { if(prefs.monet) dynamicLightColorScheme(context) else lightColorScheme() }
@@ -65,9 +67,7 @@ fun ThemePicker(
     ) {
         Box {
             HorizontalPager(
-                count = 3,
                 state = pagerState,
-                itemSpacing = 50.dp,
                 contentPadding = PaddingValues(16.dp)
             ) { page ->
                 val (colors, theme) = when (page) {
@@ -77,27 +77,32 @@ fun ThemePicker(
                     else -> systemTheme to Theme.SYSTEM
                 }
 
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(12.dp),
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(16.dp))
-                        .thenIf(prefs.theme == theme) {
-                            background(MaterialTheme.colorScheme.tertiaryContainer)
-                        }
-                        .clickable { prefs.theme = theme }
-                        .padding(16.dp)
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    ThemePreview(
-                        colorScheme = colors,
-                        modifier = Modifier.contentDescription(theme.labelRes, merge = true)
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(12.dp),
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(16.dp))
+                            .thenIf(prefs.theme == theme) {
+                                background(MaterialTheme.colorScheme.tertiaryContainer)
+                            }
+                            .clickable { prefs.theme = theme }
+                            .padding(16.dp)
+                    ) {
+                        ThemePreview(
+                            colorScheme = colors,
+                            modifier = Modifier.contentDescription(theme.labelRes, merge = true)
+                        )
 
-                    Text(
-                        text = stringResource(theme.labelRes),
-                        style = MaterialTheme.typography.labelLarge,
-                        fontSize = 16.sp
-                    )
+                        Text(
+                            text = stringResource(theme.labelRes),
+                            style = MaterialTheme.typography.labelLarge,
+                            fontSize = 16.sp
+                        )
+                    }
                 }
             }
 

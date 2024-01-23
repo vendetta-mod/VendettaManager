@@ -12,7 +12,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import cafe.adriel.voyager.core.model.ScreenModel
-import cafe.adriel.voyager.core.model.coroutineScope
+import cafe.adriel.voyager.core.model.screenModelScope
 import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.domain.manager.DownloadManager
 import dev.beefers.vendetta.manager.domain.manager.InstallManager
@@ -52,7 +52,7 @@ class HomeViewModel(
 
     var showUpdateDialog by mutableStateOf(false)
     var isUpdating by mutableStateOf(false)
-    val commits = Pager(PagingConfig(pageSize = 30)) { CommitsPagingSource(repo) }.flow.cachedIn(coroutineScope)
+    val commits = Pager(PagingConfig(pageSize = 30)) { CommitsPagingSource(repo) }.flow.cachedIn(screenModelScope)
 
     init {
         getDiscordVersions()
@@ -60,7 +60,7 @@ class HomeViewModel(
     }
 
     fun getDiscordVersions() {
-        coroutineScope.launch {
+        screenModelScope.launch {
             discordVersions = repo.getLatestDiscordVersions().dataOrNull
             if (prefs.autoClearCache) autoClearCache()
         }
@@ -106,7 +106,7 @@ class HomeViewModel(
     }
 
     private fun checkForUpdate() {
-        coroutineScope.launch {
+        screenModelScope.launch {
             release = repo.getLatestRelease("VendettaManager").dataOrNull
             release?.let {
                 showUpdateDialog = it.tagName.toInt() > BuildConfig.VERSION_CODE
@@ -122,7 +122,7 @@ class HomeViewModel(
     }
 
     fun downloadAndInstallUpdate() {
-        coroutineScope.launch {
+        screenModelScope.launch {
             val update = File(cacheDir, "update.apk")
             if (update.exists()) update.delete()
             isUpdating = true

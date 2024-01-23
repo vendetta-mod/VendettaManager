@@ -32,7 +32,7 @@ fun ListItem(
         modifier = Modifier
             .clickable(
                 enabled = onClick != null,
-                onClick = onClick ?: { -> }
+                onClick = onClick ?: { }
             )
             .padding(16.dp)
             .fillMaxWidth()

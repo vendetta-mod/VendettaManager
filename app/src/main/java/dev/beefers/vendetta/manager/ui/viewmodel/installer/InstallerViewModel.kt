@@ -8,11 +8,12 @@ import android.util.Log
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.model.ScreenModel
-import cafe.adriel.voyager.core.model.coroutineScope
+import cafe.adriel.voyager.core.model.screenModelScope
 import com.github.diamondminer88.zip.ZipCompression
 import com.github.diamondminer88.zip.ZipReader
 import com.github.diamondminer88.zip.ZipWriter
@@ -41,7 +42,6 @@ import kotlinx.coroutines.withContext
 import org.lsposed.patch.util.Logger
 import java.io.File
 import java.util.concurrent.atomic.AtomicBoolean
-import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 
 class InstallerViewModel(
@@ -49,7 +49,7 @@ class InstallerViewModel(
     private val downloadManager: DownloadManager,
     private val preferences: PreferenceManager,
     private val discordVersion: DiscordVersion,
-    val installManager: InstallManager
+    private val installManager: InstallManager
 ) : ScreenModel {
     var backDialogOpened by mutableStateOf(false)
         private set
@@ -119,7 +119,7 @@ class InstallerViewModel(
         }
     }
 
-    private val job = coroutineScope.launch(Dispatchers.Main) {
+    private val job = screenModelScope.launch(Dispatchers.Main) {
         if (installationRunning.getAndSet(true)) {
             return@launch
         }
@@ -431,7 +431,6 @@ class InstallerViewModel(
         }
     }
 
-    @OptIn(ExperimentalTime::class)
     private inline fun <T> step(step: InstallStep, block: InstallStepData.() -> T): T? {
         if (isFinished) return null
         steps[step]!!.status = InstallStatus.ONGOING
@@ -470,7 +469,7 @@ class InstallerViewModel(
             DownloadResult.Success -> {}
 
             is DownloadResult.Cancelled -> {
-                if (result.systemTriggered) coroutineScope.launch(Dispatchers.Main) {
+                if (result.systemTriggered) screenModelScope.launch(Dispatchers.Main) {
                     context.showToast(R.string.msg_download_cancelled)
                 }
 
@@ -478,7 +477,7 @@ class InstallerViewModel(
             }
 
             is DownloadResult.Error -> {
-                coroutineScope.launch(Dispatchers.Main) {
+                screenModelScope.launch(Dispatchers.Main) {
                     context.showToast(R.string.msg_download_failed)
                 }
 
@@ -527,7 +526,7 @@ class InstallerViewModel(
         progress: Float? = null
     ) {
         var status by mutableStateOf(status)
-        var duration by mutableStateOf(duration)
+        var duration by mutableFloatStateOf(duration)
         var cached by mutableStateOf(cached)
         var progress by mutableStateOf(progress)
     }

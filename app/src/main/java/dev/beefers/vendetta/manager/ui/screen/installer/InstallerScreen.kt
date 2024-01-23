@@ -33,7 +33,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.core.util.Consumer
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.core.screen.ScreenKey
 import cafe.adriel.voyager.koin.getScreenModel
@@ -45,7 +44,6 @@ import dev.beefers.vendetta.manager.ui.widgets.dialog.BackWarningDialog
 import dev.beefers.vendetta.manager.ui.widgets.dialog.DownloadFailedDialog
 import dev.beefers.vendetta.manager.ui.widgets.installer.StepGroupCard
 import dev.beefers.vendetta.manager.utils.DiscordVersion
-import kotlinx.coroutines.delay
 import org.koin.core.parameter.parametersOf
 import java.util.UUID
 
@@ -56,7 +54,6 @@ class InstallerScreen(
     override val key: ScreenKey = "Installer-${UUID.randomUUID()}"
 
     @Composable
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun Content() {
         val nav = LocalNavigator.currentOrThrow
         val activity = LocalContext.current as? ComponentActivity
@@ -135,7 +132,7 @@ class InstallerScreen(
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                for (group in InstallerViewModel.InstallStepGroup.values()) {
+                for (group in InstallerViewModel.InstallStepGroup.entries) {
                     StepGroupCard(
                         name = stringResource(group.nameRes),
                         isCurrent = expandedGroup == group,
