@@ -1,9 +1,9 @@
 import java.io.ByteArrayOutputStream
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("plugin.serialization") version "1.7.20"
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {

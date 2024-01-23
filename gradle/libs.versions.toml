@@ -1,4 +1,7 @@
 [versions]
+# Plugins
+agp = "8.2.0"
+kotlin = "1.7.20"
 
 # AndroidX
 androidx-core-ktx = "1.9.0"
@@ -83,3 +86,9 @@ koin = ["koin-android", "koin-androidx-compose", "koin-core"]
 ktor = ["ktor-client-cio", "ktor-client-content-negotiation", "ktor-client-core", "ktor-client-logging", "ktor-serialization-kotlinx-json"]
 shizuku = ["shizuku-api", "shizuku-provider"]
 voyager = ["voyager-koin", "voyager-navigator", "voyager-tab-navigator", "voyager-transitions"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
