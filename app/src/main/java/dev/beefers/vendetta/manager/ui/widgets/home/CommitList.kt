@@ -20,9 +20,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.itemsIndexed
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.network.dto.Commit
+import dev.beefers.vendetta.manager.utils.itemsIndexed
 
 @Composable
 fun CommitList(
@@ -38,18 +38,15 @@ fun CommitList(
             items = commits,
             key = { _, commit -> commit.sha }
         ) { i, commit ->
-            if (commit != null) {
-                Column {
-                    Commit(commit = commit)
-                    if (i < commits.itemSnapshotList.lastIndex) {
-                        Divider(
-                            thickness = 0.5.dp,
-                            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
-                            modifier = Modifier.padding(horizontal = 16.dp)
-                        )
-                    }
+            Column {
+                Commit(commit = commit)
+                if (i < commits.itemSnapshotList.lastIndex) {
+                    Divider(
+                        thickness = 0.5.dp,
+                        color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
+                        modifier = Modifier.padding(horizontal = 16.dp)
+                    )
                 }
-
             }
         }
 

@@ -6,7 +6,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import cafe.adriel.voyager.core.model.ScreenModel
-import cafe.adriel.voyager.core.model.coroutineScope
+import cafe.adriel.voyager.core.model.screenModelScope
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.InstallMethod
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
@@ -45,7 +45,7 @@ class AdvancedSettingsViewModel(
 
     fun setInstallMethod(method: InstallMethod) {
         when (method) {
-            InstallMethod.SHIZUKU -> coroutineScope.launch {
+            InstallMethod.SHIZUKU -> screenModelScope.launch {
                 if (ShizukuPermissions.waitShizukuPermissions()) {
                     prefs.installMethod = InstallMethod.SHIZUKU
                 } else {
