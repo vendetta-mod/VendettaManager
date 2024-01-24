@@ -19,6 +19,7 @@ accompanist = "0.33.2-alpha"
 coil = "2.4.0"
 koin = "3.4.0"
 kotlinx-datetime = "0.5.0"
+kotlinx-collections = "0.3.7"
 ktor = "2.3.3"
 shizuku = "13.1.0"
 voyager = "1.1.0-alpha02"
@@ -76,6 +77,7 @@ voyager-koin = { group = "cafe.adriel.voyager", name = "voyager-koin", version.r
 
 # Misc.
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlinx-collections = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections" }
 zip-android = { group = "io.github.diamondminer88", name = "zip-android", version.ref = "zip-android" }
 
 [bundles]
