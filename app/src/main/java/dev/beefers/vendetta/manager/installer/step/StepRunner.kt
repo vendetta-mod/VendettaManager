@@ -1,4 +1,4 @@
-package dev.beefers.vendetta.manager.installer.step.base
+package dev.beefers.vendetta.manager.installer.step
 
 import android.content.Context
 import android.os.Environment
@@ -8,6 +8,7 @@ import dev.beefers.vendetta.manager.installer.step.download.DownloadBaseStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadLangStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadLibsStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadResourcesStep
+import dev.beefers.vendetta.manager.installer.step.download.DownloadVendettaStep
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
@@ -45,6 +46,7 @@ class StepRunner(
         DownloadLibsStep(discordCacheDir, discordVersion.toVersionCode()),
         DownloadLangStep(discordCacheDir, discordVersion.toVersionCode()),
         DownloadResourcesStep(discordCacheDir, discordVersion.toVersionCode()),
+        DownloadVendettaStep()
     )
 
     /**

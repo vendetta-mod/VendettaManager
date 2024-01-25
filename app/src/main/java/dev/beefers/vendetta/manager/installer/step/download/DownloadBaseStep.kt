@@ -1,9 +1,11 @@
 package dev.beefers.vendetta.manager.installer.step.download
 
+import androidx.compose.runtime.Stable
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.installer.step.download.base.DownloadStep
 import java.io.File
 
+@Stable
 class DownloadBaseStep(
     dir: File,
     version: String

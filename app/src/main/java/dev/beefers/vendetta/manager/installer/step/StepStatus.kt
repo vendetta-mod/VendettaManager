@@ -1,4 +1,4 @@
-package dev.beefers.vendetta.manager.installer.step.base
+package dev.beefers.vendetta.manager.installer.step
 
 enum class StepStatus {
     ONGOING,

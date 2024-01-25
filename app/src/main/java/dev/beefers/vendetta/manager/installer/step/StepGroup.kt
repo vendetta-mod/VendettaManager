@@ -1,4 +1,4 @@
-package dev.beefers.vendetta.manager.installer.step.base
+package dev.beefers.vendetta.manager.installer.step
 
 import androidx.annotation.StringRes
 import dev.beefers.vendetta.manager.R

@@ -6,10 +6,10 @@ import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.DownloadManager
 import dev.beefers.vendetta.manager.domain.manager.DownloadResult
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
-import dev.beefers.vendetta.manager.installer.step.base.Step
-import dev.beefers.vendetta.manager.installer.step.base.StepGroup
-import dev.beefers.vendetta.manager.installer.step.base.StepRunner
-import dev.beefers.vendetta.manager.installer.step.base.StepStatus
+import dev.beefers.vendetta.manager.installer.step.Step
+import dev.beefers.vendetta.manager.installer.step.StepGroup
+import dev.beefers.vendetta.manager.installer.step.StepRunner
+import dev.beefers.vendetta.manager.installer.step.StepStatus
 import dev.beefers.vendetta.manager.utils.mainThread
 import dev.beefers.vendetta.manager.utils.showToast
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +20,6 @@ import java.io.File
 @Stable
 abstract class DownloadStep: Step() {
 
-    private val preferenceManager: PreferenceManager by inject()
     private val downloadManager: DownloadManager by inject()
     private val context: Context by inject()
 
@@ -29,6 +28,7 @@ abstract class DownloadStep: Step() {
 
     override val group: StepGroup = StepGroup.DL
 
+    val preferenceManager: PreferenceManager by inject()
     val baseUrl = preferenceManager.mirror.baseUrl
 
     open suspend fun verify() {
