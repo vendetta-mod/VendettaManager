@@ -1,8 +1,10 @@
 package dev.beefers.vendetta.manager.installer.step
 
 import android.content.Context
+import android.os.Build
 import android.os.Environment
 import androidx.compose.runtime.Stable
+import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.installer.step.download.DownloadBaseStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadLangStep
@@ -36,8 +38,22 @@ class StepRunner(
 
     private val preferenceManager: PreferenceManager by inject()
     private val context: Context by inject()
+    private var debugInfo = """
+            Vendetta Manager v${BuildConfig.VERSION_NAME}
+            Built from commit ${BuildConfig.GIT_COMMIT} on ${BuildConfig.GIT_BRANCH} ${if (BuildConfig.GIT_LOCAL_CHANGES || BuildConfig.GIT_LOCAL_COMMITS) "(Changes Present)" else ""}
+            
+            Running Android ${Build.VERSION.RELEASE}, API level ${Build.VERSION.SDK_INT}
+            Supported ABIs: ${Build.SUPPORTED_ABIS.joinToString()}
+            Device: ${Build.MANUFACTURER} - ${Build.MODEL} (${Build.DEVICE})
+            ${if(Build.VERSION.SDK_INT > Build.VERSION_CODES.S) "SOC: ${Build.SOC_MANUFACTURER} - ${Build.SOC_MODEL}\n" else "\n\n"} 
+            Adding Vendetta to Discord v$discordVersion
+            
+            
+        """.trimIndent()
 
-    val logger = Logger("StepRunner")
+    val logger = Logger("StepRunner").also {
+        debugInfo.split("\n").forEach(it.logs::add)
+    }
 
     private val cacheDir =
         context.externalCacheDir
@@ -93,7 +109,12 @@ class StepRunner(
     suspend fun runAll(): Throwable? {
         for (step in steps) {
             val error = step.runCatching(this)
-            if (error != null) return error
+            if (error != null) {
+                logger.i("\n")
+                logger.e("Failed on step ${step::class.simpleName}")
+                logger.e(error.stackTraceToString())
+                return error
+            }
 
             // Add delay for human psychology and
             // better group visibility in UI (the active group can change way too fast)
