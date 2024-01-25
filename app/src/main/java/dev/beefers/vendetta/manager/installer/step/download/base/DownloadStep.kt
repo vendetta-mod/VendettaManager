@@ -40,23 +40,32 @@ abstract class DownloadStep: Step() {
     }
 
     override suspend fun run(runner: StepRunner) {
+        val fileName = destination.name
+        runner.logger.i("Checking if $fileName is cached")
         if (destination.exists()) {
+            runner.logger.i("Checking if $fileName isn't empty")
             if (destination.length() > 0) {
+                runner.logger.i("vendetta.apk is cached")
                 status = StepStatus.SUCCESSFUL
                 return
             }
 
+            runner.logger.i("Deleting empty file: $fileName")
             destination.delete()
         }
 
+        runner.logger.i("$fileName was not properly cached, downloading now")
         val result = downloadManager.download(url, destination) { newProgress ->
             progress = newProgress
+            runner.logger.d("$fileName download progress: $newProgress")
         }
 
         when (result) {
             is DownloadResult.Success -> {
                 try {
+                    runner.logger.i("Verifying downloaded file")
                     verify()
+                    runner.logger.i("$fileName downloaded successfully")
                 } catch (t: Throwable) {
                     mainThread {
                         context.showToast(R.string.msg_download_verify_failed)
@@ -74,8 +83,10 @@ abstract class DownloadStep: Step() {
                 throw Error("Failed to download: ${result.debugReason}")
             }
 
-            is DownloadResult.Cancelled ->
+            is DownloadResult.Cancelled -> {
+                runner.logger.e("$fileName download cancelled")
                 status = StepStatus.UNSUCCESSFUL
+            }
         }
     }
 

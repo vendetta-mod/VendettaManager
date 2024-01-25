@@ -20,6 +20,8 @@ class ReplaceIconStep : Step() {
         val baseApk = runner.getCompletedStep<DownloadBaseStep>().destination
 
         ZipWriter(baseApk, true).use { apk ->
+            runner.logger.i("Replacing icons in ${baseApk.name}")
+
             val mipmaps =
                 arrayOf("mipmap-xhdpi-v4", "mipmap-xxhdpi-v4", "mipmap-xxxhdpi-v4")
             val icons = arrayOf(
@@ -33,6 +35,7 @@ class ReplaceIconStep : Step() {
                     .use { it.readBytes() }
 
                 for (mipmap in mipmaps) {
+                    runner.logger.i("Replacing $mipmap with $icon")
                     val path = "res/$mipmap/$icon"
                     apk.deleteEntry(path)
                     apk.writeEntry(path, newIcon)

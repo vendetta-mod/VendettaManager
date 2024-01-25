@@ -28,11 +28,13 @@ class PatchManifestsStep : Step() {
         val resApk = runner.getCompletedStep<DownloadResourcesStep>().destination
 
         arrayOf(baseApk, libsApk, langApk, resApk).forEach { apk ->
+            runner.logger.i("Reading AndroidManifest.xml from ${apk.name}")
             val manifest = ZipReader(apk)
                 .use { zip -> zip.openEntry("AndroidManifest.xml")?.read() }
                 ?: throw IllegalStateException("No manifest in ${apk.name}")
 
             ZipWriter(apk, true).use { zip ->
+                runner.logger.i("Changing package and app name in ${apk.name}")
                 val patchedManifestBytes = if (apk == baseApk) {
                     ManifestPatcher.patchManifest(
                         manifestBytes = manifest,
@@ -41,13 +43,17 @@ class PatchManifestsStep : Step() {
                         debuggable = preferences.debuggable,
                     )
                 } else {
+                    runner.logger.i("Changing package name in ${apk.name}")
                     ManifestPatcher.renamePackage(manifest, preferences.packageName)
                 }
 
+                runner.logger.i("Deleting old AndroidManifest.xml in ${apk.name}")
                 zip.deleteEntry(
                     "AndroidManifest.xml",
                     apk == libsApk
                 ) // Preserve alignment in libs apk
+
+                runner.logger.i("Adding patched AndroidManifest.xml in ${apk.name}")
                 zip.writeEntry("AndroidManifest.xml", patchedManifestBytes)
             }
         }

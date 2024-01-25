@@ -31,12 +31,14 @@ class PresignApksStep(
         val langApk = runner.getCompletedStep<DownloadLangStep>().destination
         val resApk = runner.getCompletedStep<DownloadResourcesStep>().destination
 
+        runner.logger.i("Creating dir for signed apks: ${signedDir.absolutePath}")
         signedDir.mkdirs()
         val apks = listOf(baseApk, libsApk, langApk, resApk)
 
         // Align resources.arsc due to targeting api 30 for silent install
         if(Build.VERSION.SDK_INT >= 30) {
             for (file in apks) {
+                runner.logger.i("Byte aligning ${file.name}")
                 val bytes = ZipReader(file).use {
                     if (it.entryNames.contains("resources.arsc")) {
                         it.openEntry("resources.arsc")?.read()
@@ -46,13 +48,17 @@ class PresignApksStep(
                 } ?: continue
 
                 ZipWriter(file, true).use {
+                    runner.logger.i("Removing old resources.arsc")
                     it.deleteEntry("resources.arsc", true)
+
+                    runner.logger.i("Adding aligned resources.arsc")
                     it.writeEntry("resources.arsc", bytes, ZipCompression.NONE, 4096)
                 }
             }
         }
 
         apks.forEach {
+            runner.logger.i("Signing ${it.name}")
             Signer.signApk(it, File(signedDir, it.name))
         }
     }

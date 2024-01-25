@@ -9,6 +9,7 @@ import dev.beefers.vendetta.manager.installer.step.download.DownloadLangStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadLibsStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadResourcesStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadVendettaStep
+import dev.beefers.vendetta.manager.installer.util.Logger
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
@@ -29,6 +30,8 @@ class StepRunner(
 
     private val preferenceManager: PreferenceManager by inject()
     private val context: Context by inject()
+
+    val logger = Logger("StepRunner")
 
     private val cacheDir =
         context.externalCacheDir
