@@ -9,10 +9,16 @@ import dev.beefers.vendetta.manager.installer.step.download.DownloadLangStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadLibsStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadResourcesStep
 import dev.beefers.vendetta.manager.installer.step.download.DownloadVendettaStep
+import dev.beefers.vendetta.manager.installer.step.installing.InstallStep
+import dev.beefers.vendetta.manager.installer.step.patching.AddVendettaStep
+import dev.beefers.vendetta.manager.installer.step.patching.PatchManifestsStep
+import dev.beefers.vendetta.manager.installer.step.patching.PresignApksStep
+import dev.beefers.vendetta.manager.installer.step.patching.ReplaceIconStep
 import dev.beefers.vendetta.manager.installer.util.Logger
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -44,13 +50,28 @@ class StepRunner(
     private val signedDir = discordCacheDir.resolve("signed").also { it.deleteRecursively() }
     private val lspatchedDir = patchedDir.resolve("lspatched").also { it.deleteRecursively() }
 
-    val steps: ImmutableList<Step> = persistentListOf(
-        DownloadBaseStep(discordCacheDir, discordVersion.toVersionCode()),
-        DownloadLibsStep(discordCacheDir, discordVersion.toVersionCode()),
-        DownloadLangStep(discordCacheDir, discordVersion.toVersionCode()),
-        DownloadResourcesStep(discordCacheDir, discordVersion.toVersionCode()),
-        DownloadVendettaStep()
-    )
+    /**
+     * List of steps to go through for this install
+     *
+     * ORDER MATTERS
+     */
+    val steps: ImmutableList<Step> = buildList {
+        // Downloading
+        add(DownloadBaseStep(discordCacheDir, discordVersion.toVersionCode()))
+        add(DownloadLibsStep(discordCacheDir, discordVersion.toVersionCode()))
+        add(DownloadLangStep(discordCacheDir, discordVersion.toVersionCode()))
+        add(DownloadResourcesStep(discordCacheDir, discordVersion.toVersionCode()))
+        add(DownloadVendettaStep())
+
+        // Patching
+        if (preferenceManager.patchIcon) add(ReplaceIconStep())
+        add(PatchManifestsStep())
+        add(PresignApksStep(signedDir))
+        add(AddVendettaStep(signedDir, lspatchedDir))
+
+        // Installing
+        add(InstallStep(lspatchedDir))
+    }.toImmutableList()
 
     /**
      * Get a step that has already been successfully executed.
