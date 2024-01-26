@@ -9,13 +9,14 @@ import java.io.File
 @Stable
 class DownloadResourcesStep(
     dir: File,
+    workingDir: File,
     version: String
 ): DownloadStep() {
 
     override val nameRes = R.string.step_dl_res
 
-    override val destination = dir.resolve("config.xxhdpi-$version.apk")
-
     override val url: String = "$baseUrl/tracker/download/$version/config.xxhdpi"
+    override val destination = dir.resolve("config.xxhdpi-$version.apk")
+    override val workingCopy = workingDir.resolve("config.xxhdpi-$version.apk")
 
 }

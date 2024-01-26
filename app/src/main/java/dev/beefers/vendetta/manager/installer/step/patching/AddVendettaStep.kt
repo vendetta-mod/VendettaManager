@@ -17,7 +17,7 @@ class AddVendettaStep(
     override val nameRes = R.string.step_add_vd
 
     override suspend fun run(runner: StepRunner) {
-        val vendetta = runner.getCompletedStep<DownloadVendettaStep>().destination
+        val vendetta = runner.getCompletedStep<DownloadVendettaStep>().workingCopy
 
         runner.logger.i("Adding Vendetta module with LSPatch")
         val files = signedDir.listFiles()

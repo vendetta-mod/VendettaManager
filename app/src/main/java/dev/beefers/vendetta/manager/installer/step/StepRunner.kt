@@ -4,6 +4,9 @@ import android.content.Context
 import android.os.Build
 import android.os.Environment
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.installer.step.download.DownloadBaseStep
@@ -38,14 +41,14 @@ class StepRunner(
 
     private val preferenceManager: PreferenceManager by inject()
     private val context: Context by inject()
-    private var debugInfo = """
+    private val debugInfo = """
             Vendetta Manager v${BuildConfig.VERSION_NAME}
             Built from commit ${BuildConfig.GIT_COMMIT} on ${BuildConfig.GIT_BRANCH} ${if (BuildConfig.GIT_LOCAL_CHANGES || BuildConfig.GIT_LOCAL_COMMITS) "(Changes Present)" else ""}
             
             Running Android ${Build.VERSION.RELEASE}, API level ${Build.VERSION.SDK_INT}
             Supported ABIs: ${Build.SUPPORTED_ABIS.joinToString()}
             Device: ${Build.MANUFACTURER} - ${Build.MODEL} (${Build.DEVICE})
-            ${if(Build.VERSION.SDK_INT > Build.VERSION_CODES.S) "SOC: ${Build.SOC_MANUFACTURER} - ${Build.SOC_MODEL}\n" else "\n\n"} 
+            ${if(Build.VERSION.SDK_INT > Build.VERSION_CODES.S) "SOC: ${Build.SOC_MANUFACTURER} ${Build.SOC_MODEL}\n" else "\n\n"} 
             Adding Vendetta to Discord v$discordVersion
             
             
@@ -66,6 +69,12 @@ class StepRunner(
     private val signedDir = discordCacheDir.resolve("signed").also { it.deleteRecursively() }
     private val lspatchedDir = patchedDir.resolve("lspatched").also { it.deleteRecursively() }
 
+    var currentStep by mutableStateOf<Step?>(null)
+        private set
+
+    var completed by mutableStateOf<Boolean>(false)
+        private set
+
     /**
      * List of steps to go through for this install
      *
@@ -73,11 +82,11 @@ class StepRunner(
      */
     val steps: ImmutableList<Step> = buildList {
         // Downloading
-        add(DownloadBaseStep(discordCacheDir, discordVersion.toVersionCode()))
-        add(DownloadLibsStep(discordCacheDir, discordVersion.toVersionCode()))
-        add(DownloadLangStep(discordCacheDir, discordVersion.toVersionCode()))
-        add(DownloadResourcesStep(discordCacheDir, discordVersion.toVersionCode()))
-        add(DownloadVendettaStep())
+        add(DownloadBaseStep(discordCacheDir, patchedDir, discordVersion.toVersionCode()))
+        add(DownloadLibsStep(discordCacheDir, patchedDir, discordVersion.toVersionCode()))
+        add(DownloadLangStep(discordCacheDir, patchedDir, discordVersion.toVersionCode()))
+        add(DownloadResourcesStep(discordCacheDir, patchedDir, discordVersion.toVersionCode()))
+        add(DownloadVendettaStep(patchedDir))
 
         // Patching
         if (preferenceManager.patchIcon) add(ReplaceIconStep())
@@ -106,13 +115,22 @@ class StepRunner(
         return step
     }
 
+    fun clearCache() {
+        cacheDir.deleteRecursively()
+    }
+
     suspend fun runAll(): Throwable? {
         for (step in steps) {
+            if (completed) return null // Failsafe in case runner is incorrectly marked as not completed too early
+
+            currentStep = step
             val error = step.runCatching(this)
             if (error != null) {
                 logger.i("\n")
-                logger.e("Failed on step ${step::class.simpleName}")
+                logger.e("Failed on ${step::class.simpleName}")
                 logger.e(error.stackTraceToString())
+
+                completed = true
                 return error
             }
 
@@ -123,6 +141,7 @@ class StepRunner(
             }
         }
 
+        completed = true
         return null
     }
 

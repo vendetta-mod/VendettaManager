@@ -9,6 +9,7 @@ import java.io.File
 @Stable
 class DownloadLibsStep(
     dir: File,
+    workingDir: File,
     version: String
 ): DownloadStep() {
 
@@ -16,8 +17,8 @@ class DownloadLibsStep(
 
     override val nameRes = R.string.step_dl_lib
 
-    override val destination = dir.resolve("config.$arch-$version.apk")
-
     override val url: String = "$baseUrl/tracker/download/$version/config.$arch"
+    override val destination = dir.resolve("config.$arch-$version.apk")
+    override val workingCopy = workingDir.resolve("config.$arch-$version.apk")
 
 }

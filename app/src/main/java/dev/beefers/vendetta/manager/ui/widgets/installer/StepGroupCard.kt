@@ -29,30 +29,32 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.beefers.vendetta.manager.R
+import dev.beefers.vendetta.manager.installer.step.Step
+import dev.beefers.vendetta.manager.installer.step.StepStatus
+import dev.beefers.vendetta.manager.installer.step.download.base.DownloadStep
 import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
+import dev.beefers.vendetta.manager.utils.thenIf
 
 @Composable
 fun StepGroupCard(
     name: String,
     isCurrent: Boolean,
-    steps: List<InstallerViewModel.InstallStepData>,
+    steps: List<Step>,
     onClick: () -> Unit
 ) {
     val status = when {
-        steps.all { it.status == InstallerViewModel.InstallStatus.QUEUED } -> InstallerViewModel.InstallStatus.QUEUED
-        steps.all { it.status == InstallerViewModel.InstallStatus.SUCCESSFUL } -> InstallerViewModel.InstallStatus.SUCCESSFUL
-        steps.any { it.status == InstallerViewModel.InstallStatus.ONGOING } -> InstallerViewModel.InstallStatus.ONGOING
-        else -> InstallerViewModel.InstallStatus.UNSUCCESSFUL
+        steps.all { it.status == StepStatus.QUEUED } -> StepStatus.QUEUED
+        steps.all { it.status == StepStatus.SUCCESSFUL } -> StepStatus.SUCCESSFUL
+        steps.any { it.status == StepStatus.ONGOING } -> StepStatus.ONGOING
+        else -> StepStatus.UNSUCCESSFUL
     }
 
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(16.dp))
-            .run {
-                if (isCurrent) {
-                    background(MaterialTheme.colorScheme.surfaceColorAtElevation(1.dp))
-                } else this
+            .thenIf(isCurrent) {
+                background(MaterialTheme.colorScheme.surfaceColorAtElevation(1.dp))
             }
     ) {
         Row(
@@ -69,9 +71,9 @@ fun StepGroupCard(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            if (status != InstallerViewModel.InstallStatus.ONGOING && status != InstallerViewModel.InstallStatus.QUEUED) {
+            if (status != StepStatus.ONGOING && status != StepStatus.QUEUED) {
                 Text(
-                    text = "%.2fs".format(steps.map { it.duration }.sum()),
+                    text = "%.2fs".format(steps.sumOf { it.durationMs } / 1000f),
                     style = MaterialTheme.typography.labelMedium
                 )
             }
@@ -113,8 +115,8 @@ fun StepGroupCard(
                             modifier = Modifier.weight(1f, true),
                         )
 
-                        if (it.status != InstallerViewModel.InstallStatus.ONGOING && it.status != InstallerViewModel.InstallStatus.QUEUED) {
-                            if (it.cached) {
+                        if (it.status != StepStatus.ONGOING && it.status != StepStatus.QUEUED) {
+                            if ((it as? DownloadStep)?.cached == true) {
                                 val style = MaterialTheme.typography.labelSmall.copy(
                                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
                                     fontStyle = FontStyle.Italic,
@@ -128,7 +130,7 @@ fun StepGroupCard(
                             }
 
                             Text(
-                                text = "%.2fs".format(it.duration),
+                                text = "%.2fs".format((it.durationMs / 1000f)),
                                 style = MaterialTheme.typography.labelSmall,
                                 maxLines = 1,
                             )

@@ -17,7 +17,7 @@ class ReplaceIconStep : Step() {
     override val nameRes = R.string.step_change_icon
 
     override suspend fun run(runner: StepRunner) {
-        val baseApk = runner.getCompletedStep<DownloadBaseStep>().destination
+        val baseApk = runner.getCompletedStep<DownloadBaseStep>().workingCopy
 
         ZipWriter(baseApk, true).use { apk ->
             runner.logger.i("Replacing icons in ${baseApk.name}")

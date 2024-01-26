@@ -23,8 +23,6 @@ abstract class Step: KoinComponent {
     @get:StringRes
     abstract val nameRes: Int
 
-    protected abstract suspend fun run(runner: StepRunner)
-
     var status by mutableStateOf(StepStatus.QUEUED)
         protected set
 
@@ -34,13 +32,15 @@ abstract class Step: KoinComponent {
     var durationMs by mutableIntStateOf(0)
         private set
 
+    protected abstract suspend fun run(runner: StepRunner)
+
     suspend fun runCatching(runner: StepRunner): Throwable? {
         if (status != StepStatus.QUEUED)
             throw IllegalStateException("Cannot execute a step that has already started")
 
         status = StepStatus.ONGOING
 
-        val (error, timeMs) = measureTimedValue {
+        val (error, time) = measureTimedValue {
             try {
                 run(runner)
                 status = StepStatus.SUCCESSFUL
@@ -51,7 +51,7 @@ abstract class Step: KoinComponent {
             }
         }
 
-        durationMs = timeMs.inWholeMilliseconds.toInt()
+        durationMs = time.inWholeMilliseconds.toInt()
         return error
     }
 

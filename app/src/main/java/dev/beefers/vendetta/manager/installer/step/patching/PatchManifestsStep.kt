@@ -22,10 +22,10 @@ class PatchManifestsStep : Step() {
     override val nameRes = R.string.step_patch_manifests
 
     override suspend fun run(runner: StepRunner) {
-        val baseApk = runner.getCompletedStep<DownloadBaseStep>().destination
-        val libsApk = runner.getCompletedStep<DownloadLibsStep>().destination
-        val langApk = runner.getCompletedStep<DownloadLangStep>().destination
-        val resApk = runner.getCompletedStep<DownloadResourcesStep>().destination
+        val baseApk = runner.getCompletedStep<DownloadBaseStep>().workingCopy
+        val libsApk = runner.getCompletedStep<DownloadLibsStep>().workingCopy
+        val langApk = runner.getCompletedStep<DownloadLangStep>().workingCopy
+        val resApk = runner.getCompletedStep<DownloadResourcesStep>().workingCopy
 
         arrayOf(baseApk, libsApk, langApk, resApk).forEach { apk ->
             runner.logger.i("Reading AndroidManifest.xml from ${apk.name}")

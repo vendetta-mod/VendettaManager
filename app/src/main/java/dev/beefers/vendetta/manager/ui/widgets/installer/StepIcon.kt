@@ -18,13 +18,14 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
 import dev.beefers.vendetta.manager.R
+import dev.beefers.vendetta.manager.installer.step.StepStatus
 import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
 import kotlin.math.floor
 import kotlin.math.roundToInt
 
 @Composable
 fun StepIcon(
-    status: InstallerViewModel.InstallStatus,
+    status: StepStatus,
     size: Dp,
     progress: Float?
 ) {
@@ -32,7 +33,7 @@ fun StepIcon(
     val context = LocalContext.current
 
     when (status) {
-        InstallerViewModel.InstallStatus.ONGOING -> {
+        StepStatus.ONGOING -> {
             if(progress != null) {
                 CircularProgressIndicator(
                     progress = progress,
@@ -55,7 +56,7 @@ fun StepIcon(
             }
         }
 
-        InstallerViewModel.InstallStatus.SUCCESSFUL -> {
+        StepStatus.SUCCESSFUL -> {
             Icon(
                 imageVector = Icons.Filled.CheckCircle,
                 contentDescription = stringResource(R.string.status_successful),
@@ -64,7 +65,7 @@ fun StepIcon(
             )
         }
 
-        InstallerViewModel.InstallStatus.UNSUCCESSFUL -> {
+        StepStatus.UNSUCCESSFUL -> {
             Icon(
                 imageVector = Icons.Filled.Cancel,
                 contentDescription = stringResource(R.string.status_fail),
@@ -73,7 +74,7 @@ fun StepIcon(
             )
         }
 
-        InstallerViewModel.InstallStatus.QUEUED -> {
+        StepStatus.QUEUED -> {
             Icon(
                 imageVector = Icons.Outlined.Circle,
                 contentDescription = stringResource(R.string.status_queued),

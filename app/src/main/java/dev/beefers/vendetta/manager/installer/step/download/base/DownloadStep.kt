@@ -2,6 +2,9 @@ package dev.beefers.vendetta.manager.installer.step.download.base
 
 import android.content.Context
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.DownloadManager
 import dev.beefers.vendetta.manager.domain.manager.DownloadResult
@@ -16,20 +19,25 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.koin.core.component.inject
 import java.io.File
+import kotlin.math.roundToInt
 
 @Stable
 abstract class DownloadStep: Step() {
+
+    val preferenceManager: PreferenceManager by inject()
+    val baseUrl = preferenceManager.mirror.baseUrl
 
     private val downloadManager: DownloadManager by inject()
     private val context: Context by inject()
 
     abstract val url: String
     abstract val destination: File
+    abstract val workingCopy: File
 
     override val group: StepGroup = StepGroup.DL
 
-    val preferenceManager: PreferenceManager by inject()
-    val baseUrl = preferenceManager.mirror.baseUrl
+    var cached by mutableStateOf(false)
+        private set
 
     open suspend fun verify() {
         if (!destination.exists())
@@ -46,6 +54,11 @@ abstract class DownloadStep: Step() {
             runner.logger.i("Checking if $fileName isn't empty")
             if (destination.length() > 0) {
                 runner.logger.i("vendetta.apk is cached")
+                cached = true
+
+                runner.logger.i("Moving $fileName to working directory")
+                destination.copyTo(workingCopy, true)
+
                 status = StepStatus.SUCCESSFUL
                 return
             }
@@ -55,9 +68,13 @@ abstract class DownloadStep: Step() {
         }
 
         runner.logger.i("$fileName was not properly cached, downloading now")
+        var lastProgress: Float? = null
         val result = downloadManager.download(url, destination) { newProgress ->
             progress = newProgress
-            runner.logger.d("$fileName download progress: $newProgress")
+            if (newProgress != lastProgress && newProgress != null) {
+                lastProgress = newProgress
+                runner.logger.d("$fileName download progress: ${(lastProgress!! * 100f).roundToInt()}%")
+            }
         }
 
         when (result) {
@@ -66,6 +83,9 @@ abstract class DownloadStep: Step() {
                     runner.logger.i("Verifying downloaded file")
                     verify()
                     runner.logger.i("$fileName downloaded successfully")
+
+                    runner.logger.i("Moving $fileName to working directory")
+                    destination.copyTo(workingCopy, true)
                 } catch (t: Throwable) {
                     mainThread {
                         context.showToast(R.string.msg_download_verify_failed)

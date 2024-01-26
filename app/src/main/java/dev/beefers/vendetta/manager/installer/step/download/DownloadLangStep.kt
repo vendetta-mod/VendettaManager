@@ -9,13 +9,14 @@ import java.io.File
 @Stable
 class DownloadLangStep(
     dir: File,
+    workingDir: File,
     version: String
 ): DownloadStep() {
 
     override val nameRes = R.string.step_dl_lang
 
-    override val destination = dir.resolve("config.en-$version.apk")
-
     override val url: String = "$baseUrl/tracker/download/$version/config.en"
+    override val destination = dir.resolve("config.en-$version.apk")
+    override val workingCopy = workingDir.resolve("config.en-$version.apk")
 
 }
