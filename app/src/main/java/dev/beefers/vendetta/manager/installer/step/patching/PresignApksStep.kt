@@ -15,6 +15,11 @@ import dev.beefers.vendetta.manager.installer.step.download.DownloadResourcesSte
 import dev.beefers.vendetta.manager.installer.util.Signer
 import java.io.File
 
+/**
+ * Sign all patched apks before being ran through LSPatch, this is required due to LSPatch not liking unsigned apks.
+ *
+ * @param signedDir Where to output all signed apks
+ */
 class PresignApksStep(
     private val signedDir: File
 ) : Step() {

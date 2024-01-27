@@ -9,6 +9,9 @@ import dev.beefers.vendetta.manager.installer.step.StepRunner
 import dev.beefers.vendetta.manager.installer.step.download.DownloadBaseStep
 import org.koin.core.component.inject
 
+/**
+ * Replaces the existing app icons with Vendetta tinted ones
+ */
 class ReplaceIconStep : Step() {
 
     val context: Context by inject()

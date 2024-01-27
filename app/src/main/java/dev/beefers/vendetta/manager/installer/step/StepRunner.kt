@@ -33,6 +33,8 @@ import java.io.File
  * Runs all installation steps in order
  *
  * Credit to rushii (github.com/rushiiMachine)
+ *
+ * @param discordVersion Version of Discord to inject Vendetta into
  */
 @Stable
 class StepRunner(
@@ -54,24 +56,49 @@ class StepRunner(
             
         """.trimIndent()
 
+    /**
+     * Logger associated with this runner
+     */
     val logger = Logger("StepRunner").also {
-        debugInfo.split("\n").forEach(it.logs::add)
+        debugInfo.split("\n").forEach(it.logs::add) // Add debug information to logs but don't print to logcat
     }
 
+    /**
+     * Root directory for all downloaded files
+     */
     private val cacheDir =
         context.externalCacheDir
         ?: File(Environment.getExternalStorageDirectory(), Environment.DIRECTORY_DOWNLOADS)
             .resolve("VendettaManager")
             .also { it.mkdirs() }
 
+    /**
+     * Where version specific downloads are persisted
+     */
     private val discordCacheDir = cacheDir.resolve(discordVersion.toVersionCode())
+
+    /**
+     * Working directory where apks are directly modified (i.e. replacing the app icon)
+     */
     private val patchedDir = discordCacheDir.resolve("patched").also { it.deleteRecursively() }
+
+    /**
+     * Where apks are moved to once signed
+     */
     private val signedDir = discordCacheDir.resolve("signed").also { it.deleteRecursively() }
+
+    /**
+     * Output directory for LSPatch
+     */
     private val lspatchedDir = patchedDir.resolve("lspatched").also { it.deleteRecursively() }
 
     var currentStep by mutableStateOf<Step?>(null)
         private set
 
+    /**
+     * Whether or not the patching/installation process has completed.
+     * Note that this does not mean all steps were finished successfully
+     */
     var completed by mutableStateOf<Boolean>(false)
         private set
 
@@ -115,10 +142,16 @@ class StepRunner(
         return step
     }
 
+    /**
+     * Clears all cached files
+     */
     fun clearCache() {
         cacheDir.deleteRecursively()
     }
 
+    /**
+     * Run all the [steps] in order
+     */
     suspend fun runAll(): Throwable? {
         for (step in steps) {
             if (completed) return null // Failsafe in case runner is incorrectly marked as not completed too early
@@ -126,9 +159,7 @@ class StepRunner(
             currentStep = step
             val error = step.runCatching(this)
             if (error != null) {
-                logger.i("\n")
-                logger.e("Failed on ${step::class.simpleName}")
-                logger.e(error.stackTraceToString())
+                logger.e("Failed on ${step::class.simpleName}", error)
 
                 completed = true
                 return error

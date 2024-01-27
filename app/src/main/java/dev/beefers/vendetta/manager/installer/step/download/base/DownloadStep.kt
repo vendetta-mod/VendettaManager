@@ -21,17 +21,33 @@ import org.koin.core.component.inject
 import java.io.File
 import kotlin.math.roundToInt
 
+/**
+ * Specialized step used to download a file
+ *
+ * Files are downloaded to [destination] then copied to [workingCopy] for safe patching
+ */
 @Stable
 abstract class DownloadStep: Step() {
 
-    val preferenceManager: PreferenceManager by inject()
-    val baseUrl = preferenceManager.mirror.baseUrl
+    protected val preferenceManager: PreferenceManager by inject()
+    protected val baseUrl = preferenceManager.mirror.baseUrl
 
     private val downloadManager: DownloadManager by inject()
     private val context: Context by inject()
 
+    /**
+     * Url of the desired file to download
+     */
     abstract val url: String
+
+    /**
+     * Where to download the file to
+     */
     abstract val destination: File
+
+    /**
+     * Where the downloaded file should be copied to so that it can be used for patching
+     */
     abstract val workingCopy: File
 
     override val group: StepGroup = StepGroup.DL
@@ -39,6 +55,9 @@ abstract class DownloadStep: Step() {
     var cached by mutableStateOf(false)
         private set
 
+    /**
+     * Verifies that a file was properly downloaded
+     */
     open suspend fun verify() {
         if (!destination.exists())
             error("Downloaded file is missing: ${destination.absolutePath}")
@@ -53,7 +72,7 @@ abstract class DownloadStep: Step() {
         if (destination.exists()) {
             runner.logger.i("Checking if $fileName isn't empty")
             if (destination.length() > 0) {
-                runner.logger.i("vendetta.apk is cached")
+                runner.logger.i("$fileName is cached")
                 cached = true
 
                 runner.logger.i("Moving $fileName to working directory")

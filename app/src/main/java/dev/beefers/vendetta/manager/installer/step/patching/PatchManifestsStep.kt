@@ -14,6 +14,9 @@ import dev.beefers.vendetta.manager.installer.step.download.DownloadResourcesSte
 import dev.beefers.vendetta.manager.installer.util.ManifestPatcher
 import org.koin.core.component.inject
 
+/**
+ * Modifies each APKs manifest in order to change the package and app name as well as whether or not its debuggable
+ */
 class PatchManifestsStep : Step() {
 
     private val preferences: PreferenceManager by inject()

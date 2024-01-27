@@ -1,11 +1,15 @@
 package dev.beefers.vendetta.manager.installer.step.download
 
-import android.os.Build
 import androidx.compose.runtime.Stable
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.installer.step.download.base.DownloadStep
 import java.io.File
 
+/**
+ * Downloads the Vendetta XPosed module
+ *
+ * https://github.com/vendetta-mod/VendettaXposed
+ */
 @Stable
 class DownloadVendettaStep(
     workingDir: File

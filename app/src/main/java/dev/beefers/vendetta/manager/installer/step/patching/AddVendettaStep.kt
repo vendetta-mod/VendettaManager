@@ -8,6 +8,12 @@ import dev.beefers.vendetta.manager.installer.step.download.DownloadVendettaStep
 import dev.beefers.vendetta.manager.installer.util.Patcher
 import java.io.File
 
+/**
+ * Uses LSPatch to inject the Vendetta XPosed module into Discord
+ *
+ * @param signedDir The signed apks to patch
+ * @param lspatchedDir Output directory for LSPatch
+ */
 class AddVendettaStep(
     private val signedDir: File,
     private val lspatchedDir: File

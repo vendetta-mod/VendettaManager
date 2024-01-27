@@ -1,11 +1,13 @@
 package dev.beefers.vendetta.manager.installer.step.download
 
-import android.os.Build
 import androidx.compose.runtime.Stable
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.installer.step.download.base.DownloadStep
 import java.io.File
 
+/**
+ * Downloads the languages split, will always be English because Discord doesn't store their strings in this split
+ */
 @Stable
 class DownloadLangStep(
     dir: File,

@@ -5,6 +5,9 @@ import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.installer.step.download.base.DownloadStep
 import java.io.File
 
+/**
+ * Downloads the base Discord APK
+ */
 @Stable
 class DownloadBaseStep(
     dir: File,

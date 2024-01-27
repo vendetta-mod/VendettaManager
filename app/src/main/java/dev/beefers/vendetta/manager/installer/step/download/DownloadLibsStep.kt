@@ -6,6 +6,9 @@ import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.installer.step.download.base.DownloadStep
 import java.io.File
 
+/**
+ * Downloads the split containing the native libraries for the current devices architecture
+ */
 @Stable
 class DownloadLibsStep(
     dir: File,
@@ -13,6 +16,9 @@ class DownloadLibsStep(
     version: String
 ): DownloadStep() {
 
+    /**
+     * Supported CPU architecture for this device, used to download the correct library split
+     */
     private val arch = Build.SUPPORTED_ABIS.first().replace("-v", "_v")
 
     override val nameRes = R.string.step_dl_lib

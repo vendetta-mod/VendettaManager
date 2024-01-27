@@ -14,6 +14,14 @@ import dev.beefers.vendetta.manager.utils.isMiui
 import org.koin.core.component.inject
 import java.io.File
 
+/**
+ * Installs all the modified splits with the users desired [Installer]
+ *
+ * @see SessionInstaller
+ * @see ShizukuInstaller
+ *
+ * @param lspatchedDir Where all the patched APKs are
+ */
 class InstallStep(
     private val lspatchedDir: File
 ): Step() {

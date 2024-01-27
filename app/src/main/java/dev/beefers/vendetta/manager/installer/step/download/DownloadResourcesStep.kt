@@ -1,11 +1,13 @@
 package dev.beefers.vendetta.manager.installer.step.download
 
-import android.os.Build
 import androidx.compose.runtime.Stable
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.installer.step.download.base.DownloadStep
 import java.io.File
 
+/**
+ * Downloads the split containing all images, fonts, and other assets
+ */
 @Stable
 class DownloadResourcesStep(
     dir: File,
