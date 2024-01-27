@@ -35,6 +35,14 @@ import dev.beefers.vendetta.manager.installer.step.download.base.DownloadStep
 import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
 import dev.beefers.vendetta.manager.utils.thenIf
 
+/**
+ * Collapsable card containing a group of steps
+ *
+ * @param name The name of this group
+ * @param isCurrent Whether this card is expanded
+ * @param steps The steps belonging to this group
+ * @param onClick Action taken when the header of the group is clicked
+ */
 @Composable
 fun StepGroupCard(
     name: String,
@@ -73,7 +81,7 @@ fun StepGroupCard(
 
             if (status != StepStatus.ONGOING && status != StepStatus.QUEUED) {
                 Text(
-                    text = "%.2fs".format(steps.sumOf { it.durationMs } / 1000f),
+                    text = "%.2fs".format(steps.sumOf { it.durationMs } / 1000f), // Displays the duration rounded to the hundredths place. ex. 10.13s
                     style = MaterialTheme.typography.labelMedium
                 )
             }
@@ -98,44 +106,14 @@ fun StepGroupCard(
                     .padding(16.dp)
                     .padding(start = 4.dp)
             ) {
-                steps.forEach {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    ) {
-                        val progress by animateFloatAsState(it.progress ?: 0f, label = "Progress")
-
-                        StepIcon(it.status, size = 18.dp, progress = if(it.progress == null) null else progress)
-
-                        Text(
-                            text = stringResource(it.nameRes),
-                            style = MaterialTheme.typography.labelLarge,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier.weight(1f, true),
-                        )
-
-                        if (it.status != StepStatus.ONGOING && it.status != StepStatus.QUEUED) {
-                            if ((it as? DownloadStep)?.cached == true) {
-                                val style = MaterialTheme.typography.labelSmall.copy(
-                                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                                    fontStyle = FontStyle.Italic,
-                                    fontSize = 11.sp
-                                )
-                                Text(
-                                    text = stringResource(R.string.installer_cached),
-                                    style = style,
-                                    maxLines = 1,
-                                )
-                            }
-
-                            Text(
-                                text = "%.2fs".format((it.durationMs / 1000f)),
-                                style = MaterialTheme.typography.labelSmall,
-                                maxLines = 1,
-                            )
-                        }
-                    }
+                steps.forEach { step ->
+                    StepRow(
+                        name = stringResource(step.nameRes),
+                        status = step.status,
+                        progress = step.progress,
+                        cached = (step as? DownloadStep)?.cached ?: false,
+                        duration = step.durationMs / 1000f
+                    )
                 }
             }
         }

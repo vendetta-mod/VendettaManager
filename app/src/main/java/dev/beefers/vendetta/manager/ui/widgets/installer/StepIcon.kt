@@ -23,6 +23,17 @@ import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
 import kotlin.math.floor
 import kotlin.math.roundToInt
 
+/**
+ * Icon representing the status of a step
+ *
+ * Ongoing - Progress indicator
+ *
+ * Queued - Outlined circle, tinted grey
+ *
+ * Successful - Green check
+ *
+ * Unsuccessful - Red X
+ */
 @Composable
 fun StepIcon(
     status: StepStatus,
