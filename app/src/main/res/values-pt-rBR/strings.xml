@@ -12,11 +12,11 @@
     <string name="msg_downgrade">Não é possível desatualizar, tente desinstalar primeiro</string>
     <string name="msg_unlocked">Você agora é um desenvolvedor</string>
     <string name="msg_permission_grant">Para o Gerenciador do Vendetta funcionar corretamente, você precisa conceder as permissões de arquivos. Como os dados compartilhados são armazenados em ~/Vendetta, as permissões são necessárias para que o gerenciador funcione.</string>
-    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
+    <string name="msg_shizuku_denied">Falha para obter permissões Shizuku</string>
     <string name="msg_change_mirror">Gostaria de tentar novamente usando uma forma alternativa de download?</string>
     <string name="msg_invalid_apk">O APK estava corrompido, tente limpar o cache e reinstalar</string>
-    <string name="msg_download_cancelled">Download was aborted</string>
-    <string name="msg_download_failed">Download failed</string>
+    <string name="msg_download_cancelled">O download foi abortado</string>
+    <string name="msg_download_failed">Falha no download</string>
     <string name="group_download">Baixar APKs</string>
     <string name="group_patch">Modificando</string>
     <string name="group_installing">Instalando</string>
@@ -65,8 +65,8 @@
     <string name="action_dismiss_nevermind">Deixa para lá</string>
     <string name="action_dismiss_no_thanks">Não, obrigado</string>
     <string name="action_try_again">Tente novamente</string>
-    <string name="action_previous_theme">See previous theme</string>
-    <string name="action_next_theme">See next theme</string>
+    <string name="action_previous_theme">Ver tema anterior</string>
+    <string name="action_next_theme">Ver o próximo tema</string>
     <string name="msg_back_warning">Sair do instalador antes do seu término pode corromper os arquivos, você tem certeza que deseja fazer isso?</string>
     <string name="installer_cached">Em cache</string>
     <string name="title_installer">Instalador</string>
