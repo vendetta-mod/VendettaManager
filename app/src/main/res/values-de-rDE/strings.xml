@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">APK wurde beschädigt. versuche den Cache zu leeren und danach neu zu installieren</string>
     <string name="msg_download_cancelled">Download abgebrochen</string>
     <string name="msg_download_failed">Download fehlgeschlagen</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">APKs herunterladen</string>
     <string name="group_patch">App wird gepatcht</string>
     <string name="group_installing">Wird installiert</string>

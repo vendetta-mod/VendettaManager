@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">APK 已損壞，請嘗試清除快取然後重新安裝</string>
     <string name="msg_download_cancelled">下載中斷</string>
     <string name="msg_download_failed">下載失敗</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">下載 APK</string>
     <string name="group_patch">安裝修補工具中</string>
     <string name="group_installing">安裝中</string>

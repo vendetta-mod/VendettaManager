@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">APK estaba dañado, intente borrar la caché y vuelva a instalar</string>
     <string name="msg_download_cancelled">Download was aborted</string>
     <string name="msg_download_failed">Download failed</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">Descargar APKs</string>
     <string name="group_patch">Parcheando</string>
     <string name="group_installing">Instalando</string>

@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">Пакет был повреждён, попробуйте очистить кеш, а потом повторить установку</string>
     <string name="msg_download_cancelled">Скачивание было прервано</string>
     <string name="msg_download_failed">Скачивание не удалось</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">Скачивание пакетов</string>
     <string name="group_patch">Патчинг</string>
     <string name="group_installing">Установка</string>

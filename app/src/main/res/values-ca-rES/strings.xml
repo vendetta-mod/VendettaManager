@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">L\'APK s\'ha fet malbé, proveu d\'esborrar la memòria cau i torna-ho a instal·lar</string>
     <string name="msg_download_cancelled">Download was aborted</string>
     <string name="msg_download_failed">Download failed</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">Baixa APK</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Instal·lant</string>

@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">APK var beskadiget, Prøv at rydde cachen og derefter geninstallere</string>
     <string name="msg_download_cancelled">Download was aborted</string>
     <string name="msg_download_failed">Download failed</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">Download APK\'er</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Installerer</string>

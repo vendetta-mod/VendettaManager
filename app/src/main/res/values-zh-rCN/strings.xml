@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">APK已损坏，请尝试清除缓存后再重新安装</string>
     <string name="msg_download_cancelled">下载已中止</string>
     <string name="msg_download_failed">下载失败</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">下载 APK</string>
     <string name="group_patch">补丁中</string>
     <string name="group_installing">安装中</string>

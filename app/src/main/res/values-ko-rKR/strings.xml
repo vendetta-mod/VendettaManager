@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">APK가 손상되었습니다. 캐시를 지운 후 다시 설치해 보세요.</string>
     <string name="msg_download_cancelled">Download was aborted</string>
     <string name="msg_download_failed">Download failed</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">APK 다운로드</string>
     <string name="group_patch">패치 중</string>
     <string name="group_installing">설치 중</string>

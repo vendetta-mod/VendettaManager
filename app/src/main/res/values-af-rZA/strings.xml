@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">APK is korrupteer, probeer om kas skoon te maak en dan weer te installeer</string>
     <string name="msg_download_cancelled">Download was aborted</string>
     <string name="msg_download_failed">Download failed</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">Laai APK\'s af</string>
     <string name="group_patch">Pleister</string>
     <string name="group_installing">Installeer tans</string>

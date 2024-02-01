@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">O APK estava corrompido, tente limpar o cache e reinstalar</string>
     <string name="msg_download_cancelled">O download foi abortado</string>
     <string name="msg_download_failed">Falha no download</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">Baixar APKs</string>
     <string name="group_patch">Modificando</string>
     <string name="group_installing">Instalando</string>

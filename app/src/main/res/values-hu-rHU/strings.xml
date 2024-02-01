@@ -17,6 +17,7 @@
     <string name="msg_invalid_apk">Az APK sérült, próbálja meg a gyorsítótár törlését, majd az újratelepítést</string>
     <string name="msg_download_cancelled">A letöltés megszakadt</string>
     <string name="msg_download_failed">Letöltés sikertelen</string>
+    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
     <string name="group_download">APK-k letöltése</string>
     <string name="group_patch">Foltozás</string>
     <string name="group_installing">Telepítés folyamatban</string>
