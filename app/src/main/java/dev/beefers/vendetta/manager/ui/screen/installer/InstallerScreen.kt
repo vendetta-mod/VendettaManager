@@ -25,10 +25,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -39,6 +37,7 @@ import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import dev.beefers.vendetta.manager.R
+import dev.beefers.vendetta.manager.installer.step.StepStatus
 import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
 import dev.beefers.vendetta.manager.ui.widgets.dialog.BackWarningDialog
 import dev.beefers.vendetta.manager.ui.widgets.dialog.DownloadFailedDialog
@@ -61,19 +60,15 @@ class InstallerScreen(
             parametersOf(version)
         }
 
-        var expandedGroup by remember {
-            mutableStateOf<InstallerViewModel.InstallStepGroup?>(null)
-        }
-
-        LaunchedEffect(viewModel.currentStep) {
-            expandedGroup = viewModel.currentStep?.group
+        LaunchedEffect(viewModel.runner.currentStep) {
+            viewModel.expandGroup(viewModel.runner.currentStep?.group)
         }
 
         // Listen for error messages from InstallService
         val intentListener: (Intent) -> Unit = remember {
             {
                 val msg = it.getStringExtra("vendetta.extras.EXTRA_MESSAGE")
-                viewModel.addLogError(msg ?: "")
+                viewModel.logError(msg)
             }
         }
 
@@ -85,7 +80,7 @@ class InstallerScreen(
         }
 
         BackHandler(
-            enabled = !viewModel.isFinished
+            enabled = !viewModel.runner.completed
         ) {
             viewModel.openBackDialog()
         }
@@ -104,12 +99,12 @@ class InstallerScreen(
         if(viewModel.failedOnDownload) {
             DownloadFailedDialog(
                 onTryAgainClick = {
-                    viewModel.failedOnDownload = false
+                    viewModel.dismissDownloadFailedDialog()
                     viewModel.cancelInstall()
                     nav.replace(InstallerScreen(version))
                 },
                 onDismiss = {
-                    viewModel.failedOnDownload = false
+                    viewModel.dismissDownloadFailedDialog()
                 }
             )
         }
@@ -118,7 +113,7 @@ class InstallerScreen(
             topBar = {
                 TitleBar(
                     onBackClick = {
-                        if(!viewModel.isFinished)
+                        if(!viewModel.runner.completed)
                             viewModel.openBackDialog()
                         else
                             nav.pop()
@@ -132,22 +127,22 @@ class InstallerScreen(
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                for (group in InstallerViewModel.InstallStepGroup.entries) {
-                    StepGroupCard(
-                        name = stringResource(group.nameRes),
-                        isCurrent = expandedGroup == group,
-                        onClick = { expandedGroup = group },
-                        steps = viewModel.getSteps(group),
-                    )
+                for ((group, steps) in viewModel.groupedSteps) {
+                    key(group) {
+                        StepGroupCard(
+                            name = stringResource(group.nameRes),
+                            isCurrent = viewModel.expandedGroup == group,
+                            onClick = { viewModel.expandGroup(group) },
+                            steps = steps,
+                        )
+                    }
                 }
 
-                if (viewModel.isFinished) {
+                if (viewModel.runner.completed) {
                     Spacer(modifier = Modifier.height(16.dp))
 
                     // Show launch only if success
-                    val installSuccessful = viewModel.currentStep
-                        ?.let(viewModel.steps::get)
-                        ?.status == InstallerViewModel.InstallStatus.SUCCESSFUL
+                    val installSuccessful = viewModel.runner.currentStep?.status == StepStatus.SUCCESSFUL
                     if (installSuccessful) {
                         Button(
                             onClick = { viewModel.launchVendetta() },

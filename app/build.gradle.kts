@@ -103,6 +103,7 @@ dependencies {
 
     implementation(files("libs/lspatch.aar"))
     implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlinx.collections)
     implementation(libs.zip.android) {
         artifact {
             type = "aar"

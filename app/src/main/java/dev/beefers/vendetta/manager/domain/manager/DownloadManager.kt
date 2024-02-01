@@ -137,7 +137,7 @@ class DownloadManager(
 }
 
 sealed interface DownloadResult {
-    object Success : DownloadResult
+    data object Success : DownloadResult
     data class Cancelled(val systemTriggered: Boolean) : DownloadResult
     data class Error(val debugReason: String) : DownloadResult
 }
