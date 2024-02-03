@@ -12,12 +12,12 @@
     <string name="msg_downgrade">لا يمكن رجوع إلى النسخة السابقة، حاول إزالة التثبيت أولاً</string>
     <string name="msg_unlocked">أنت الآن مبرمِج</string>
     <string name="msg_permission_grant">لكي يعمل Vendetta Manager، مطلوب أذونات التخزين. بما أن البيانات المخزنة يتم تخزينها في ~/Vendetta، فإن الأذونات مطلوبة الحصول عليها.</string>
-    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
+    <string name="msg_shizuku_denied">أخفق الحصول على أذوات Shizuku</string>
     <string name="msg_change_mirror">هل ترغب في التحميل مرة اخري من مصدر بديل؟</string>
     <string name="msg_invalid_apk">ملف الAPK تالف، حاول مسح ذاكرة التخزين المؤقت ثم إعادة التثبيت</string>
-    <string name="msg_download_cancelled">Download was aborted</string>
-    <string name="msg_download_failed">Download failed</string>
-    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_download_cancelled">تم إحباط التنزيل</string>
+    <string name="msg_download_failed">فشل التنزيل</string>
+    <string name="msg_download_verify_failed">تعذر التحقق من المِلَفّ الذي تم تنزيله، راجع السجلات للحصول على مزيد من التفاصيل</string>
     <string name="group_download">تنزيل برنامج التشغيل للأندرويد (APKs)</string>
     <string name="group_patch">تصحيح</string>
     <string name="group_installing">جاري التثبيت</string>
@@ -66,8 +66,8 @@
     <string name="action_dismiss_nevermind">رجوع</string>
     <string name="action_dismiss_no_thanks">لا، شكراً</string>
     <string name="action_try_again">حاول مرة أخرى</string>
-    <string name="action_previous_theme">See previous theme</string>
-    <string name="action_next_theme">See next theme</string>
+    <string name="action_previous_theme">راجع الموضوع السابق</string>
+    <string name="action_next_theme">انظر الموضوع التالي</string>
     <string name="msg_back_warning">الخروج من المثبت قبل انتهائه يمكن أن يؤدي إلى تلف الملفات التي تم تحميلها، هل أنت متأكد من أنك تريد القيام بذلك؟</string>
     <string name="installer_cached">ذاكرة التخزين المؤقت</string>
     <string name="title_installer">المثبت</string>
