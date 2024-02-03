@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Download was aborted</string>
     <string name="msg_download_failed">Download failed</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
 
     <string name="group_download">Download APKs</string>
     <string name="group_patch">Patching</string>
@@ -76,6 +77,9 @@
     <string name="action_try_again">Try again</string>
     <string name="action_previous_theme">See previous theme</string>
     <string name="action_next_theme">See next theme</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
 
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
 
@@ -90,6 +94,7 @@
     <string name="title_update_available">New Discord update available!</string>
     <string name="title_warning">Warning</string>
     <string name="title_dl_failed">Download failed</string>
+    <string name="title_logs">Logs</string>
 
     <string name="theme_system">System</string>
     <string name="theme_light">Light</string>

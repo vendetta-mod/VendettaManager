@@ -17,13 +17,13 @@ class Logger(
     /**
      * All logs made with this [Logger]
      */
-    val logs = mutableListOf<String>()
+    val logs = mutableListOf<LogEntry>()
 
     /**
      * Prints a debug message to logcat and stores it in [logs]
      */
     override fun d(msg: String?) {
-        logs += msg.toString()
+        log(msg, LogEntry.Level.DEBUG)
         Log.d(tag, msg.toString())
     }
 
@@ -31,7 +31,7 @@ class Logger(
      * Prints an info message to logcat and stores it in [logs]
      */
     override fun i(msg: String?) {
-        logs += msg.toString()
+        log(msg, LogEntry.Level.INFO)
         Log.i(tag, msg.toString())
     }
 
@@ -39,7 +39,7 @@ class Logger(
      * Prints an error message to logcat and stores it in [logs]
      */
     override fun e(msg: String?) {
-        logs += msg.toString()
+        log(msg, LogEntry.Level.ERROR)
         Log.e(tag, msg.toString())
     }
 
@@ -49,7 +49,18 @@ class Logger(
     fun e(msg: String?, th: Throwable?) {
         newline()
         e(msg)
-        if(th != null) e(th.stackTraceToString())
+        if (th != null) e(th.stackTraceToString())
+    }
+
+    /**
+     * Stores a log entry
+     */
+    private fun log(msg: String?, level: LogEntry.Level) {
+        msg?.let {
+            msg.split("\n").forEach {
+                logs += LogEntry(it, level)
+            }
+        }
     }
 
     /**

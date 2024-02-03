@@ -43,6 +43,7 @@ import dev.beefers.vendetta.manager.ui.widgets.dialog.BackWarningDialog
 import dev.beefers.vendetta.manager.ui.widgets.dialog.DownloadFailedDialog
 import dev.beefers.vendetta.manager.ui.widgets.installer.StepGroupCard
 import dev.beefers.vendetta.manager.utils.DiscordVersion
+import okhttp3.internal.toImmutableList
 import org.koin.core.parameter.parametersOf
 import java.util.UUID
 
@@ -68,7 +69,7 @@ class InstallerScreen(
         val intentListener: (Intent) -> Unit = remember {
             {
                 val msg = it.getStringExtra("vendetta.extras.EXTRA_MESSAGE")
-                viewModel.logError(msg)
+                if (msg?.isNotBlank() == true) viewModel.logError(msg)
             }
         }
 
@@ -160,10 +161,10 @@ class InstallerScreen(
                             .fillMaxWidth()
                     ) {
                         FilledTonalButton(
-                            onClick = { viewModel.copyDebugInfo() },
+                            onClick = { nav.push(LogViewerScreen(viewModel.runner.logger.logs.toImmutableList())) },
                             modifier = Modifier.weight(1f)
                         ) {
-                            Text(stringResource(R.string.action_copy_logs))
+                            Text(stringResource(R.string.action_view_logs))
                         }
                         FilledTonalButton(
                             onClick = { viewModel.clearCache() },

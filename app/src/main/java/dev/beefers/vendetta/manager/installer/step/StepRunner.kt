@@ -19,10 +19,10 @@ import dev.beefers.vendetta.manager.installer.step.patching.AddVendettaStep
 import dev.beefers.vendetta.manager.installer.step.patching.PatchManifestsStep
 import dev.beefers.vendetta.manager.installer.step.patching.PresignApksStep
 import dev.beefers.vendetta.manager.installer.step.patching.ReplaceIconStep
+import dev.beefers.vendetta.manager.installer.util.LogEntry
 import dev.beefers.vendetta.manager.installer.util.Logger
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import kotlinx.collections.immutable.ImmutableList
-import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 import org.koin.core.component.KoinComponent
@@ -59,8 +59,10 @@ class StepRunner(
     /**
      * Logger associated with this runner
      */
-    val logger = Logger("StepRunner").also {
-        debugInfo.split("\n").forEach(it.logs::add) // Add debug information to logs but don't print to logcat
+    val logger = Logger("StepRunner").also { logger ->
+        debugInfo.split("\n").forEach {
+            logger.logs += LogEntry(it, LogEntry.Level.INFO) // Add debug information to logs but don't print to logcat
+        }
     }
 
     /**
