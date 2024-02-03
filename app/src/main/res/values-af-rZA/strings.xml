@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Download was aborted</string>
     <string name="msg_download_failed">Download failed</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">Laai APK\'s af</string>
     <string name="group_patch">Pleister</string>
     <string name="group_installing">Installeer tans</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Probeer weer</string>
     <string name="action_previous_theme">See previous theme</string>
     <string name="action_next_theme">See next theme</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">As jy die installeerder verlaat voordat dit klaar is, kan afgelaaide lêers beskadig word. Is jy seker jy wil dit doen?</string>
     <string name="installer_cached">Gekas</string>
     <string name="title_installer">Installeerder</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Nuwe Discord-opdatering beskikbaar!</string>
     <string name="title_warning">Waarskuwing</string>
     <string name="title_dl_failed">Aflaai het misluk</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">Stelsel</string>
     <string name="theme_light">Lig</string>
     <string name="theme_dark">Donker</string>

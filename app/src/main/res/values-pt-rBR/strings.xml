@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">O download foi abortado</string>
     <string name="msg_download_failed">Falha no download</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">Baixar APKs</string>
     <string name="group_patch">Modificando</string>
     <string name="group_installing">Instalando</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Tente novamente</string>
     <string name="action_previous_theme">Ver tema anterior</string>
     <string name="action_next_theme">Ver o próximo tema</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Sair do instalador antes do seu término pode corromper os arquivos, você tem certeza que deseja fazer isso?</string>
     <string name="installer_cached">Em cache</string>
     <string name="title_installer">Instalador</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Nova atualização do Discord disponível!</string>
     <string name="title_warning">Atenção</string>
     <string name="title_dl_failed">Falha no download</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">Sistema</string>
     <string name="theme_light">Claro</string>
     <string name="theme_dark">Escuro</string>

@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Download was aborted</string>
     <string name="msg_download_failed">Download failed</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">Baixa APK</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Instal·lant</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Torna-ho a provar</string>
     <string name="action_previous_theme">See previous theme</string>
     <string name="action_next_theme">See next theme</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Sortir de l\'instal·lador abans que s\'acabi podria danyar els fitxers descarregats, esteu segur que voleu fer-ho?</string>
     <string name="installer_cached">Cached</string>
     <string name="title_installer">Instal·lador</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Nova actualització de Discord disponible!</string>
     <string name="title_warning">Avís</string>
     <string name="title_dl_failed">La baixada ha fallat</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">Sistema</string>
     <string name="theme_light">Llum</string>
     <string name="theme_dark">Fosc</string>

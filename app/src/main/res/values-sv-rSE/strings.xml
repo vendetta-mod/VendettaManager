@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Nedladdningen avbröts</string>
     <string name="msg_download_failed">Nedladdning misslyckades</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">Ladda ner APKer</string>
     <string name="group_patch">Patchar</string>
     <string name="group_installing">Installerar</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Försök igen</string>
     <string name="action_previous_theme">Visa föregående tema</string>
     <string name="action_next_theme">Visa nästa tema</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Att gå ur installationen innan den är klar kan korruptera nerladdade filer, är du säker på att du vill göra detta?</string>
     <string name="installer_cached">Cachad</string>
     <string name="title_installer">Installerare</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Ny Discord-uppdatering tillgänglig!</string>
     <string name="title_warning">Varning</string>
     <string name="title_dl_failed">Nedladdning misslyckades</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Ljust</string>
     <string name="theme_dark">Mörkt</string>

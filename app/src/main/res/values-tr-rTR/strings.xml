@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">İndirme işlemi iptal edildi</string>
     <string name="msg_download_failed">İndirme işlemi başarısız oldu</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">APK\'ları indir</string>
     <string name="group_patch">Yamalanıyor</string>
     <string name="group_installing">Kuruluyor</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Tekrar deneyin</string>
     <string name="action_previous_theme">Önceki temayı göster</string>
     <string name="action_next_theme">Sonraki temayı göster</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Yükleme bitmeden çıkmak indirilen dosyaları bozabilir, bunu yapmak istediğinizden emin misiniz?</string>
     <string name="installer_cached">Önbelleğe alındı</string>
     <string name="title_installer">Yükleyici</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Yeni Discord güncellemesi mevcut!</string>
     <string name="title_warning">Uyarı</string>
     <string name="title_dl_failed">İndirme işlemi başarısız</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">Sistem</string>
     <string name="theme_light">Açık</string>
     <string name="theme_dark">Koyu</string>

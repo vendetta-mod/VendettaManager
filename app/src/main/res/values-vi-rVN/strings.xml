@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Tải xuống đã bị hủy bỏ</string>
     <string name="msg_download_failed">Tải xuống thất bại</string>
     <string name="msg_download_verify_failed">Không thể xác minh tệp đã tải, hãy kiểm tra nhật ký để biết thêm chi tiết</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">Tải xuống APKs</string>
     <string name="group_patch">Đang vá</string>
     <string name="group_installing">Đang cài đặt</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Thử lại</string>
     <string name="action_previous_theme">Xem chủ đề trước</string>
     <string name="action_next_theme">Xem chủ đề tiếp theo</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Việc thoát khỏi trình cài đặt trước khi hoàn tất có thể làm hỏng các tệp đã tải, bạn có chắc muốn làm điều đó?</string>
     <string name="installer_cached">Đã lưu trong bộ nhớ đệm</string>
     <string name="title_installer">Trình cài đặt</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Discord đã có bản cập nhật mới!</string>
     <string name="title_warning">Cảnh báo</string>
     <string name="title_dl_failed">Tải xuống thất bại</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">Hệ thống</string>
     <string name="theme_light">Sáng</string>
     <string name="theme_dark">Tối</string>

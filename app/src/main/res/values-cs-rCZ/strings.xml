@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Stahování bylo přerušeno</string>
     <string name="msg_download_failed">Stahování selhalo</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">Stáhnout soubory APK</string>
     <string name="group_patch">Vkládání</string>
     <string name="group_installing">Instalování</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Zkusit znovu</string>
     <string name="action_previous_theme">Zobrazit předchozí motiv</string>
     <string name="action_next_theme">Zobrazit další motiv</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Opuštění instalátoru před dokončením může poškodit stažené soubory, opravdu chcete pokračovat?</string>
     <string name="installer_cached">V mezipaměti</string>
     <string name="title_installer">Instalátor</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Je k dispozici nová verze Discordu!</string>
     <string name="title_warning">Pozor</string>
     <string name="title_dl_failed">Stahování se nezdařilo</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">Systémový</string>
     <string name="theme_light">Světlý</string>
     <string name="theme_dark">Tmavý</string>

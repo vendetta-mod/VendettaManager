@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Download was aborted</string>
     <string name="msg_download_failed">Download failed</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">Download APK\'er</string>
     <string name="group_patch">Patching</string>
     <string name="group_installing">Installerer</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Prøv igen</string>
     <string name="action_previous_theme">See previous theme</string>
     <string name="action_next_theme">See next theme</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Hvis du afslutter installationsprogrammet, før det er færdigt, kan det ødelægge downloadede filer. Er du sikker på, at du vil gøre det?</string>
     <string name="installer_cached">Cachelagret</string>
     <string name="title_installer">Installatør</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Ny Discord opdatering tilgængelig!</string>
     <string name="title_warning">Advarsel</string>
     <string name="title_dl_failed">Download fejlede</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Lys</string>
     <string name="theme_dark">Mørk</string>

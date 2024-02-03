@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">下載中斷</string>
     <string name="msg_download_failed">下載失敗</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">下載 APK</string>
     <string name="group_patch">安裝修補工具中</string>
     <string name="group_installing">安裝中</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">重試</string>
     <string name="action_previous_theme">看上一個主題</string>
     <string name="action_next_theme">看下一個主題</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">在安裝程序完成之前退出可能會損壞下載的檔案，您確定要這樣做嗎？</string>
     <string name="installer_cached">已快取</string>
     <string name="title_installer">安裝程式</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">有可供使用的新 Discord 更新！</string>
     <string name="title_warning">警告</string>
     <string name="title_dl_failed">下載失敗</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">系統</string>
     <string name="theme_light">淺色</string>
     <string name="theme_dark">深色</string>

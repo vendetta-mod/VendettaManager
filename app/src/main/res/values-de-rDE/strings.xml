@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Download abgebrochen</string>
     <string name="msg_download_failed">Download fehlgeschlagen</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">APKs herunterladen</string>
     <string name="group_patch">App wird gepatcht</string>
     <string name="group_installing">Wird installiert</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Versuch es noch einmal</string>
     <string name="action_previous_theme">Vorheriges Theme ansehen</string>
     <string name="action_next_theme">Nächstes Theme ansehen</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Verlassen könnte heruntergeladene Dateien beschädigen. Sind sie sich sicher, dass Sie den Installer verlassen wollen?</string>
     <string name="installer_cached">Zwischengespeichert</string>
     <string name="title_installer">Installer</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Neue Aktualisierung verfügbar!</string>
     <string name="title_warning">Achtung</string>
     <string name="title_dl_failed">Herunterladen fehlgeschlagen</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Hell</string>
     <string name="theme_dark">Dunkel</string>

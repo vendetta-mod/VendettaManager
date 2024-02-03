@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Скачивание было прервано</string>
     <string name="msg_download_failed">Скачивание не удалось</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">Скачивание пакетов</string>
     <string name="group_patch">Патчинг</string>
     <string name="group_installing">Установка</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Попробовать снова</string>
     <string name="action_previous_theme">Увидеть предыдущую тему</string>
     <string name="action_next_theme">Увидеть следующую тему</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Выход из программы установки до её завершения может привести к повреждению загруженных файлов, вы уверены, что хотите это сделать?</string>
     <string name="installer_cached">Кешировано</string>
     <string name="title_installer">Установщик</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">Доступно новое обновление Discord!</string>
     <string name="title_warning">Предупреждение</string>
     <string name="title_dl_failed">Скачивание не удалось</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">Системная</string>
     <string name="theme_light">Светлая</string>
     <string name="theme_dark">Тёмная</string>

@@ -18,6 +18,7 @@
     <string name="msg_download_cancelled">Na-abort ang pag-download</string>
     <string name="msg_download_failed">Nabigo ang pag-download</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
+    <string name="msg_copied">Copied to clipboard</string>
     <string name="group_download">I-download ang mga APK</string>
     <string name="group_patch">Pina-patch</string>
     <string name="group_installing">Ini-install</string>
@@ -68,6 +69,9 @@
     <string name="action_try_again">Subukan muli</string>
     <string name="action_previous_theme">See previous theme</string>
     <string name="action_next_theme">See next theme</string>
+    <string name="action_view_logs">View logs</string>
+    <string name="action_show_timestamp">Show timestamp</string>
+    <string name="action_copy_log">Copy log</string>
     <string name="msg_back_warning">Ang pagalis sa installer bago matapos ay maaring mag-corrupt ng mga file, sigurado ka bang gusto mo yan gawin?</string>
     <string name="installer_cached">Naka-cache</string>
     <string name="title_installer">Installer</string>
@@ -79,6 +83,7 @@
     <string name="title_update_available">May bagong available na update sa Discord!</string>
     <string name="title_warning">Babala</string>
     <string name="title_dl_failed">Nabigo ang pag-download</string>
+    <string name="title_logs">Logs</string>
     <string name="theme_system">Sistema</string>
     <string name="theme_light">Maliwanag</string>
     <string name="theme_dark">Madilim</string>
