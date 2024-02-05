@@ -14,6 +14,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.outlined.Article
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
@@ -37,6 +38,7 @@ import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import dev.beefers.vendetta.manager.R
+import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
 import dev.beefers.vendetta.manager.installer.step.StepStatus
 import dev.beefers.vendetta.manager.ui.viewmodel.installer.InstallerViewModel
 import dev.beefers.vendetta.manager.ui.widgets.dialog.BackWarningDialog
@@ -44,6 +46,7 @@ import dev.beefers.vendetta.manager.ui.widgets.dialog.DownloadFailedDialog
 import dev.beefers.vendetta.manager.ui.widgets.installer.StepGroupCard
 import dev.beefers.vendetta.manager.utils.DiscordVersion
 import okhttp3.internal.toImmutableList
+import org.koin.androidx.compose.get
 import org.koin.core.parameter.parametersOf
 import java.util.UUID
 
@@ -113,6 +116,7 @@ class InstallerScreen(
         Scaffold(
             topBar = {
                 TitleBar(
+                    viewModel = viewModel,
                     onBackClick = {
                         if(!viewModel.runner.completed)
                             viewModel.openBackDialog()
@@ -161,11 +165,12 @@ class InstallerScreen(
                             .fillMaxWidth()
                     ) {
                         FilledTonalButton(
-                            onClick = { nav.push(LogViewerScreen(viewModel.runner.logger.logs.toImmutableList())) },
+                            onClick = { viewModel.shareLogs(activity!!) },
                             modifier = Modifier.weight(1f)
                         ) {
-                            Text(stringResource(R.string.action_view_logs))
+                            Text(stringResource(R.string.action_share_logs))
                         }
+
                         FilledTonalButton(
                             onClick = { viewModel.clearCache() },
                             modifier = Modifier.weight(1f)
@@ -181,8 +186,12 @@ class InstallerScreen(
     @Composable
     @OptIn(ExperimentalMaterial3Api::class)
     private fun TitleBar(
-        onBackClick: () -> Unit
+        onBackClick: () -> Unit,
+        viewModel: InstallerViewModel
     ) {
+        val prefs: PreferenceManager = get()
+        val nav = LocalNavigator.currentOrThrow
+
         TopAppBar(
             title = { Text(stringResource(R.string.title_installer)) },
             navigationIcon = {
@@ -191,6 +200,16 @@ class InstallerScreen(
                         imageVector = Icons.Filled.ArrowBack,
                         contentDescription = stringResource(R.string.action_back)
                     )
+                }
+            },
+            actions = {
+                if (prefs.isDeveloper && viewModel.runner.completed) {
+                    IconButton(onClick = { nav.push(LogViewerScreen(viewModel.runner.logger.logs.toImmutableList())) }) {
+                        Icon(
+                            imageVector = Icons.Outlined.Article,
+                            contentDescription = stringResource(R.string.action_view_logs)
+                        )
+                    }
                 }
             }
         )

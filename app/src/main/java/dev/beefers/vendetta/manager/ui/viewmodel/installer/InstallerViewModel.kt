@@ -2,42 +2,20 @@ package dev.beefers.vendetta.manager.ui.viewmodel.installer
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
-import android.os.Environment
-import android.util.Log
-import androidx.annotation.StringRes
-import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.core.app.ShareCompat
+import androidx.core.content.FileProvider
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
-import com.github.diamondminer88.zip.ZipCompression
-import com.github.diamondminer88.zip.ZipReader
-import com.github.diamondminer88.zip.ZipWriter
 import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.R
-import dev.beefers.vendetta.manager.domain.manager.DownloadManager
-import dev.beefers.vendetta.manager.domain.manager.DownloadResult
 import dev.beefers.vendetta.manager.domain.manager.InstallManager
-import dev.beefers.vendetta.manager.domain.manager.InstallMethod
-import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
-import dev.beefers.vendetta.manager.installer.Installer
-import dev.beefers.vendetta.manager.installer.session.SessionInstaller
-import dev.beefers.vendetta.manager.installer.shizuku.ShizukuInstaller
 import dev.beefers.vendetta.manager.installer.step.Step
 import dev.beefers.vendetta.manager.installer.step.StepGroup
 import dev.beefers.vendetta.manager.installer.step.StepRunner
-import dev.beefers.vendetta.manager.installer.step.installing.InstallStep
-import dev.beefers.vendetta.manager.installer.util.ManifestPatcher
-import dev.beefers.vendetta.manager.installer.util.Patcher
-import dev.beefers.vendetta.manager.installer.util.Signer
 import dev.beefers.vendetta.manager.utils.DiscordVersion
-import dev.beefers.vendetta.manager.utils.copyText
-import dev.beefers.vendetta.manager.utils.isMiui
-import dev.beefers.vendetta.manager.utils.mainThread
 import dev.beefers.vendetta.manager.utils.showToast
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.toImmutableMap
@@ -45,10 +23,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.lsposed.patch.util.Logger
 import java.io.File
 import java.util.concurrent.atomic.AtomicBoolean
-import kotlin.time.measureTimedValue
 
 class InstallerViewModel(
     private val context: Context,
@@ -63,6 +39,14 @@ class InstallerViewModel(
             runner.steps.filter { step -> step.group == group }
         }
         .toImmutableMap()
+
+    private val tempLogStorageDir = context.filesDir.resolve("logsTmp").also {
+        it.mkdirs()
+    }
+
+    private val logsString by lazy {
+        runner.logger.logs.joinToString("\n") { it.toString() }
+    }
 
     private val installationRunning = AtomicBoolean(false)
 
@@ -88,10 +72,6 @@ class InstallerViewModel(
     fun logError(msg: String?) {
         runner.logger.e("")
         runner.logger.e(msg)
-    }
-
-    fun copyDebugInfo() {
-        context.copyText(runner.logger.logs.joinToString("\n"))
     }
 
     fun clearCache() {
@@ -128,6 +108,38 @@ class InstallerViewModel(
         runCatching {
             job.cancel("User exited the installer")
         }
+    }
+
+    private fun saveToAppStorage(): File {
+        // Delete old logs to prevent junk buildup
+        tempLogStorageDir.deleteRecursively()
+        tempLogStorageDir.mkdirs()
+
+        val tmpFile = tempLogStorageDir.resolve("VD-Manager-${System.currentTimeMillis()}.log")
+        tmpFile.outputStream().use { stream ->
+            stream.write(logsString.toByteArray())
+        }
+
+        return tmpFile
+    }
+
+    fun shareLogs(activityContext: Context) {
+        val saved = saveToAppStorage()
+        val uri = FileProvider.getUriForFile(
+            activityContext,
+            BuildConfig.APPLICATION_ID + ".provider",
+            saved
+        )
+
+        ShareCompat.IntentBuilder(activityContext)
+            .setType("text/plain")
+            .setStream(uri)
+            .apply {
+                intent.apply {
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                }
+            }
+            .startChooser()
     }
 
 }

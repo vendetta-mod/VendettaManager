@@ -15,6 +15,7 @@ import dev.beefers.vendetta.manager.installer.step.StepRunner
 import dev.beefers.vendetta.manager.installer.step.StepStatus
 import dev.beefers.vendetta.manager.utils.mainThread
 import dev.beefers.vendetta.manager.utils.showToast
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.koin.core.component.inject
@@ -123,8 +124,8 @@ abstract class DownloadStep: Step() {
             }
 
             is DownloadResult.Cancelled -> {
-                runner.logger.e("$fileName download cancelled")
                 status = StepStatus.UNSUCCESSFUL
+                throw CancellationException("$fileName download cancelled")
             }
         }
     }

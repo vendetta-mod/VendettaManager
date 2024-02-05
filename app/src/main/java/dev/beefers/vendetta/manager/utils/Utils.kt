@@ -4,12 +4,18 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
+import androidx.activity.compose.ManagedActivityResultLauncher
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.core.graphics.drawable.toBitmap
 import dev.beefers.vendetta.manager.BuildConfig
 import java.io.BufferedReader
@@ -34,6 +40,21 @@ fun Context.showToast(@StringRes res: Int, vararg params: Any, short: Boolean = 
         getString(res, *params),
         if (short) Toast.LENGTH_SHORT else Toast.LENGTH_LONG
     ).show()
+}
+
+/**
+ * Remembers an activity result launcher used to save files to a user-specified location
+ */
+@Composable
+fun rememberFileSaveLauncher(content: String, mimeType: String = "text/plain"): ManagedActivityResultLauncher<String, Uri?> {
+    val context = LocalContext.current
+    return rememberLauncherForActivityResult(contract = ActivityResultContracts.CreateDocument(mimeType)) { uri ->
+        uri?.let {
+            context.contentResolver.openOutputStream(uri).use { stream ->
+                stream?.write(content.toByteArray())
+            }
+        }
+    }
 }
 
 private val cachedBitmaps: MutableMap<Int, MutableMap<Int, Bitmap>> = mutableMapOf()
