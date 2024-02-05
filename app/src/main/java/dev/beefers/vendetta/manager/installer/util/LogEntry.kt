@@ -3,11 +3,13 @@ package dev.beefers.vendetta.manager.installer.util
 import android.annotation.SuppressLint
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.compose.runtime.Stable
 import kotlinx.datetime.Clock
 import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.Date
 
+@Stable
 data class LogEntry(
     val message: String,
     val level: Level,

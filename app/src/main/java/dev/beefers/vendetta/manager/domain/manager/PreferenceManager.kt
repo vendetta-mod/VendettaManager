@@ -46,6 +46,10 @@ class PreferenceManager(context: Context) :
 
     var installMethod by enumPreference("install_method", InstallMethod.DEFAULT)
 
+    var logsAlternateBackground by booleanPreference("logs_alternate_bg", true)
+
+    var logsLineWrap by booleanPreference("logs_line_wrap", false)
+
     init {
         // Will be removed next update
         if(mirror == Mirror.VENDETTA_ROCKS) mirror = Mirror.VENDETTA_ROCKS_ALT

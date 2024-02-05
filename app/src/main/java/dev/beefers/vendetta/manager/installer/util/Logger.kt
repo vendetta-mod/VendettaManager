@@ -49,7 +49,7 @@ class Logger(
     fun e(msg: String?, th: Throwable?) {
         newline()
         e(msg)
-        if (th != null) e(th.stackTraceToString())
+        if (th != null) e(th.stackTraceToString().trim())
     }
 
     /**

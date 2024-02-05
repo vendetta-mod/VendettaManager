@@ -14,4 +14,4 @@ fun Modifier.contentDescription(res: Int, vararg param: Any,merge: Boolean = fal
     = composed { contentDescription(stringResource(res, *param), merge) }
 
 inline fun Modifier.thenIf(predicate: Boolean, block: Modifier.() -> Modifier): Modifier =
-    if (predicate) then(block()) else this
+    if (predicate) then(Modifier.Companion.block()) else this

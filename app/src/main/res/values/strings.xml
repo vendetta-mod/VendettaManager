@@ -142,6 +142,9 @@
     <string name="settings_debuggable">Debuggable</string>
     <string name="settings_debuggable_description">Enable debuggable flag</string>
 
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
+
     <string name="update_description">Vendetta Manager version %1$s is now available!</string>
 
     <string name="channel_stable">Stable</string>
