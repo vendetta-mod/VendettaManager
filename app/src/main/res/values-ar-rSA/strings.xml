@@ -124,6 +124,8 @@
     <string name="settings_version">إصدار ديسكورد</string>
     <string name="settings_debuggable">قابل للتصحيح</string>
     <string name="settings_debuggable_description">تفعيل علم التصحيح</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">إصدار Vendetta Manager %1$s متاح الآن!</string>
     <string name="channel_stable">مستقر</string>
     <string name="channel_beta">تجريبي</string>

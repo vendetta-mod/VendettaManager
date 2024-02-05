@@ -124,6 +124,8 @@
     <string name="settings_version">Discord 版本</string>
     <string name="settings_debuggable">除錯模式</string>
     <string name="settings_debuggable_description">啟用除錯模式</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Vendetta Manager 版本 %1$s 已可供使用！</string>
     <string name="channel_stable">穩定版（Stable）</string>
     <string name="channel_beta">測試版（Beta）</string>

@@ -124,6 +124,8 @@
     <string name="settings_version">Discord-version</string>
     <string name="settings_debuggable">Felsökbar</string>
     <string name="settings_debuggable_description">Aktivera felsökbar flagga</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Vendetta Manager version %1$s är nu tillgänglig!</string>
     <string name="channel_stable">Stabil</string>
     <string name="channel_beta">Beta</string>

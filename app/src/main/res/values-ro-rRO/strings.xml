@@ -124,6 +124,8 @@
     <string name="settings_version">Versiune Discord</string>
     <string name="settings_debuggable">Depanare</string>
     <string name="settings_debuggable_description">Activează marcajul depanabil</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Versiunea Vendetta Manager %1$s este acum disponibilă!</string>
     <string name="channel_stable">Stabil</string>
     <string name="channel_beta">Beta</string>

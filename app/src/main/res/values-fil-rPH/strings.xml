@@ -124,6 +124,8 @@
     <string name="settings_version">Bersyon ng Discord</string>
     <string name="settings_debuggable">Debuggable</string>
     <string name="settings_debuggable_description">Paganahin ang debuggable flag</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Available na ang Vendetta Manager bersyon %1$s!</string>
     <string name="channel_stable">Stable</string>
     <string name="channel_beta">Beta</string>

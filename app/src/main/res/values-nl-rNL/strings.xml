@@ -124,6 +124,8 @@
     <string name="settings_version">Discord-versie</string>
     <string name="settings_debuggable">Foutopspoorbaar</string>
     <string name="settings_debuggable_description">Foutopspoorbaar-vlag inschakelen</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Vendetta Manager versie %1$s is nu beschikbaar!</string>
     <string name="channel_stable">Stabiel</string>
     <string name="channel_beta">Bèta</string>

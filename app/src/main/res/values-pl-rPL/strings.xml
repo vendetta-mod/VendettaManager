@@ -124,6 +124,8 @@
     <string name="settings_version">Wersja Discorda</string>
     <string name="settings_debuggable">Debugowalne</string>
     <string name="settings_debuggable_description">Włącz flagę debugowania</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Menadżer Vendetta w wersji %1$s jest teraz dostępny!</string>
     <string name="channel_stable">Stabilna</string>
     <string name="channel_beta">Beta</string>

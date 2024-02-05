@@ -124,6 +124,8 @@
     <string name="settings_version">גרסת דיסקורד</string>
     <string name="settings_debuggable">ניתן לניפוי באגים</string>
     <string name="settings_debuggable_description">האפשרות ניתן לניפוי באגים הופעלה</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">הגרסה %1$s של מנהל Vendetta זמינה כעת!</string>
     <string name="channel_stable">יציב</string>
     <string name="channel_beta">בטא</string>

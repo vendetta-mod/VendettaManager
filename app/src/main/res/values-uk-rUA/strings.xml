@@ -124,6 +124,8 @@
     <string name="settings_version">Версія Discord</string>
     <string name="settings_debuggable">Налагоджуваний</string>
     <string name="settings_debuggable_description">Увімкнути налагоджувальний прапорець</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Версія Vendetta Менеджер %1$s вже доступна!</string>
     <string name="channel_stable">Стабільна</string>
     <string name="channel_beta">Бета</string>

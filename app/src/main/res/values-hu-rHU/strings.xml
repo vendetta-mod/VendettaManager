@@ -124,6 +124,8 @@
     <string name="settings_version">Discord verzió</string>
     <string name="settings_debuggable">Debuggolható</string>
     <string name="settings_debuggable_description">Engedélyezze a debuggolható jelzőt</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">A Vendetta Manager %1$s verziója már elérhető!</string>
     <string name="channel_stable">Stabil</string>
     <string name="channel_beta">Béta</string>

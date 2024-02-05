@@ -124,6 +124,8 @@
     <string name="settings_version">Версия Discord</string>
     <string name="settings_debuggable">Отлаживаемый</string>
     <string name="settings_debuggable_description">Включить отладочный флаг</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Доступна версия %1$s для Vendetta Manager!</string>
     <string name="channel_stable">Стабильный</string>
     <string name="channel_beta">Бета</string>

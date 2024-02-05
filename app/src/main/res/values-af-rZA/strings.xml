@@ -124,6 +124,8 @@
     <string name="settings_version">Discord weergawe</string>
     <string name="settings_debuggable">Ontfoutbaar</string>
     <string name="settings_debuggable_description">Aktiveer ontfoutbare vlag</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Vendetta Bestuurder weergawe %1$s is nou beskikbaar!</string>
     <string name="channel_stable">Stabiel</string>
     <string name="channel_beta">Beta</string>

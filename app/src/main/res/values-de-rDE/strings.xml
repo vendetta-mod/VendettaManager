@@ -124,6 +124,8 @@
     <string name="settings_version">Discord Version</string>
     <string name="settings_debuggable">Debugfähig</string>
     <string name="settings_debuggable_description">Aktiviert das \"debuggable\" Attribut im Manifest</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Vendetta-Manager Version %1$s ist jetzt verfügbar!</string>
     <string name="channel_stable">Stable</string>
     <string name="channel_beta">Beta</string>

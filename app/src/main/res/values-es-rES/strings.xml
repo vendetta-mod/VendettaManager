@@ -124,6 +124,8 @@
     <string name="settings_version">Versión de Discord</string>
     <string name="settings_debuggable">Depurable</string>
     <string name="settings_debuggable_description">Activar modo de depuración</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">¡La versión %1$s de Vendetta Manager está disponible!</string>
     <string name="channel_stable">Estable</string>
     <string name="channel_beta">Beta</string>

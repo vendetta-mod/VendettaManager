@@ -124,6 +124,8 @@
     <string name="settings_version">Version de Discord</string>
     <string name="settings_debuggable">Débogable</string>
     <string name="settings_debuggable_description">Activer le flag de débogage</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">La version %1$s du Gestionnaire de Vendetta est maintenant disponible !</string>
     <string name="channel_stable">Stable</string>
     <string name="channel_beta">Bêta</string>

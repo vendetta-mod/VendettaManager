@@ -124,6 +124,8 @@
     <string name="settings_version">Versione Discord</string>
     <string name="settings_debuggable">Debuggable</string>
     <string name="settings_debuggable_description">Abilita flag debug</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Vendetta Manager versione %1$s è disponibile!</string>
     <string name="channel_stable">Stabile</string>
     <string name="channel_beta">Beta</string>

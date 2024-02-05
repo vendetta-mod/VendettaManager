@@ -124,6 +124,8 @@
     <string name="settings_version">Verze Discordu</string>
     <string name="settings_debuggable">Laditelné</string>
     <string name="settings_debuggable_description">Povolit vlajku laditelné</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Verze %1$s Správce Vendetty je nyní dostupná!</string>
     <string name="channel_stable">Stabilní</string>
     <string name="channel_beta">Beta</string>

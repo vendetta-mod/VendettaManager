@@ -124,6 +124,8 @@
     <string name="settings_version">Phiên bản Discord</string>
     <string name="settings_debuggable">Gỡ lỗi</string>
     <string name="settings_debuggable_description">Bật tùy chọn gỡ lỗi</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Trình quản lý Vendetta phiên bản %1$s đang khả dụng!</string>
     <string name="channel_stable">Ổn định</string>
     <string name="channel_beta">Beta</string>

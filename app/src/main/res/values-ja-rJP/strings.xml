@@ -125,6 +125,8 @@
     <string name="settings_version">Discord バージョン</string>
     <string name="settings_debuggable">デバッグ可能</string>
     <string name="settings_debuggable_description">デバッグ可能フラグを有効化します</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Vendetta Manager の新バージョン %1$s が利用可能です！</string>
     <string name="channel_stable">安定版</string>
     <string name="channel_beta">ベータ版</string>

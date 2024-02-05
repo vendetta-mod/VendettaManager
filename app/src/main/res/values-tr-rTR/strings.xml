@@ -124,6 +124,8 @@
     <string name="settings_version">Discord sürümü</string>
     <string name="settings_debuggable">Hata ayıklanabilir</string>
     <string name="settings_debuggable_description">Hata ayıklanabilir yap</string>
+    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">Vendetta Manager sürüm %1$s yayınlandı!</string>
     <string name="channel_stable">Kararlı</string>
     <string name="channel_beta">Beta</string>
