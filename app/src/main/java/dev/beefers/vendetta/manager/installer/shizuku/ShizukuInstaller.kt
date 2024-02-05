@@ -2,14 +2,19 @@ package dev.beefers.vendetta.manager.installer.shizuku
 
 import android.content.Context
 import dev.beefers.vendetta.manager.R
+import dev.beefers.vendetta.manager.domain.manager.InstallManager
 import dev.beefers.vendetta.manager.installer.Installer
 import dev.beefers.vendetta.manager.utils.showToast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import rikka.shizuku.Shizuku
 import java.io.File
 
-class ShizukuInstaller(private val context: Context) : Installer {
+class ShizukuInstaller(private val context: Context) : Installer, KoinComponent {
+
+    val installManager: InstallManager by inject()
 
     override suspend fun installApks(silent: Boolean, vararg apks: File) {
         if (!ShizukuPermissions.waitShizukuPermissions()) {
@@ -37,6 +42,7 @@ class ShizukuInstaller(private val context: Context) : Installer {
         val installCommand = "pm install ${movedApks.joinToString(" ") { it.absolutePath }}"
         executeShellCommand(installCommand)
 
+        installManager.getInstalled()
         movedApks.forEach {
             it.delete()
         }

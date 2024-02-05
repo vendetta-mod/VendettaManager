@@ -151,8 +151,7 @@ class HomeScreen : Screen {
 
                 Button(
                     onClick = {
-                        val version = viewModel.discordVersions!![prefs.channel]!!
-                        navigator.navigate(InstallerScreen(version))
+                        navigator.navigate(InstallerScreen(latestVersion!!))
                     },
                     enabled = latestVersion != null && latestVersion >= (currentVersion ?: Constants.DUMMY_VERSION),
                     modifier = Modifier.fillMaxWidth()
