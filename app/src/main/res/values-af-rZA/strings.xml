@@ -72,6 +72,9 @@
     <string name="action_view_logs">View logs</string>
     <string name="action_show_timestamp">Show timestamp</string>
     <string name="action_copy_log">Copy log</string>
+    <string name="action_save_logs">Save logs to file</string>
+    <string name="action_share_logs">Share logs</string>
+    <string name="action_more_options">More options</string>
     <string name="msg_back_warning">As jy die installeerder verlaat voordat dit klaar is, kan afgelaaide lêers beskadig word. Is jy seker jy wil dit doen?</string>
     <string name="installer_cached">Gekas</string>
     <string name="title_installer">Installeerder</string>

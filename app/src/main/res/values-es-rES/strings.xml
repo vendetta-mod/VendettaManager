@@ -72,6 +72,9 @@
     <string name="action_view_logs">View logs</string>
     <string name="action_show_timestamp">Show timestamp</string>
     <string name="action_copy_log">Copy log</string>
+    <string name="action_save_logs">Save logs to file</string>
+    <string name="action_share_logs">Share logs</string>
+    <string name="action_more_options">More options</string>
     <string name="msg_back_warning">Salir del instalador antes de que finalice podría corromper los archivos descargados, ¿está seguro de que quieres hacerlo?</string>
     <string name="installer_cached">En caché</string>
     <string name="title_installer">Instalador</string>

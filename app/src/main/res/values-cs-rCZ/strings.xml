@@ -72,6 +72,9 @@
     <string name="action_view_logs">View logs</string>
     <string name="action_show_timestamp">Show timestamp</string>
     <string name="action_copy_log">Copy log</string>
+    <string name="action_save_logs">Save logs to file</string>
+    <string name="action_share_logs">Share logs</string>
+    <string name="action_more_options">More options</string>
     <string name="msg_back_warning">Opuštění instalátoru před dokončením může poškodit stažené soubory, opravdu chcete pokračovat?</string>
     <string name="installer_cached">V mezipaměti</string>
     <string name="title_installer">Instalátor</string>

@@ -17,8 +17,8 @@
     <string name="msg_invalid_apk">APK wurde beschädigt. versuche den Cache zu leeren und danach neu zu installieren</string>
     <string name="msg_download_cancelled">Download abgebrochen</string>
     <string name="msg_download_failed">Download fehlgeschlagen</string>
-    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
-    <string name="msg_copied">Copied to clipboard</string>
+    <string name="msg_download_verify_failed">Konnte nicht die heruntergeladene Datei überprüfen, siehe Logs für mehr Details</string>
+    <string name="msg_copied">In die Zwischenablage kopiert</string>
     <string name="group_download">APKs herunterladen</string>
     <string name="group_patch">App wird gepatcht</string>
     <string name="group_installing">Wird installiert</string>
@@ -69,9 +69,12 @@
     <string name="action_try_again">Versuch es noch einmal</string>
     <string name="action_previous_theme">Vorheriges Theme ansehen</string>
     <string name="action_next_theme">Nächstes Theme ansehen</string>
-    <string name="action_view_logs">View logs</string>
-    <string name="action_show_timestamp">Show timestamp</string>
-    <string name="action_copy_log">Copy log</string>
+    <string name="action_view_logs">Logs ansehen</string>
+    <string name="action_show_timestamp">Zeitstempel anzeigen</string>
+    <string name="action_copy_log">Log kopieren</string>
+    <string name="action_save_logs">Save logs to file</string>
+    <string name="action_share_logs">Share logs</string>
+    <string name="action_more_options">More options</string>
     <string name="msg_back_warning">Verlassen könnte heruntergeladene Dateien beschädigen. Sind sie sich sicher, dass Sie den Installer verlassen wollen?</string>
     <string name="installer_cached">Zwischengespeichert</string>
     <string name="title_installer">Installer</string>
@@ -109,7 +112,7 @@
     <string name="settings_advanced">Erweiterte Einstellungen</string>
     <string name="settings_advanced_description">Ändere Download und Installation</string>
     <string name="settings_channel">Release-Kanal</string>
-    <string name="settings_mirror">Download Spiegel</string>
+    <string name="settings_mirror">Download-Mirror</string>
     <string name="settings_auto_clear_cache">Cache automatisch leeren</string>
     <string name="settings_auto_clear_cache_description">Cache leeren, wenn Discord aktualisiert wird</string>
     <string name="settings_developer">Entwicklereinstellungen</string>
@@ -119,7 +122,7 @@
     <string name="settings_module_location_reset">Modulspeicherort zurücksetzen</string>
     <string name="settings_package_name">Paketname</string>
     <string name="settings_version">Discord Version</string>
-    <string name="settings_debuggable">Debuggable</string>
+    <string name="settings_debuggable">Debugfähig</string>
     <string name="settings_debuggable_description">Aktiviert das \"debuggable\" Attribut im Manifest</string>
     <string name="update_description">Vendetta-Manager Version %1$s ist jetzt verfügbar!</string>
     <string name="channel_stable">Stable</string>

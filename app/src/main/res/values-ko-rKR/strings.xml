@@ -72,6 +72,9 @@
     <string name="action_view_logs">View logs</string>
     <string name="action_show_timestamp">Show timestamp</string>
     <string name="action_copy_log">Copy log</string>
+    <string name="action_save_logs">Save logs to file</string>
+    <string name="action_share_logs">Share logs</string>
+    <string name="action_more_options">More options</string>
     <string name="msg_back_warning">완료되기 전 설치기를 벗어나면 다운로드한 파일이 손상될 수 있어요. 그래도 계속할까요?</string>
     <string name="installer_cached">캐시됨</string>
     <string name="title_installer">설치하기</string>

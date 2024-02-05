@@ -72,6 +72,9 @@
     <string name="action_view_logs">View logs</string>
     <string name="action_show_timestamp">Show timestamp</string>
     <string name="action_copy_log">Copy log</string>
+    <string name="action_save_logs">Save logs to file</string>
+    <string name="action_share_logs">Share logs</string>
+    <string name="action_more_options">More options</string>
     <string name="msg_back_warning">الخروج من المثبت قبل انتهائه يمكن أن يؤدي إلى تلف الملفات التي تم تحميلها، هل أنت متأكد من أنك تريد القيام بذلك؟</string>
     <string name="installer_cached">ذاكرة التخزين المؤقت</string>
     <string name="title_installer">المثبت</string>

@@ -72,6 +72,9 @@
     <string name="action_view_logs">View logs</string>
     <string name="action_show_timestamp">Show timestamp</string>
     <string name="action_copy_log">Copy log</string>
+    <string name="action_save_logs">Save logs to file</string>
+    <string name="action_share_logs">Share logs</string>
+    <string name="action_more_options">More options</string>
     <string name="msg_back_warning">Exiting the installer before its finished could corrupt downloaded files, are you sure you want to do that?</string>
     <string name="installer_cached">Memorie cache</string>
     <string name="title_installer">Instalare</string>

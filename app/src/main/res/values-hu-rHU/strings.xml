@@ -18,7 +18,7 @@
     <string name="msg_download_cancelled">A letöltés megszakadt</string>
     <string name="msg_download_failed">Letöltés sikertelen</string>
     <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
-    <string name="msg_copied">Copied to clipboard</string>
+    <string name="msg_copied">Vágólapra másolva</string>
     <string name="group_download">APK-k letöltése</string>
     <string name="group_patch">Foltozás</string>
     <string name="group_installing">Telepítés folyamatban</string>
@@ -69,9 +69,12 @@
     <string name="action_try_again">Próbáld újra</string>
     <string name="action_previous_theme">Lásd a korábbi témát</string>
     <string name="action_next_theme">Lásd a következő témát</string>
-    <string name="action_view_logs">View logs</string>
-    <string name="action_show_timestamp">Show timestamp</string>
-    <string name="action_copy_log">Copy log</string>
+    <string name="action_view_logs">Naplók megtekintése</string>
+    <string name="action_show_timestamp">Időbélyeg megjelenítése</string>
+    <string name="action_copy_log">Napló másolása</string>
+    <string name="action_save_logs">Save logs to file</string>
+    <string name="action_share_logs">Share logs</string>
+    <string name="action_more_options">More options</string>
     <string name="msg_back_warning">A telepítő befejezés előtti kilépésével sérülhetnek a letöltött fájlok, biztos, hogy ezt szeretné?</string>
     <string name="installer_cached">Gyorsítótárazott</string>
     <string name="title_installer">Telepítő</string>
@@ -83,7 +86,7 @@
     <string name="title_update_available">Új Discord frissítés elérhető!</string>
     <string name="title_warning">Figyelmeztetés</string>
     <string name="title_dl_failed">Sikertelen letöltés</string>
-    <string name="title_logs">Logs</string>
+    <string name="title_logs">Naplók</string>
     <string name="theme_system">Rendszer</string>
     <string name="theme_light">Világos</string>
     <string name="theme_dark">Sötét</string>
