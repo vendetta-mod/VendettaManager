@@ -100,7 +100,7 @@ class InstallerScreen(
             )
         }
 
-        if(viewModel.failedOnDownload) {
+        if(viewModel.runner.downloadErrored) {
             DownloadFailedDialog(
                 onTryAgainClick = {
                     viewModel.dismissDownloadFailedDialog()

@@ -105,6 +105,11 @@ class StepRunner(
         private set
 
     /**
+     * Whether or not a download step failed, this is only for errors related to network conditions and not cancellations
+     */
+    var downloadErrored by mutableStateOf<Boolean>(false)
+
+    /**
      * List of steps to go through for this install
      *
      * ORDER MATTERS

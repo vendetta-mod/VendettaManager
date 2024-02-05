@@ -63,9 +63,6 @@ class InstallerViewModel(
     var backDialogOpened by mutableStateOf(false)
         private set
 
-    var failedOnDownload by mutableStateOf(false)
-        private set
-
     var expandedGroup by mutableStateOf<StepGroup?>(null)
         private set
 
@@ -88,7 +85,7 @@ class InstallerViewModel(
     }
 
     fun dismissDownloadFailedDialog() {
-        failedOnDownload = false
+        runner.downloadErrored = false
     }
 
     fun expandGroup(group: StepGroup?) {

@@ -103,9 +103,6 @@ abstract class DownloadStep: Step() {
                     runner.logger.i("Verifying downloaded file")
                     verify()
                     runner.logger.i("$fileName downloaded successfully")
-
-                    runner.logger.i("Moving $fileName to working directory")
-                    destination.copyTo(workingCopy, true)
                 } catch (t: Throwable) {
                     mainThread {
                         context.showToast(R.string.msg_download_verify_failed)
@@ -113,11 +110,14 @@ abstract class DownloadStep: Step() {
 
                     throw t
                 }
+                runner.logger.i("Moving $fileName to working directory")
+                destination.copyTo(workingCopy, true)
             }
 
             is DownloadResult.Error -> {
-                withContext(Dispatchers.Main) {
+                mainThread {
                     context.showToast(R.string.msg_download_failed)
+                    runner.downloadErrored = true
                 }
 
                 throw Error("Failed to download: ${result.debugReason}")
