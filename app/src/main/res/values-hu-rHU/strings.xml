@@ -72,9 +72,9 @@
     <string name="action_view_logs">Naplók megtekintése</string>
     <string name="action_show_timestamp">Időbélyeg megjelenítése</string>
     <string name="action_copy_log">Napló másolása</string>
-    <string name="action_save_logs">Save logs to file</string>
-    <string name="action_share_logs">Share logs</string>
-    <string name="action_more_options">More options</string>
+    <string name="action_save_logs">Naplófájlok mentése fáljba</string>
+    <string name="action_share_logs">Napló megosztása</string>
+    <string name="action_more_options">További beállítások</string>
     <string name="msg_back_warning">A telepítő befejezés előtti kilépésével sérülhetnek a letöltött fájlok, biztos, hogy ezt szeretné?</string>
     <string name="installer_cached">Gyorsítótárazott</string>
     <string name="title_installer">Telepítő</string>
@@ -124,8 +124,8 @@
     <string name="settings_version">Discord verzió</string>
     <string name="settings_debuggable">Debuggolható</string>
     <string name="settings_debuggable_description">Engedélyezze a debuggolható jelzőt</string>
-    <string name="settings_logs_alternate_lines">Alternate lines</string>
-    <string name="settings_logs_line_wrap">Wrap lines</string>
+    <string name="settings_logs_alternate_lines">Alternatív sorok</string>
+    <string name="settings_logs_line_wrap">Felhúzott vonalak</string>
     <string name="update_description">A Vendetta Manager %1$s verziója már elérhető!</string>
     <string name="channel_stable">Stabil</string>
     <string name="channel_beta">Béta</string>
