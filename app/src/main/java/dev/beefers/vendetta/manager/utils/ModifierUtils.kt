@@ -10,7 +10,7 @@ fun Modifier.contentDescription(description: String, merge: Boolean = false): Mo
     contentDescription = description
 }
 
-fun Modifier.contentDescription(res: Int, vararg param: Any,merge: Boolean = false): Modifier
+fun Modifier.contentDescription(res: Int, vararg param: Any, merge: Boolean = false): Modifier
     = composed { contentDescription(stringResource(res, *param), merge) }
 
 inline fun Modifier.thenIf(predicate: Boolean, block: Modifier.() -> Modifier): Modifier =

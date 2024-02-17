@@ -15,6 +15,7 @@ compose-activity = "1.8.2"
 compose-bom = "2023.10.01"
 
 # Misc.
+aboutlibraries = "10.10.0"
 accompanist = "0.33.2-alpha"
 coil = "2.4.0"
 koin = "3.4.0"
@@ -76,6 +77,7 @@ voyager-transitions = { group = "cafe.adriel.voyager", name = "voyager-transitio
 voyager-koin = { group = "cafe.adriel.voyager", name = "voyager-koin", version.ref = "voyager" }
 
 # Misc.
+aboutlibraries-core = { group = "com.mikepenz", name = "aboutlibraries", version.ref = "aboutlibraries" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-collections = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections" }
 zip-android = { group = "io.github.diamondminer88", name = "zip-android", version.ref = "zip-android" }
@@ -91,6 +93,7 @@ shizuku = ["shizuku-api", "shizuku-provider"]
 voyager = ["voyager-koin", "voyager-navigator", "voyager-tab-navigator", "voyager-transitions", "voyager-screenmodel"]
 
 [plugins]
+aboutlibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "aboutlibraries"}
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

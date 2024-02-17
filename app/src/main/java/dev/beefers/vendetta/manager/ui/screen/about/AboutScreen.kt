@@ -6,14 +6,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -33,6 +29,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -51,6 +48,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import dev.beefers.vendetta.manager.BuildConfig
 import dev.beefers.vendetta.manager.R
 import dev.beefers.vendetta.manager.domain.manager.PreferenceManager
+import dev.beefers.vendetta.manager.ui.screen.libraries.LibrariesScreen
 import dev.beefers.vendetta.manager.ui.widgets.about.LinkItem
 import dev.beefers.vendetta.manager.ui.widgets.about.ListItem
 import dev.beefers.vendetta.manager.ui.widgets.about.UserEntry
@@ -73,7 +71,7 @@ class AboutScreen : Screen {
             ctx.getBitmap(R.drawable.ic_launcher, 60).asImageBitmap()
         }
         var tapCount by remember {
-            mutableStateOf(0)
+            mutableIntStateOf(0)
         }
 
         Scaffold(
@@ -227,9 +225,20 @@ class AboutScreen : Screen {
                     modifier = Modifier.padding(16.dp)
                 ) {
                     ElevatedCard {
+                        val navigator = LocalNavigator.currentOrThrow
+
                         ListItem(
                             text = stringResource(R.string.label_translate),
                             onClick = { uriHandler.openUri("https://crowdin.com/project/vendetta-manager") }
+                        )
+                        Divider(
+                            thickness = 0.5.dp,
+                            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
+                            modifier = Modifier.padding(horizontal = 16.dp)
+                        )
+                        ListItem(
+                            text = stringResource(R.string.title_os_libraries),
+                            onClick = { navigator.push(LibrariesScreen()) }
                         )
                     }
                 }

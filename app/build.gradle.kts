@@ -1,6 +1,8 @@
+import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
 import java.io.ByteArrayOutputStream
 
 plugins {
+    alias(libs.plugins.aboutlibraries)
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
@@ -14,8 +16,8 @@ android {
         applicationId = "dev.beefers.vendetta.manager"
         minSdk = 28
         targetSdk = 34
-        versionCode = 1121
-        versionName = "1.1.21"
+        versionCode = 1122
+        versionName = "1.1.22"
 
         buildConfigField("String", "GIT_BRANCH", "\"${getCurrentBranch()}\"")
         buildConfigField("String", "GIT_COMMIT", "\"${getLatestCommit()}\"")
@@ -85,6 +87,7 @@ android {
     configurations {
         all {
             exclude(module = "listenablefuture")
+            exclude(module = "error_prone_annotations")
         }
     }
 }
@@ -102,6 +105,7 @@ dependencies {
     implementation(libs.bundles.voyager)
 
     implementation(files("libs/lspatch.aar"))
+    implementation(libs.aboutlibraries.core)
     implementation(libs.kotlinx.datetime)
     implementation(libs.kotlinx.collections)
     implementation(libs.zip.android) {
