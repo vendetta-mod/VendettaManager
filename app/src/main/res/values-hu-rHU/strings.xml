@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Kezelő</string>
+    <string name="cd_library_author">Author: %1$s</string>
+    <string name="cd_library_license">License: %1$s</string>
     <string name="msg_cleared_cache">A gyorsítótár sikeresen törlődött</string>
     <string name="msg_load_fail">Nem sikerült betölteni a véglegesítéseket</string>
     <string name="msg_coming_soon">Hamarosan</string>
@@ -87,6 +89,8 @@
     <string name="title_warning">Figyelmeztetés</string>
     <string name="title_dl_failed">Sikertelen letöltés</string>
     <string name="title_logs">Naplók</string>
+    <string name="title_os_libraries">Open source libraries</string>
+    <string name="title_libraries">Libraries</string>
     <string name="theme_system">Rendszer</string>
     <string name="theme_light">Világos</string>
     <string name="theme_dark">Sötét</string>
@@ -134,7 +138,6 @@
     <string name="label_discord">Discord</string>
     <string name="label_team">Csapat</string>
     <string name="label_special_thanks">Külön köszönet</string>
-    <string name="label_licenses">Nyílt forráskódú licencek</string>
     <string name="label_translate">Fordítás</string>
     <string name="version_latest">Legújabb: %1$s</string>
     <string name="version_target">Cél: %1$s</string>

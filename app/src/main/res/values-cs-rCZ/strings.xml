@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Správce Vendetty</string>
+    <string name="cd_library_author">Author: %1$s</string>
+    <string name="cd_library_license">License: %1$s</string>
     <string name="msg_cleared_cache">Mezipaměť úspěšně vymazána</string>
     <string name="msg_load_fail">Nepodařilo se načíst commity</string>
     <string name="msg_coming_soon">Již brzy</string>
@@ -87,6 +89,8 @@
     <string name="title_warning">Pozor</string>
     <string name="title_dl_failed">Stahování se nezdařilo</string>
     <string name="title_logs">Záznamy</string>
+    <string name="title_os_libraries">Open source libraries</string>
+    <string name="title_libraries">Libraries</string>
     <string name="theme_system">Systémový</string>
     <string name="theme_light">Světlý</string>
     <string name="theme_dark">Tmavý</string>
@@ -134,7 +138,6 @@
     <string name="label_discord">Discord</string>
     <string name="label_team">Tým</string>
     <string name="label_special_thanks">Zvláštní poděkování</string>
-    <string name="label_licenses">Licence open source</string>
     <string name="label_translate">Přeložit</string>
     <string name="version_latest">Nejnovější: %1$s</string>
     <string name="version_target">Cílená: %1$s</string>

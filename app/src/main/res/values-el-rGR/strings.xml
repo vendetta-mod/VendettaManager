@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
+    <string name="cd_library_author">Author: %1$s</string>
+    <string name="cd_library_license">License: %1$s</string>
     <string name="msg_cleared_cache">Επιτυχής εκκαθάριση προσωρινής μνήμης</string>
     <string name="msg_load_fail">Αποτυχία φόρτωσης των ρυθμίσεων</string>
     <string name="msg_coming_soon">Έρχεται σύντομα</string>
@@ -87,6 +89,8 @@
     <string name="title_warning">Προσοχή</string>
     <string name="title_dl_failed">Αποτυχία λήψης</string>
     <string name="title_logs">Logs</string>
+    <string name="title_os_libraries">Open source libraries</string>
+    <string name="title_libraries">Libraries</string>
     <string name="theme_system">Σύστημα</string>
     <string name="theme_light">Ανοιχτό</string>
     <string name="theme_dark">Σκούρο</string>
@@ -134,7 +138,6 @@
     <string name="label_discord">Discord</string>
     <string name="label_team">Ομάδα</string>
     <string name="label_special_thanks">Ιδιαίτερες ευχαριστίες</string>
-    <string name="label_licenses">Άδειες ανοιχτού κώδικα</string>
     <string name="label_translate">Μετάφραση</string>
     <string name="version_latest">Πρόσφατο: %1$s</string>
     <string name="version_target">Στόχος: %1$s</string>

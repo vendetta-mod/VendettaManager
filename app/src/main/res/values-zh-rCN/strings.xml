@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta 管理器</string>
+    <string name="cd_library_author">Author: %1$s</string>
+    <string name="cd_library_license">License: %1$s</string>
     <string name="msg_cleared_cache">缓存清除成功</string>
     <string name="msg_load_fail">无法加载提交</string>
     <string name="msg_coming_soon">敬请期待</string>
@@ -87,6 +89,8 @@
     <string name="title_warning">警告</string>
     <string name="title_dl_failed">下载失败</string>
     <string name="title_logs">Logs</string>
+    <string name="title_os_libraries">Open source libraries</string>
+    <string name="title_libraries">Libraries</string>
     <string name="theme_system">系统</string>
     <string name="theme_light">浅色</string>
     <string name="theme_dark">深色</string>
@@ -134,7 +138,6 @@
     <string name="label_discord">Discord</string>
     <string name="label_team">我们的团队</string>
     <string name="label_special_thanks">特别感谢</string>
-    <string name="label_licenses">开放源代码许可</string>
     <string name="label_translate">协助翻译</string>
     <string name="version_latest">最新版本：%1$s</string>
     <string name="version_target">目标：%1$s</string>

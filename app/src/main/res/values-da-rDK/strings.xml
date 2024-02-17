@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta manager</string>
+    <string name="cd_library_author">Author: %1$s</string>
+    <string name="cd_library_license">License: %1$s</string>
     <string name="msg_cleared_cache">Cache ryddet</string>
     <string name="msg_load_fail">Kunne ikke indlæse commits</string>
     <string name="msg_coming_soon">Kommer snart</string>
@@ -87,6 +89,8 @@
     <string name="title_warning">Advarsel</string>
     <string name="title_dl_failed">Download fejlede</string>
     <string name="title_logs">Logs</string>
+    <string name="title_os_libraries">Open source libraries</string>
+    <string name="title_libraries">Libraries</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Lys</string>
     <string name="theme_dark">Mørk</string>
@@ -134,7 +138,6 @@
     <string name="label_discord">Discord</string>
     <string name="label_team">Hold</string>
     <string name="label_special_thanks">Specielt tak</string>
-    <string name="label_licenses">Open source-licenser</string>
     <string name="label_translate">Oversætte</string>
     <string name="version_latest">Seneste: %1$s</string>
     <string name="version_target">Target: %1$s</string>

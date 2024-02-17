@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Hanteraren</string>
+    <string name="cd_library_author">Author: %1$s</string>
+    <string name="cd_library_license">License: %1$s</string>
     <string name="msg_cleared_cache">Cachen har lyckats rensats</string>
     <string name="msg_load_fail">Misslyckades att ladda comitter</string>
     <string name="msg_coming_soon">Kommer snart</string>
@@ -87,6 +89,8 @@
     <string name="title_warning">Varning</string>
     <string name="title_dl_failed">Nedladdning misslyckades</string>
     <string name="title_logs">Logs</string>
+    <string name="title_os_libraries">Open source libraries</string>
+    <string name="title_libraries">Libraries</string>
     <string name="theme_system">System</string>
     <string name="theme_light">Ljust</string>
     <string name="theme_dark">Mörkt</string>
@@ -134,7 +138,6 @@
     <string name="label_discord">Discord</string>
     <string name="label_team">Team</string>
     <string name="label_special_thanks">Särskilt tack</string>
-    <string name="label_licenses">Licenser för öppen källkod</string>
     <string name="label_translate">Översätt</string>
     <string name="version_latest">Senaste: %1$s</string>
     <string name="version_target">Mål: %1$s</string>

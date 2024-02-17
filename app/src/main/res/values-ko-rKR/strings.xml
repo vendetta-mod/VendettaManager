@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
+    <string name="cd_library_author">Author: %1$s</string>
+    <string name="cd_library_license">License: %1$s</string>
     <string name="msg_cleared_cache">캐시를 비웠어요</string>
     <string name="msg_load_fail">커밋을 불러오는 데 실패했어요</string>
     <string name="msg_coming_soon">출시 예정</string>
@@ -87,6 +89,8 @@
     <string name="title_warning">경고</string>
     <string name="title_dl_failed">다운로드 실패</string>
     <string name="title_logs">Logs</string>
+    <string name="title_os_libraries">Open source libraries</string>
+    <string name="title_libraries">Libraries</string>
     <string name="theme_system">시스템</string>
     <string name="theme_light">라이트 모드</string>
     <string name="theme_dark">다크 모드</string>
@@ -134,7 +138,6 @@
     <string name="label_discord">Discord</string>
     <string name="label_team">팀</string>
     <string name="label_special_thanks">도움 주신 분들</string>
-    <string name="label_licenses">오픈 소스 라이선스</string>
     <string name="label_translate">번역</string>
     <string name="version_latest">최신 버전: %1$s</string>
     <string name="version_target">대상 버전: %1$s</string>

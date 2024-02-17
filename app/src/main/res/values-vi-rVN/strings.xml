@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Trình quản lý Vendetta</string>
+    <string name="cd_library_author">Author: %1$s</string>
+    <string name="cd_library_license">License: %1$s</string>
     <string name="msg_cleared_cache">Đã xóa bộ nhớ đệm thành công</string>
     <string name="msg_load_fail">Tải các cập nhật phiên bản thất bại</string>
     <string name="msg_coming_soon">Sắp ra mắt</string>
@@ -87,6 +89,8 @@
     <string name="title_warning">Cảnh báo</string>
     <string name="title_dl_failed">Tải xuống thất bại</string>
     <string name="title_logs">Logs</string>
+    <string name="title_os_libraries">Open source libraries</string>
+    <string name="title_libraries">Libraries</string>
     <string name="theme_system">Hệ thống</string>
     <string name="theme_light">Sáng</string>
     <string name="theme_dark">Tối</string>
@@ -134,7 +138,6 @@
     <string name="label_discord">Discord</string>
     <string name="label_team">Nhóm</string>
     <string name="label_special_thanks">Đặc biệt cảm ơn</string>
-    <string name="label_licenses">Giấy phép mã nguồn mở</string>
     <string name="label_translate">Dịch bởi</string>
     <string name="version_latest">Mới nhất: %1$s</string>
     <string name="version_target">Mục tiêu: %1$s</string>
