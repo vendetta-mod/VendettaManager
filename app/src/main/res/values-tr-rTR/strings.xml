@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
-    <string name="cd_library_author">Author: %1$s</string>
-    <string name="cd_library_license">License: %1$s</string>
+    <string name="cd_library_author">Yapan: %1$s</string>
+    <string name="cd_library_license">Lisans: %1$s</string>
     <string name="msg_cleared_cache">Önbellek başarıyla temizlendi</string>
     <string name="msg_load_fail">İçerik yüklenemedi</string>
     <string name="msg_coming_soon">Yakında</string>
@@ -89,8 +89,8 @@
     <string name="title_warning">Uyarı</string>
     <string name="title_dl_failed">İndirme işlemi başarısız</string>
     <string name="title_logs">Günlükler</string>
-    <string name="title_os_libraries">Open source libraries</string>
-    <string name="title_libraries">Libraries</string>
+    <string name="title_os_libraries">Açık kaynak kütüphaneleri</string>
+    <string name="title_libraries">Kütüphaneler</string>
     <string name="theme_system">Sistem</string>
     <string name="theme_light">Açık</string>
     <string name="theme_dark">Koyu</string>
