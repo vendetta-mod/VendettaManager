@@ -16,8 +16,8 @@ android {
         applicationId = "dev.beefers.vendetta.manager"
         minSdk = 28
         targetSdk = 34
-        versionCode = 1122
-        versionName = "1.1.22"
+        versionCode = 1123
+        versionName = "1.1.23"
 
         buildConfigField("String", "GIT_BRANCH", "\"${getCurrentBranch()}\"")
         buildConfigField("String", "GIT_COMMIT", "\"${getLatestCommit()}\"")

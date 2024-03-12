@@ -68,6 +68,10 @@ class DeveloperSettings: Screen {
             else -> null
         }
 
+        var moduleLocation by remember {
+            mutableStateOf(prefs.moduleLocation.absolutePath)
+        }
+
         Scaffold(
             topBar = { TitleBar(scrollBehavior) },
             contentWindowInsets = WindowInsets(0, 0, 0, 0),
@@ -114,8 +118,9 @@ class DeveloperSettings: Screen {
                 SettingsTextField(
                     label = stringResource(R.string.settings_module_location),
                     supportingText = stringResource(R.string.settings_module_location_description),
-                    pref = prefs.moduleLocation.absolutePath,
+                    pref = moduleLocation,
                     onPrefChange = {
+                        moduleLocation = it
                         prefs.moduleLocation = File(it)
                     }
                 )
