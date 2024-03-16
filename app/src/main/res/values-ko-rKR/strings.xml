@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
-    <string name="cd_library_author">Author: %1$s</string>
-    <string name="cd_library_license">License: %1$s</string>
+    <string name="cd_library_author">제작자: %1$s</string>
+    <string name="cd_library_license">라이센스: %1$s</string>
     <string name="msg_cleared_cache">캐시를 비웠어요</string>
     <string name="msg_load_fail">커밋을 불러오는 데 실패했어요</string>
     <string name="msg_coming_soon">출시 예정</string>
@@ -14,13 +14,13 @@
     <string name="msg_downgrade">다운그레이드하지 못했어요. 먼저 삭제해 보세요</string>
     <string name="msg_unlocked">개발자 모드가 활성화되었어요</string>
     <string name="msg_permission_grant">Vendetta Manager가 정상적으로 작동하려면, 파일 권한을 부여해 주셔야 해요. 공유된 데이터가 ~/Vendetta에 저장되기 때문에, Manager가 작동하려면 권한이 필요해요.</string>
-    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
+    <string name="msg_shizuku_denied">Shizuku 권한을 얻지 못했어요.</string>
     <string name="msg_change_mirror">미러 버전을 다운로드해서 다시 시도할까요?</string>
     <string name="msg_invalid_apk">APK가 손상되었습니다. 캐시를 지운 후 다시 설치해 보세요.</string>
-    <string name="msg_download_cancelled">Download was aborted</string>
-    <string name="msg_download_failed">Download failed</string>
-    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
-    <string name="msg_copied">Copied to clipboard</string>
+    <string name="msg_download_cancelled">다운로드 중단</string>
+    <string name="msg_download_failed">다운로드 실패</string>
+    <string name="msg_download_verify_failed">다운로드한 파일을 검증할 수 없어요. 자세한 내용은 로그를 확인하세요.</string>
+    <string name="msg_copied">클립보드에 복사됨.</string>
     <string name="group_download">APK 다운로드</string>
     <string name="group_patch">패치 중</string>
     <string name="group_installing">설치 중</string>
@@ -69,13 +69,13 @@
     <string name="action_dismiss_nevermind">괜찮아요</string>
     <string name="action_dismiss_no_thanks">괜찮아요</string>
     <string name="action_try_again">다시 시도</string>
-    <string name="action_previous_theme">See previous theme</string>
-    <string name="action_next_theme">See next theme</string>
-    <string name="action_view_logs">View logs</string>
+    <string name="action_previous_theme">이전 테마 보기</string>
+    <string name="action_next_theme">다음 테마 보기</string>
+    <string name="action_view_logs">로그 보기</string>
     <string name="action_show_timestamp">Show timestamp</string>
-    <string name="action_copy_log">Copy log</string>
-    <string name="action_save_logs">Save logs to file</string>
-    <string name="action_share_logs">Share logs</string>
+    <string name="action_copy_log">로그 복사</string>
+    <string name="action_save_logs">파일에 로그 저장</string>
+    <string name="action_share_logs">로그 공유</string>
     <string name="action_more_options">More options</string>
     <string name="msg_back_warning">완료되기 전 설치기를 벗어나면 다운로드한 파일이 손상될 수 있어요. 그래도 계속할까요?</string>
     <string name="installer_cached">캐시됨</string>
@@ -88,9 +88,9 @@
     <string name="title_update_available">새 Discord 업데이트가 있어요!</string>
     <string name="title_warning">경고</string>
     <string name="title_dl_failed">다운로드 실패</string>
-    <string name="title_logs">Logs</string>
-    <string name="title_os_libraries">Open source libraries</string>
-    <string name="title_libraries">Libraries</string>
+    <string name="title_logs">로그</string>
+    <string name="title_os_libraries">오픈 소스 라이브러리</string>
+    <string name="title_libraries">라이브러리</string>
     <string name="theme_system">시스템</string>
     <string name="theme_light">라이트 모드</string>
     <string name="theme_dark">다크 모드</string>
@@ -103,12 +103,12 @@
     <string name="duration_daily">1일마다</string>
     <string name="duration_weekly">7일마다</string>
     <string name="settings_appearance">외관</string>
-    <string name="settings_appearance_description">Change the look and feel of the app</string>
+    <string name="settings_appearance_description">앱의 외형과 분위기를 변경합니다.</string>
     <string name="settings_dynamic_color">동적 색상</string>
     <string name="settings_dynamic_color_description">안드로이드 12 버전 이상에서만 사용 가능해요</string>
     <string name="settings_theme">테마</string>
     <string name="settings_check_updates">Discord 업데이트 확인</string>
-    <string name="settings_customization">Customization</string>
+    <string name="settings_customization">사용자 지정</string>
     <string name="settings_customization_description">Customize your Vendetta install</string>
     <string name="settings_app_name">앱 이름</string>
     <string name="settings_app_icon">앱 아이콘 변경</string>
@@ -120,7 +120,7 @@
     <string name="settings_auto_clear_cache">자동으로 캐시 비우기</string>
     <string name="settings_auto_clear_cache_description">Discord 업데이트가 있을 경우 자동으로 캐시를 비워요</string>
     <string name="settings_developer">개발자 전용</string>
-    <string name="settings_developer_description">These settings may break things if used improperly</string>
+    <string name="settings_developer_description">이러한 설정을 잘못 사용하면 문제가 발생할 수 있어요.</string>
     <string name="settings_module_location">모듈 위치</string>
     <string name="settings_module_location_description">Xposed 모듈를 사용하여 개발하는 경우 조심하세요</string>
     <string name="settings_module_location_reset">모듈 위치 초기화</string>
@@ -142,7 +142,7 @@
     <string name="version_latest">최신 버전: %1$s</string>
     <string name="version_target">대상 버전: %1$s</string>
     <string name="version_current">현재 버전: %1$s</string>
-    <string name="install_method">Install method</string>
+    <string name="install_method">설치 방법</string>
     <string name="default_installer">Default (recommended)</string>
     <string name="shizuku_installer">Shizuku</string>
 </resources>
