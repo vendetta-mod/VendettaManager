@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta Manager</string>
-    <string name="cd_library_author">Author: %1$s</string>
-    <string name="cd_library_license">License: %1$s</string>
+    <string name="cd_library_author">Автор: %1$s</string>
+    <string name="cd_library_license">Лицензия: %1$s</string>
     <string name="msg_cleared_cache">Кеш успешно очищен</string>
     <string name="msg_load_fail">Не удалось загрузить фиксации</string>
     <string name="msg_coming_soon">Скоро</string>
@@ -19,8 +19,8 @@
     <string name="msg_invalid_apk">Пакет был повреждён, попробуйте очистить кеш, а потом повторить установку</string>
     <string name="msg_download_cancelled">Скачивание было прервано</string>
     <string name="msg_download_failed">Скачивание не удалось</string>
-    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
-    <string name="msg_copied">Copied to clipboard</string>
+    <string name="msg_download_verify_failed">Не удалось проверить загруженный файл, проверьте журналы для получения более подробной информации</string>
+    <string name="msg_copied">Скопировано в буфер обмена</string>
     <string name="group_download">Скачивание пакетов</string>
     <string name="group_patch">Патчинг</string>
     <string name="group_installing">Установка</string>
@@ -71,12 +71,12 @@
     <string name="action_try_again">Попробовать снова</string>
     <string name="action_previous_theme">Увидеть предыдущую тему</string>
     <string name="action_next_theme">Увидеть следующую тему</string>
-    <string name="action_view_logs">View logs</string>
-    <string name="action_show_timestamp">Show timestamp</string>
-    <string name="action_copy_log">Copy log</string>
-    <string name="action_save_logs">Save logs to file</string>
-    <string name="action_share_logs">Share logs</string>
-    <string name="action_more_options">More options</string>
+    <string name="action_view_logs">Посмотреть логи</string>
+    <string name="action_show_timestamp">Показать временную метку</string>
+    <string name="action_copy_log">Скопировать лог</string>
+    <string name="action_save_logs">Сохранить логи в файл</string>
+    <string name="action_share_logs">Поделиться логами</string>
+    <string name="action_more_options">Дополнительные параметры</string>
     <string name="msg_back_warning">Выход из программы установки до её завершения может привести к повреждению загруженных файлов, вы уверены, что хотите это сделать?</string>
     <string name="installer_cached">Кешировано</string>
     <string name="title_installer">Установщик</string>
@@ -88,9 +88,9 @@
     <string name="title_update_available">Доступно новое обновление Discord!</string>
     <string name="title_warning">Предупреждение</string>
     <string name="title_dl_failed">Скачивание не удалось</string>
-    <string name="title_logs">Logs</string>
-    <string name="title_os_libraries">Open source libraries</string>
-    <string name="title_libraries">Libraries</string>
+    <string name="title_logs">Логи</string>
+    <string name="title_os_libraries">Библиотеки с открытым исходным кодом</string>
+    <string name="title_libraries">Библиотеки</string>
     <string name="theme_system">Системная</string>
     <string name="theme_light">Светлая</string>
     <string name="theme_dark">Тёмная</string>
@@ -128,8 +128,8 @@
     <string name="settings_version">Версия Discord</string>
     <string name="settings_debuggable">Отлаживаемый</string>
     <string name="settings_debuggable_description">Включить отладочный флаг</string>
-    <string name="settings_logs_alternate_lines">Alternate lines</string>
-    <string name="settings_logs_line_wrap">Wrap lines</string>
+    <string name="settings_logs_alternate_lines">Альтернативные строки</string>
+    <string name="settings_logs_line_wrap">Перенос строк</string>
     <string name="update_description">Доступна версия %1$s для Vendetta Manager!</string>
     <string name="channel_stable">Стабильный</string>
     <string name="channel_beta">Бета</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Vendetta 管理器</string>
-    <string name="cd_library_author">Author: %1$s</string>
-    <string name="cd_library_license">License: %1$s</string>
+    <string name="cd_library_author">作者：%1$s</string>
+    <string name="cd_library_license">许可证：%1$s</string>
     <string name="msg_cleared_cache">缓存清除成功</string>
     <string name="msg_load_fail">无法加载提交</string>
     <string name="msg_coming_soon">敬请期待</string>
@@ -19,8 +19,8 @@
     <string name="msg_invalid_apk">APK已损坏，请尝试清除缓存后再重新安装</string>
     <string name="msg_download_cancelled">下载已中止</string>
     <string name="msg_download_failed">下载失败</string>
-    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
-    <string name="msg_copied">Copied to clipboard</string>
+    <string name="msg_download_verify_failed">无法校验下载的文件，请检查日志以了解详细信息</string>
+    <string name="msg_copied">复制到剪贴板</string>
     <string name="group_download">下载 APK</string>
     <string name="group_patch">补丁中</string>
     <string name="group_installing">安装中</string>
@@ -71,12 +71,12 @@
     <string name="action_try_again">重试</string>
     <string name="action_previous_theme">查看上一个主题</string>
     <string name="action_next_theme">查看下一个主题</string>
-    <string name="action_view_logs">View logs</string>
-    <string name="action_show_timestamp">Show timestamp</string>
-    <string name="action_copy_log">Copy log</string>
-    <string name="action_save_logs">Save logs to file</string>
-    <string name="action_share_logs">Share logs</string>
-    <string name="action_more_options">More options</string>
+    <string name="action_view_logs">查看日志</string>
+    <string name="action_show_timestamp">显示时间戳</string>
+    <string name="action_copy_log">复制日志</string>
+    <string name="action_save_logs">将日志保存到文件目录</string>
+    <string name="action_share_logs">分享日志</string>
+    <string name="action_more_options">更多选项</string>
     <string name="msg_back_warning">在安装程序完成之前退出可能会损坏下载的文件，您确定要这样做吗？</string>
     <string name="installer_cached">已缓存</string>
     <string name="title_installer">安装器</string>
@@ -88,9 +88,9 @@
     <string name="title_update_available">有新的 Discord 更新可用！</string>
     <string name="title_warning">警告</string>
     <string name="title_dl_failed">下载失败</string>
-    <string name="title_logs">Logs</string>
-    <string name="title_os_libraries">Open source libraries</string>
-    <string name="title_libraries">Libraries</string>
+    <string name="title_logs">日志</string>
+    <string name="title_os_libraries">开源库</string>
+    <string name="title_libraries">库</string>
     <string name="theme_system">系统</string>
     <string name="theme_light">浅色</string>
     <string name="theme_dark">深色</string>
@@ -128,8 +128,8 @@
     <string name="settings_version">Discord 版本</string>
     <string name="settings_debuggable">可调试</string>
     <string name="settings_debuggable_description">启用调试标志</string>
-    <string name="settings_logs_alternate_lines">Alternate lines</string>
-    <string name="settings_logs_line_wrap">Wrap lines</string>
+    <string name="settings_logs_alternate_lines">备用路线</string>
+    <string name="settings_logs_line_wrap">Wrap路线</string>
     <string name="update_description">Vendetta Manager 版本 %1$s 已可供使用！</string>
     <string name="channel_stable">稳定版</string>
     <string name="channel_beta">测试版</string>
@@ -142,7 +142,7 @@
     <string name="version_latest">最新版本：%1$s</string>
     <string name="version_target">目标：%1$s</string>
     <string name="version_current">目前版本：%1$s</string>
-    <string name="install_method">选择安装源</string>
-    <string name="default_installer">Default (recommended)</string>
+    <string name="install_method">选择安装方法</string>
+    <string name="default_installer">软件包安装程序 (推荐)</string>
     <string name="shizuku_installer">Shizuku</string>
 </resources>

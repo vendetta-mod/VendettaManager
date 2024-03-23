@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">Gestionnaire de Vendetta</string>
-    <string name="cd_library_author">Author: %1$s</string>
-    <string name="cd_library_license">License: %1$s</string>
+    <string name="cd_library_author">Auteur: %1$s</string>
+    <string name="cd_library_license">Licence : %1$s</string>
     <string name="msg_cleared_cache">Le cache a été supprimé avec succès</string>
     <string name="msg_load_fail">Échec lors du chargement des commits</string>
     <string name="msg_coming_soon">Bientôt disponible</string>
@@ -14,13 +14,13 @@
     <string name="msg_downgrade">Impossible de revenir à la version ultérieure, essayez d\'abord de la désinstaller puis réessayez</string>
     <string name="msg_unlocked">Vous êtes maintenant un développeur</string>
     <string name="msg_permission_grant">Pour que le Gestionnaire de Vendetta fonctionne correctement, la permission de stockage de fichier est requise. Les fichiers sont stockés dans le dossier Vendetta, des autorisations sont nécessaires pour y accéder.</string>
-    <string name="msg_shizuku_denied">Failed to obtain Shizuku permissions</string>
+    <string name="msg_shizuku_denied">Échec de l\'obtention des permissions Shizuku</string>
     <string name="msg_change_mirror">Voulez-vous réessayer en utilisant un autre serveur de téléchargement ?</string>
     <string name="msg_invalid_apk">L\'APK a été corrompu, essayez de vider le cache puis de réinstaller</string>
-    <string name="msg_download_cancelled">Le téléchargement a été abandonné</string>
+    <string name="msg_download_cancelled">Le téléchargement a été annulé</string>
     <string name="msg_download_failed">Téléchargements échoué</string>
-    <string name="msg_download_verify_failed">Could not verify downloaded file, check logs for more details</string>
-    <string name="msg_copied">Copied to clipboard</string>
+    <string name="msg_download_verify_failed">Impossible de vérifier le fichier téléchargé, vérifiez les logs pour plus de détails</string>
+    <string name="msg_copied">Copié dans le presse-papiers</string>
     <string name="group_download">Télécharger les APKs</string>
     <string name="group_patch">Patch en cours</string>
     <string name="group_installing">Installation en cours</string>
@@ -71,12 +71,12 @@
     <string name="action_try_again">Réessayer</string>
     <string name="action_previous_theme">Voir le thème précédent</string>
     <string name="action_next_theme">Voir le thème suivant</string>
-    <string name="action_view_logs">View logs</string>
-    <string name="action_show_timestamp">Show timestamp</string>
-    <string name="action_copy_log">Copy log</string>
-    <string name="action_save_logs">Save logs to file</string>
-    <string name="action_share_logs">Share logs</string>
-    <string name="action_more_options">More options</string>
+    <string name="action_view_logs">Voir les logs</string>
+    <string name="action_show_timestamp">Afficher l\'horodatage</string>
+    <string name="action_copy_log">Copier les logs</string>
+    <string name="action_save_logs">Enregistrer les logs dans un fichier</string>
+    <string name="action_share_logs">Partager les logs</string>
+    <string name="action_more_options">Plus d\'options</string>
     <string name="msg_back_warning">Quitter le programme d\'installation avant qu\'il ne soit terminé pourrait corrompre les fichiers téléchargés. Êtes-vous sûr de vouloir le faire ?</string>
     <string name="installer_cached">Mis en cache</string>
     <string name="title_installer">Installateur</string>
@@ -89,8 +89,8 @@
     <string name="title_warning">Avertissement</string>
     <string name="title_dl_failed">Téléchargements échoué</string>
     <string name="title_logs">Logs</string>
-    <string name="title_os_libraries">Open source libraries</string>
-    <string name="title_libraries">Libraries</string>
+    <string name="title_os_libraries">Bibliothèques open-source</string>
+    <string name="title_libraries">Bibliothèques</string>
     <string name="theme_system">Système</string>
     <string name="theme_light">Clair</string>
     <string name="theme_dark">Sombre</string>
@@ -120,7 +120,7 @@
     <string name="settings_auto_clear_cache">Effacer automatiquement le cache</string>
     <string name="settings_auto_clear_cache_description">Effacer le cache lorsque Discord reçois une mise à jour</string>
     <string name="settings_developer">Développeur uniquement</string>
-    <string name="settings_developer_description">These settings may break things if used improperly</string>
+    <string name="settings_developer_description">Ces paramètres peuvent entraîner des dysfonctionnements s\'ils sont utilisés de manière inappropriée</string>
     <string name="settings_module_location">Emplacement du module</string>
     <string name="settings_module_location_description">Pour une utilisation avec le développement du module Xposed. VEUILLEZ FAIRE ATTENTION</string>
     <string name="settings_module_location_reset">Réinitialiser l\'emplacement du module</string>
@@ -128,8 +128,8 @@
     <string name="settings_version">Version de Discord</string>
     <string name="settings_debuggable">Débogable</string>
     <string name="settings_debuggable_description">Activer le flag de débogage</string>
-    <string name="settings_logs_alternate_lines">Alternate lines</string>
-    <string name="settings_logs_line_wrap">Wrap lines</string>
+    <string name="settings_logs_alternate_lines">Lignes alternatives</string>
+    <string name="settings_logs_line_wrap">Retour à la ligne automatique</string>
     <string name="update_description">La version %1$s du Gestionnaire de Vendetta est maintenant disponible !</string>
     <string name="channel_stable">Stable</string>
     <string name="channel_beta">Bêta</string>
