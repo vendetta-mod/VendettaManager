@@ -17,7 +17,7 @@ class CommitsPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Commit> {
         val page = params.key ?: 0
 
-        return when (val response = repo.getCommits("Vendetta", page)) {
+        return when (val response = repo.getCommits("vendetta-mod/Vendetta", page)) {
             is ApiResponse.Success -> LoadResult.Page(
                 data = response.data,
                 prevKey = if (page > 0) page - 1 else null,

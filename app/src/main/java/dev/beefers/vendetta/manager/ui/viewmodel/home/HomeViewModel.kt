@@ -107,11 +107,11 @@ class HomeViewModel(
 
     private fun checkForUpdate() {
         screenModelScope.launch {
-            release = repo.getLatestRelease("VendettaManager").dataOrNull
+            release = repo.getLatestRelease("vendetta-mod/VendettaManager").dataOrNull
             release?.let {
                 showUpdateDialog = it.tagName.toInt() > BuildConfig.VERSION_CODE
             }
-            repo.getLatestRelease("VendettaXposed").ifSuccessful {
+            repo.getLatestRelease(prefs.vendettaModuleRepo).ifSuccessful {
                 if (prefs.moduleVersion != it.tagName) {
                     prefs.moduleVersion = it.tagName
                     val module = File(cacheDir, "vendetta.apk")

@@ -144,6 +144,8 @@
     <string name="settings_module_location_reset">Reset module location</string>
     <string name="settings_package_name">Package name</string>
     <string name="settings_version">Discord version</string>
+    <string name="settings_vendetta_module_repo">Vendetta module repo</string>
+    <string name="settings_vendetta_module_repo_description">The repository to download the Vendetta module from</string>
     <string name="settings_debuggable">Debuggable</string>
     <string name="settings_debuggable_description">Enable debuggable flag</string>
 
