@@ -52,7 +52,7 @@ class HomeViewModel(
 
     var showUpdateDialog by mutableStateOf(false)
     var isUpdating by mutableStateOf(false)
-    val commits = Pager(PagingConfig(pageSize = 30)) { CommitsPagingSource(repo) }.flow.cachedIn(screenModelScope)
+    val commits = Pager(PagingConfig(pageSize = 30)) { CommitsPagingSource(repo, prefs) }.flow.cachedIn(screenModelScope)
 
     init {
         getDiscordVersions()
