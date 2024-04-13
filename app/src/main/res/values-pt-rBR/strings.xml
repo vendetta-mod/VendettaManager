@@ -122,7 +122,7 @@
     <string name="settings_developer">Somente para Desenvolvedores</string>
     <string name="settings_developer_description">Estas configurações podem quebrar coisas se forem usadas incorretamente</string>
     <string name="settings_module_location">Localização do módulo</string>
-    <string name="settings_module_location_description">Para uso com o desenvolvimento do módulo Xpoed. TOME CUIDADO</string>
+    <string name="settings_module_location_description">Para uso com o desenvolvimento do módulo Xposed. TOME CUIDADO</string>
     <string name="settings_module_location_reset">Redefinir local do módulo</string>
     <string name="settings_package_name">Nome do pacote</string>
     <string name="settings_version">Versão do Discord</string>
