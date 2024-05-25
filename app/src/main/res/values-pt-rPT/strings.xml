@@ -45,7 +45,7 @@
     <string name="install_fail_timeout">Installation timed out</string>
     <string name="status_ongoing">Ongoing</string>
     <string name="status_successful">Successful</string>
-    <string name="status_fail">Failed</string>
+    <string name="status_fail">Falhou</string>
     <string name="status_queued">Queued</string>
     <string name="action_collapse">Collapse</string>
     <string name="action_expand">Expand</string>
