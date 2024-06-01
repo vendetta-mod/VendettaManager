@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">مدير الثأر</string>
-    <string name="cd_library_author">Author: %1$s</string>
-    <string name="cd_library_license">License: %1$s</string>
+    <string name="cd_library_author">المؤلف: %1$s</string>
+    <string name="cd_library_license">الترخيص: %1$s</string>
     <string name="msg_cleared_cache">تم مسح ذاكرة التخزين المؤقت بنجاح</string>
     <string name="msg_load_fail">فشل تحميل البيانات</string>
     <string name="msg_coming_soon">سيأتي قريباً</string>
@@ -20,7 +20,7 @@
     <string name="msg_download_cancelled">تم إحباط التنزيل</string>
     <string name="msg_download_failed">فشل التنزيل</string>
     <string name="msg_download_verify_failed">تعذر التحقق من المِلَفّ الذي تم تنزيله، راجع السجلات للحصول على مزيد من التفاصيل</string>
-    <string name="msg_copied">Copied to clipboard</string>
+    <string name="msg_copied">تم النسخ إلى الحافظة</string>
     <string name="group_download">تنزيل برنامج التشغيل للأندرويد (APKs)</string>
     <string name="group_patch">تصحيح</string>
     <string name="group_installing">جاري التثبيت</string>
@@ -71,12 +71,12 @@
     <string name="action_try_again">حاول مرة أخرى</string>
     <string name="action_previous_theme">راجع الموضوع السابق</string>
     <string name="action_next_theme">انظر الموضوع التالي</string>
-    <string name="action_view_logs">View logs</string>
+    <string name="action_view_logs">عرض السجلات</string>
     <string name="action_show_timestamp">Show timestamp</string>
-    <string name="action_copy_log">Copy log</string>
-    <string name="action_save_logs">Save logs to file</string>
-    <string name="action_share_logs">Share logs</string>
-    <string name="action_more_options">More options</string>
+    <string name="action_copy_log">نسخ السجل</string>
+    <string name="action_save_logs">حفظ السجلات إلى ملف</string>
+    <string name="action_share_logs">مشاركة السجلات</string>
+    <string name="action_more_options">المزيد من الخيارات</string>
     <string name="msg_back_warning">الخروج من المثبت قبل انتهائه يمكن أن يؤدي إلى تلف الملفات التي تم تحميلها، هل أنت متأكد من أنك تريد القيام بذلك؟</string>
     <string name="installer_cached">ذاكرة التخزين المؤقت</string>
     <string name="title_installer">المثبت</string>
@@ -88,9 +88,9 @@
     <string name="title_update_available">تحديث ديسكورد جديد متوفر!</string>
     <string name="title_warning">تحذير</string>
     <string name="title_dl_failed">فشل التنزيل</string>
-    <string name="title_logs">Logs</string>
-    <string name="title_os_libraries">Open source libraries</string>
-    <string name="title_libraries">Libraries</string>
+    <string name="title_logs">سجلات</string>
+    <string name="title_os_libraries">المكتبات مفتوحة المصدر</string>
+    <string name="title_libraries">المكتبات</string>
     <string name="theme_system">النظام</string>
     <string name="theme_light">مضيء</string>
     <string name="theme_dark">مظلم</string>
@@ -103,18 +103,18 @@
     <string name="duration_daily">يومياً</string>
     <string name="duration_weekly">إسبوعياً</string>
     <string name="settings_appearance">إعدادات المظهر</string>
-    <string name="settings_appearance_description">Change the look and feel of the app</string>
+    <string name="settings_appearance_description">تغيير مظهر التطبيق وشكله</string>
     <string name="settings_dynamic_color">ألوان حيويّة</string>
     <string name="settings_dynamic_color_description">متوفر فقط على أندرويد 12 وما فوق</string>
     <string name="settings_theme">المظهر</string>
     <string name="settings_check_updates">تحقق من وجود تحديثات للديسكورد</string>
-    <string name="settings_customization">Customization</string>
-    <string name="settings_customization_description">Customize your Vendetta install</string>
+    <string name="settings_customization">التخصيص</string>
+    <string name="settings_customization_description">تخصيص تثبيت Vendetta الخاص بك</string>
     <string name="settings_app_name">اسم التطبيق</string>
     <string name="settings_app_icon">استبدال أيقونة التطبيق</string>
     <string name="settings_app_icon_description">استخدم أيقونة Vendetta بدلا من ديسكورد</string>
     <string name="settings_advanced">خيارات متقدمة</string>
-    <string name="settings_advanced_description">Modify downloading and installation</string>
+    <string name="settings_advanced_description">تعديل التنزيل والتثبيت</string>
     <string name="settings_channel">اصدار القناة</string>
     <string name="settings_mirror">تحميل بديل</string>
     <string name="settings_auto_clear_cache">مسح الذاكرة المؤقتة تلقائياً</string>
@@ -128,7 +128,7 @@
     <string name="settings_version">إصدار ديسكورد</string>
     <string name="settings_debuggable">قابل للتصحيح</string>
     <string name="settings_debuggable_description">تفعيل علم التصحيح</string>
-    <string name="settings_logs_alternate_lines">Alternate lines</string>
+    <string name="settings_logs_alternate_lines">خطوط بديلة</string>
     <string name="settings_logs_line_wrap">Wrap lines</string>
     <string name="update_description">إصدار Vendetta Manager %1$s متاح الآن!</string>
     <string name="channel_stable">مستقر</string>
