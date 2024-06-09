@@ -44,6 +44,8 @@ class PreferenceManager(context: Context) :
 
     var moduleLocation by filePreference("module_location", DEFAULT_MODULE_LOCATION)
 
+    var vendettaModuleRepo by stringPreference("vendetta_module_repo", "vendetta-mod/VendettaXposed")
+
     var installMethod by enumPreference("install_method", InstallMethod.DEFAULT)
 
     var logsAlternateBackground by booleanPreference("logs_alternate_bg", true)

@@ -16,7 +16,7 @@ class RestService(
 
     suspend fun getLatestRelease(repo: String) = withContext(Dispatchers.IO) {
         httpService.request<Release> {
-            url("https://api.github.com/repos/vendetta-mod/$repo/releases/latest")
+            url("https://api.github.com/repos/$repo/releases/latest")
         }
     }
 
@@ -28,7 +28,7 @@ class RestService(
 
     suspend fun getCommits(repo: String, page: Int = 1) = withContext(Dispatchers.IO) {
         httpService.request<List<Commit>> {
-            url("https://api.github.com/repos/vendetta-mod/$repo/commits")
+            url("https://api.github.com/repos/$repo/commits")
             parameter("page", page)
         }
     }

@@ -116,6 +116,13 @@ class DeveloperSettings: Screen {
                 )
 
                 SettingsTextField(
+                    label = stringResource(R.string.settings_vendetta_module_repo),
+                    supportingText = stringResource(R.string.settings_vendetta_module_repo_description),
+                    pref = prefs.vendettaModuleRepo,
+                    onPrefChange = { prefs.vendettaModuleRepo = it }
+                )
+
+                SettingsTextField(
                     label = stringResource(R.string.settings_module_location),
                     supportingText = stringResource(R.string.settings_module_location_description),
                     pref = moduleLocation,
